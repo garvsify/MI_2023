@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name=".ca/dist/Config_1/production/Modulation_Index_2023_PIC16F1824.X.production.hex">
+    <memory name="program">
+      <units>words</units>
+      <length>4096</length>
+      <used>4060</used>
+      <free>36</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>256</length>
+      <used>217</used>
+      <free>39</free>
+    </memory>
+  </executable>
+</project>
