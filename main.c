@@ -298,8 +298,8 @@ void PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
             }
             else{
                 if(raw_TMR0 + (128 - current_symmetry) >= 128){
-                    TMR0_offset = raw_TMR0 - current_symmetry;
-                    TMR0_offset_sign = POSITIVE;
+                    TMR0_offset = current_symmetry;
+                    TMR0_offset_sign = NEGATIVE;
                     prescaler_adjust = DIVIDE_BY_TWO;
                 }
                 else{ //if it is not >=128, then it must be <=127
@@ -345,15 +345,17 @@ void PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
                 prescaler_adjust = DIVIDE_BY_TWO;
             }
             else{
-                if(raw_TMR0 + (current_symmetry - 128) >= 128){
-                    TMR0_offset = raw_TMR0 + current_symmetry - 256;
-                    TMR0_offset_sign = POSITIVE;
+                if(raw_TMR0 + (current_symmetry - 127) >= 128){
+                    TMR0_offset = 255 - current_symmetry;
+                    TMR0_offset_sign = NEGATIVE;
                     prescaler_adjust = DIVIDE_BY_TWO;
                 }
                 else{ //if it is not >=128, then it must be <=127
-                    TMR0_offset = current_symmetry - 128;
+                    TMR0_offset = current_symmetry - 127;
                     TMR0_offset_sign = POSITIVE;
                     prescaler_adjust = DO_NOTHING;
+                    
+                    //THIS THING IS SORT OF WORKING!!!! I WOULD CHECK THE LEGITIMACY OF THE INCREASING PERIOD REGIMES, AS THE FREQUERNCY OF THE WHOLE WAVE INCREASES IN THE MIDDLE OF SYMMETRY AND GOES BACK TO THE RIGHT FREQUENCY AT THE EXTREMES (ON BOTH SIDES)
                 }
             }
         }
@@ -443,7 +445,7 @@ void __interrupt() INTERRUPT_InterruptManager(void){
         asm("mmac _duty_high_byte,6,r3,r2");
         asm("mmac _duty_high_byte,7,r3,r2");
         
-        //by accessing only the top and middle bytes of the 24-bit result, we also divide by 256. So end result is duty = duty*(current_depth/256)
+        //by accessing only the top and middle bytes of the 24-bit result, we also divide by 256. So end result is duty = 1023 - duty*(current_depth/256)
         duty = 1023 - *top_two_bytes_ptr;
     }
     else{
@@ -472,7 +474,7 @@ void main(void) {
     GIE = 1; //enable interrupts
     
     while(1){ //infinite loop
-        //__delay_ms(0);
+        //__delay_ms(1);
         GET_CURRENT_POT_VALUES();
         PROCESS_RAW_SPEED_AND_PRESCALER();
         PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
