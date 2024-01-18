@@ -354,8 +354,6 @@ void PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
                     TMR0_offset = current_symmetry - 127;
                     TMR0_offset_sign = POSITIVE;
                     prescaler_adjust = DO_NOTHING;
-                    
-                    //THIS THING IS SORT OF WORKING!!!! I WOULD CHECK THE LEGITIMACY OF THE INCREASING PERIOD REGIMES, AS THE FREQUERNCY OF THE WHOLE WAVE INCREASES IN THE MIDDLE OF SYMMETRY AND GOES BACK TO THE RIGHT FREQUENCY AT THE EXTREMES (ON BOTH SIDES)
                 }
             }
         }
