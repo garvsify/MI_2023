@@ -887,59 +887,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "64
-[; ;main.c: 64: const uint8_t lengthen_period_log_table[129]={108,108,108,107,107,107,107,107,107,106,106,106,106,106,105,105,105,105,105,104,104,104,104,104,103,103,103,103,103,102,102,102,102,101,101,101,101,100,100,100,100,100,99,99,99,98,98,98,98,97,97,97,97,96,96,96,95,95,95,94,94,94,93,93,93,92,92,92,91,91,91,90,90,89,89,89,88,88,87,87,86,86,86,85,85,84,84,83,83,82,81,81,80,80,79,78,78,77,76,76,75,74,73,72,72,71,70,69,68,67,65,64,63,62,60,59,57,55,53,51,49,46,43,40,36,31,24,15,0};
+[; ;main.c: 64: const uint8_t lengthen_period_log_table[129]={97,97,97,97,96,96,96,96,96,96,95,95,95,95,95,95,94,94,94,94,94,93,93,93,93,93,93,92,92,92,92,92,91,91,91,91,90,90,90,90,90,89,89,89,89,88,88,88,88,87,87,87,87,86,86,86,86,85,85,85,85,84,84,84,83,83,83,82,82,82,81,81,81,80,80,80,79,79,78,78,78,77,77,76,76,76,75,75,74,74,73,73,72,72,71,70,70,69,69,68,67,67,66,65,64,63,63,62,61,60,59,58,57,55,54,53,51,50,48,46,44,42,39,36,32,28,22,14,0};
 [v _lengthen_period_log_table `Cuc ~T0 @X0 -> 129 `i e ]
 [i _lengthen_period_log_table
 :U ..
--> -> 108 `i `uc
--> -> 108 `i `uc
--> -> 108 `i `uc
--> -> 107 `i `uc
--> -> 107 `i `uc
--> -> 107 `i `uc
--> -> 107 `i `uc
--> -> 107 `i `uc
--> -> 107 `i `uc
--> -> 106 `i `uc
--> -> 106 `i `uc
--> -> 106 `i `uc
--> -> 106 `i `uc
--> -> 106 `i `uc
--> -> 105 `i `uc
--> -> 105 `i `uc
--> -> 105 `i `uc
--> -> 105 `i `uc
--> -> 105 `i `uc
--> -> 104 `i `uc
--> -> 104 `i `uc
--> -> 104 `i `uc
--> -> 104 `i `uc
--> -> 104 `i `uc
--> -> 103 `i `uc
--> -> 103 `i `uc
--> -> 103 `i `uc
--> -> 103 `i `uc
--> -> 103 `i `uc
--> -> 102 `i `uc
--> -> 102 `i `uc
--> -> 102 `i `uc
--> -> 102 `i `uc
--> -> 101 `i `uc
--> -> 101 `i `uc
--> -> 101 `i `uc
--> -> 101 `i `uc
--> -> 100 `i `uc
--> -> 100 `i `uc
--> -> 100 `i `uc
--> -> 100 `i `uc
--> -> 100 `i `uc
--> -> 99 `i `uc
--> -> 99 `i `uc
--> -> 99 `i `uc
--> -> 98 `i `uc
--> -> 98 `i `uc
--> -> 98 `i `uc
--> -> 98 `i `uc
 -> -> 97 `i `uc
 -> -> 97 `i `uc
 -> -> 97 `i `uc
@@ -947,83 +898,132 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 96 `i `uc
 -> -> 96 `i `uc
 -> -> 96 `i `uc
+-> -> 96 `i `uc
+-> -> 96 `i `uc
+-> -> 96 `i `uc
+-> -> 95 `i `uc
+-> -> 95 `i `uc
+-> -> 95 `i `uc
 -> -> 95 `i `uc
 -> -> 95 `i `uc
 -> -> 95 `i `uc
 -> -> 94 `i `uc
 -> -> 94 `i `uc
 -> -> 94 `i `uc
+-> -> 94 `i `uc
+-> -> 94 `i `uc
+-> -> 93 `i `uc
+-> -> 93 `i `uc
+-> -> 93 `i `uc
 -> -> 93 `i `uc
 -> -> 93 `i `uc
 -> -> 93 `i `uc
 -> -> 92 `i `uc
 -> -> 92 `i `uc
 -> -> 92 `i `uc
+-> -> 92 `i `uc
+-> -> 92 `i `uc
+-> -> 91 `i `uc
 -> -> 91 `i `uc
 -> -> 91 `i `uc
 -> -> 91 `i `uc
 -> -> 90 `i `uc
 -> -> 90 `i `uc
+-> -> 90 `i `uc
+-> -> 90 `i `uc
+-> -> 90 `i `uc
+-> -> 89 `i `uc
 -> -> 89 `i `uc
 -> -> 89 `i `uc
 -> -> 89 `i `uc
 -> -> 88 `i `uc
 -> -> 88 `i `uc
+-> -> 88 `i `uc
+-> -> 88 `i `uc
+-> -> 87 `i `uc
+-> -> 87 `i `uc
 -> -> 87 `i `uc
 -> -> 87 `i `uc
 -> -> 86 `i `uc
 -> -> 86 `i `uc
 -> -> 86 `i `uc
+-> -> 86 `i `uc
+-> -> 85 `i `uc
+-> -> 85 `i `uc
 -> -> 85 `i `uc
 -> -> 85 `i `uc
 -> -> 84 `i `uc
 -> -> 84 `i `uc
+-> -> 84 `i `uc
+-> -> 83 `i `uc
 -> -> 83 `i `uc
 -> -> 83 `i `uc
 -> -> 82 `i `uc
+-> -> 82 `i `uc
+-> -> 82 `i `uc
 -> -> 81 `i `uc
 -> -> 81 `i `uc
+-> -> 81 `i `uc
+-> -> 80 `i `uc
 -> -> 80 `i `uc
 -> -> 80 `i `uc
 -> -> 79 `i `uc
+-> -> 79 `i `uc
+-> -> 78 `i `uc
 -> -> 78 `i `uc
 -> -> 78 `i `uc
 -> -> 77 `i `uc
+-> -> 77 `i `uc
+-> -> 76 `i `uc
 -> -> 76 `i `uc
 -> -> 76 `i `uc
 -> -> 75 `i `uc
+-> -> 75 `i `uc
 -> -> 74 `i `uc
+-> -> 74 `i `uc
+-> -> 73 `i `uc
 -> -> 73 `i `uc
 -> -> 72 `i `uc
 -> -> 72 `i `uc
 -> -> 71 `i `uc
 -> -> 70 `i `uc
+-> -> 70 `i `uc
+-> -> 69 `i `uc
 -> -> 69 `i `uc
 -> -> 68 `i `uc
 -> -> 67 `i `uc
+-> -> 67 `i `uc
+-> -> 66 `i `uc
 -> -> 65 `i `uc
 -> -> 64 `i `uc
 -> -> 63 `i `uc
+-> -> 63 `i `uc
 -> -> 62 `i `uc
+-> -> 61 `i `uc
 -> -> 60 `i `uc
 -> -> 59 `i `uc
+-> -> 58 `i `uc
 -> -> 57 `i `uc
 -> -> 55 `i `uc
+-> -> 54 `i `uc
 -> -> 53 `i `uc
 -> -> 51 `i `uc
--> -> 49 `i `uc
+-> -> 50 `i `uc
+-> -> 48 `i `uc
 -> -> 46 `i `uc
--> -> 43 `i `uc
--> -> 40 `i `uc
+-> -> 44 `i `uc
+-> -> 42 `i `uc
+-> -> 39 `i `uc
 -> -> 36 `i `uc
--> -> 31 `i `uc
--> -> 24 `i `uc
--> -> 15 `i `uc
+-> -> 32 `i `uc
+-> -> 28 `i `uc
+-> -> 22 `i `uc
+-> -> 14 `i `uc
 -> -> 0 `i `uc
 ..
 ]
-"67
-[; ;main.c: 67: const uint16_t shorten_period_log_table[129]={256,245,234,224,215,206,197,188,180,173,165,158,152,145,139,133,127,122,117,112,107,102,98,94,90,86,82,79,75,72,69,66,63,60,58,55,53,51,48,46,44,42,41,39,37,35,34,32,31,30,28,27,26,25,24,23,22,21,20,19,18,17,16,16,15,14,14,13,12,12,11,11,10,10,9,9,9,8,8,7,7,7,6,6,6,5,5,5,5,4,4,4,4,4,3,3,3,3,3,3,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0};
+"68
+[; ;main.c: 68: const uint16_t shorten_period_log_table[129]={256,245,234,224,215,206,197,188,180,173,165,158,152,145,139,133,127,122,117,112,107,102,98,94,90,86,82,79,75,72,69,66,63,60,58,55,53,51,48,46,44,42,41,39,37,35,34,32,31,30,28,27,26,25,24,23,22,21,20,19,18,17,16,16,15,14,14,13,12,12,11,11,10,10,9,9,9,8,8,7,7,7,6,6,6,5,5,5,5,4,4,4,4,4,3,3,3,3,3,3,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0};
 [v _shorten_period_log_table `Cus ~T0 @X0 -> 129 `i e ]
 [i _shorten_period_log_table
 :U ..
@@ -1158,8 +1158,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `us
 ..
 ]
-"69
-[; ;main.c: 69: const uint8_t prescaler_bits[8] = {0b111,0b110,0b101,0b100,0b011,0b010,0b001,0b000};
+"70
+[; ;main.c: 70: const uint8_t prescaler_bits[8] = {0b111,0b110,0b101,0b100,0b011,0b010,0b001,0b000};
 [v _prescaler_bits `Cuc ~T0 @X0 -> 8 `i e ]
 [i _prescaler_bits
 :U ..
@@ -1173,271 +1173,271 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"70
-[; ;main.c: 70: const uint8_t waveshape_adc_config_value = 0b100;
+"71
+[; ;main.c: 71: const uint8_t waveshape_adc_config_value = 0b100;
 [v _waveshape_adc_config_value `Cuc ~T0 @X0 1 e ]
 [i _waveshape_adc_config_value
 -> -> 4 `i `uc
 ]
-"71
-[; ;main.c: 71: const uint8_t speed_adc_config_value = 0b101;
+"72
+[; ;main.c: 72: const uint8_t speed_adc_config_value = 0b101;
 [v _speed_adc_config_value `Cuc ~T0 @X0 1 e ]
 [i _speed_adc_config_value
 -> -> 5 `i `uc
 ]
-"72
-[; ;main.c: 72: const uint8_t depth_adc_config_value = 0b110;
+"73
+[; ;main.c: 73: const uint8_t depth_adc_config_value = 0b110;
 [v _depth_adc_config_value `Cuc ~T0 @X0 1 e ]
 [i _depth_adc_config_value
 -> -> 6 `i `uc
 ]
-"73
-[; ;main.c: 73: const uint8_t symmetry_adc_config_value = 0b111;
+"74
+[; ;main.c: 74: const uint8_t symmetry_adc_config_value = 0b111;
 [v _symmetry_adc_config_value `Cuc ~T0 @X0 1 e ]
 [i _symmetry_adc_config_value
 -> -> 7 `i `uc
 ]
-"74
-[; ;main.c: 74: const uint8_t POSITIVE = 1;
+"75
+[; ;main.c: 75: const uint8_t POSITIVE = 1;
 [v _POSITIVE `Cuc ~T0 @X0 1 e ]
 [i _POSITIVE
 -> -> 1 `i `uc
 ]
-"75
-[; ;main.c: 75: const uint8_t NEGATIVE = 0;
+"76
+[; ;main.c: 76: const uint8_t NEGATIVE = 0;
 [v _NEGATIVE `Cuc ~T0 @X0 1 e ]
 [i _NEGATIVE
 -> -> 0 `i `uc
 ]
-"76
-[; ;main.c: 76: const uint8_t DO_NOTHING = 0;
+"77
+[; ;main.c: 77: const uint8_t DO_NOTHING = 0;
 [v _DO_NOTHING `Cuc ~T0 @X0 1 e ]
 [i _DO_NOTHING
 -> -> 0 `i `uc
 ]
-"77
-[; ;main.c: 77: const uint8_t DIVIDE_BY_TWO = 1;
+"78
+[; ;main.c: 78: const uint8_t DIVIDE_BY_TWO = 1;
 [v _DIVIDE_BY_TWO `Cuc ~T0 @X0 1 e ]
 [i _DIVIDE_BY_TWO
 -> -> 1 `i `uc
 ]
-"78
-[; ;main.c: 78: const uint8_t MULTIPLY_BY_TWO = 2;
+"79
+[; ;main.c: 79: const uint8_t MULTIPLY_BY_TWO = 2;
 [v _MULTIPLY_BY_TWO `Cuc ~T0 @X0 1 e ]
 [i _MULTIPLY_BY_TWO
 -> -> 2 `i `uc
 ]
-"79
-[; ;main.c: 79: const uint8_t DIVIDE_BY_FOUR = 3;
+"80
+[; ;main.c: 80: const uint8_t DIVIDE_BY_FOUR = 3;
 [v _DIVIDE_BY_FOUR `Cuc ~T0 @X0 1 e ]
 [i _DIVIDE_BY_FOUR
 -> -> 3 `i `uc
 ]
-"80
-[; ;main.c: 80: const uint8_t DONT_CARE = 4;
+"81
+[; ;main.c: 81: const uint8_t DONT_CARE = 4;
 [v _DONT_CARE `Cuc ~T0 @X0 1 e ]
 [i _DONT_CARE
 -> -> 4 `i `uc
 ]
-"81
-[; ;main.c: 81: const uint8_t YES = 1;
+"82
+[; ;main.c: 82: const uint8_t YES = 1;
 [v _YES `Cuc ~T0 @X0 1 e ]
 [i _YES
 -> -> 1 `i `uc
 ]
-"82
-[; ;main.c: 82: const uint8_t NO = 0;
+"83
+[; ;main.c: 83: const uint8_t NO = 0;
 [v _NO `Cuc ~T0 @X0 1 e ]
 [i _NO
 -> -> 0 `i `uc
 ]
-"83
-[; ;main.c: 83: const uint8_t CCW = 0;
+"84
+[; ;main.c: 84: const uint8_t CCW = 0;
 [v _CCW `Cuc ~T0 @X0 1 e ]
 [i _CCW
 -> -> 0 `i `uc
 ]
-"84
-[; ;main.c: 84: const uint8_t CW = 1;
+"85
+[; ;main.c: 85: const uint8_t CW = 1;
 [v _CW `Cuc ~T0 @X0 1 e ]
 [i _CW
 -> -> 1 `i `uc
 ]
-"101
-[; ;main.c: 101: volatile uint16_t speed_control;
-[v _speed_control `Vus ~T0 @X0 1 e ]
 "102
-[; ;main.c: 102: volatile uint32_t speed_control_32;
-[v _speed_control_32 `Vul ~T0 @X0 1 e ]
+[; ;main.c: 102: volatile uint16_t speed_control;
+[v _speed_control `Vus ~T0 @X0 1 e ]
 "103
-[; ;main.c: 103: volatile uint16_t speed_control_subtracted;
-[v _speed_control_subtracted `Vus ~T0 @X0 1 e ]
+[; ;main.c: 103: volatile uint32_t speed_control_32;
+[v _speed_control_32 `Vul ~T0 @X0 1 e ]
 "104
-[; ;main.c: 104: volatile uint16_t how_many_128;
-[v _how_many_128 `Vus ~T0 @X0 1 e ]
+[; ;main.c: 104: volatile uint16_t speed_control_subtracted;
+[v _speed_control_subtracted `Vus ~T0 @X0 1 e ]
 "105
-[; ;main.c: 105: volatile uint16_t duty;
-[v _duty `Vus ~T0 @X0 1 e ]
+[; ;main.c: 105: volatile uint16_t how_many_128;
+[v _how_many_128 `Vus ~T0 @X0 1 e ]
 "106
-[; ;main.c: 106: volatile uint8_t duty_low_byte;
-[v _duty_low_byte `Vuc ~T0 @X0 1 e ]
+[; ;main.c: 106: volatile uint16_t duty;
+[v _duty `Vus ~T0 @X0 1 e ]
 "107
-[; ;main.c: 107: volatile uint8_t duty_high_byte;
-[v _duty_high_byte `Vuc ~T0 @X0 1 e ]
+[; ;main.c: 107: volatile uint8_t duty_low_byte;
+[v _duty_low_byte `Vuc ~T0 @X0 1 e ]
 "108
-[; ;main.c: 108: volatile uint8_t current_waveshape;
-[v _current_waveshape `Vuc ~T0 @X0 1 e ]
+[; ;main.c: 108: volatile uint8_t duty_high_byte;
+[v _duty_high_byte `Vuc ~T0 @X0 1 e ]
 "109
-[; ;main.c: 109: volatile uint16_t current_speed_linear;
-[v _current_speed_linear `Vus ~T0 @X0 1 e ]
+[; ;main.c: 109: volatile uint8_t current_waveshape;
+[v _current_waveshape `Vuc ~T0 @X0 1 e ]
 "110
-[; ;main.c: 110: volatile uint32_t current_speed_linear_32;
-[v _current_speed_linear_32 `Vul ~T0 @X0 1 e ]
+[; ;main.c: 110: volatile uint16_t current_speed_linear;
+[v _current_speed_linear `Vus ~T0 @X0 1 e ]
 "111
-[; ;main.c: 111: volatile uint16_t current_speed_log;
-[v _current_speed_log `Vus ~T0 @X0 1 e ]
+[; ;main.c: 111: volatile uint32_t current_speed_linear_32;
+[v _current_speed_linear_32 `Vul ~T0 @X0 1 e ]
 "112
-[; ;main.c: 112: volatile uint32_t current_speed_log_32;
-[v _current_speed_log_32 `Vul ~T0 @X0 1 e ]
+[; ;main.c: 112: volatile uint16_t current_speed_log;
+[v _current_speed_log `Vus ~T0 @X0 1 e ]
 "113
-[; ;main.c: 113: volatile uint16_t current_depth;
-[v _current_depth `Vus ~T0 @X0 1 e ]
+[; ;main.c: 113: volatile uint32_t current_speed_log_32;
+[v _current_speed_log_32 `Vul ~T0 @X0 1 e ]
 "114
-[; ;main.c: 114: volatile uint16_t current_symmetry;
-[v _current_symmetry `Vus ~T0 @X0 1 e ]
+[; ;main.c: 114: volatile uint16_t current_depth;
+[v _current_depth `Vus ~T0 @X0 1 e ]
 "115
-[; ;main.c: 115: volatile uint8_t current_one_quadrant_index = 0;
+[; ;main.c: 115: volatile uint16_t current_symmetry;
+[v _current_symmetry `Vus ~T0 @X0 1 e ]
+"116
+[; ;main.c: 116: volatile uint8_t current_one_quadrant_index = 0;
 [v _current_one_quadrant_index `Vuc ~T0 @X0 1 e ]
 [i _current_one_quadrant_index
 -> -> 0 `i `uc
 ]
-"116
-[; ;main.c: 116: volatile uint8_t current_halfcycle = 0;
+"117
+[; ;main.c: 117: volatile uint8_t current_halfcycle = 0;
 [v _current_halfcycle `Vuc ~T0 @X0 1 e ]
 [i _current_halfcycle
 -> -> 0 `i `uc
 ]
-"117
-[; ;main.c: 117: volatile uint8_t current_quadrant = 0;
+"118
+[; ;main.c: 118: volatile uint8_t current_quadrant = 0;
 [v _current_quadrant `Vuc ~T0 @X0 1 e ]
 [i _current_quadrant
 -> -> 0 `i `uc
 ]
-"118
-[; ;main.c: 118: volatile uint8_t final_TMR0;
-[v _final_TMR0 `Vuc ~T0 @X0 1 e ]
 "119
-[; ;main.c: 119: volatile uint8_t TMR0_offset;
-[v _TMR0_offset `Vuc ~T0 @X0 1 e ]
+[; ;main.c: 119: volatile uint8_t final_TMR0;
+[v _final_TMR0 `Vuc ~T0 @X0 1 e ]
 "120
-[; ;main.c: 120: volatile uint8_t TMR0_offset_sign;
-[v _TMR0_offset_sign `Vuc ~T0 @X0 1 e ]
+[; ;main.c: 120: volatile uint8_t TMR0_offset;
+[v _TMR0_offset `Vuc ~T0 @X0 1 e ]
 "121
-[; ;main.c: 121: volatile uint8_t prescaler_adjust;
-[v _prescaler_adjust `Vuc ~T0 @X0 1 e ]
+[; ;main.c: 121: volatile uint8_t TMR0_offset_sign;
+[v _TMR0_offset_sign `Vuc ~T0 @X0 1 e ]
 "122
-[; ;main.c: 122: volatile uint8_t raw_TMR0;
-[v _raw_TMR0 `Vuc ~T0 @X0 1 e ]
+[; ;main.c: 122: volatile uint8_t prescaler_adjust;
+[v _prescaler_adjust `Vuc ~T0 @X0 1 e ]
 "123
-[; ;main.c: 123: volatile uint8_t base_prescaler_bits_index;
-[v _base_prescaler_bits_index `Vuc ~T0 @X0 1 e ]
+[; ;main.c: 123: volatile uint8_t raw_TMR0;
+[v _raw_TMR0 `Vuc ~T0 @X0 1 e ]
 "124
-[; ;main.c: 124: volatile uint16_t dTMR0_ideal;
-[v _dTMR0_ideal `Vus ~T0 @X0 1 e ]
+[; ;main.c: 124: volatile uint8_t base_prescaler_bits_index;
+[v _base_prescaler_bits_index `Vuc ~T0 @X0 1 e ]
 "125
-[; ;main.c: 125: volatile uint8_t clear_TMR0_please;
-[v _clear_TMR0_please `Vuc ~T0 @X0 1 e ]
+[; ;main.c: 125: volatile uint16_t dTMR0_ideal;
+[v _dTMR0_ideal `Vus ~T0 @X0 1 e ]
 "126
-[; ;main.c: 126: volatile uint8_t symmetry_status;
+[; ;main.c: 126: volatile uint8_t clear_TMR0_please;
+[v _clear_TMR0_please `Vuc ~T0 @X0 1 e ]
+"127
+[; ;main.c: 127: volatile uint8_t symmetry_status;
 [v _symmetry_status `Vuc ~T0 @X0 1 e ]
-"147
-[; ;main.c: 147: uint8_t CONFIG_INT_OSC(void){
+"148
+[; ;main.c: 148: uint8_t CONFIG_INT_OSC(void){
 [v _CONFIG_INT_OSC `(uc ~T0 @X0 1 ef ]
 {
 [e :U _CONFIG_INT_OSC ]
 [f ]
-"148
-[; ;main.c: 148:     OSCCON = 0b11110000;
-[e = _OSCCON -> -> 240 `i `uc ]
 "149
-[; ;main.c: 149:     OSCTUNE = 0b00011111;
+[; ;main.c: 149:     OSCCON = 0b11110000;
+[e = _OSCCON -> -> 240 `i `uc ]
+"150
+[; ;main.c: 150:     OSCTUNE = 0b00011111;
 [e = _OSCTUNE -> -> 31 `i `uc ]
-"151
-[; ;main.c: 151:     return 1;
+"152
+[; ;main.c: 152:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 343  ]
-"152
-[; ;main.c: 152: }
+"153
+[; ;main.c: 153: }
 [e :UE 343 ]
 }
-"154
-[; ;main.c: 154: uint8_t CONFIG_PORTS(void){
+"155
+[; ;main.c: 155: uint8_t CONFIG_PORTS(void){
 [v _CONFIG_PORTS `(uc ~T0 @X0 1 ef ]
 {
 [e :U _CONFIG_PORTS ]
 [f ]
-"155
-[; ;main.c: 155:     ANSELC = 0b00001111;
-[e = _ANSELC -> -> 15 `i `uc ]
 "156
-[; ;main.c: 156:     TRISC = 0b00001111;
-[e = _TRISC -> -> 15 `i `uc ]
+[; ;main.c: 156:     ANSELC = 0b00001111;
+[e = _ANSELC -> -> 15 `i `uc ]
 "157
-[; ;main.c: 157:     WPUC = 0b00000000;
-[e = _WPUC -> -> 0 `i `uc ]
+[; ;main.c: 157:     TRISC = 0b00001111;
+[e = _TRISC -> -> 15 `i `uc ]
 "158
-[; ;main.c: 158:     return 1;
+[; ;main.c: 158:     WPUC = 0b00000000;
+[e = _WPUC -> -> 0 `i `uc ]
+"159
+[; ;main.c: 159:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 344  ]
-"159
-[; ;main.c: 159: }
+"160
+[; ;main.c: 160: }
 [e :UE 344 ]
 }
-"161
-[; ;main.c: 161: uint8_t CONFIG_ADC_PINS(void){
+"162
+[; ;main.c: 162: uint8_t CONFIG_ADC_PINS(void){
 [v _CONFIG_ADC_PINS `(uc ~T0 @X0 1 ef ]
 {
 [e :U _CONFIG_ADC_PINS ]
 [f ]
-"162
-[; ;main.c: 162:     ADCON1 = 0b10100000;
-[e = _ADCON1 -> -> 160 `i `uc ]
 "163
-[; ;main.c: 163:     return 1;
+[; ;main.c: 163:     ADCON1 = 0b10100000;
+[e = _ADCON1 -> -> 160 `i `uc ]
+"164
+[; ;main.c: 164:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 345  ]
-"164
-[; ;main.c: 164: }
+"165
+[; ;main.c: 165: }
 [e :UE 345 ]
 }
-"166
-[; ;main.c: 166: uint16_t DO_ADC(const uint8_t *modifier){
+"167
+[; ;main.c: 167: uint16_t DO_ADC(const uint8_t *modifier){
 [v _DO_ADC `(us ~T0 @X0 1 ef1`*Cuc ]
 {
 [e :U _DO_ADC ]
 [v _modifier `*Cuc ~T0 @X0 1 r1 ]
 [f ]
-"167
-[; ;main.c: 167:     ADCON0 = 0x00;
+"168
+[; ;main.c: 168:     ADCON0 = 0x00;
 [e = _ADCON0 -> -> 0 `i `uc ]
-"169
-[; ;main.c: 169:     uint8_t temp = *modifier << 2;
+"170
+[; ;main.c: 170:     uint8_t temp = *modifier << 2;
 [v _temp `uc ~T0 @X0 1 a ]
 [e = _temp -> << -> *U _modifier `i -> 2 `i `uc ]
-"170
-[; ;main.c: 170:     ADCON0 = ADCON0 | temp;
-[e = _ADCON0 -> | -> _ADCON0 `i -> _temp `i `uc ]
 "171
-[; ;main.c: 171:     ADON = 1;
-[e = _ADON -> -> 1 `i `b ]
+[; ;main.c: 171:     ADCON0 = ADCON0 | temp;
+[e = _ADCON0 -> | -> _ADCON0 `i -> _temp `i `uc ]
 "172
-[; ;main.c: 172:     _delay((unsigned long)((0.005)*(32000000/4000.0)));
-[e ( __delay (1 -> * .0.005 / -> -> 32000000 `l `d .4000.0 `ul ]
+[; ;main.c: 172:     ADON = 1;
+[e = _ADON -> -> 1 `i `b ]
 "173
-[; ;main.c: 173:     GO_nDONE = 1;
-[e = _GO_nDONE -> -> 1 `i `b ]
+[; ;main.c: 173:     _delay((unsigned long)((0.005)*(32000000/4000.0)));
+[e ( __delay (1 -> * .0.005 / -> -> 32000000 `l `d .4000.0 `ul ]
 "174
-[; ;main.c: 174:     while(GO_nDONE == 1){}
+[; ;main.c: 174:     GO_nDONE = 1;
+[e = _GO_nDONE -> -> 1 `i `b ]
+"175
+[; ;main.c: 175:     while(GO_nDONE == 1){}
 [e $U 347  ]
 [e :U 348 ]
 {
@@ -1445,164 +1445,164 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 347 ]
 [e $ == -> _GO_nDONE `i -> 1 `i 348  ]
 [e :U 349 ]
-"175
-[; ;main.c: 175:     ADON = 0;
-[e = _ADON -> -> 0 `i `b ]
 "176
-[; ;main.c: 176:     uint16_t adc_result = ((ADRESH << 8) | ADRESL);
+[; ;main.c: 176:     ADON = 0;
+[e = _ADON -> -> 0 `i `b ]
+"177
+[; ;main.c: 177:     uint16_t adc_result = ((ADRESH << 8) | ADRESL);
 [v _adc_result `us ~T0 @X0 1 a ]
 [e = _adc_result -> | << -> _ADRESH `i -> 8 `i -> _ADRESL `i `us ]
-"177
-[; ;main.c: 177:     return adc_result;
+"178
+[; ;main.c: 178:     return adc_result;
 [e ) _adc_result ]
 [e $UE 346  ]
-"178
-[; ;main.c: 178: }
+"179
+[; ;main.c: 179: }
 [e :UE 346 ]
 }
-"180
-[; ;main.c: 180: uint8_t DETERMINE_WAVESHAPE(){
+"181
+[; ;main.c: 181: uint8_t DETERMINE_WAVESHAPE(){
 [v _DETERMINE_WAVESHAPE `(uc ~T0 @X0 1 ef ]
 {
 [e :U _DETERMINE_WAVESHAPE ]
 [f ]
-"181
-[; ;main.c: 181:     uint16_t ADC = DO_ADC(&waveshape_adc_config_value);
+"182
+[; ;main.c: 182:     uint16_t ADC = DO_ADC(&waveshape_adc_config_value);
 [v _ADC `us ~T0 @X0 1 a ]
 [e = _ADC ( _DO_ADC (1 &U _waveshape_adc_config_value ]
-"182
-[; ;main.c: 182:     if(ADC <= 341){
+"183
+[; ;main.c: 183:     if(ADC <= 341){
 [e $ ! <= -> _ADC `ui -> -> 341 `i `ui 351  ]
 {
-"183
-[; ;main.c: 183:             return 0;
+"184
+[; ;main.c: 184:             return 0;
 [e ) -> -> 0 `i `uc ]
 [e $UE 350  ]
-"184
-[; ;main.c: 184:         }
+"185
+[; ;main.c: 185:         }
 }
 [e :U 351 ]
-"185
-[; ;main.c: 185:         if (ADC <= 682){
+"186
+[; ;main.c: 186:         if (ADC <= 682){
 [e $ ! <= -> _ADC `ui -> -> 682 `i `ui 352  ]
 {
-"186
-[; ;main.c: 186:             return 1;
+"187
+[; ;main.c: 187:             return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 350  ]
-"187
-[; ;main.c: 187:         }
+"188
+[; ;main.c: 188:         }
 }
 [e :U 352 ]
-"188
-[; ;main.c: 188:         if (ADC <= 1023){
+"189
+[; ;main.c: 189:         if (ADC <= 1023){
 [e $ ! <= -> _ADC `ui -> -> 1023 `i `ui 353  ]
 {
-"189
-[; ;main.c: 189:             return 2;
+"190
+[; ;main.c: 190:             return 2;
 [e ) -> -> 2 `i `uc ]
 [e $UE 350  ]
-"190
-[; ;main.c: 190:         }
+"191
+[; ;main.c: 191:         }
 }
 [e $U 354  ]
-"191
-[; ;main.c: 191:         else{
+"192
+[; ;main.c: 192:         else{
 [e :U 353 ]
 {
-"192
-[; ;main.c: 192:             return 1;
+"193
+[; ;main.c: 193:             return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 350  ]
-"193
-[; ;main.c: 193:         }
+"194
+[; ;main.c: 194:         }
 }
 [e :U 354 ]
-"194
-[; ;main.c: 194:     return 1;
+"195
+[; ;main.c: 195:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 350  ]
-"195
-[; ;main.c: 195: }
+"196
+[; ;main.c: 196: }
 [e :UE 350 ]
 }
-"197
-[; ;main.c: 197: uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr){
+"198
+[; ;main.c: 198: uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr){
 [v _SET_DUTY_CCP3 `(uc ~T0 @X0 1 ef1`*Vus ]
 {
 [e :U _SET_DUTY_CCP3 ]
 [v _duty_ptr `*Vus ~T0 @X0 1 r1 ]
 [f ]
-"199
-[; ;main.c: 199:     CCPR3L = *duty_ptr >> 2;
-[e = _CCPR3L -> >> -> *U _duty_ptr `ui -> 2 `i `uc ]
 "200
-[; ;main.c: 200:     uint8_t temp = *duty_ptr % 0b100;
+[; ;main.c: 200:     CCPR3L = *duty_ptr >> 2;
+[e = _CCPR3L -> >> -> *U _duty_ptr `ui -> 2 `i `uc ]
+"201
+[; ;main.c: 201:     uint8_t temp = *duty_ptr % 0b100;
 [v _temp `uc ~T0 @X0 1 a ]
 [e = _temp -> % -> *U _duty_ptr `ui -> -> 4 `i `ui `uc ]
-"201
-[; ;main.c: 201:     CCP3CON = CCP3CON | (temp << 4);
+"202
+[; ;main.c: 202:     CCP3CON = CCP3CON | (temp << 4);
 [e = _CCP3CON -> | -> _CCP3CON `i << -> _temp `i -> 4 `i `uc ]
-"204
-[; ;main.c: 204:     return 1;
+"205
+[; ;main.c: 205:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 355  ]
-"205
-[; ;main.c: 205: }
+"206
+[; ;main.c: 206: }
 [e :UE 355 ]
 }
-"207
-[; ;main.c: 207: uint8_t CONFIG_PWM_CCP3(void){
+"208
+[; ;main.c: 208: uint8_t CONFIG_PWM_CCP3(void){
 [v _CONFIG_PWM_CCP3 `(uc ~T0 @X0 1 ef ]
 {
 [e :U _CONFIG_PWM_CCP3 ]
 [f ]
-"208
-[; ;main.c: 208:     SRLEN = 0;
-[e = _SRLEN -> -> 0 `i `b ]
 "209
-[; ;main.c: 209:     C1ON = 0;
+[; ;main.c: 209:     SRLEN = 0;
+[e = _SRLEN -> -> 0 `i `b ]
+"210
+[; ;main.c: 210:     C1ON = 0;
 [e = _C1ON -> -> 0 `i `b ]
-"211
-[; ;main.c: 211:     TRISA2 = 1;
-[e = _TRISA2 -> -> 1 `i `b ]
 "212
-[; ;main.c: 212:     PR2 = 0xFF;
-[e = _PR2 -> -> 255 `i `uc ]
+[; ;main.c: 212:     TRISA2 = 1;
+[e = _TRISA2 -> -> 1 `i `b ]
 "213
-[; ;main.c: 213:     CCP3CON = CCP3CON | 0b00001111;
+[; ;main.c: 213:     PR2 = 0xFF;
+[e = _PR2 -> -> 255 `i `uc ]
+"214
+[; ;main.c: 214:     CCP3CON = CCP3CON | 0b00001111;
 [e = _CCP3CON -> | -> _CCP3CON `i -> 15 `i `uc ]
-"215
-[; ;main.c: 215:     CCPTMRS0 = 0x00;
-[e = _CCPTMRS0 -> -> 0 `i `uc ]
 "216
-[; ;main.c: 216:     TMR2IF = 0;
-[e = _TMR2IF -> -> 0 `i `b ]
+[; ;main.c: 216:     CCPTMRS0 = 0x00;
+[e = _CCPTMRS0 -> -> 0 `i `uc ]
 "217
-[; ;main.c: 217:     T2CON = T2CON | 0b00000000;
+[; ;main.c: 217:     TMR2IF = 0;
+[e = _TMR2IF -> -> 0 `i `b ]
+"218
+[; ;main.c: 218:     T2CON = T2CON | 0b00000000;
 [e = _T2CON -> | -> _T2CON `i -> 0 `i `uc ]
-"221
-[; ;main.c: 221:     return 1;
+"222
+[; ;main.c: 222:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 356  ]
-"222
-[; ;main.c: 222: }
+"223
+[; ;main.c: 223: }
 [e :UE 356 ]
 }
-"224
-[; ;main.c: 224: uint8_t TURN_ON_CCP3_PWM(void){
+"225
+[; ;main.c: 225: uint8_t TURN_ON_CCP3_PWM(void){
 [v _TURN_ON_CCP3_PWM `(uc ~T0 @X0 1 ef ]
 {
 [e :U _TURN_ON_CCP3_PWM ]
 [f ]
-"226
-[; ;main.c: 226:     TMR2IF = 0;
-[e = _TMR2IF -> -> 0 `i `b ]
 "227
-[; ;main.c: 227:     TMR2ON = 1;
-[e = _TMR2ON -> -> 1 `i `b ]
+[; ;main.c: 227:     TMR2IF = 0;
+[e = _TMR2IF -> -> 0 `i `b ]
 "228
-[; ;main.c: 228:     while(TMR2IF == 0){}
+[; ;main.c: 228:     TMR2ON = 1;
+[e = _TMR2ON -> -> 1 `i `b ]
+"229
+[; ;main.c: 229:     while(TMR2IF == 0){}
 [e $U 358  ]
 [e :U 359 ]
 {
@@ -1610,280 +1610,280 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 358 ]
 [e $ == -> _TMR2IF `i -> 0 `i 359  ]
 [e :U 360 ]
-"229
-[; ;main.c: 229:     TMR2IF = 0;
-[e = _TMR2IF -> -> 0 `i `b ]
 "230
-[; ;main.c: 230:     TRISA2 = 0;
-[e = _TRISA2 -> -> 0 `i `b ]
+[; ;main.c: 230:     TMR2IF = 0;
+[e = _TMR2IF -> -> 0 `i `b ]
 "231
-[; ;main.c: 231:     return 1;
+[; ;main.c: 231:     TRISA2 = 0;
+[e = _TRISA2 -> -> 0 `i `b ]
+"232
+[; ;main.c: 232:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 357  ]
-"232
-[; ;main.c: 232: }
+"233
+[; ;main.c: 233: }
 [e :UE 357 ]
 }
-"234
-[; ;main.c: 234: uint8_t CONFIG_TMR0_INTERRUPT(void){
+"235
+[; ;main.c: 235: uint8_t CONFIG_TMR0_INTERRUPT(void){
 [v _CONFIG_TMR0_INTERRUPT `(uc ~T0 @X0 1 ef ]
 {
 [e :U _CONFIG_TMR0_INTERRUPT ]
 [f ]
-"235
-[; ;main.c: 235:     TMR0IE = 1;
-[e = _TMR0IE -> -> 1 `i `b ]
 "236
-[; ;main.c: 236:     return 1;
+[; ;main.c: 236:     TMR0IE = 1;
+[e = _TMR0IE -> -> 1 `i `b ]
+"237
+[; ;main.c: 237:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 361  ]
-"237
-[; ;main.c: 237: }
+"238
+[; ;main.c: 238: }
 [e :UE 361 ]
 }
-"239
-[; ;main.c: 239: uint8_t CONFIG_SYSTEM(void){
+"240
+[; ;main.c: 240: uint8_t CONFIG_SYSTEM(void){
 [v _CONFIG_SYSTEM `(uc ~T0 @X0 1 ef ]
 {
 [e :U _CONFIG_SYSTEM ]
 [f ]
-"240
-[; ;main.c: 240:     CONFIG_INT_OSC();
-[e ( _CONFIG_INT_OSC ..  ]
 "241
-[; ;main.c: 241:     CONFIG_PORTS();
-[e ( _CONFIG_PORTS ..  ]
+[; ;main.c: 241:     CONFIG_INT_OSC();
+[e ( _CONFIG_INT_OSC ..  ]
 "242
-[; ;main.c: 242:     CONFIG_ADC_PINS();
-[e ( _CONFIG_ADC_PINS ..  ]
+[; ;main.c: 242:     CONFIG_PORTS();
+[e ( _CONFIG_PORTS ..  ]
 "243
-[; ;main.c: 243:     CONFIG_PWM_CCP3();
-[e ( _CONFIG_PWM_CCP3 ..  ]
+[; ;main.c: 243:     CONFIG_ADC_PINS();
+[e ( _CONFIG_ADC_PINS ..  ]
 "244
-[; ;main.c: 244:     return 1;
+[; ;main.c: 244:     CONFIG_PWM_CCP3();
+[e ( _CONFIG_PWM_CCP3 ..  ]
+"245
+[; ;main.c: 245:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 362  ]
-"245
-[; ;main.c: 245: }
+"246
+[; ;main.c: 246: }
 [e :UE 362 ]
 }
-"247
-[; ;main.c: 247: uint8_t TMR0_WRITE(volatile uint8_t *timer_value_ptr){
+"248
+[; ;main.c: 248: uint8_t TMR0_WRITE(volatile uint8_t *timer_value_ptr){
 [v _TMR0_WRITE `(uc ~T0 @X0 1 ef1`*Vuc ]
 {
 [e :U _TMR0_WRITE ]
 [v _timer_value_ptr `*Vuc ~T0 @X0 1 r1 ]
 [f ]
-"248
-[; ;main.c: 248:     TMR0 = (uint8_t) *timer_value_ptr;
-[e = _TMR0 *U _timer_value_ptr ]
 "249
-[; ;main.c: 249:     return 1;
+[; ;main.c: 249:     TMR0 = (uint8_t) *timer_value_ptr;
+[e = _TMR0 *U _timer_value_ptr ]
+"250
+[; ;main.c: 250:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 363  ]
-"250
-[; ;main.c: 250: }
+"251
+[; ;main.c: 251: }
 [e :UE 363 ]
 }
-"252
-[; ;main.c: 252: uint8_t GET_CURRENT_POT_VALUES(void){
+"253
+[; ;main.c: 253: uint8_t GET_CURRENT_POT_VALUES(void){
 [v _GET_CURRENT_POT_VALUES `(uc ~T0 @X0 1 ef ]
 {
 [e :U _GET_CURRENT_POT_VALUES ]
 [f ]
-"253
-[; ;main.c: 253:     current_waveshape = DETERMINE_WAVESHAPE();
-[e = _current_waveshape ( _DETERMINE_WAVESHAPE ..  ]
 "254
-[; ;main.c: 254:     current_speed_linear = DO_ADC(&speed_adc_config_value);
-[e = _current_speed_linear ( _DO_ADC (1 &U _speed_adc_config_value ]
+[; ;main.c: 254:     current_waveshape = DETERMINE_WAVESHAPE();
+[e = _current_waveshape ( _DETERMINE_WAVESHAPE ..  ]
 "255
-[; ;main.c: 255:     current_depth = DO_ADC(&depth_adc_config_value);
-[e = _current_depth ( _DO_ADC (1 &U _depth_adc_config_value ]
+[; ;main.c: 255:     current_speed_linear = DO_ADC(&speed_adc_config_value);
+[e = _current_speed_linear ( _DO_ADC (1 &U _speed_adc_config_value ]
 "256
-[; ;main.c: 256:     current_depth = current_depth >> 2;
-[e = _current_depth -> >> -> _current_depth `ui -> 2 `i `us ]
+[; ;main.c: 256:     current_depth = DO_ADC(&depth_adc_config_value);
+[e = _current_depth ( _DO_ADC (1 &U _depth_adc_config_value ]
 "257
-[; ;main.c: 257:     current_symmetry = DO_ADC(&symmetry_adc_config_value);
-[e = _current_symmetry ( _DO_ADC (1 &U _symmetry_adc_config_value ]
+[; ;main.c: 257:     current_depth = current_depth >> 2;
+[e = _current_depth -> >> -> _current_depth `ui -> 2 `i `us ]
 "258
-[; ;main.c: 258:     current_symmetry = current_symmetry >> 2;
-[e = _current_symmetry -> >> -> _current_symmetry `ui -> 2 `i `us ]
+[; ;main.c: 258:     current_symmetry = DO_ADC(&symmetry_adc_config_value);
+[e = _current_symmetry ( _DO_ADC (1 &U _symmetry_adc_config_value ]
 "259
-[; ;main.c: 259:     return 1;
+[; ;main.c: 259:     current_symmetry = current_symmetry >> 2;
+[e = _current_symmetry -> >> -> _current_symmetry `ui -> 2 `i `us ]
+"260
+[; ;main.c: 260:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 364  ]
-"260
-[; ;main.c: 260: }
+"261
+[; ;main.c: 261: }
 [e :UE 364 ]
 }
-"262
-[; ;main.c: 262: uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void){
+"263
+[; ;main.c: 263: uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void){
 [v _PROCESS_RAW_SPEED_AND_PRESCALER `(uc ~T0 @X0 1 ef ]
 {
 [e :U _PROCESS_RAW_SPEED_AND_PRESCALER ]
 [f ]
-"263
-[; ;main.c: 263:     current_speed_linear_32 = current_speed_linear;
-[e = _current_speed_linear_32 -> _current_speed_linear `ul ]
 "264
-[; ;main.c: 264:     speed_control_32 = current_speed_linear_32 * 600;;
-[e = _speed_control_32 * _current_speed_linear_32 -> -> -> 600 `i `l `ul ]
+[; ;main.c: 264:     current_speed_linear_32 = current_speed_linear;
+[e = _current_speed_linear_32 -> _current_speed_linear `ul ]
 "265
-[; ;main.c: 265:     speed_control_32 = speed_control_32 >> 10;
-[e = _speed_control_32 >> _speed_control_32 -> 10 `i ]
+[; ;main.c: 265:     speed_control_32 = current_speed_linear_32 * 600;;
+[e = _speed_control_32 * _current_speed_linear_32 -> -> -> 600 `i `l `ul ]
 "266
-[; ;main.c: 266:     speed_control = (uint16_t) speed_control_32;
+[; ;main.c: 266:     speed_control_32 = speed_control_32 >> 10;
+[e = _speed_control_32 >> _speed_control_32 -> 10 `i ]
+"267
+[; ;main.c: 267:     speed_control = (uint16_t) speed_control_32;
 [e = _speed_control -> _speed_control_32 `us ]
-"268
-[; ;main.c: 268:         if(speed_control <= (127-12)){
+"269
+[; ;main.c: 269:         if(speed_control <= (127-12)){
 [e $ ! <= -> _speed_control `ui -> - -> 127 `i -> 12 `i `ui 366  ]
 {
-"269
-[; ;main.c: 269:             raw_TMR0 = (uint8_t) speed_control + 12;
-[e = _raw_TMR0 -> + -> -> _speed_control `uc `i -> 12 `i `uc ]
 "270
-[; ;main.c: 270:             base_prescaler_bits_index = 1;
-[e = _base_prescaler_bits_index -> -> 1 `i `uc ]
+[; ;main.c: 270:             raw_TMR0 = (uint8_t) speed_control + 12;
+[e = _raw_TMR0 -> + -> -> _speed_control `uc `i -> 12 `i `uc ]
 "271
-[; ;main.c: 271:         }
+[; ;main.c: 271:             base_prescaler_bits_index = 1;
+[e = _base_prescaler_bits_index -> -> 1 `i `uc ]
+"272
+[; ;main.c: 272:         }
 }
 [e $U 367  ]
-"272
-[; ;main.c: 272:         else{
+"273
+[; ;main.c: 273:         else{
 [e :U 366 ]
 {
-"273
-[; ;main.c: 273:             speed_control_subtracted = speed_control - (127-12);
-[e = _speed_control_subtracted -> - -> _speed_control `ui -> - -> 127 `i -> 12 `i `ui `us ]
 "274
-[; ;main.c: 274:             how_many_128 = speed_control_subtracted >> 7;
-[e = _how_many_128 -> >> -> _speed_control_subtracted `ui -> 7 `i `us ]
+[; ;main.c: 274:             speed_control_subtracted = speed_control - (127-12);
+[e = _speed_control_subtracted -> - -> _speed_control `ui -> - -> 127 `i -> 12 `i `ui `us ]
 "275
-[; ;main.c: 275:             raw_TMR0 = (uint8_t) (speed_control_subtracted - (how_many_128 << 7));
-[e = _raw_TMR0 -> - -> _speed_control_subtracted `ui << -> _how_many_128 `ui -> 7 `i `uc ]
+[; ;main.c: 275:             how_many_128 = speed_control_subtracted >> 7;
+[e = _how_many_128 -> >> -> _speed_control_subtracted `ui -> 7 `i `us ]
 "276
-[; ;main.c: 276:             base_prescaler_bits_index = how_many_128 + 2;
-[e = _base_prescaler_bits_index -> + -> _how_many_128 `ui -> -> 2 `i `ui `uc ]
+[; ;main.c: 276:             raw_TMR0 = (uint8_t) (speed_control_subtracted - (how_many_128 << 7));
+[e = _raw_TMR0 -> - -> _speed_control_subtracted `ui << -> _how_many_128 `ui -> 7 `i `uc ]
 "277
-[; ;main.c: 277:         }
+[; ;main.c: 277:             base_prescaler_bits_index = how_many_128 + 2;
+[e = _base_prescaler_bits_index -> + -> _how_many_128 `ui -> -> 2 `i `ui `uc ]
+"278
+[; ;main.c: 278:         }
 }
 [e :U 367 ]
-"278
-[; ;main.c: 278:     return 1;
+"279
+[; ;main.c: 279:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 365  ]
-"279
-[; ;main.c: 279: }
+"280
+[; ;main.c: 280: }
 [e :UE 365 ]
 }
-"281
-[; ;main.c: 281: uint8_t PROCESS_FINAL_SPEED_AND_PRESCALER(void){
+"282
+[; ;main.c: 282: uint8_t PROCESS_FINAL_SPEED_AND_PRESCALER(void){
 [v _PROCESS_FINAL_SPEED_AND_PRESCALER `(uc ~T0 @X0 1 ef ]
 {
 [e :U _PROCESS_FINAL_SPEED_AND_PRESCALER ]
 [f ]
-"282
-[; ;main.c: 282:     if(clear_TMR0_please){
+"283
+[; ;main.c: 283:     if(clear_TMR0_please){
 [e $ ! != -> _clear_TMR0_please `i -> 0 `i 369  ]
 {
-"283
-[; ;main.c: 283:         raw_TMR0 = 0;
-[e = _raw_TMR0 -> -> 0 `i `uc ]
 "284
-[; ;main.c: 284:     }
+[; ;main.c: 284:         raw_TMR0 = 0;
+[e = _raw_TMR0 -> -> 0 `i `uc ]
+"285
+[; ;main.c: 285:     }
 }
 [e :U 369 ]
-"285
-[; ;main.c: 285:     if((TMR0_offset_sign == POSITIVE) || (TMR0_offset_sign == DONT_CARE)){
+"286
+[; ;main.c: 286:     if((TMR0_offset_sign == POSITIVE) || (TMR0_offset_sign == DONT_CARE)){
 [e $ ! || == -> _TMR0_offset_sign `i -> _POSITIVE `i == -> _TMR0_offset_sign `i -> _DONT_CARE `i 370  ]
 {
-"286
-[; ;main.c: 286:         final_TMR0 = raw_TMR0 + TMR0_offset;
-[e = _final_TMR0 -> + -> _raw_TMR0 `i -> _TMR0_offset `i `uc ]
 "287
-[; ;main.c: 287:     }
+[; ;main.c: 287:         final_TMR0 = raw_TMR0 + TMR0_offset;
+[e = _final_TMR0 -> + -> _raw_TMR0 `i -> _TMR0_offset `i `uc ]
+"288
+[; ;main.c: 288:     }
 }
 [e $U 371  ]
-"288
-[; ;main.c: 288:     else if(TMR0_offset_sign == NEGATIVE){
+"289
+[; ;main.c: 289:     else if(TMR0_offset_sign == NEGATIVE){
 [e :U 370 ]
 [e $ ! == -> _TMR0_offset_sign `i -> _NEGATIVE `i 372  ]
 {
-"289
-[; ;main.c: 289:         final_TMR0 = raw_TMR0 - TMR0_offset;
-[e = _final_TMR0 -> - -> _raw_TMR0 `i -> _TMR0_offset `i `uc ]
 "290
-[; ;main.c: 290:     }
+[; ;main.c: 290:         final_TMR0 = raw_TMR0 - TMR0_offset;
+[e = _final_TMR0 -> - -> _raw_TMR0 `i -> _TMR0_offset `i `uc ]
+"291
+[; ;main.c: 291:     }
 }
 [e :U 372 ]
 [e :U 371 ]
-"291
-[; ;main.c: 291:     if(prescaler_adjust == DIVIDE_BY_TWO){
+"292
+[; ;main.c: 292:     if(prescaler_adjust == DIVIDE_BY_TWO){
 [e $ ! == -> _prescaler_adjust `i -> _DIVIDE_BY_TWO `i 373  ]
 {
-"292
-[; ;main.c: 292:         OPTION_REG = prescaler_bits[base_prescaler_bits_index + 1];
-[e = _OPTION_REG *U + &U _prescaler_bits * -> -> + -> _base_prescaler_bits_index `i -> 1 `i `ui `ux -> -> # *U &U _prescaler_bits `ui `ux ]
 "293
-[; ;main.c: 293:     }
+[; ;main.c: 293:         OPTION_REG = prescaler_bits[base_prescaler_bits_index + 1];
+[e = _OPTION_REG *U + &U _prescaler_bits * -> -> + -> _base_prescaler_bits_index `i -> 1 `i `ui `ux -> -> # *U &U _prescaler_bits `ui `ux ]
+"294
+[; ;main.c: 294:     }
 }
 [e $U 374  ]
-"294
-[; ;main.c: 294:     else if(prescaler_adjust == DIVIDE_BY_FOUR){
+"295
+[; ;main.c: 295:     else if(prescaler_adjust == DIVIDE_BY_FOUR){
 [e :U 373 ]
 [e $ ! == -> _prescaler_adjust `i -> _DIVIDE_BY_FOUR `i 375  ]
 {
-"295
-[; ;main.c: 295:         OPTION_REG = prescaler_bits[base_prescaler_bits_index + 2];
-[e = _OPTION_REG *U + &U _prescaler_bits * -> -> + -> _base_prescaler_bits_index `i -> 2 `i `ui `ux -> -> # *U &U _prescaler_bits `ui `ux ]
 "296
-[; ;main.c: 296:     }
+[; ;main.c: 296:         OPTION_REG = prescaler_bits[base_prescaler_bits_index + 2];
+[e = _OPTION_REG *U + &U _prescaler_bits * -> -> + -> _base_prescaler_bits_index `i -> 2 `i `ui `ux -> -> # *U &U _prescaler_bits `ui `ux ]
+"297
+[; ;main.c: 297:     }
 }
 [e $U 376  ]
-"297
-[; ;main.c: 297:     else if(prescaler_adjust == MULTIPLY_BY_TWO){
+"298
+[; ;main.c: 298:     else if(prescaler_adjust == MULTIPLY_BY_TWO){
 [e :U 375 ]
 [e $ ! == -> _prescaler_adjust `i -> _MULTIPLY_BY_TWO `i 377  ]
 {
-"298
-[; ;main.c: 298:         OPTION_REG = prescaler_bits[base_prescaler_bits_index - 1];
-[e = _OPTION_REG *U + &U _prescaler_bits * -> -> - -> _base_prescaler_bits_index `i -> 1 `i `ui `ux -> -> # *U &U _prescaler_bits `ui `ux ]
 "299
-[; ;main.c: 299:     }
+[; ;main.c: 299:         OPTION_REG = prescaler_bits[base_prescaler_bits_index - 1];
+[e = _OPTION_REG *U + &U _prescaler_bits * -> -> - -> _base_prescaler_bits_index `i -> 1 `i `ui `ux -> -> # *U &U _prescaler_bits `ui `ux ]
+"300
+[; ;main.c: 300:     }
 }
 [e $U 378  ]
-"300
-[; ;main.c: 300:     else if(prescaler_adjust == DO_NOTHING){
+"301
+[; ;main.c: 301:     else if(prescaler_adjust == DO_NOTHING){
 [e :U 377 ]
 [e $ ! == -> _prescaler_adjust `i -> _DO_NOTHING `i 379  ]
 {
-"301
-[; ;main.c: 301:         OPTION_REG = prescaler_bits[base_prescaler_bits_index];
-[e = _OPTION_REG *U + &U _prescaler_bits * -> _base_prescaler_bits_index `ux -> -> # *U &U _prescaler_bits `ui `ux ]
 "302
-[; ;main.c: 302:     }
+[; ;main.c: 302:         OPTION_REG = prescaler_bits[base_prescaler_bits_index];
+[e = _OPTION_REG *U + &U _prescaler_bits * -> _base_prescaler_bits_index `ux -> -> # *U &U _prescaler_bits `ui `ux ]
+"303
+[; ;main.c: 303:     }
 }
 [e :U 379 ]
 [e :U 378 ]
 [e :U 376 ]
 [e :U 374 ]
-"303
-[; ;main.c: 303:     return 1;
+"304
+[; ;main.c: 304:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 368  ]
-"304
-[; ;main.c: 304: }
+"305
+[; ;main.c: 305: }
 [e :UE 368 ]
 }
-"306
-[; ;main.c: 306: uint8_t SHORTEN_PERIOD(void){
+"307
+[; ;main.c: 307: uint8_t SHORTEN_PERIOD(void){
 [v _SHORTEN_PERIOD `(uc ~T0 @X0 1 ef ]
 {
 [e :U _SHORTEN_PERIOD ]
 [f ]
-"307
-[; ;main.c: 307:     dTMR0_ideal = (128 - current_symmetry) << 1;
+"308
+[; ;main.c: 308:     dTMR0_ideal = (128 - current_symmetry) << 1;
 [e = _dTMR0_ideal -> << - -> -> 128 `i `ui -> _current_symmetry `ui -> 1 `i `us ]
 "309
 [; ;main.c: 309:     if((dTMR0_ideal + raw_TMR0) < 128){
@@ -2001,464 +2001,464 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _LENGTHEN_PERIOD ]
 [f ]
 "341
-[; ;main.c: 341:     dTMR0_ideal = 108 - ((108 * current_symmetry) >> 7);
-[e = _dTMR0_ideal -> - -> -> 108 `i `ui >> * -> -> 108 `i `ui -> _current_symmetry `ui -> 7 `i `us ]
-"343
-[; ;main.c: 343:         if(raw_TMR0 < dTMR0_ideal){
+[; ;main.c: 341:     dTMR0_ideal = 97 - ((97 * current_symmetry) >> 7);
+[e = _dTMR0_ideal -> - -> -> 97 `i `ui >> * -> -> 97 `i `ui -> _current_symmetry `ui -> 7 `i `us ]
+"342
+[; ;main.c: 342:         if(raw_TMR0 < dTMR0_ideal){
 [e $ ! < -> _raw_TMR0 `ui -> _dTMR0_ideal `ui 390  ]
 {
-"344
-[; ;main.c: 344:             TMR0_offset = (uint8_t) 128 - (dTMR0_ideal - raw_TMR0);
+"343
+[; ;main.c: 343:             TMR0_offset = (uint8_t) 128 - (dTMR0_ideal - raw_TMR0);
 [e = _TMR0_offset -> - -> -> -> 128 `i `uc `ui - -> _dTMR0_ideal `ui -> _raw_TMR0 `ui `uc ]
-"345
-[; ;main.c: 345:             TMR0_offset_sign = POSITIVE;
+"344
+[; ;main.c: 344:             TMR0_offset_sign = POSITIVE;
 [e = _TMR0_offset_sign _POSITIVE ]
-"346
-[; ;main.c: 346:             prescaler_adjust = MULTIPLY_BY_TWO;
+"345
+[; ;main.c: 345:             prescaler_adjust = MULTIPLY_BY_TWO;
 [e = _prescaler_adjust _MULTIPLY_BY_TWO ]
-"347
-[; ;main.c: 347:             clear_TMR0_please = YES;
+"346
+[; ;main.c: 346:             clear_TMR0_please = YES;
 [e = _clear_TMR0_please _YES ]
-"348
-[; ;main.c: 348:         }
+"347
+[; ;main.c: 347:         }
 }
 [e $U 391  ]
-"349
-[; ;main.c: 349:         else{
+"348
+[; ;main.c: 348:         else{
 [e :U 390 ]
 {
-"350
-[; ;main.c: 350:             TMR0_offset = (uint8_t)dTMR0_ideal;
+"349
+[; ;main.c: 349:             TMR0_offset = (uint8_t)dTMR0_ideal;
 [e = _TMR0_offset -> _dTMR0_ideal `uc ]
-"351
-[; ;main.c: 351:             TMR0_offset_sign = NEGATIVE;
+"350
+[; ;main.c: 350:             TMR0_offset_sign = NEGATIVE;
 [e = _TMR0_offset_sign _NEGATIVE ]
-"352
-[; ;main.c: 352:             prescaler_adjust = DO_NOTHING;
+"351
+[; ;main.c: 351:             prescaler_adjust = DO_NOTHING;
 [e = _prescaler_adjust _DO_NOTHING ]
-"353
-[; ;main.c: 353:             clear_TMR0_please = NO;
+"352
+[; ;main.c: 352:             clear_TMR0_please = NO;
 [e = _clear_TMR0_please _NO ]
-"354
-[; ;main.c: 354:         }
+"353
+[; ;main.c: 353:         }
 }
 [e :U 391 ]
-"355
-[; ;main.c: 355:     return 1;
+"354
+[; ;main.c: 354:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 389  ]
-"356
-[; ;main.c: 356: }
+"355
+[; ;main.c: 355: }
 [e :UE 389 ]
 }
-"358
-[; ;main.c: 358: uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
+"357
+[; ;main.c: 357: uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
 [v _PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST `(uc ~T0 @X0 1 ef ]
 {
 [e :U _PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST ]
 [f ]
-"359
-[; ;main.c: 359:     if(current_symmetry == 128){
+"358
+[; ;main.c: 358:     if(current_symmetry == 128){
 [e $ ! == -> _current_symmetry `ui -> -> 128 `i `ui 393  ]
 {
-"360
-[; ;main.c: 360:         TMR0_offset = 0;
+"359
+[; ;main.c: 359:         TMR0_offset = 0;
 [e = _TMR0_offset -> -> 0 `i `uc ]
-"361
-[; ;main.c: 361:         TMR0_offset_sign = POSITIVE;
+"360
+[; ;main.c: 360:         TMR0_offset_sign = POSITIVE;
 [e = _TMR0_offset_sign _POSITIVE ]
-"362
-[; ;main.c: 362:         prescaler_adjust = DO_NOTHING;
+"361
+[; ;main.c: 361:         prescaler_adjust = DO_NOTHING;
 [e = _prescaler_adjust _DO_NOTHING ]
-"363
-[; ;main.c: 363:         clear_TMR0_please = NO;
+"362
+[; ;main.c: 362:         clear_TMR0_please = NO;
 [e = _clear_TMR0_please _NO ]
-"364
-[; ;main.c: 364:         return 1;
+"363
+[; ;main.c: 363:         return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 392  ]
-"365
-[; ;main.c: 365:     }
+"364
+[; ;main.c: 364:     }
 }
 [e :U 393 ]
-"366
-[; ;main.c: 366:     uint8_t symmetry_status = CCW;
+"365
+[; ;main.c: 365:     uint8_t symmetry_status = CCW;
 [v _symmetry_status `uc ~T0 @X0 1 a ]
 [e = _symmetry_status _CCW ]
-"367
-[; ;main.c: 367:     if(current_symmetry > 128){
+"366
+[; ;main.c: 366:     if(current_symmetry > 128){
 [e $ ! > -> _current_symmetry `ui -> -> 128 `i `ui 394  ]
 {
-"368
-[; ;main.c: 368:         current_symmetry = 255 - current_symmetry;
+"367
+[; ;main.c: 367:         current_symmetry = 255 - current_symmetry;
 [e = _current_symmetry -> - -> -> 255 `i `ui -> _current_symmetry `ui `us ]
-"369
-[; ;main.c: 369:         symmetry_status = CW;
+"368
+[; ;main.c: 368:         symmetry_status = CW;
 [e = _symmetry_status _CW ]
-"370
-[; ;main.c: 370:     }
+"369
+[; ;main.c: 369:     }
 }
 [e :U 394 ]
-"371
-[; ;main.c: 371:     if((current_halfcycle == 0) && (symmetry_status == CCW)){
+"370
+[; ;main.c: 370:     if((current_halfcycle == 0) && (symmetry_status == CCW)){
 [e $ ! && == -> _current_halfcycle `i -> 0 `i == -> _symmetry_status `i -> _CCW `i 395  ]
 {
-"372
-[; ;main.c: 372:         SHORTEN_PERIOD();
+"371
+[; ;main.c: 371:         SHORTEN_PERIOD();
 [e ( _SHORTEN_PERIOD ..  ]
-"373
-[; ;main.c: 373:     }
+"372
+[; ;main.c: 372:     }
 }
 [e $U 396  ]
-"374
-[; ;main.c: 374:     else if((current_halfcycle == 0) && (symmetry_status == CW)){
+"373
+[; ;main.c: 373:     else if((current_halfcycle == 0) && (symmetry_status == CW)){
 [e :U 395 ]
 [e $ ! && == -> _current_halfcycle `i -> 0 `i == -> _symmetry_status `i -> _CW `i 397  ]
 {
-"375
-[; ;main.c: 375:         LENGTHEN_PERIOD();
+"374
+[; ;main.c: 374:         LENGTHEN_PERIOD();
 [e ( _LENGTHEN_PERIOD ..  ]
-"376
-[; ;main.c: 376:     }
+"375
+[; ;main.c: 375:     }
 }
 [e $U 398  ]
-"377
-[; ;main.c: 377:     else if((current_halfcycle == 1) && (symmetry_status == CCW)){
+"376
+[; ;main.c: 376:     else if((current_halfcycle == 1) && (symmetry_status == CCW)){
 [e :U 397 ]
 [e $ ! && == -> _current_halfcycle `i -> 1 `i == -> _symmetry_status `i -> _CCW `i 399  ]
 {
-"378
-[; ;main.c: 378:         LENGTHEN_PERIOD();
+"377
+[; ;main.c: 377:         LENGTHEN_PERIOD();
 [e ( _LENGTHEN_PERIOD ..  ]
-"379
-[; ;main.c: 379:     }
+"378
+[; ;main.c: 378:     }
 }
 [e $U 400  ]
-"380
-[; ;main.c: 380:     else if((current_halfcycle == 1) && (symmetry_status == CW)){
+"379
+[; ;main.c: 379:     else if((current_halfcycle == 1) && (symmetry_status == CW)){
 [e :U 399 ]
 [e $ ! && == -> _current_halfcycle `i -> 1 `i == -> _symmetry_status `i -> _CW `i 401  ]
 {
-"381
-[; ;main.c: 381:         SHORTEN_PERIOD();
+"380
+[; ;main.c: 380:         SHORTEN_PERIOD();
 [e ( _SHORTEN_PERIOD ..  ]
-"382
-[; ;main.c: 382:     }
+"381
+[; ;main.c: 381:     }
 }
 [e :U 401 ]
 [e :U 400 ]
 [e :U 398 ]
 [e :U 396 ]
-"383
-[; ;main.c: 383:     return 1;
+"382
+[; ;main.c: 382:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 392  ]
-"384
-[; ;main.c: 384: }
+"383
+[; ;main.c: 383: }
 [e :UE 392 ]
 }
 [v $root$_INTERRUPT_InterruptManager `(v ~T0 @X0 0 e ]
-"386
-[; ;main.c: 386: void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
+"385
+[; ;main.c: 385: void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
 [v _INTERRUPT_InterruptManager `(v ~T1 @X0 1 ef ]
 {
 [e :U _INTERRUPT_InterruptManager ]
 [f ]
-"387
-[; ;main.c: 387:     if(TMR0IF == 1){
+"386
+[; ;main.c: 386:     if(TMR0IF == 1){
 [e $ ! == -> _TMR0IF `i -> 1 `i 403  ]
 {
-"388
-[; ;main.c: 388:     GIE = 0;
+"387
+[; ;main.c: 387:     GIE = 0;
 [e = _GIE -> -> 0 `i `b ]
-"389
-[; ;main.c: 389:     TMR0 = final_TMR0;
+"388
+[; ;main.c: 388:     TMR0 = final_TMR0;
 [e = _TMR0 _final_TMR0 ]
-"390
-[; ;main.c: 390:     LATC5 = 1;
+"389
+[; ;main.c: 389:     LATC5 = 1;
 [e = _LATC5 -> -> 1 `i `b ]
-"391
-[; ;main.c: 391:     TMR0IF = 0;
+"390
+[; ;main.c: 390:     TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
-"393
-[; ;main.c: 393:     if(current_waveshape == 0){
+"392
+[; ;main.c: 392:     if(current_waveshape == 0){
 [e $ ! == -> _current_waveshape `i -> 0 `i 404  ]
 {
-"394
-[; ;main.c: 394:         duty = tri_table_one_quadrant[current_one_quadrant_index];
+"393
+[; ;main.c: 393:         duty = tri_table_one_quadrant[current_one_quadrant_index];
 [e = _duty *U + &U _tri_table_one_quadrant * -> _current_one_quadrant_index `ux -> -> # *U &U _tri_table_one_quadrant `ui `ux ]
-"395
-[; ;main.c: 395:     }
+"394
+[; ;main.c: 394:     }
 }
 [e $U 405  ]
-"396
-[; ;main.c: 396:     else if(current_waveshape == 1){
+"395
+[; ;main.c: 395:     else if(current_waveshape == 1){
 [e :U 404 ]
 [e $ ! == -> _current_waveshape `i -> 1 `i 406  ]
 {
-"397
-[; ;main.c: 397:         duty = sine_table_one_quadrant[current_one_quadrant_index];
+"396
+[; ;main.c: 396:         duty = sine_table_one_quadrant[current_one_quadrant_index];
 [e = _duty *U + &U _sine_table_one_quadrant * -> _current_one_quadrant_index `ux -> -> # *U &U _sine_table_one_quadrant `ui `ux ]
-"398
-[; ;main.c: 398:     }
+"397
+[; ;main.c: 397:     }
 }
 [e $U 407  ]
-"399
-[; ;main.c: 399:     else if(current_waveshape == 2){
+"398
+[; ;main.c: 398:     else if(current_waveshape == 2){
 [e :U 406 ]
 [e $ ! == -> _current_waveshape `i -> 2 `i 408  ]
 {
-"400
-[; ;main.c: 400:         duty = 1023;
+"399
+[; ;main.c: 399:         duty = 1023;
 [e = _duty -> -> 1023 `i `us ]
-"401
-[; ;main.c: 401:     }
+"400
+[; ;main.c: 400:     }
 }
 [e :U 408 ]
 [e :U 407 ]
 [e :U 405 ]
-"402
-[; ;main.c: 402:     if(current_one_quadrant_index == 128){
+"401
+[; ;main.c: 401:     if(current_one_quadrant_index == 128){
 [e $ ! == -> _current_one_quadrant_index `i -> 128 `i 409  ]
 {
-"403
-[; ;main.c: 403:         current_quadrant = 1;
+"402
+[; ;main.c: 402:         current_quadrant = 1;
 [e = _current_quadrant -> -> 1 `i `uc ]
-"404
-[; ;main.c: 404:     }
+"403
+[; ;main.c: 403:     }
 }
 [e :U 409 ]
-"405
-[; ;main.c: 405:     if(current_one_quadrant_index == 0){
+"404
+[; ;main.c: 404:     if(current_one_quadrant_index == 0){
 [e $ ! == -> _current_one_quadrant_index `i -> 0 `i 410  ]
 {
-"406
-[; ;main.c: 406:         current_quadrant = 0;
+"405
+[; ;main.c: 405:         current_quadrant = 0;
 [e = _current_quadrant -> -> 0 `i `uc ]
-"407
-[; ;main.c: 407:         if(current_halfcycle == 0){
+"406
+[; ;main.c: 406:         if(current_halfcycle == 0){
 [e $ ! == -> _current_halfcycle `i -> 0 `i 411  ]
 {
-"408
-[; ;main.c: 408:             current_halfcycle = 1;
+"407
+[; ;main.c: 407:             current_halfcycle = 1;
 [e = _current_halfcycle -> -> 1 `i `uc ]
-"409
-[; ;main.c: 409:         }
+"408
+[; ;main.c: 408:         }
 }
 [e $U 412  ]
-"410
-[; ;main.c: 410:         else{
+"409
+[; ;main.c: 409:         else{
 [e :U 411 ]
 {
-"411
-[; ;main.c: 411:             current_halfcycle = 0;
+"410
+[; ;main.c: 410:             current_halfcycle = 0;
 [e = _current_halfcycle -> -> 0 `i `uc ]
-"412
-[; ;main.c: 412:         }
+"411
+[; ;main.c: 411:         }
 }
 [e :U 412 ]
-"413
-[; ;main.c: 413:     }
+"412
+[; ;main.c: 412:     }
 }
 [e :U 410 ]
-"414
-[; ;main.c: 414:         if(current_quadrant == 0){
+"413
+[; ;main.c: 413:         if(current_quadrant == 0){
 [e $ ! == -> _current_quadrant `i -> 0 `i 413  ]
 {
-"415
-[; ;main.c: 415:             current_one_quadrant_index++;
+"414
+[; ;main.c: 414:             current_one_quadrant_index++;
 [e ++ _current_one_quadrant_index -> -> 1 `i `Vuc ]
-"416
-[; ;main.c: 416:         }
+"415
+[; ;main.c: 415:         }
 }
 [e $U 414  ]
-"417
-[; ;main.c: 417:         else{
+"416
+[; ;main.c: 416:         else{
 [e :U 413 ]
 {
-"418
-[; ;main.c: 418:             current_one_quadrant_index--;
+"417
+[; ;main.c: 417:             current_one_quadrant_index--;
 [e -- _current_one_quadrant_index -> -> 1 `i `Vuc ]
-"419
-[; ;main.c: 419:         }
+"418
+[; ;main.c: 418:         }
 }
 [e :U 414 ]
-"420
-[; ;main.c: 420:         if(current_halfcycle == 1){
+"419
+[; ;main.c: 419:         if(current_halfcycle == 1){
 [e $ ! == -> _current_halfcycle `i -> 1 `i 415  ]
 {
-"421
-[; ;main.c: 421:         duty = 1023 - duty;
+"420
+[; ;main.c: 420:         duty = 1023 - duty;
 [e = _duty -> - -> -> 1023 `i `ui -> _duty `ui `us ]
-"422
-[; ;main.c: 422:         }
+"421
+[; ;main.c: 421:         }
 }
 [e :U 415 ]
-"425
-[; ;main.c: 425:     if(current_depth != 0){
+"424
+[; ;main.c: 424:     if(current_depth != 0){
 [e $ ! != -> _current_depth `ui -> -> 0 `i `ui 416  ]
 {
-"426
-[; ;main.c: 426:         duty_low_byte = duty & 0xFF;
+"425
+[; ;main.c: 425:         duty_low_byte = duty & 0xFF;
 [e = _duty_low_byte -> & -> _duty `ui -> -> 255 `i `ui `uc ]
-"427
-[; ;main.c: 427:         duty_high_byte = duty >> 8;
+"426
+[; ;main.c: 426:         duty_high_byte = duty >> 8;
 [e = _duty_high_byte -> >> -> _duty `ui -> 8 `i `uc ]
-"435
-[; ;main.c: 435:         __asm("CLRF r3");
+"434
+[; ;main.c: 434:         __asm("CLRF r3");
 [; <" CLRF r3 ;# ">
-"436
-[; ;main.c: 436:         __asm("CLRF r1");
+"435
+[; ;main.c: 435:         __asm("CLRF r1");
 [; <" CLRF r1 ;# ">
-"437
-[; ;main.c: 437:         __asm("BCF STATUS,0");
+"436
+[; ;main.c: 436:         __asm("BCF STATUS,0");
 [; <" BCF STATUS,0 ;# ">
-"438
-[; ;main.c: 438:         __asm("MOVF _current_depth,0");
+"437
+[; ;main.c: 437:         __asm("MOVF _current_depth,0");
 [; <" MOVF _current_depth,0 ;# ">
-"440
-[; ;main.c: 440:         __asm("mmac _duty_low_byte,0,r3,r1");
+"439
+[; ;main.c: 439:         __asm("mmac _duty_low_byte,0,r3,r1");
 [; <" mmac _duty_low_byte,0,r3,r1 ;# ">
-"441
-[; ;main.c: 441:         __asm("mmac _duty_low_byte,1,r3,r1");
+"440
+[; ;main.c: 440:         __asm("mmac _duty_low_byte,1,r3,r1");
 [; <" mmac _duty_low_byte,1,r3,r1 ;# ">
-"442
-[; ;main.c: 442:         __asm("mmac _duty_low_byte,2,r3,r1");
+"441
+[; ;main.c: 441:         __asm("mmac _duty_low_byte,2,r3,r1");
 [; <" mmac _duty_low_byte,2,r3,r1 ;# ">
-"443
-[; ;main.c: 443:         __asm("mmac _duty_low_byte,3,r3,r1");
+"442
+[; ;main.c: 442:         __asm("mmac _duty_low_byte,3,r3,r1");
 [; <" mmac _duty_low_byte,3,r3,r1 ;# ">
-"444
-[; ;main.c: 444:         __asm("mmac _duty_low_byte,4,r3,r1");
+"443
+[; ;main.c: 443:         __asm("mmac _duty_low_byte,4,r3,r1");
 [; <" mmac _duty_low_byte,4,r3,r1 ;# ">
-"445
-[; ;main.c: 445:         __asm("mmac _duty_low_byte,5,r3,r1");
+"444
+[; ;main.c: 444:         __asm("mmac _duty_low_byte,5,r3,r1");
 [; <" mmac _duty_low_byte,5,r3,r1 ;# ">
-"446
-[; ;main.c: 446:         __asm("mmac _duty_low_byte,6,r3,r1");
+"445
+[; ;main.c: 445:         __asm("mmac _duty_low_byte,6,r3,r1");
 [; <" mmac _duty_low_byte,6,r3,r1 ;# ">
-"447
-[; ;main.c: 447:         __asm("mmac _duty_low_byte,7,r3,r1");
+"446
+[; ;main.c: 446:         __asm("mmac _duty_low_byte,7,r3,r1");
 [; <" mmac _duty_low_byte,7,r3,r1 ;# ">
-"449
-[; ;main.c: 449:         __asm("CLRF r2");
+"448
+[; ;main.c: 448:         __asm("CLRF r2");
 [; <" CLRF r2 ;# ">
-"452
-[; ;main.c: 452:         __asm("mmac _duty_high_byte,0,r3,r2");
+"451
+[; ;main.c: 451:         __asm("mmac _duty_high_byte,0,r3,r2");
 [; <" mmac _duty_high_byte,0,r3,r2 ;# ">
-"453
-[; ;main.c: 453:         __asm("mmac _duty_high_byte,1,r3,r2");
+"452
+[; ;main.c: 452:         __asm("mmac _duty_high_byte,1,r3,r2");
 [; <" mmac _duty_high_byte,1,r3,r2 ;# ">
-"454
-[; ;main.c: 454:         __asm("mmac _duty_high_byte,2,r3,r2");
+"453
+[; ;main.c: 453:         __asm("mmac _duty_high_byte,2,r3,r2");
 [; <" mmac _duty_high_byte,2,r3,r2 ;# ">
-"455
-[; ;main.c: 455:         __asm("mmac _duty_high_byte,3,r3,r2");
+"454
+[; ;main.c: 454:         __asm("mmac _duty_high_byte,3,r3,r2");
 [; <" mmac _duty_high_byte,3,r3,r2 ;# ">
-"456
-[; ;main.c: 456:         __asm("mmac _duty_high_byte,4,r3,r2");
+"455
+[; ;main.c: 455:         __asm("mmac _duty_high_byte,4,r3,r2");
 [; <" mmac _duty_high_byte,4,r3,r2 ;# ">
-"457
-[; ;main.c: 457:         __asm("mmac _duty_high_byte,5,r3,r2");
+"456
+[; ;main.c: 456:         __asm("mmac _duty_high_byte,5,r3,r2");
 [; <" mmac _duty_high_byte,5,r3,r2 ;# ">
-"458
-[; ;main.c: 458:         __asm("mmac _duty_high_byte,6,r3,r2");
+"457
+[; ;main.c: 457:         __asm("mmac _duty_high_byte,6,r3,r2");
 [; <" mmac _duty_high_byte,6,r3,r2 ;# ">
-"459
-[; ;main.c: 459:         __asm("mmac _duty_high_byte,7,r3,r2");
+"458
+[; ;main.c: 458:         __asm("mmac _duty_high_byte,7,r3,r2");
 [; <" mmac _duty_high_byte,7,r3,r2 ;# ">
-"462
-[; ;main.c: 462:         duty = 1023 - *top_two_bytes_ptr;
+"461
+[; ;main.c: 461:         duty = 1023 - *top_two_bytes_ptr;
 [e = _duty -> - -> -> 1023 `i `ui -> *U _top_two_bytes_ptr `ui `us ]
-"463
-[; ;main.c: 463:     }
+"462
+[; ;main.c: 462:     }
 }
 [e $U 417  ]
-"464
-[; ;main.c: 464:     else{
+"463
+[; ;main.c: 463:     else{
 [e :U 416 ]
 {
-"465
-[; ;main.c: 465:         duty = 1023;
+"464
+[; ;main.c: 464:         duty = 1023;
 [e = _duty -> -> 1023 `i `us ]
-"466
-[; ;main.c: 466:     }
+"465
+[; ;main.c: 465:     }
 }
 [e :U 417 ]
-"469
-[; ;main.c: 469:     SET_DUTY_CCP3(&duty);
+"468
+[; ;main.c: 468:     SET_DUTY_CCP3(&duty);
 [e ( _SET_DUTY_CCP3 (1 &U _duty ]
-"472
-[; ;main.c: 472:     LATC5 = 0;
+"471
+[; ;main.c: 471:     LATC5 = 0;
 [e = _LATC5 -> -> 0 `i `b ]
-"473
-[; ;main.c: 473:     GIE = 1;
+"472
+[; ;main.c: 472:     GIE = 1;
 [e = _GIE -> -> 1 `i `b ]
-"474
-[; ;main.c: 474:     }
+"473
+[; ;main.c: 473:     }
 }
 [e :U 403 ]
-"475
-[; ;main.c: 475: }
+"474
+[; ;main.c: 474: }
 [e :UE 402 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"477
-[; ;main.c: 477: void main(void) {
+"476
+[; ;main.c: 476: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"479
-[; ;main.c: 479:     CONFIG_SYSTEM();
+"478
+[; ;main.c: 478:     CONFIG_SYSTEM();
 [e ( _CONFIG_SYSTEM ..  ]
-"480
-[; ;main.c: 480:     TURN_ON_CCP3_PWM();
+"479
+[; ;main.c: 479:     TURN_ON_CCP3_PWM();
 [e ( _TURN_ON_CCP3_PWM ..  ]
-"481
-[; ;main.c: 481:     CONFIG_TMR0_INTERRUPT();
+"480
+[; ;main.c: 480:     CONFIG_TMR0_INTERRUPT();
 [e ( _CONFIG_TMR0_INTERRUPT ..  ]
-"482
-[; ;main.c: 482:     GET_CURRENT_POT_VALUES();
+"481
+[; ;main.c: 481:     GET_CURRENT_POT_VALUES();
 [e ( _GET_CURRENT_POT_VALUES ..  ]
-"483
-[; ;main.c: 483:     PROCESS_RAW_SPEED_AND_PRESCALER();
+"482
+[; ;main.c: 482:     PROCESS_RAW_SPEED_AND_PRESCALER();
 [e ( _PROCESS_RAW_SPEED_AND_PRESCALER ..  ]
-"484
-[; ;main.c: 484:     PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
+"483
+[; ;main.c: 483:     PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
 [e ( _PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST ..  ]
-"485
-[; ;main.c: 485:     PROCESS_FINAL_SPEED_AND_PRESCALER();
+"484
+[; ;main.c: 484:     PROCESS_FINAL_SPEED_AND_PRESCALER();
 [e ( _PROCESS_FINAL_SPEED_AND_PRESCALER ..  ]
-"486
-[; ;main.c: 486:     TMR0_WRITE(&final_TMR0);
+"485
+[; ;main.c: 485:     TMR0_WRITE(&final_TMR0);
 [e ( _TMR0_WRITE (1 &U _final_TMR0 ]
-"487
-[; ;main.c: 487:     GIE = 1;
+"486
+[; ;main.c: 486:     GIE = 1;
 [e = _GIE -> -> 1 `i `b ]
-"489
-[; ;main.c: 489:     while(1){
+"488
+[; ;main.c: 488:     while(1){
 [e :U 420 ]
 {
-"491
-[; ;main.c: 491:         GET_CURRENT_POT_VALUES();
+"490
+[; ;main.c: 490:         GET_CURRENT_POT_VALUES();
 [e ( _GET_CURRENT_POT_VALUES ..  ]
-"492
-[; ;main.c: 492:         PROCESS_RAW_SPEED_AND_PRESCALER();
+"491
+[; ;main.c: 491:         PROCESS_RAW_SPEED_AND_PRESCALER();
 [e ( _PROCESS_RAW_SPEED_AND_PRESCALER ..  ]
-"493
-[; ;main.c: 493:         PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
+"492
+[; ;main.c: 492:         PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
 [e ( _PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST ..  ]
-"494
-[; ;main.c: 494:         PROCESS_FINAL_SPEED_AND_PRESCALER();
+"493
+[; ;main.c: 493:         PROCESS_FINAL_SPEED_AND_PRESCALER();
 [e ( _PROCESS_FINAL_SPEED_AND_PRESCALER ..  ]
-"495
-[; ;main.c: 495:         }
+"494
+[; ;main.c: 494:         }
 }
 [e :U 419 ]
 [e $U 420  ]
 [e :U 421 ]
-"496
-[; ;main.c: 496: }
+"495
+[; ;main.c: 495: }
 [e :UE 418 ]
 }

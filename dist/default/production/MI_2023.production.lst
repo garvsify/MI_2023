@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
-                                                                                               Sat Jan 20 21:20:29 2024
+                                                                                               Sat Jan 20 21:37:34 2024
 
 Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9 
      1                           	processor	16F1824
@@ -1209,134 +1209,134 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   1195                           	psect	stringtext4
   1196     03F4                     __pstringtext4:
   1197     03F4                     _lengthen_period_log_table:
-  1198     03F4  346C               	retlw	108
-  1199     03F5  346C               	retlw	108
-  1200     03F6  346C               	retlw	108
-  1201     03F7  346B               	retlw	107
-  1202     03F8  346B               	retlw	107
-  1203     03F9  346B               	retlw	107
-  1204     03FA  346B               	retlw	107
-  1205     03FB  346B               	retlw	107
-  1206     03FC  346B               	retlw	107
-  1207     03FD  346A               	retlw	106
-  1208     03FE  346A               	retlw	106
-  1209     03FF  346A               	retlw	106
-  1210     0400  346A               	retlw	106
-  1211     0401  346A               	retlw	106
-  1212     0402  3469               	retlw	105
-  1213     0403  3469               	retlw	105
-  1214     0404  3469               	retlw	105
-  1215     0405  3469               	retlw	105
-  1216     0406  3469               	retlw	105
-  1217     0407  3468               	retlw	104
-  1218     0408  3468               	retlw	104
-  1219     0409  3468               	retlw	104
-  1220     040A  3468               	retlw	104
-  1221     040B  3468               	retlw	104
-  1222     040C  3467               	retlw	103
-  1223     040D  3467               	retlw	103
-  1224     040E  3467               	retlw	103
-  1225     040F  3467               	retlw	103
-  1226     0410  3467               	retlw	103
-  1227     0411  3466               	retlw	102
-  1228     0412  3466               	retlw	102
-  1229     0413  3466               	retlw	102
-  1230     0414  3466               	retlw	102
-  1231     0415  3465               	retlw	101
-  1232     0416  3465               	retlw	101
-  1233     0417  3465               	retlw	101
-  1234     0418  3465               	retlw	101
-  1235     0419  3464               	retlw	100
-  1236     041A  3464               	retlw	100
-  1237     041B  3464               	retlw	100
-  1238     041C  3464               	retlw	100
-  1239     041D  3464               	retlw	100
-  1240     041E  3463               	retlw	99
-  1241     041F  3463               	retlw	99
-  1242     0420  3463               	retlw	99
-  1243     0421  3462               	retlw	98
-  1244     0422  3462               	retlw	98
-  1245     0423  3462               	retlw	98
-  1246     0424  3462               	retlw	98
-  1247     0425  3461               	retlw	97
-  1248     0426  3461               	retlw	97
-  1249     0427  3461               	retlw	97
-  1250     0428  3461               	retlw	97
-  1251     0429  3460               	retlw	96
-  1252     042A  3460               	retlw	96
-  1253     042B  3460               	retlw	96
-  1254     042C  345F               	retlw	95
-  1255     042D  345F               	retlw	95
-  1256     042E  345F               	retlw	95
-  1257     042F  345E               	retlw	94
-  1258     0430  345E               	retlw	94
-  1259     0431  345E               	retlw	94
-  1260     0432  345D               	retlw	93
-  1261     0433  345D               	retlw	93
-  1262     0434  345D               	retlw	93
-  1263     0435  345C               	retlw	92
-  1264     0436  345C               	retlw	92
-  1265     0437  345C               	retlw	92
-  1266     0438  345B               	retlw	91
-  1267     0439  345B               	retlw	91
-  1268     043A  345B               	retlw	91
-  1269     043B  345A               	retlw	90
-  1270     043C  345A               	retlw	90
-  1271     043D  3459               	retlw	89
-  1272     043E  3459               	retlw	89
-  1273     043F  3459               	retlw	89
-  1274     0440  3458               	retlw	88
-  1275     0441  3458               	retlw	88
-  1276     0442  3457               	retlw	87
-  1277     0443  3457               	retlw	87
-  1278     0444  3456               	retlw	86
-  1279     0445  3456               	retlw	86
-  1280     0446  3456               	retlw	86
-  1281     0447  3455               	retlw	85
-  1282     0448  3455               	retlw	85
-  1283     0449  3454               	retlw	84
-  1284     044A  3454               	retlw	84
-  1285     044B  3453               	retlw	83
-  1286     044C  3453               	retlw	83
-  1287     044D  3452               	retlw	82
-  1288     044E  3451               	retlw	81
-  1289     044F  3451               	retlw	81
-  1290     0450  3450               	retlw	80
-  1291     0451  3450               	retlw	80
-  1292     0452  344F               	retlw	79
-  1293     0453  344E               	retlw	78
-  1294     0454  344E               	retlw	78
-  1295     0455  344D               	retlw	77
-  1296     0456  344C               	retlw	76
-  1297     0457  344C               	retlw	76
-  1298     0458  344B               	retlw	75
-  1299     0459  344A               	retlw	74
-  1300     045A  3449               	retlw	73
-  1301     045B  3448               	retlw	72
-  1302     045C  3448               	retlw	72
-  1303     045D  3447               	retlw	71
-  1304     045E  3446               	retlw	70
-  1305     045F  3445               	retlw	69
-  1306     0460  3444               	retlw	68
-  1307     0461  3443               	retlw	67
-  1308     0462  3441               	retlw	65
-  1309     0463  3440               	retlw	64
-  1310     0464  343F               	retlw	63
-  1311     0465  343E               	retlw	62
-  1312     0466  343C               	retlw	60
-  1313     0467  343B               	retlw	59
-  1314     0468  3439               	retlw	57
-  1315     0469  3437               	retlw	55
-  1316     046A  3435               	retlw	53
-  1317     046B  3433               	retlw	51
-  1318     046C  3431               	retlw	49
-  1319     046D  342E               	retlw	46
-  1320     046E  342B               	retlw	43
-  1321     046F  3428               	retlw	40
-  1322     0470  3424               	retlw	36
-  1323     0471  341F               	retlw	31
-  1324     0472  3418               	retlw	24
-  1325     0473  340F               	retlw	15
+  1198     03F4  3461               	retlw	97
+  1199     03F5  3461               	retlw	97
+  1200     03F6  3461               	retlw	97
+  1201     03F7  3461               	retlw	97
+  1202     03F8  3460               	retlw	96
+  1203     03F9  3460               	retlw	96
+  1204     03FA  3460               	retlw	96
+  1205     03FB  3460               	retlw	96
+  1206     03FC  3460               	retlw	96
+  1207     03FD  3460               	retlw	96
+  1208     03FE  345F               	retlw	95
+  1209     03FF  345F               	retlw	95
+  1210     0400  345F               	retlw	95
+  1211     0401  345F               	retlw	95
+  1212     0402  345F               	retlw	95
+  1213     0403  345F               	retlw	95
+  1214     0404  345E               	retlw	94
+  1215     0405  345E               	retlw	94
+  1216     0406  345E               	retlw	94
+  1217     0407  345E               	retlw	94
+  1218     0408  345E               	retlw	94
+  1219     0409  345D               	retlw	93
+  1220     040A  345D               	retlw	93
+  1221     040B  345D               	retlw	93
+  1222     040C  345D               	retlw	93
+  1223     040D  345D               	retlw	93
+  1224     040E  345D               	retlw	93
+  1225     040F  345C               	retlw	92
+  1226     0410  345C               	retlw	92
+  1227     0411  345C               	retlw	92
+  1228     0412  345C               	retlw	92
+  1229     0413  345C               	retlw	92
+  1230     0414  345B               	retlw	91
+  1231     0415  345B               	retlw	91
+  1232     0416  345B               	retlw	91
+  1233     0417  345B               	retlw	91
+  1234     0418  345A               	retlw	90
+  1235     0419  345A               	retlw	90
+  1236     041A  345A               	retlw	90
+  1237     041B  345A               	retlw	90
+  1238     041C  345A               	retlw	90
+  1239     041D  3459               	retlw	89
+  1240     041E  3459               	retlw	89
+  1241     041F  3459               	retlw	89
+  1242     0420  3459               	retlw	89
+  1243     0421  3458               	retlw	88
+  1244     0422  3458               	retlw	88
+  1245     0423  3458               	retlw	88
+  1246     0424  3458               	retlw	88
+  1247     0425  3457               	retlw	87
+  1248     0426  3457               	retlw	87
+  1249     0427  3457               	retlw	87
+  1250     0428  3457               	retlw	87
+  1251     0429  3456               	retlw	86
+  1252     042A  3456               	retlw	86
+  1253     042B  3456               	retlw	86
+  1254     042C  3456               	retlw	86
+  1255     042D  3455               	retlw	85
+  1256     042E  3455               	retlw	85
+  1257     042F  3455               	retlw	85
+  1258     0430  3455               	retlw	85
+  1259     0431  3454               	retlw	84
+  1260     0432  3454               	retlw	84
+  1261     0433  3454               	retlw	84
+  1262     0434  3453               	retlw	83
+  1263     0435  3453               	retlw	83
+  1264     0436  3453               	retlw	83
+  1265     0437  3452               	retlw	82
+  1266     0438  3452               	retlw	82
+  1267     0439  3452               	retlw	82
+  1268     043A  3451               	retlw	81
+  1269     043B  3451               	retlw	81
+  1270     043C  3451               	retlw	81
+  1271     043D  3450               	retlw	80
+  1272     043E  3450               	retlw	80
+  1273     043F  3450               	retlw	80
+  1274     0440  344F               	retlw	79
+  1275     0441  344F               	retlw	79
+  1276     0442  344E               	retlw	78
+  1277     0443  344E               	retlw	78
+  1278     0444  344E               	retlw	78
+  1279     0445  344D               	retlw	77
+  1280     0446  344D               	retlw	77
+  1281     0447  344C               	retlw	76
+  1282     0448  344C               	retlw	76
+  1283     0449  344C               	retlw	76
+  1284     044A  344B               	retlw	75
+  1285     044B  344B               	retlw	75
+  1286     044C  344A               	retlw	74
+  1287     044D  344A               	retlw	74
+  1288     044E  3449               	retlw	73
+  1289     044F  3449               	retlw	73
+  1290     0450  3448               	retlw	72
+  1291     0451  3448               	retlw	72
+  1292     0452  3447               	retlw	71
+  1293     0453  3446               	retlw	70
+  1294     0454  3446               	retlw	70
+  1295     0455  3445               	retlw	69
+  1296     0456  3445               	retlw	69
+  1297     0457  3444               	retlw	68
+  1298     0458  3443               	retlw	67
+  1299     0459  3443               	retlw	67
+  1300     045A  3442               	retlw	66
+  1301     045B  3441               	retlw	65
+  1302     045C  3440               	retlw	64
+  1303     045D  343F               	retlw	63
+  1304     045E  343F               	retlw	63
+  1305     045F  343E               	retlw	62
+  1306     0460  343D               	retlw	61
+  1307     0461  343C               	retlw	60
+  1308     0462  343B               	retlw	59
+  1309     0463  343A               	retlw	58
+  1310     0464  3439               	retlw	57
+  1311     0465  3437               	retlw	55
+  1312     0466  3436               	retlw	54
+  1313     0467  3435               	retlw	53
+  1314     0468  3433               	retlw	51
+  1315     0469  3432               	retlw	50
+  1316     046A  3430               	retlw	48
+  1317     046B  342E               	retlw	46
+  1318     046C  342C               	retlw	44
+  1319     046D  342A               	retlw	42
+  1320     046E  3427               	retlw	39
+  1321     046F  3424               	retlw	36
+  1322     0470  3420               	retlw	32
+  1323     0471  341C               	retlw	28
+  1324     0472  3416               	retlw	22
+  1325     0473  340E               	retlw	14
   1326     0474  3400               	retlw	0
   1327     0475                     __end_of_lengthen_period_log_table:
   1328                           
@@ -1778,7 +1778,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   1764 ;;
   1765 ;; *************** function _main *****************
   1766 ;; Defined at:
-  1767 ;;		line 477 in file "main.c"
+  1767 ;;		line 476 in file "main.c"
   1768 ;; Parameters:    Size  Location     Type
   1769 ;;		None
   1770 ;; Auto vars:     Size  Location     Type
@@ -1816,48 +1816,48 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   1802                           ;psect for function _main
   1803                           
   1804                           
-  1805                           ;main.c: 479:     CONFIG_SYSTEM();
+  1805                           ;main.c: 478:     CONFIG_SYSTEM();
   1806                           
   1807                           ;incstack = 0
   1808                           ; Regs used in _main: [wreg-fsr1h+status,2+status,0+pclath+cstack]
   1809     06BB  3187  2757  3186   	fcall	_CONFIG_SYSTEM
   1810                           
-  1811                           ;main.c: 480:     TURN_ON_CCP3_PWM();
+  1811                           ;main.c: 479:     TURN_ON_CCP3_PWM();
   1812     06BE  3187  2774  3186   	fcall	_TURN_ON_CCP3_PWM
   1813                           
-  1814                           ;main.c: 481:     CONFIG_TMR0_INTERRUPT();
+  1814                           ;main.c: 480:     CONFIG_TMR0_INTERRUPT();
   1815     06C1  3187  2796  3186   	fcall	_CONFIG_TMR0_INTERRUPT
   1816                           
-  1817                           ;main.c: 482:     GET_CURRENT_POT_VALUES();
+  1817                           ;main.c: 481:     GET_CURRENT_POT_VALUES();
   1818     06C4  3185  25EA  3186   	fcall	_GET_CURRENT_POT_VALUES
   1819                           
-  1820                           ;main.c: 483:     PROCESS_RAW_SPEED_AND_PRESCALER();
+  1820                           ;main.c: 482:     PROCESS_RAW_SPEED_AND_PRESCALER();
   1821     06C7  3184  24F5  3186   	fcall	_PROCESS_RAW_SPEED_AND_PRESCALER
   1822                           
-  1823                           ;main.c: 484:     PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
+  1823                           ;main.c: 483:     PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
   1824     06CA  3185  25AC  3186   	fcall	_PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST
   1825                           
-  1826                           ;main.c: 485:     PROCESS_FINAL_SPEED_AND_PRESCALER();
+  1826                           ;main.c: 484:     PROCESS_FINAL_SPEED_AND_PRESCALER();
   1827     06CD  3185  255F  3186   	fcall	_PROCESS_FINAL_SPEED_AND_PRESCALER
   1828                           
-  1829                           ;main.c: 486:     TMR0_WRITE(&final_TMR0);
+  1829                           ;main.c: 485:     TMR0_WRITE(&final_TMR0);
   1830     06D0  3045               	movlw	(low (_final_TMR0| 0))& (0+255)
   1831     06D1  3187  277C  3186   	fcall	_TMR0_WRITE
   1832                           
-  1833                           ;main.c: 487:     GIE = 1;
+  1833                           ;main.c: 486:     GIE = 1;
   1834     06D4  178B               	bsf	11,7	;volatile
   1835     06D5                     l1901:
   1836                           
-  1837                           ;main.c: 491:         GET_CURRENT_POT_VALUES();
+  1837                           ;main.c: 490:         GET_CURRENT_POT_VALUES();
   1838     06D5  3185  25EA  3186   	fcall	_GET_CURRENT_POT_VALUES
   1839                           
-  1840                           ;main.c: 492:         PROCESS_RAW_SPEED_AND_PRESCALER();
+  1840                           ;main.c: 491:         PROCESS_RAW_SPEED_AND_PRESCALER();
   1841     06D8  3184  24F5  3186   	fcall	_PROCESS_RAW_SPEED_AND_PRESCALER
   1842                           
-  1843                           ;main.c: 493:         PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
+  1843                           ;main.c: 492:         PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
   1844     06DB  3185  25AC  3186   	fcall	_PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST
   1845                           
-  1846                           ;main.c: 494:         PROCESS_FINAL_SPEED_AND_PRESCALER();
+  1846                           ;main.c: 493:         PROCESS_FINAL_SPEED_AND_PRESCALER();
   1847     06DE  3185  255F  3186   	fcall	_PROCESS_FINAL_SPEED_AND_PRESCALER
   1848     06E1  2ED5               	goto	l1901
   1849     06E2                     __end_of_main:
@@ -1866,7 +1866,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   1852     0774                     __ptext1:	
   1853 ;; *************** function _TURN_ON_CCP3_PWM *****************
   1854 ;; Defined at:
-  1855 ;;		line 224 in file "main.c"
+  1855 ;;		line 225 in file "main.c"
   1856 ;; Parameters:    Size  Location     Type
   1857 ;;		None
   1858 ;; Auto vars:     Size  Location     Type
@@ -1898,28 +1898,28 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   1884                           ;psect for function _TURN_ON_CCP3_PWM
   1885                           
   1886                           
-  1887                           ;main.c: 226:     TMR2IF = 0;
+  1887                           ;main.c: 227:     TMR2IF = 0;
   1888                           
   1889                           ;incstack = 0
   1890                           ; Regs used in _TURN_ON_CCP3_PWM: []
   1891     0774  1091               	bcf	17,1	;volatile
   1892                           
-  1893                           ;main.c: 227:     TMR2ON = 1;
+  1893                           ;main.c: 228:     TMR2ON = 1;
   1894     0775  151C               	bsf	28,2	;volatile
   1895     0776                     l181:	
-  1896                           ;main.c: 228:     while(TMR2IF == 0){}
+  1896                           ;main.c: 229:     while(TMR2IF == 0){}
   1897                           
   1898     0776  1C91               	btfss	17,1	;volatile
   1899     0777  2F76               	goto	l181
   1900                           
-  1901                           ;main.c: 229:     TMR2IF = 0;
+  1901                           ;main.c: 230:     TMR2IF = 0;
   1902     0778  1091               	bcf	17,1	;volatile
   1903                           
-  1904                           ;main.c: 230:     TRISA2 = 0;
+  1904                           ;main.c: 231:     TRISA2 = 0;
   1905     0779  0021               	movlb	1	; select bank1
   1906     077A  110C               	bcf	12,2	;volatile
   1907                           
-  1908                           ;main.c: 231:     return 1;;	Return value of _TURN_ON_CCP3_PWM is never used
+  1908                           ;main.c: 232:     return 1;;	Return value of _TURN_ON_CCP3_PWM is never used
   1909     077B  0008               	return
   1910     077C                     __end_of_TURN_ON_CCP3_PWM:
   1911                           
@@ -1927,7 +1927,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   1913     077C                     __ptext2:	
   1914 ;; *************** function _TMR0_WRITE *****************
   1915 ;; Defined at:
-  1916 ;;		line 247 in file "main.c"
+  1916 ;;		line 248 in file "main.c"
   1917 ;; Parameters:    Size  Location     Type
   1918 ;;  timer_value_    1    wreg     PTR volatile unsigned ch
   1919 ;;		 -> final_TMR0(1), 
@@ -1967,7 +1967,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   1953     077C  0020               	movlb	0	; select bank0
   1954     077D  00C6               	movwf	TMR0_WRITE@timer_value_ptr
   1955                           
-  1956                           ;main.c: 248:     TMR0 = (uint8_t) *timer_value_ptr;
+  1956                           ;main.c: 249:     TMR0 = (uint8_t) *timer_value_ptr;
   1957     077E  0846               	movf	TMR0_WRITE@timer_value_ptr,w
   1958     077F  0086               	movwf	6
   1959     0780  0187               	clrf	7
@@ -1980,7 +1980,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   1966     05AC                     __ptext3:	
   1967 ;; *************** function _PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST *****************
   1968 ;; Defined at:
-  1969 ;;		line 358 in file "main.c"
+  1969 ;;		line 357 in file "main.c"
   1970 ;; Parameters:    Size  Location     Type
   1971 ;;		None
   1972 ;; Auto vars:     Size  Location     Type
@@ -2013,7 +2013,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   1999                           ;psect for function _PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST
   2000                           
   2001                           
-  2002                           ;main.c: 359:     if(current_symmetry == 128){
+  2002                           ;main.c: 358:     if(current_symmetry == 128){
   2003                           
   2004                           ;incstack = 0
   2005                           ; Regs used in _PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST: [wreg+status,2+status,0+pclath
@@ -2024,28 +2024,28 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2009     05AF  1D03               	btfss	3,2
   2010     05B0  2DB7               	goto	l1849
   2011                           
-  2012                           ;main.c: 360:         TMR0_offset = 0;
+  2012                           ;main.c: 359:         TMR0_offset = 0;
   2013     05B1  01BE               	clrf	_TMR0_offset	;volatile
   2014                           
-  2015                           ;main.c: 361:         TMR0_offset_sign = POSITIVE;
+  2015                           ;main.c: 360:         TMR0_offset_sign = POSITIVE;
   2016     05B2  3001               	movlw	1
   2017     05B3  00BD               	movwf	_TMR0_offset_sign	;volatile
   2018                           
-  2019                           ;main.c: 362:         prescaler_adjust = DO_NOTHING;
+  2019                           ;main.c: 361:         prescaler_adjust = DO_NOTHING;
   2020     05B4  01F3               	clrf	_prescaler_adjust	;volatile
   2021                           
-  2022                           ;main.c: 363:         clear_TMR0_please = NO;
+  2022                           ;main.c: 362:         clear_TMR0_please = NO;
   2023     05B5  01BB               	clrf	_clear_TMR0_please	;volatile
   2024                           
-  2025                           ;main.c: 364:         return 1;;	Return value of _PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJU
+  2025                           ;main.c: 363:         return 1;;	Return value of _PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJU
       +                          ST is never used
   2026     05B6  0008               	return
   2027     05B7                     l1849:
   2028                           
-  2029                           ;main.c: 366:     uint8_t symmetry_status = CCW;
+  2029                           ;main.c: 365:     uint8_t symmetry_status = CCW;
   2030     05B7  01D0               	clrf	PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST@symmetry_status
   2031                           
-  2032                           ;main.c: 367:     if(current_symmetry > 128){
+  2032                           ;main.c: 366:     if(current_symmetry > 128){
   2033     05B8  3000               	movlw	0
   2034     05B9  022D               	subwf	_current_symmetry+1,w	;volatile
   2035     05BA  3081               	movlw	129
@@ -2054,7 +2054,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2038     05BD  1C03               	skipc
   2039     05BE  2DCA               	goto	l1857
   2040                           
-  2041                           ;main.c: 368:         current_symmetry = 255 - current_symmetry;
+  2041                           ;main.c: 367:         current_symmetry = 255 - current_symmetry;
   2042     05BF  30FF               	movlw	255
   2043     05C0  00CF               	movwf	??_PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST
   2044     05C1  082C               	movf	_current_symmetry,w	;volatile
@@ -2065,12 +2065,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2049     05C6  0A89               	incf	9,f
   2050     05C7  00AD               	movwf	_current_symmetry+1	;volatile
   2051                           
-  2052                           ;main.c: 369:         symmetry_status = CW;
+  2052                           ;main.c: 368:         symmetry_status = CW;
   2053     05C8  01D0               	clrf	PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST@symmetry_status
   2054     05C9  0AD0               	incf	PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST@symmetry_status,f
   2055     05CA                     l1857:
   2056                           
-  2057                           ;main.c: 371:     if((current_halfcycle == 0) && (symmetry_status == CCW)){
+  2057                           ;main.c: 370:     if((current_halfcycle == 0) && (symmetry_status == CCW)){
   2058     05CA  0840               	movf	_current_halfcycle,w	;volatile
   2059     05CB  1D03               	btfss	3,2
   2060     05CC  2DD3               	goto	l1863
@@ -2079,10 +2079,10 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2063     05CF  2DD3               	goto	l1863
   2064     05D0                     l1861:
   2065                           
-  2066                           ;main.c: 372:         SHORTEN_PERIOD();
+  2066                           ;main.c: 371:         SHORTEN_PERIOD();
   2067     05D0  3184  2475         	fcall	_SHORTEN_PERIOD
   2068                           
-  2069                           ;main.c: 373:     }
+  2069                           ;main.c: 372:     }
   2070     05D2  0008               	return
   2071     05D3                     l1863:
   2072     05D3  0840               	movf	_current_halfcycle,w	;volatile
@@ -2098,10 +2098,10 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2082     05DC  2DE3               	goto	l1875
   2083     05DD                     l1867:
   2084                           
-  2085                           ;main.c: 375:         LENGTHEN_PERIOD();
+  2085                           ;main.c: 374:         LENGTHEN_PERIOD();
   2086     05DD  3186  2627         	fcall	_LENGTHEN_PERIOD
   2087                           
-  2088                           ;main.c: 376:     }
+  2088                           ;main.c: 375:     }
   2089     05DF  0008               	return
   2090     05E0                     l1869:
   2091     05E0  0340               	decf	_current_halfcycle,w	;volatile
@@ -2121,7 +2121,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2105     0475                     __ptext4:	
   2106 ;; *************** function _SHORTEN_PERIOD *****************
   2107 ;; Defined at:
-  2108 ;;		line 306 in file "main.c"
+  2108 ;;		line 307 in file "main.c"
   2109 ;; Parameters:    Size  Location     Type
   2110 ;;		None
   2111 ;; Auto vars:     Size  Location     Type
@@ -2153,7 +2153,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2137                           ;psect for function _SHORTEN_PERIOD
   2138                           
   2139                           
-  2140                           ;main.c: 307:     dTMR0_ideal = (128 - current_symmetry) << 1;
+  2140                           ;main.c: 308:     dTMR0_ideal = (128 - current_symmetry) << 1;
   2141                           
   2142                           ;incstack = 0
   2143                           ; Regs used in _SHORTEN_PERIOD: [wreg+status,2+status,0]
@@ -2373,7 +2373,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2357                           ;psect for function _LENGTHEN_PERIOD
   2358                           
   2359                           
-  2360                           ;main.c: 341:     dTMR0_ideal = 108 - ((108 * current_symmetry) >> 7);
+  2360                           ;main.c: 341:     dTMR0_ideal = 97 - ((97 * current_symmetry) >> 7);
   2361                           
   2362                           ;incstack = 0
   2363                           ; Regs used in _LENGTHEN_PERIOD: [wreg+status,2+status,0+pclath+cstack]
@@ -2381,7 +2381,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2365     0628  00C7               	movwf	___wmul@multiplier+1
   2366     0629  082C               	movf	_current_symmetry,w	;volatile
   2367     062A  00C6               	movwf	___wmul@multiplier
-  2368     062B  306C               	movlw	108
+  2368     062B  3061               	movlw	97
   2369     062C  00C8               	movwf	___wmul@multiplicand
   2370     062D  3000               	movlw	0
   2371     062E  00C9               	movwf	___wmul@multiplicand+1
@@ -2396,7 +2396,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2380     0638  0CCC               	rrf	??_LENGTHEN_PERIOD,f
   2381     0639  0B89               	decfsz	9,f
   2382     063A  2E37               	goto	u1295
-  2383     063B  306C               	movlw	108
+  2383     063B  3061               	movlw	97
   2384     063C  00CE               	movwf	??_LENGTHEN_PERIOD+2
   2385     063D  084C               	movf	??_LENGTHEN_PERIOD,w
   2386     063E  024E               	subwf	??_LENGTHEN_PERIOD+2,w
@@ -2406,7 +2406,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2390     0642  0A89               	incf	9,f
   2391     0643  00F1               	movwf	_dTMR0_ideal+1	;volatile
   2392                           
-  2393                           ;main.c: 343:         if(raw_TMR0 < dTMR0_ideal){
+  2393                           ;main.c: 342:         if(raw_TMR0 < dTMR0_ideal){
   2394     0644  0872               	movf	_raw_TMR0,w	;volatile
   2395     0645  00CC               	movwf	??_LENGTHEN_PERIOD
   2396     0646  01CD               	clrf	??_LENGTHEN_PERIOD+1
@@ -2420,39 +2420,39 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2404     064D  1803               	skipnc
   2405     064E  2E5A               	goto	l1745
   2406                           
-  2407                           ;main.c: 344:             TMR0_offset = (uint8_t) 128 - (dTMR0_ideal - raw_TMR0);
+  2407                           ;main.c: 343:             TMR0_offset = (uint8_t) 128 - (dTMR0_ideal - raw_TMR0);
   2408     064F  0870               	movf	_dTMR0_ideal,w	;volatile
   2409     0650  0272               	subwf	_raw_TMR0,w
   2410     0651  3E80               	addlw	128
   2411     0652  00BE               	movwf	_TMR0_offset	;volatile
   2412                           
-  2413                           ;main.c: 345:             TMR0_offset_sign = POSITIVE;
+  2413                           ;main.c: 344:             TMR0_offset_sign = POSITIVE;
   2414     0653  3001               	movlw	1
   2415     0654  00BD               	movwf	_TMR0_offset_sign	;volatile
   2416                           
-  2417                           ;main.c: 346:             prescaler_adjust = MULTIPLY_BY_TWO;
+  2417                           ;main.c: 345:             prescaler_adjust = MULTIPLY_BY_TWO;
   2418     0655  3002               	movlw	2
   2419     0656  00F3               	movwf	_prescaler_adjust	;volatile
   2420                           
-  2421                           ;main.c: 347:             clear_TMR0_please = YES;
+  2421                           ;main.c: 346:             clear_TMR0_please = YES;
   2422     0657  3001               	movlw	1
   2423     0658  00BB               	movwf	_clear_TMR0_please	;volatile
   2424                           
-  2425                           ;main.c: 348:         }
+  2425                           ;main.c: 347:         }
   2426     0659  0008               	return
   2427     065A                     l1745:
   2428                           
-  2429                           ;main.c: 350:             TMR0_offset = (uint8_t)dTMR0_ideal;
+  2429                           ;main.c: 349:             TMR0_offset = (uint8_t)dTMR0_ideal;
   2430     065A  0870               	movf	_dTMR0_ideal,w	;volatile
   2431     065B  00BE               	movwf	_TMR0_offset	;volatile
   2432                           
-  2433                           ;main.c: 351:             TMR0_offset_sign = NEGATIVE;
+  2433                           ;main.c: 350:             TMR0_offset_sign = NEGATIVE;
   2434     065C  01BD               	clrf	_TMR0_offset_sign	;volatile
   2435                           
-  2436                           ;main.c: 352:             prescaler_adjust = DO_NOTHING;
+  2436                           ;main.c: 351:             prescaler_adjust = DO_NOTHING;
   2437     065D  01F3               	clrf	_prescaler_adjust	;volatile
   2438                           
-  2439                           ;main.c: 353:             clear_TMR0_please = NO;
+  2439                           ;main.c: 352:             clear_TMR0_please = NO;
   2440     065E  01BB               	clrf	_clear_TMR0_please	;volatile
   2441     065F  0008               	return
   2442     0660                     __end_of_LENGTHEN_PERIOD:
@@ -2533,7 +2533,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2517     04F5                     __ptext7:	
   2518 ;; *************** function _PROCESS_RAW_SPEED_AND_PRESCALER *****************
   2519 ;; Defined at:
-  2520 ;;		line 262 in file "main.c"
+  2520 ;;		line 263 in file "main.c"
   2521 ;; Parameters:    Size  Location     Type
   2522 ;;		None
   2523 ;; Auto vars:     Size  Location     Type
@@ -2565,7 +2565,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2549                           ;psect for function _PROCESS_RAW_SPEED_AND_PRESCALER
   2550                           
   2551                           
-  2552                           ;main.c: 263:     current_speed_linear_32 = current_speed_linear;
+  2552                           ;main.c: 264:     current_speed_linear_32 = current_speed_linear;
   2553                           
   2554                           ;incstack = 0
   2555                           ; Regs used in _PROCESS_RAW_SPEED_AND_PRESCALER: [wreg+status,2+status,0+pclath+cstack]
@@ -2576,7 +2576,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2560     04F9  01A6               	clrf	_current_speed_linear_32+2	;volatile
   2561     04FA  01A7               	clrf	_current_speed_linear_32+3	;volatile
   2562                           
-  2563                           ;main.c: 264:     speed_control_32 = current_speed_linear_32 * 600;;
+  2563                           ;main.c: 265:     speed_control_32 = current_speed_linear_32 * 600;;
   2564     04FB  0827               	movf	_current_speed_linear_32+3,w	;volatile
   2565     04FC  00C9               	movwf	___lmul@multiplier+3
   2566     04FD  0826               	movf	_current_speed_linear_32+2,w	;volatile
@@ -2603,7 +2603,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2587     0514  0846               	movf	?___lmul,w
   2588     0515  00A8               	movwf	_speed_control_32	;volatile
   2589                           
-  2590                           ;main.c: 265:     speed_control_32 = speed_control_32 >> 10;
+  2590                           ;main.c: 266:     speed_control_32 = speed_control_32 >> 10;
   2591     0516  0828               	movf	_speed_control_32,w	;volatile
   2592     0517  00D2               	movwf	??_PROCESS_RAW_SPEED_AND_PRESCALER
   2593     0518  0829               	movf	_speed_control_32+1,w	;volatile
@@ -2629,13 +2629,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2613     052B  0852               	movf	??_PROCESS_RAW_SPEED_AND_PRESCALER,w
   2614     052C  00A8               	movwf	_speed_control_32	;volatile
   2615                           
-  2616                           ;main.c: 266:     speed_control = (uint16_t) speed_control_32;
+  2616                           ;main.c: 267:     speed_control = (uint16_t) speed_control_32;
   2617     052D  0829               	movf	_speed_control_32+1,w	;volatile
   2618     052E  00B9               	movwf	_speed_control+1	;volatile
   2619     052F  0828               	movf	_speed_control_32,w	;volatile
   2620     0530  00B8               	movwf	_speed_control	;volatile
   2621                           
-  2622                           ;main.c: 268:         if(speed_control <= (127-12)){
+  2622                           ;main.c: 269:         if(speed_control <= (127-12)){
   2623     0531  3000               	movlw	0
   2624     0532  0239               	subwf	_speed_control+1,w	;volatile
   2625     0533  3074               	movlw	116
@@ -2644,20 +2644,20 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2628     0536  1803               	skipnc
   2629     0537  2D3E               	goto	l1803
   2630                           
-  2631                           ;main.c: 269:             raw_TMR0 = (uint8_t) speed_control + 12;
+  2631                           ;main.c: 270:             raw_TMR0 = (uint8_t) speed_control + 12;
   2632     0538  0838               	movf	_speed_control,w	;volatile
   2633     0539  3E0C               	addlw	12
   2634     053A  00F2               	movwf	_raw_TMR0	;volatile
   2635                           
-  2636                           ;main.c: 270:             base_prescaler_bits_index = 1;
+  2636                           ;main.c: 271:             base_prescaler_bits_index = 1;
   2637     053B  3001               	movlw	1
   2638     053C  00BC               	movwf	_base_prescaler_bits_index	;volatile
   2639                           
-  2640                           ;main.c: 271:         }
+  2640                           ;main.c: 272:         }
   2641     053D  0008               	return
   2642     053E                     l1803:
   2643                           
-  2644                           ;main.c: 273:             speed_control_subtracted = speed_control - (127-12);
+  2644                           ;main.c: 274:             speed_control_subtracted = speed_control - (127-12);
   2645     053E  0838               	movf	_speed_control,w	;volatile
   2646     053F  3E8D               	addlw	141
   2647     0540  00B6               	movwf	_speed_control_subtracted	;volatile
@@ -2665,7 +2665,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2649     0542  3D39               	addwfc	_speed_control+1,w	;volatile
   2650     0543  00B7               	movwf	_speed_control_subtracted+1	;volatile
   2651                           
-  2652                           ;main.c: 274:             how_many_128 = speed_control_subtracted >> 7;
+  2652                           ;main.c: 275:             how_many_128 = speed_control_subtracted >> 7;
   2653     0544  0837               	movf	_speed_control_subtracted+1,w	;volatile
   2654     0545  00D3               	movwf	??_PROCESS_RAW_SPEED_AND_PRESCALER+1
   2655     0546  0836               	movf	_speed_control_subtracted,w	;volatile
@@ -2681,7 +2681,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2665     054F  0853               	movf	??_PROCESS_RAW_SPEED_AND_PRESCALER+1,w
   2666     0550  00B5               	movwf	_how_many_128+1	;volatile
   2667                           
-  2668                           ;main.c: 275:             raw_TMR0 = (uint8_t) (speed_control_subtracted - (how_many_128
+  2668                           ;main.c: 276:             raw_TMR0 = (uint8_t) (speed_control_subtracted - (how_many_128
       +                           << 7));
   2669     0551  0834               	movf	_how_many_128,w	;volatile
   2670     0552  00D2               	movwf	??_PROCESS_RAW_SPEED_AND_PRESCALER
@@ -2695,7 +2695,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2678     0559  0736               	addwf	_speed_control_subtracted,w	;volatile
   2679     055A  00F2               	movwf	_raw_TMR0	;volatile
   2680                           
-  2681                           ;main.c: 276:             base_prescaler_bits_index = how_many_128 + 2;
+  2681                           ;main.c: 277:             base_prescaler_bits_index = how_many_128 + 2;
   2682     055B  0834               	movf	_how_many_128,w	;volatile
   2683     055C  3E02               	addlw	2
   2684     055D  00BC               	movwf	_base_prescaler_bits_index	;volatile
@@ -2798,7 +2798,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2781     055F                     __ptext9:	
   2782 ;; *************** function _PROCESS_FINAL_SPEED_AND_PRESCALER *****************
   2783 ;; Defined at:
-  2784 ;;		line 281 in file "main.c"
+  2784 ;;		line 282 in file "main.c"
   2785 ;; Parameters:    Size  Location     Type
   2786 ;;		None
   2787 ;; Auto vars:     Size  Location     Type
@@ -2830,17 +2830,17 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2813                           ;psect for function _PROCESS_FINAL_SPEED_AND_PRESCALER
   2814                           
   2815                           
-  2816                           ;main.c: 282:     if(clear_TMR0_please){
+  2816                           ;main.c: 283:     if(clear_TMR0_please){
   2817                           
   2818                           ;incstack = 0
   2819                           ; Regs used in _PROCESS_FINAL_SPEED_AND_PRESCALER: [wreg-fsr0h+status,2+status,0+pclath]
   2820     055F  083B               	movf	_clear_TMR0_please,w	;volatile
   2821     0560  1D03               	btfss	3,2
   2822                           
-  2823                           ;main.c: 283:         raw_TMR0 = 0;
+  2823                           ;main.c: 284:         raw_TMR0 = 0;
   2824     0561  01F2               	clrf	_raw_TMR0	;volatile
   2825                           
-  2826                           ;main.c: 285:     if((TMR0_offset_sign == POSITIVE) || (TMR0_offset_sign == DONT_CARE)){
+  2826                           ;main.c: 286:     if((TMR0_offset_sign == POSITIVE) || (TMR0_offset_sign == DONT_CARE)){
   2827     0562  033D               	decf	_TMR0_offset_sign,w	;volatile
   2828     0563  1903               	btfsc	3,2
   2829     0564  2D69               	goto	l1815
@@ -2850,30 +2850,30 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2833     0568  2D6C               	goto	l1817
   2834     0569                     l1815:
   2835                           
-  2836                           ;main.c: 286:         final_TMR0 = raw_TMR0 + TMR0_offset;
+  2836                           ;main.c: 287:         final_TMR0 = raw_TMR0 + TMR0_offset;
   2837     0569  0872               	movf	_raw_TMR0,w	;volatile
   2838     056A  073E               	addwf	_TMR0_offset,w	;volatile
   2839     056B  2D71               	goto	L2
   2840     056C                     l1817:	
-  2841                           ;main.c: 287:     }
+  2841                           ;main.c: 288:     }
   2842                           
   2843     056C  083D               	movf	_TMR0_offset_sign,w	;volatile
   2844     056D  1D03               	btfss	3,2
   2845     056E  2D72               	goto	l208
   2846                           
-  2847                           ;main.c: 289:         final_TMR0 = raw_TMR0 - TMR0_offset;
+  2847                           ;main.c: 290:         final_TMR0 = raw_TMR0 - TMR0_offset;
   2848     056F  083E               	movf	_TMR0_offset,w	;volatile
   2849     0570  0272               	subwf	_raw_TMR0,w	;volatile
   2850     0571                     L2:
   2851     0571  00C5               	movwf	_final_TMR0	;volatile
   2852     0572                     l208:
   2853                           
-  2854                           ;main.c: 291:     if(prescaler_adjust == DIVIDE_BY_TWO){
+  2854                           ;main.c: 292:     if(prescaler_adjust == DIVIDE_BY_TWO){
   2855     0572  0373               	decf	_prescaler_adjust,w	;volatile
   2856     0573  1D03               	btfss	3,2
   2857     0574  2D80               	goto	l1823
   2858                           
-  2859                           ;main.c: 292:         OPTION_REG = prescaler_bits[base_prescaler_bits_index + 1];
+  2859                           ;main.c: 293:         OPTION_REG = prescaler_bits[base_prescaler_bits_index + 1];
   2860     0575  083C               	movf	_base_prescaler_bits_index,w	;volatile
   2861     0576  3E6D               	addlw	low ((_prescaler_bits+1)| (0+32768))
   2862     0577  0084               	movwf	4
@@ -2885,7 +2885,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2868     057D  0021               	movlb	1	; select bank1
   2869     057E  0095               	movwf	21	;volatile
   2870                           
-  2871                           ;main.c: 293:     }
+  2871                           ;main.c: 294:     }
   2872     057F  0008               	return
   2873     0580                     l1823:
   2874     0580  3003               	movlw	3
@@ -2893,7 +2893,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2876     0582  1D03               	btfss	3,2
   2877     0583  2D8F               	goto	l1827
   2878                           
-  2879                           ;main.c: 295:         OPTION_REG = prescaler_bits[base_prescaler_bits_index + 2];
+  2879                           ;main.c: 296:         OPTION_REG = prescaler_bits[base_prescaler_bits_index + 2];
   2880     0584  083C               	movf	_base_prescaler_bits_index,w	;volatile
   2881     0585  3E6E               	addlw	low ((_prescaler_bits+2)| (0+32768))
   2882     0586  0084               	movwf	4
@@ -2905,7 +2905,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2888     058C  0021               	movlb	1	; select bank1
   2889     058D  0095               	movwf	21	;volatile
   2890                           
-  2891                           ;main.c: 296:     }
+  2891                           ;main.c: 297:     }
   2892     058E  0008               	return
   2893     058F                     l1827:
   2894     058F  3002               	movlw	2
@@ -2913,7 +2913,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2896     0591  1D03               	btfss	3,2
   2897     0592  2D9E               	goto	l1831
   2898                           
-  2899                           ;main.c: 298:         OPTION_REG = prescaler_bits[base_prescaler_bits_index - 1];
+  2899                           ;main.c: 299:         OPTION_REG = prescaler_bits[base_prescaler_bits_index - 1];
   2900     0593  083C               	movf	_base_prescaler_bits_index,w	;volatile
   2901     0594  3E6B               	addlw	low ((_prescaler_bits+65535)| (0+32768))
   2902     0595  0084               	movwf	4
@@ -2925,14 +2925,14 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2908     059B  0021               	movlb	1	; select bank1
   2909     059C  0095               	movwf	21	;volatile
   2910                           
-  2911                           ;main.c: 299:     }
+  2911                           ;main.c: 300:     }
   2912     059D  0008               	return
   2913     059E                     l1831:
   2914     059E  0873               	movf	_prescaler_adjust,w	;volatile
   2915     059F  1D03               	btfss	3,2
   2916     05A0  0008               	return
   2917                           
-  2918                           ;main.c: 301:         OPTION_REG = prescaler_bits[base_prescaler_bits_index];
+  2918                           ;main.c: 302:         OPTION_REG = prescaler_bits[base_prescaler_bits_index];
   2919     05A1  083C               	movf	_base_prescaler_bits_index,w	;volatile
   2920     05A2  3E6C               	addlw	low (_prescaler_bits| (0+32768))
   2921     05A3  0084               	movwf	4
@@ -2950,7 +2950,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2933     05EA                     __ptext10:	
   2934 ;; *************** function _GET_CURRENT_POT_VALUES *****************
   2935 ;; Defined at:
-  2936 ;;		line 252 in file "main.c"
+  2936 ;;		line 253 in file "main.c"
   2937 ;; Parameters:    Size  Location     Type
   2938 ;;		None
   2939 ;; Auto vars:     Size  Location     Type
@@ -2983,14 +2983,14 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2966                           ;psect for function _GET_CURRENT_POT_VALUES
   2967                           
   2968                           
-  2969                           ;main.c: 253:     current_waveshape = DETERMINE_WAVESHAPE();
+  2969                           ;main.c: 254:     current_waveshape = DETERMINE_WAVESHAPE();
   2970                           
   2971                           ;incstack = 0
   2972                           ; Regs used in _GET_CURRENT_POT_VALUES: [wreg-fsr0h+status,2+status,0+pclath+cstack]
   2973     05EA  3186  26E2  3185   	fcall	_DETERMINE_WAVESHAPE
   2974     05ED  00F5               	movwf	_current_waveshape	;volatile
   2975                           
-  2976                           ;main.c: 254:     current_speed_linear = DO_ADC(&speed_adc_config_value);
+  2976                           ;main.c: 255:     current_speed_linear = DO_ADC(&speed_adc_config_value);
   2977     05EE  30A5               	movlw	low (_speed_adc_config_value| (0+32768))
   2978     05EF  00C6               	movwf	DO_ADC@modifier
   2979     05F0  3087               	movlw	high (_speed_adc_config_value| (0+32768))
@@ -3001,7 +3001,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2984     05F7  0846               	movf	?_DO_ADC,w
   2985     05F8  00B2               	movwf	_current_speed_linear	;volatile
   2986                           
-  2987                           ;main.c: 255:     current_depth = DO_ADC(&depth_adc_config_value);
+  2987                           ;main.c: 256:     current_depth = DO_ADC(&depth_adc_config_value);
   2988     05F9  30A4               	movlw	low (_depth_adc_config_value| (0+32768))
   2989     05FA  00C6               	movwf	DO_ADC@modifier
   2990     05FB  3087               	movlw	high (_depth_adc_config_value| (0+32768))
@@ -3012,7 +3012,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   2995     0602  0846               	movf	?_DO_ADC,w
   2996     0603  00AE               	movwf	_current_depth	;volatile
   2997                           
-  2998                           ;main.c: 256:     current_depth = current_depth >> 2;
+  2998                           ;main.c: 257:     current_depth = current_depth >> 2;
   2999     0604  082F               	movf	_current_depth+1,w	;volatile
   3000     0605  00CF               	movwf	??_GET_CURRENT_POT_VALUES+1
   3001     0606  082E               	movf	_current_depth,w	;volatile
@@ -3026,7 +3026,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3009     060E  084F               	movf	??_GET_CURRENT_POT_VALUES+1,w
   3010     060F  00AF               	movwf	_current_depth+1	;volatile
   3011                           
-  3012                           ;main.c: 257:     current_symmetry = DO_ADC(&symmetry_adc_config_value);
+  3012                           ;main.c: 258:     current_symmetry = DO_ADC(&symmetry_adc_config_value);
   3013     0610  30A3               	movlw	low (_symmetry_adc_config_value| (0+32768))
   3014     0611  00C6               	movwf	DO_ADC@modifier
   3015     0612  3087               	movlw	high (_symmetry_adc_config_value| (0+32768))
@@ -3037,7 +3037,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3020     0618  0846               	movf	?_DO_ADC,w
   3021     0619  00AC               	movwf	_current_symmetry	;volatile
   3022                           
-  3023                           ;main.c: 258:     current_symmetry = current_symmetry >> 2;
+  3023                           ;main.c: 259:     current_symmetry = current_symmetry >> 2;
   3024     061A  082D               	movf	_current_symmetry+1,w	;volatile
   3025     061B  00CF               	movwf	??_GET_CURRENT_POT_VALUES+1
   3026     061C  082C               	movf	_current_symmetry,w	;volatile
@@ -3057,7 +3057,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3040     06E2                     __ptext11:	
   3041 ;; *************** function _DETERMINE_WAVESHAPE *****************
   3042 ;; Defined at:
-  3043 ;;		line 180 in file "main.c"
+  3043 ;;		line 181 in file "main.c"
   3044 ;; Parameters:    Size  Location     Type
   3045 ;;		None
   3046 ;; Auto vars:     Size  Location     Type
@@ -3089,7 +3089,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3072                           ;psect for function _DETERMINE_WAVESHAPE
   3073                           
   3074                           
-  3075                           ;main.c: 181:     uint16_t ADC = DO_ADC(&waveshape_adc_config_value);
+  3075                           ;main.c: 182:     uint16_t ADC = DO_ADC(&waveshape_adc_config_value);
   3076                           
   3077                           ;incstack = 0
   3078                           ; Regs used in _DETERMINE_WAVESHAPE: [wreg-fsr0h+status,2+status,0+pclath+cstack]
@@ -3104,7 +3104,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3087     06EC  0846               	movf	?_DO_ADC,w
   3088     06ED  00CC               	movwf	DETERMINE_WAVESHAPE@ADC
   3089                           
-  3090                           ;main.c: 182:     if(ADC <= 341){
+  3090                           ;main.c: 183:     if(ADC <= 341){
   3091     06EE  3001               	movlw	1
   3092     06EF  024D               	subwf	DETERMINE_WAVESHAPE@ADC+1,w
   3093     06F0  3056               	movlw	86
@@ -3113,12 +3113,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3096     06F3  1803               	skipnc
   3097     06F4  2EF7               	goto	l1661
   3098                           
-  3099                           ;main.c: 183:             return 0;
+  3099                           ;main.c: 184:             return 0;
   3100     06F5  3000               	movlw	0
   3101     06F6  0008               	return
   3102     06F7                     l1661:
   3103                           
-  3104                           ;main.c: 185:         if (ADC <= 682){
+  3104                           ;main.c: 186:         if (ADC <= 682){
   3105     06F7  3002               	movlw	2
   3106     06F8  024D               	subwf	DETERMINE_WAVESHAPE@ADC+1,w
   3107     06F9  30AB               	movlw	171
@@ -3128,12 +3128,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3111     06FD  2F00               	goto	l1667
   3112     06FE                     l1663:
   3113                           
-  3114                           ;main.c: 186:             return 1;
+  3114                           ;main.c: 187:             return 1;
   3115     06FE  3001               	movlw	1
   3116     06FF  0008               	return
   3117     0700                     l1667:
   3118                           
-  3119                           ;main.c: 188:         if (ADC <= 1023){
+  3119                           ;main.c: 189:         if (ADC <= 1023){
   3120     0700  3004               	movlw	4
   3121     0701  024D               	subwf	DETERMINE_WAVESHAPE@ADC+1,w
   3122     0702  3000               	movlw	0
@@ -3142,7 +3142,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3125     0705  1803               	skipnc
   3126     0706  2EFE               	goto	l1663
   3127                           
-  3128                           ;main.c: 189:             return 2;
+  3128                           ;main.c: 190:             return 2;
   3129     0707  3002               	movlw	2
   3130     0708  0008               	return
   3131     0709                     __end_of_DETERMINE_WAVESHAPE:
@@ -3151,7 +3151,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3134     068F                     __ptext12:	
   3135 ;; *************** function _DO_ADC *****************
   3136 ;; Defined at:
-  3137 ;;		line 166 in file "main.c"
+  3137 ;;		line 167 in file "main.c"
   3138 ;; Parameters:    Size  Location     Type
   3139 ;;  modifier        2    0[BANK0 ] PTR const unsigned char 
   3140 ;;		 -> symmetry_adc_config_value(1), depth_adc_config_value(1), speed_adc_config_value(1), waveshape_adc_config_value(1
@@ -3187,14 +3187,14 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3169                           ;psect for function _DO_ADC
   3170                           
   3171                           
-  3172                           ;main.c: 167:     ADCON0 = 0x00;
+  3172                           ;main.c: 168:     ADCON0 = 0x00;
   3173                           
   3174                           ;incstack = 0
   3175                           ; Regs used in _DO_ADC: [wreg-fsr0h+status,2+status,0+pclath]
   3176     068F  0021               	movlb	1	; select bank1
   3177     0690  019D               	clrf	29	;volatile
   3178                           
-  3179                           ;main.c: 169:     uint8_t temp = *modifier << 2;
+  3179                           ;main.c: 170:     uint8_t temp = *modifier << 2;
   3180     0691  0020               	movlb	0	; select bank0
   3181     0692  0846               	movf	DO_ADC@modifier,w
   3182     0693  0084               	movwf	4
@@ -3211,7 +3211,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3193     069D  3548               	lslf	??_DO_ADC,w
   3194     069E  00CB               	movwf	DO_ADC@temp
   3195                           
-  3196                           ;main.c: 170:     ADCON0 = ADCON0 | temp;
+  3196                           ;main.c: 171:     ADCON0 = ADCON0 | temp;
   3197     069F  0021               	movlb	1	; select bank1
   3198     06A0  081D               	movf	29,w	;volatile
   3199     06A1  0020               	movlb	0	; select bank0
@@ -3219,29 +3219,29 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3201     06A3  0021               	movlb	1	; select bank1
   3202     06A4  009D               	movwf	29	;volatile
   3203                           
-  3204                           ;main.c: 171:     ADON = 1;
+  3204                           ;main.c: 172:     ADON = 1;
   3205     06A5  141D               	bsf	29,0	;volatile
   3206                           
-  3207                           ;main.c: 172:     _delay((unsigned long)((0.005)*(32000000/4000.0)));
+  3207                           ;main.c: 173:     _delay((unsigned long)((0.005)*(32000000/4000.0)));
   3208     06A6  300D               	movlw	13
   3209     06A7                     u1587:
   3210     06A7  0B89               	decfsz	9,f
   3211     06A8  2EA7               	goto	u1587
   3212     06A9  0000               	nop
   3213                           
-  3214                           ;main.c: 173:     GO_nDONE = 1;
+  3214                           ;main.c: 174:     GO_nDONE = 1;
   3215     06AA  0021               	movlb	1	; select bank1
   3216     06AB  149D               	bsf	29,1	;volatile
   3217     06AC                     l162:	
-  3218                           ;main.c: 174:     while(GO_nDONE == 1){}
+  3218                           ;main.c: 175:     while(GO_nDONE == 1){}
   3219                           
   3220     06AC  189D               	btfsc	29,1	;volatile
   3221     06AD  2EAC               	goto	l162
   3222                           
-  3223                           ;main.c: 175:     ADON = 0;
+  3223                           ;main.c: 176:     ADON = 0;
   3224     06AE  101D               	bcf	29,0	;volatile
   3225                           
-  3226                           ;main.c: 176:     uint16_t adc_result = ((ADRESH << 8) | ADRESL);
+  3226                           ;main.c: 177:     uint16_t adc_result = ((ADRESH << 8) | ADRESL);
   3227     06AF  081C               	movf	28,w	;volatile
   3228     06B0  0020               	movlb	0	; select bank0
   3229     06B1  00CA               	movwf	DO_ADC@adc_result+1
@@ -3250,7 +3250,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3232     06B4  0020               	movlb	0	; select bank0
   3233     06B5  00C9               	movwf	DO_ADC@adc_result
   3234                           
-  3235                           ;main.c: 177:     return adc_result;
+  3235                           ;main.c: 178:     return adc_result;
   3236     06B6  084A               	movf	DO_ADC@adc_result+1,w
   3237     06B7  00C7               	movwf	?_DO_ADC+1
   3238     06B8  0849               	movf	DO_ADC@adc_result,w
@@ -3262,7 +3262,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3244     0796                     __ptext13:	
   3245 ;; *************** function _CONFIG_TMR0_INTERRUPT *****************
   3246 ;; Defined at:
-  3247 ;;		line 234 in file "main.c"
+  3247 ;;		line 235 in file "main.c"
   3248 ;; Parameters:    Size  Location     Type
   3249 ;;		None
   3250 ;; Auto vars:     Size  Location     Type
@@ -3294,13 +3294,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3276                           ;psect for function _CONFIG_TMR0_INTERRUPT
   3277                           
   3278                           
-  3279                           ;main.c: 235:     TMR0IE = 1;
+  3279                           ;main.c: 236:     TMR0IE = 1;
   3280                           
   3281                           ;incstack = 0
   3282                           ; Regs used in _CONFIG_TMR0_INTERRUPT: []
   3283     0796  168B               	bsf	11,5	;volatile
   3284                           
-  3285                           ;main.c: 236:     return 1;;	Return value of _CONFIG_TMR0_INTERRUPT is never used
+  3285                           ;main.c: 237:     return 1;;	Return value of _CONFIG_TMR0_INTERRUPT is never used
   3286     0797  0008               	return
   3287     0798                     __end_of_CONFIG_TMR0_INTERRUPT:
   3288                           
@@ -3308,7 +3308,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3290     0757                     __ptext14:	
   3291 ;; *************** function _CONFIG_SYSTEM *****************
   3292 ;; Defined at:
-  3293 ;;		line 239 in file "main.c"
+  3293 ;;		line 240 in file "main.c"
   3294 ;; Parameters:    Size  Location     Type
   3295 ;;		None
   3296 ;; Auto vars:     Size  Location     Type
@@ -3343,19 +3343,19 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3325                           ;psect for function _CONFIG_SYSTEM
   3326                           
   3327                           
-  3328                           ;main.c: 240:     CONFIG_INT_OSC();
+  3328                           ;main.c: 241:     CONFIG_INT_OSC();
   3329                           
   3330                           ;incstack = 0
   3331                           ; Regs used in _CONFIG_SYSTEM: [wreg+status,2+status,0+pclath+cstack]
   3332     0757  3187  278A  3187   	fcall	_CONFIG_INT_OSC
   3333                           
-  3334                           ;main.c: 241:     CONFIG_PORTS();
+  3334                           ;main.c: 242:     CONFIG_PORTS();
   3335     075A  3187  2763  3187   	fcall	_CONFIG_PORTS
   3336                           
-  3337                           ;main.c: 242:     CONFIG_ADC_PINS();
+  3337                           ;main.c: 243:     CONFIG_ADC_PINS();
   3338     075D  3187  2790  3187   	fcall	_CONFIG_ADC_PINS
   3339                           
-  3340                           ;main.c: 243:     CONFIG_PWM_CCP3();
+  3340                           ;main.c: 244:     CONFIG_PWM_CCP3();
   3341     0760  3187  2744         	fcall	_CONFIG_PWM_CCP3
   3342     0762  0008               	return
   3343     0763                     __end_of_CONFIG_SYSTEM:
@@ -3364,7 +3364,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3346     0744                     __ptext15:	
   3347 ;; *************** function _CONFIG_PWM_CCP3 *****************
   3348 ;; Defined at:
-  3349 ;;		line 207 in file "main.c"
+  3349 ;;		line 208 in file "main.c"
   3350 ;; Parameters:    Size  Location     Type
   3351 ;;		None
   3352 ;; Auto vars:     Size  Location     Type
@@ -3396,40 +3396,40 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3378                           ;psect for function _CONFIG_PWM_CCP3
   3379                           
   3380                           
-  3381                           ;main.c: 208:     SRLEN = 0;
+  3381                           ;main.c: 209:     SRLEN = 0;
   3382                           
   3383                           ;incstack = 0
   3384                           ; Regs used in _CONFIG_PWM_CCP3: [wreg+status,2]
   3385     0744  0022               	movlb	2	; select bank2
   3386     0745  139A               	bcf	26,7	;volatile
   3387                           
-  3388                           ;main.c: 209:     C1ON = 0;
+  3388                           ;main.c: 210:     C1ON = 0;
   3389     0746  1391               	bcf	17,7	;volatile
   3390                           
-  3391                           ;main.c: 211:     TRISA2 = 1;
+  3391                           ;main.c: 212:     TRISA2 = 1;
   3392     0747  0021               	movlb	1	; select bank1
   3393     0748  150C               	bsf	12,2	;volatile
   3394                           
-  3395                           ;main.c: 212:     PR2 = 0xFF;
+  3395                           ;main.c: 213:     PR2 = 0xFF;
   3396     0749  30FF               	movlw	255
   3397     074A  0020               	movlb	0	; select bank0
   3398     074B  009B               	movwf	27	;volatile
   3399                           
-  3400                           ;main.c: 213:     CCP3CON = CCP3CON | 0b00001111;
+  3400                           ;main.c: 214:     CCP3CON = CCP3CON | 0b00001111;
   3401     074C  0026               	movlb	6	; select bank6
   3402     074D  0813               	movf	19,w	;volatile
   3403     074E  380F               	iorlw	15
   3404     074F  0093               	movwf	19	;volatile
   3405                           
-  3406                           ;main.c: 215:     CCPTMRS0 = 0x00;
+  3406                           ;main.c: 216:     CCPTMRS0 = 0x00;
   3407     0750  0025               	movlb	5	; select bank5
   3408     0751  019E               	clrf	30	;volatile
   3409                           
-  3410                           ;main.c: 216:     TMR2IF = 0;
+  3410                           ;main.c: 217:     TMR2IF = 0;
   3411     0752  0020               	movlb	0	; select bank0
   3412     0753  1091               	bcf	17,1	;volatile
   3413                           
-  3414                           ;main.c: 217:     T2CON = T2CON | 0b00000000;
+  3414                           ;main.c: 218:     T2CON = T2CON | 0b00000000;
   3415     0754  081C               	movf	28,w	;volatile
   3416     0755  009C               	movwf	28	;volatile
   3417     0756  0008               	return
@@ -3439,7 +3439,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3421     0763                     __ptext16:	
   3422 ;; *************** function _CONFIG_PORTS *****************
   3423 ;; Defined at:
-  3424 ;;		line 154 in file "main.c"
+  3424 ;;		line 155 in file "main.c"
   3425 ;; Parameters:    Size  Location     Type
   3426 ;;		None
   3427 ;; Auto vars:     Size  Location     Type
@@ -3471,7 +3471,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3453                           ;psect for function _CONFIG_PORTS
   3454                           
   3455                           
-  3456                           ;main.c: 155:     ANSELC = 0b00001111;
+  3456                           ;main.c: 156:     ANSELC = 0b00001111;
   3457                           
   3458                           ;incstack = 0
   3459                           ; Regs used in _CONFIG_PORTS: [wreg+status,2]
@@ -3479,12 +3479,12 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3461     0764  0023               	movlb	3	; select bank3
   3462     0765  008E               	movwf	14	;volatile
   3463                           
-  3464                           ;main.c: 156:     TRISC = 0b00001111;
+  3464                           ;main.c: 157:     TRISC = 0b00001111;
   3465     0766  300F               	movlw	15
   3466     0767  0021               	movlb	1	; select bank1
   3467     0768  008E               	movwf	14	;volatile
   3468                           
-  3469                           ;main.c: 157:     WPUC = 0b00000000;
+  3469                           ;main.c: 158:     WPUC = 0b00000000;
   3470     0769  0024               	movlb	4	; select bank4
   3471     076A  018E               	clrf	14	;volatile
   3472     076B  0008               	return
@@ -3494,7 +3494,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3476     078A                     __ptext17:	
   3477 ;; *************** function _CONFIG_INT_OSC *****************
   3478 ;; Defined at:
-  3479 ;;		line 147 in file "main.c"
+  3479 ;;		line 148 in file "main.c"
   3480 ;; Parameters:    Size  Location     Type
   3481 ;;		None
   3482 ;; Auto vars:     Size  Location     Type
@@ -3526,7 +3526,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3508                           ;psect for function _CONFIG_INT_OSC
   3509                           
   3510                           
-  3511                           ;main.c: 148:     OSCCON = 0b11110000;
+  3511                           ;main.c: 149:     OSCCON = 0b11110000;
   3512                           
   3513                           ;incstack = 0
   3514                           ; Regs used in _CONFIG_INT_OSC: [wreg]
@@ -3534,7 +3534,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3516     078B  0021               	movlb	1	; select bank1
   3517     078C  0099               	movwf	25	;volatile
   3518                           
-  3519                           ;main.c: 149:     OSCTUNE = 0b00011111;
+  3519                           ;main.c: 150:     OSCTUNE = 0b00011111;
   3520     078D  301F               	movlw	31
   3521     078E  0098               	movwf	24	;volatile
   3522     078F  0008               	return
@@ -3544,7 +3544,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3526     0790                     __ptext18:	
   3527 ;; *************** function _CONFIG_ADC_PINS *****************
   3528 ;; Defined at:
-  3529 ;;		line 161 in file "main.c"
+  3529 ;;		line 162 in file "main.c"
   3530 ;; Parameters:    Size  Location     Type
   3531 ;;		None
   3532 ;; Auto vars:     Size  Location     Type
@@ -3576,7 +3576,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3558                           ;psect for function _CONFIG_ADC_PINS
   3559                           
   3560                           
-  3561                           ;main.c: 162:     ADCON1 = 0b10100000;
+  3561                           ;main.c: 163:     ADCON1 = 0b10100000;
   3562                           
   3563                           ;incstack = 0
   3564                           ; Regs used in _CONFIG_ADC_PINS: [wreg]
@@ -3590,7 +3590,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3572     0004                     __pintentry:	
   3573 ;; *************** function _INTERRUPT_InterruptManager *****************
   3574 ;; Defined at:
-  3575 ;;		line 386 in file "main.c"
+  3575 ;;		line 385 in file "main.c"
   3576 ;; Parameters:    Size  Location     Type
   3577 ;;		None
   3578 ;; Auto vars:     Size  Location     Type
@@ -3626,31 +3626,31 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3608                           ; Regs used in _INTERRUPT_InterruptManager: [wreg-fsr1h+status,2+status,0+pclath+cstack]
   3609     0005  3180               	pagesel	$
   3610                           
-  3611                           ;main.c: 387:     if(TMR0IF == 1){
+  3611                           ;main.c: 386:     if(TMR0IF == 1){
   3612     0006  1D0B               	btfss	11,2	;volatile
   3613     0007  28D1               	goto	i1l265
   3614                           
-  3615                           ;main.c: 388:     GIE = 0;
+  3615                           ;main.c: 387:     GIE = 0;
   3616     0008  138B               	bcf	11,7	;volatile
   3617                           
-  3618                           ;main.c: 389:     TMR0 = final_TMR0;
+  3618                           ;main.c: 388:     TMR0 = final_TMR0;
   3619     0009  0020               	movlb	0	; select bank0
   3620     000A  0845               	movf	_final_TMR0,w	;volatile
   3621     000B  0095               	movwf	21	;volatile
   3622                           
-  3623                           ;main.c: 390:     LATC5 = 1;
+  3623                           ;main.c: 389:     LATC5 = 1;
   3624     000C  0022               	movlb	2	; select bank2
   3625     000D  168E               	bsf	14,5	;volatile
   3626                           
-  3627                           ;main.c: 391:     TMR0IF = 0;
+  3627                           ;main.c: 390:     TMR0IF = 0;
   3628     000E  110B               	bcf	11,2	;volatile
   3629                           
-  3630                           ;main.c: 393:     if(current_waveshape == 0){
+  3630                           ;main.c: 392:     if(current_waveshape == 0){
   3631     000F  0875               	movf	_current_waveshape,w	;volatile
   3632     0010  1D03               	btfss	3,2
   3633     0011  2823               	goto	i1l1541
   3634                           
-  3635                           ;main.c: 394:         duty = tri_table_one_quadrant[current_one_quadrant_index];
+  3635                           ;main.c: 393:         duty = tri_table_one_quadrant[current_one_quadrant_index];
   3636     0012  0874               	movf	_current_one_quadrant_index,w	;volatile
   3637     0013  00FA               	movwf	??_INTERRUPT_InterruptManager
   3638     0014  01FB               	clrf	??_INTERRUPT_InterruptManager+1
@@ -3669,13 +3669,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3651     0021  3F01               	moviw [1]fsr0
   3652     0022  283F               	goto	L3
   3653     0023                     i1l1541:	
-  3654                           ;main.c: 395:     }
+  3654                           ;main.c: 394:     }
   3655                           
   3656     0023  0375               	decf	_current_waveshape,w	;volatile
   3657     0024  1D03               	btfss	3,2
   3658     0025  2837               	goto	i1l1545
   3659                           
-  3660                           ;main.c: 397:         duty = sine_table_one_quadrant[current_one_quadrant_index];
+  3660                           ;main.c: 396:         duty = sine_table_one_quadrant[current_one_quadrant_index];
   3661     0026  0874               	movf	_current_one_quadrant_index,w	;volatile
   3662     0027  00FA               	movwf	??_INTERRUPT_InterruptManager
   3663     0028  01FB               	clrf	??_INTERRUPT_InterruptManager+1
@@ -3694,14 +3694,14 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3676     0035  3F01               	moviw [1]fsr0
   3677     0036  283F               	goto	L3
   3678     0037                     i1l1545:	
-  3679                           ;main.c: 398:     }
+  3679                           ;main.c: 397:     }
   3680                           
   3681     0037  3002               	movlw	2
   3682     0038  0675               	xorwf	_current_waveshape,w	;volatile
   3683     0039  1D03               	btfss	3,2
   3684     003A  2840               	goto	i1l1549
   3685                           
-  3686                           ;main.c: 400:         duty = 1023;
+  3686                           ;main.c: 399:         duty = 1023;
   3687     003B  30FF               	movlw	255
   3688     003C  0020               	movlb	0	; select bank0
   3689     003D  00C3               	movwf	_duty	;volatile
@@ -3710,73 +3710,73 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3692     003F  00C4               	movwf	_duty+1	;volatile
   3693     0040                     i1l1549:
   3694                           
-  3695                           ;main.c: 402:     if(current_one_quadrant_index == 128){
+  3695                           ;main.c: 401:     if(current_one_quadrant_index == 128){
   3696     0040  3080               	movlw	128
   3697     0041  0674               	xorwf	_current_one_quadrant_index,w	;volatile
   3698     0042  1D03               	btfss	3,2
   3699     0043  2847               	goto	i1l1553
   3700                           
-  3701                           ;main.c: 403:         current_quadrant = 1;
+  3701                           ;main.c: 402:         current_quadrant = 1;
   3702     0044  3001               	movlw	1
   3703     0045  0020               	movlb	0	; select bank0
   3704     0046  00BF               	movwf	_current_quadrant	;volatile
   3705     0047                     i1l1553:
   3706                           
-  3707                           ;main.c: 405:     if(current_one_quadrant_index == 0){
+  3707                           ;main.c: 404:     if(current_one_quadrant_index == 0){
   3708     0047  0874               	movf	_current_one_quadrant_index,w	;volatile
   3709     0048  1D03               	btfss	3,2
   3710     0049  2853               	goto	i1l1563
   3711                           
-  3712                           ;main.c: 406:         current_quadrant = 0;
+  3712                           ;main.c: 405:         current_quadrant = 0;
   3713     004A  0020               	movlb	0	; select bank0
   3714     004B  01BF               	clrf	_current_quadrant	;volatile
   3715                           
-  3716                           ;main.c: 407:         if(current_halfcycle == 0){
+  3716                           ;main.c: 406:         if(current_halfcycle == 0){
   3717     004C  0840               	movf	_current_halfcycle,w	;volatile
   3718     004D  1D03               	btfss	3,2
   3719     004E  2852               	goto	i1l1561
   3720                           
-  3721                           ;main.c: 408:             current_halfcycle = 1;
+  3721                           ;main.c: 407:             current_halfcycle = 1;
   3722     004F  3001               	movlw	1
   3723     0050  00C0               	movwf	_current_halfcycle	;volatile
   3724                           
-  3725                           ;main.c: 409:         }
+  3725                           ;main.c: 408:         }
   3726     0051  2853               	goto	i1l1563
   3727     0052                     i1l1561:
   3728                           
-  3729                           ;main.c: 411:             current_halfcycle = 0;
+  3729                           ;main.c: 410:             current_halfcycle = 0;
   3730     0052  01C0               	clrf	_current_halfcycle	;volatile
   3731     0053                     i1l1563:
   3732                           
-  3733                           ;main.c: 414:         if(current_quadrant == 0){
+  3733                           ;main.c: 413:         if(current_quadrant == 0){
   3734     0053  0020               	movlb	0	; select bank0
   3735     0054  083F               	movf	_current_quadrant,w	;volatile
   3736     0055  1D03               	btfss	3,2
   3737     0056  285C               	goto	i1l1567
   3738                           
-  3739                           ;main.c: 415:             current_one_quadrant_index++;
+  3739                           ;main.c: 414:             current_one_quadrant_index++;
   3740     0057  3001               	movlw	1
   3741     0058  00FA               	movwf	??_INTERRUPT_InterruptManager
   3742     0059  087A               	movf	??_INTERRUPT_InterruptManager,w
   3743     005A  07F4               	addwf	_current_one_quadrant_index,f	;volatile
   3744                           
-  3745                           ;main.c: 416:         }
+  3745                           ;main.c: 415:         }
   3746     005B  285E               	goto	i1l261
   3747     005C                     i1l1567:
   3748                           
-  3749                           ;main.c: 418:             current_one_quadrant_index--;
+  3749                           ;main.c: 417:             current_one_quadrant_index--;
   3750     005C  3001               	movlw	1
   3751     005D  02F4               	subwf	_current_one_quadrant_index,f	;volatile
   3752     005E                     i1l261:	
-  3753                           ;main.c: 419:         }
+  3753                           ;main.c: 418:         }
   3754                           
   3755                           
-  3756                           ;main.c: 420:         if(current_halfcycle == 1){
+  3756                           ;main.c: 419:         if(current_halfcycle == 1){
   3757     005E  0340               	decf	_current_halfcycle,w	;volatile
   3758     005F  1D03               	btfss	3,2
   3759     0060  286B               	goto	i1l262
   3760                           
-  3761                           ;main.c: 421:         duty = 1023 - duty;
+  3761                           ;main.c: 420:         duty = 1023 - duty;
   3762     0061  30FF               	movlw	255
   3763     0062  00FA               	movwf	??_INTERRUPT_InterruptManager
   3764     0063  3003               	movlw	3
@@ -3788,20 +3788,20 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3770     0069  3B7B               	subwfb	??_INTERRUPT_InterruptManager+1,w
   3771     006A  00C4               	movwf	_duty+1	;volatile
   3772     006B                     i1l262:	
-  3773                           ;main.c: 422:         }
+  3773                           ;main.c: 421:         }
   3774                           
   3775                           
-  3776                           ;main.c: 425:     if(current_depth != 0){
+  3776                           ;main.c: 424:     if(current_depth != 0){
   3777     006B  082E               	movf	_current_depth,w	;volatile
   3778     006C  042F               	iorwf	_current_depth+1,w	;volatile
   3779     006D  1903               	btfsc	3,2
   3780     006E  28C7               	goto	i1l1575
   3781                           
-  3782                           ;main.c: 426:         duty_low_byte = duty & 0xFF;
+  3782                           ;main.c: 425:         duty_low_byte = duty & 0xFF;
   3783     006F  0843               	movf	_duty,w	;volatile
   3784     0070  00C2               	movwf	_duty_low_byte	;volatile
   3785                           
-  3786                           ;main.c: 427:         duty_high_byte = duty >> 8;
+  3786                           ;main.c: 426:         duty_high_byte = duty >> 8;
   3787     0071  0844               	movf	_duty+1,w	;volatile
   3788     0072  00C1               	movwf	_duty_high_byte	;volatile
   3789     0073  01A2               	clrf	34	;# 
@@ -3874,7 +3874,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3856     00B6  0CA2               	rrf	34,f	;# 
   3857     00B7  0CA1               	rrf	33,f	;# 
   3858                           
-  3859                           ;main.c: 462:         duty = 1023 - *top_two_bytes_ptr;
+  3859                           ;main.c: 461:         duty = 1023 - *top_two_bytes_ptr;
   3860     00B8  0020               	movlb	0	; select bank0
   3861     00B9  0856               	movf	_top_two_bytes_ptr,w
   3862     00BA  0086               	movwf	6
@@ -3891,25 +3891,25 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3873     00C5  3B7B               	subwfb	??_INTERRUPT_InterruptManager+1,w
   3874     00C6  28CA               	goto	L4
   3875     00C7                     i1l1575:	
-  3876                           ;main.c: 463:     }
+  3876                           ;main.c: 462:     }
   3877                           
   3878                           
-  3879                           ;main.c: 465:         duty = 1023;
+  3879                           ;main.c: 464:         duty = 1023;
   3880     00C7  30FF               	movlw	255
   3881     00C8  00C3               	movwf	_duty	;volatile
   3882     00C9  3003               	movlw	3
   3883     00CA                     L4:
   3884     00CA  00C4               	movwf	_duty+1	;volatile
   3885                           
-  3886                           ;main.c: 469:     SET_DUTY_CCP3(&duty);
+  3886                           ;main.c: 468:     SET_DUTY_CCP3(&duty);
   3887     00CB  3043               	movlw	(low (_duty| 0))& (0+255)
   3888     00CC  3187  2709         	fcall	_SET_DUTY_CCP3
   3889                           
-  3890                           ;main.c: 472:     LATC5 = 0;
+  3890                           ;main.c: 471:     LATC5 = 0;
   3891     00CE  0022               	movlb	2	; select bank2
   3892     00CF  128E               	bcf	14,5	;volatile
   3893                           
-  3894                           ;main.c: 473:     GIE = 1;
+  3894                           ;main.c: 472:     GIE = 1;
   3895     00D0  178B               	bsf	11,7	;volatile
   3896     00D1                     i1l265:
   3897     00D1  107E               	bcf	126,0	;clear compiler interrupt flag (level 1)
@@ -3920,7 +3920,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3902     0709                     __ptext20:	
   3903 ;; *************** function _SET_DUTY_CCP3 *****************
   3904 ;; Defined at:
-  3905 ;;		line 197 in file "main.c"
+  3905 ;;		line 198 in file "main.c"
   3906 ;; Parameters:    Size  Location     Type
   3907 ;;  duty_ptr        1    wreg     PTR volatile unsigned sh
   3908 ;;		 -> duty(2), 
@@ -3959,7 +3959,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3941                           ;SET_DUTY_CCP3@duty_ptr stored from wreg
   3942     0709  00F9               	movwf	SET_DUTY_CCP3@duty_ptr
   3943                           
-  3944                           ;main.c: 199:     CCPR3L = *duty_ptr >> 2;
+  3944                           ;main.c: 200:     CCPR3L = *duty_ptr >> 2;
   3945     070A  0879               	movf	SET_DUTY_CCP3@duty_ptr,w
   3946     070B  0086               	movwf	6
   3947     070C  0187               	clrf	7
@@ -3975,7 +3975,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3957     0716  0026               	movlb	6	; select bank6
   3958     0717  0091               	movwf	17	;volatile
   3959                           
-  3960                           ;main.c: 200:     uint8_t temp = *duty_ptr % 0b100;
+  3960                           ;main.c: 201:     uint8_t temp = *duty_ptr % 0b100;
   3961     0718  0879               	movf	SET_DUTY_CCP3@duty_ptr,w
   3962     0719  0086               	movwf	6
   3963     071A  0187               	clrf	7
@@ -3983,7 +3983,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og9
   3965     071C  3903               	andlw	3
   3966     071D  00F8               	movwf	SET_DUTY_CCP3@temp
   3967                           
-  3968                           ;main.c: 201:     CCP3CON = CCP3CON | (temp << 4);
+  3968                           ;main.c: 202:     CCP3CON = CCP3CON | (temp << 4);
   3969     071E  0878               	movf	SET_DUTY_CCP3@temp,w
   3970     071F  00F6               	movwf	??_SET_DUTY_CCP3
   3971     0720  3003               	movlw	3
@@ -4308,7 +4308,7 @@ SFR31                0      0       0      32        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.45 build 20230818022343 
-Symbol Table                                                                                   Sat Jan 20 21:20:29 2024
+Symbol Table                                                                                   Sat Jan 20 21:37:34 2024
 
                                                       r1 0020  
                                                       r2 0021  
