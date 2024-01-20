@@ -4868,8 +4868,6 @@ uint16_t *top_two_bytes_ptr = (uint16_t *)0x21;
 const uint16_t sine_table_one_quadrant[129]={512,518,524,530,537,543,549,555,562,568,574,580,587,593,599,605,611,617,624,630,636,642,648,654,660,666,672,678,684,690,696,701,707,713,719,725,730,736,741,747,753,758,764,769,774,780,785,790,796,801,806,811,816,821,826,831,836,841,846,850,855,860,864,869,873,878,882,886,890,895,899,903,907,911,915,919,922,926,930,933,937,940,944,947,950,953,957,960,963,966,968,971,974,977,979,982,984,986,989,991,993,995,997,999,1001,1003,1004,1006,1008,1009,1011,1012,1013,1014,1015,1017,1017,1018,1019,1020,1021,1021,1022,1022,1022,1023,1023,1023,1023};
 const uint16_t tri_table_one_quadrant[129]={512,516,520,524,528,532,536,540,544,548,552,556,560,564,568,572,576,580,584,588,592,596,600,604,608,612,616,620,624,628,632,636,640,644,648,652,656,660,664,668,672,676,680,684,688,692,696,700,704,708,712,716,720,724,728,732,736,740,744,748,752,756,760,763,767,771,775,779,783,787,791,795,799,803,807,811,815,819,823,827,831,835,839,843,847,851,855,859,863,867,871,875,879,883,887,891,895,899,903,907,911,915,919,923,927,931,935,939,943,947,951,955,959,963,967,971,975,979,983,987,991,995,999,1003,1007,1011,1015,1019,1023};
 
-
-
 const uint8_t prescaler_bits[8] = {0b111,0b110,0b101,0b100,0b011,0b010,0b001,0b000};
 const uint8_t waveshape_adc_config_value = 0b100;
 const uint8_t speed_adc_config_value = 0b101;
@@ -4880,8 +4878,13 @@ const uint8_t NEGATIVE = 0;
 const uint8_t DO_NOTHING = 0;
 const uint8_t DIVIDE_BY_TWO = 1;
 const uint8_t MULTIPLY_BY_TWO = 2;
-# 93 "main.c"
-volatile uint8_t final_TMR0;
+const uint8_t DIVIDE_BY_FOUR = 3;
+const uint8_t DONT_CARE = 4;
+const uint8_t YES = 1;
+const uint8_t NO = 0;
+const uint8_t CCW = 0;
+const uint8_t CW = 1;
+# 97 "main.c"
 volatile uint16_t speed_control;
 volatile uint32_t speed_control_32;
 volatile uint16_t speed_control_subtracted;
@@ -4899,26 +4902,33 @@ volatile uint16_t current_symmetry;
 volatile uint8_t current_one_quadrant_index = 0;
 volatile uint8_t current_halfcycle = 0;
 volatile uint8_t current_quadrant = 0;
+volatile uint8_t final_TMR0;
 volatile uint8_t TMR0_offset;
 volatile uint8_t TMR0_offset_sign;
 volatile uint8_t prescaler_adjust;
 volatile uint8_t raw_TMR0;
 volatile uint8_t base_prescaler_bits_index;
-# 136 "main.c"
-void CONFIG_INT_OSC(void){
+volatile uint16_t dTMR0_ideal;
+volatile uint8_t clear_TMR0_please;
+volatile uint8_t symmetry_status;
+# 143 "main.c"
+uint8_t CONFIG_INT_OSC(void){
     OSCCON = 0b11110000;
     OSCTUNE = 0b00011111;
 
+    return 1;
 }
 
-void CONFIG_PORTS(void){
+uint8_t CONFIG_PORTS(void){
     ANSELC = 0b00001111;
     TRISC = 0b00001111;
     WPUC = 0b00000000;
+    return 1;
 }
 
-void CONFIG_ADC_PINS(void){
+uint8_t CONFIG_ADC_PINS(void){
     ADCON1 = 0b10100000;
+    return 1;
 }
 
 uint16_t DO_ADC(const uint8_t *modifier){
@@ -4949,24 +4959,20 @@ uint8_t DETERMINE_WAVESHAPE(){
         else{
             return 1;
         }
+    return 1;
 }
 
-
-
-
-
-
-
-void SET_DUTY_CCP3(volatile uint16_t *duty_ptr){
+uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr){
 
     CCPR3L = *duty_ptr >> 2;
     uint8_t temp = *duty_ptr % 0b100;
     CCP3CON = CCP3CON | (temp << 4);
 
 
+    return 1;
 }
 
-void CONFIG_PWM_CCP3(void){
+uint8_t CONFIG_PWM_CCP3(void){
     SRLEN = 0;
     C1ON = 0;
 
@@ -4979,201 +4985,215 @@ void CONFIG_PWM_CCP3(void){
     T2CON = T2CON | 0b00000000;
 
 
+
+    return 1;
 }
 
-void TURN_ON_CCP3_PWM(void){
+uint8_t TURN_ON_CCP3_PWM(void){
 
     TMR2IF = 0;
     TMR2ON = 1;
     while(TMR2IF == 0){}
     TMR2IF = 0;
     TRISA2 = 0;
+    return 1;
 }
 
-
-
-
-
-
-void CONFIG_TMR0_INTERRUPT(void){
+uint8_t CONFIG_TMR0_INTERRUPT(void){
     TMR0IE = 1;
+    return 1;
 }
 
-void CONFIG_SYSTEM(void){
+uint8_t CONFIG_SYSTEM(void){
     CONFIG_INT_OSC();
     CONFIG_PORTS();
     CONFIG_ADC_PINS();
     CONFIG_PWM_CCP3();
+    return 1;
 }
 
-void TMR0_WRITE(volatile uint8_t *timer_value_ptr){
+uint8_t TMR0_WRITE(volatile uint8_t *timer_value_ptr){
     TMR0 = (uint8_t) *timer_value_ptr;
+    return 1;
 }
 
-void GET_CURRENT_POT_VALUES(void){
+uint8_t GET_CURRENT_POT_VALUES(void){
     current_waveshape = DETERMINE_WAVESHAPE();
     current_speed_linear = DO_ADC(&speed_adc_config_value);
     current_depth = DO_ADC(&depth_adc_config_value);
     current_depth = current_depth >> 2;
     current_symmetry = DO_ADC(&symmetry_adc_config_value);
     current_symmetry = current_symmetry >> 2;
+    return 1;
 }
 
-void PROCESS_RAW_SPEED(void){
+uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void){
     current_speed_linear_32 = current_speed_linear;
-    speed_control_32 = current_speed_linear_32 * 650;;
+    speed_control_32 = current_speed_linear_32 * 600;;
     speed_control_32 = speed_control_32 >> 10;
     speed_control = (uint16_t) speed_control_32;
 
         if(speed_control <= (127-12)){
             raw_TMR0 = (uint8_t) speed_control + 12;
-
             base_prescaler_bits_index = 1;
         }
         else{
             speed_control_subtracted = speed_control - (127-12);
             how_many_128 = speed_control_subtracted >> 7;
             raw_TMR0 = (uint8_t) (speed_control_subtracted - (how_many_128 << 7));
-
             base_prescaler_bits_index = how_many_128 + 2;
         }
+    return 1;
 }
 
-void PROCESS_FINAL_SPEED(void){
-
+uint8_t PROCESS_FINAL_SPEED_AND_PRESCALER(void){
+    if(clear_TMR0_please){
+        raw_TMR0 = 0;
+    }
+    if(TMR0_offset_sign == (POSITIVE || DONT_CARE)){
+        final_TMR0 = raw_TMR0 + TMR0_offset;
+    }
+    else if(TMR0_offset_sign == NEGATIVE){
+        final_TMR0 = raw_TMR0 - TMR0_offset;
+    }
+    if(prescaler_adjust == DIVIDE_BY_TWO){
+        OPTION_REG = prescaler_bits[base_prescaler_bits_index + 1];
+    }
+    else if(prescaler_adjust == DIVIDE_BY_FOUR){
+        OPTION_REG = prescaler_bits[base_prescaler_bits_index + 2];
+    }
+    else if(prescaler_adjust == MULTIPLY_BY_TWO){
+        OPTION_REG = prescaler_bits[base_prescaler_bits_index - 1];
+    }
+    else if(prescaler_adjust == DO_NOTHING){
+        OPTION_REG = prescaler_bits[base_prescaler_bits_index];
+    }
+    return 1;
 }
 
-void PROCESS_FINAL_PRESCALER(void){
-    uint8_t final_prescaler;
-        if(prescaler_adjust == DIVIDE_BY_TWO){
-            OPTION_REG = prescaler_bits[base_prescaler_bits_index + 1];
+uint8_t SHORTEN_PERIOD(void){
+    dTMR0_ideal = (128 - current_symmetry) << 1;
+    if((dTMR0_ideal + raw_TMR0) < 128){
+        TMR0_offset = (uint8_t)dTMR0_ideal;
+        TMR0_offset_sign = POSITIVE;
+        prescaler_adjust = DO_NOTHING;
+        clear_TMR0_please = NO;
+    }
+    else if((dTMR0_ideal + raw_TMR0) == 128){
+        TMR0_offset = 0;
+        TMR0_offset_sign = DONT_CARE;
+        prescaler_adjust = DIVIDE_BY_TWO;
+        clear_TMR0_please = YES;
+    }
+    else if((dTMR0_ideal + raw_TMR0) > 128){
+        uint16_t TMR0_raw_extra = dTMR0_ideal + raw_TMR0 - 128;
+        if(TMR0_raw_extra >> 7 == 0){
+            TMR0_offset = (uint8_t)TMR0_raw_extra;
+            TMR0_offset_sign = POSITIVE;
+            prescaler_adjust = DIVIDE_BY_TWO;
+            clear_TMR0_please = YES;
         }
-        else if(prescaler_adjust == MULTIPLY_BY_TWO){
-            OPTION_REG = prescaler_bits[base_prescaler_bits_index - 1];
-        }
-        else if(prescaler_adjust == DO_NOTHING){
-            OPTION_REG = prescaler_bits[base_prescaler_bits_index];
-        }
-}
-
-void PROCESS_TMR0_OFFSET_AND_PRESCALER_OFFSET(void){
-    if(current_symmetry <= 127){
-        if(current_halfcycle == 0){
-            if(current_symmetry == 0){
-                TMR0_offset = 0;
-                TMR0_offset_sign = POSITIVE;
-                prescaler_adjust = DIVIDE_BY_TWO;
-            }
-            else{
-                if(raw_TMR0 + (128-current_symmetry) >= 128){
-                    TMR0_offset = raw_TMR0 - current_symmetry;
-                    TMR0_offset_sign = POSITIVE;
-                    prescaler_adjust = DIVIDE_BY_TWO;
-                }
-                else{
-                    TMR0_offset = 128 - current_symmetry;
-                    TMR0_offset_sign = POSITIVE;
-                    prescaler_adjust = DO_NOTHING;
-                }
-            }
-        }
-        else{
-            uint8_t y = 64 - (current_symmetry >> 1);
-            if(raw_TMR0 < y){
-                TMR0_offset = 128 - y;
-                TMR0_offset_sign = POSITIVE;
-                prescaler_adjust = MULTIPLY_BY_TWO;
-            }
-            else{
-                TMR0_offset = y;
-                TMR0_offset_sign = NEGATIVE;
-                prescaler_adjust = DO_NOTHING;
-            }
+        else if(TMR0_raw_extra >> 7 == 1){
+            TMR0_raw_extra = TMR0_raw_extra - 128;
+            TMR0_offset = (uint8_t)TMR0_raw_extra;
+            TMR0_offset_sign = POSITIVE;
+            prescaler_adjust = DIVIDE_BY_FOUR;
+            clear_TMR0_please = YES;
         }
     }
+    return 1;
+}
 
-    else if(current_symmetry >= 129){
-        if(current_halfcycle == 0){
-            uint8_t y = (current_symmetry >> 1) - 63;
-            if(raw_TMR0 < y){
-                TMR0_offset = 128 - y;
-                TMR0_offset_sign = POSITIVE;
-                prescaler_adjust = MULTIPLY_BY_TWO;
-            }
-            else{
-                TMR0_offset = y;
-                TMR0_offset_sign = NEGATIVE;
-                prescaler_adjust = DO_NOTHING;
-            }
+uint8_t LENGTHEN_PERIOD(void){
+
+    dTMR0_ideal = 97 - (97 * current_symmetry) >> 7;
+        if(raw_TMR0 < dTMR0_ideal){
+            TMR0_offset = (uint8_t) 128 - (dTMR0_ideal - raw_TMR0);
+            TMR0_offset_sign = POSITIVE;
+            prescaler_adjust = MULTIPLY_BY_TWO;
+            clear_TMR0_please = YES;
         }
         else{
-            if(current_symmetry == 255){
-                TMR0_offset = 0;
-                TMR0_offset_sign = POSITIVE;
-                prescaler_adjust = DIVIDE_BY_TWO;
-            }
-            else{
-                if(raw_TMR0 + (current_symmetry - 128) >= 128){
-                    TMR0_offset = raw_TMR0 + current_symmetry - 256;
-                    TMR0_offset_sign = POSITIVE;
-                    prescaler_adjust = DIVIDE_BY_TWO;
-                }
-                else{
-                    TMR0_offset = current_symmetry - 128;
-                    TMR0_offset_sign = POSITIVE;
-                    prescaler_adjust = DO_NOTHING;
-                }
-            }
+            TMR0_offset = (uint8_t)dTMR0_ideal;
+            TMR0_offset_sign = NEGATIVE;
+            prescaler_adjust = DO_NOTHING;
+            clear_TMR0_please = NO;
         }
-    }
+    return 1;
+}
 
-    else if(current_symmetry == 128){
+uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
+    if(current_symmetry == 128){
         TMR0_offset = 0;
         TMR0_offset_sign = POSITIVE;
         prescaler_adjust = DO_NOTHING;
+        clear_TMR0_please = NO;
+        return 1;
     }
+    uint8_t symmetry_status = CCW;
+    if(current_symmetry > 128){
+        current_symmetry = 255 - current_symmetry;
+        symmetry_status = CW;
+    }
+    if((current_halfcycle == 0) && (symmetry_status == CCW)){
+        SHORTEN_PERIOD();
+    }
+    else if((current_halfcycle == 0) && (symmetry_status == CW)){
 
+        TMR0_offset=0;
+        TMR0_offset_sign=DONT_CARE;
+        prescaler_adjust=DO_NOTHING;
+    }
+    else if((current_halfcycle == 1) && (symmetry_status == CCW)){
+
+        TMR0_offset=0;
+        TMR0_offset_sign=DONT_CARE;
+        prescaler_adjust=DO_NOTHING;
+    }
+    else if((current_halfcycle == 1) && (symmetry_status == CW)){
+        SHORTEN_PERIOD();
+    }
+    return 1;
 }
 
-void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
+uint8_t __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
     if(TMR0IF == 1){
     GIE = 0;
 
-    TMR0 = raw_TMR0;
-
+    TMR0 = final_TMR0;
     LATC5 = 1;
     TMR0IF = 0;
 
-            if(current_waveshape == 0){
-                duty = tri_table_one_quadrant[current_one_quadrant_index];
-            }
-            else if(current_waveshape == 1){
-                duty = sine_table_one_quadrant[current_one_quadrant_index];
-            }
-            else if(current_waveshape == 2){
-                duty = 1023;
-            }
-            if(current_one_quadrant_index == 128){
-                current_quadrant = 1;
-            }
-            if(current_one_quadrant_index == 0){
-                current_quadrant = 0;
-                if(current_halfcycle == 0){
-                    current_halfcycle = 1;
-                }
-                else{
-                    current_halfcycle = 0;
-                }
-            }
-            if(current_quadrant == 0){
-                current_one_quadrant_index++;
-            }
-            else{
-                current_one_quadrant_index--;
-            }
-            if(current_halfcycle == 1){
-            duty = 1023 - duty;
-            }
+    if(current_waveshape == 0){
+        duty = tri_table_one_quadrant[current_one_quadrant_index];
+    }
+    else if(current_waveshape == 1){
+        duty = sine_table_one_quadrant[current_one_quadrant_index];
+    }
+    else if(current_waveshape == 2){
+        duty = 1023;
+    }
+    if(current_one_quadrant_index == 128){
+        current_quadrant = 1;
+    }
+    if(current_one_quadrant_index == 0){
+        current_quadrant = 0;
+        if(current_halfcycle == 0){
+            current_halfcycle = 1;
+        }
+        else{
+            current_halfcycle = 0;
+        }
+    }
+        if(current_quadrant == 0){
+            current_one_quadrant_index++;
+        }
+        else{
+            current_one_quadrant_index--;
+        }
+        if(current_halfcycle == 1){
+        duty = 1023 - duty;
+        }
 
 
     if(current_depth != 0){
@@ -5226,6 +5246,7 @@ void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
     LATC5 = 0;
     GIE = 1;
     }
+    return 1;
 }
 
 void main(void) {
@@ -5234,14 +5255,17 @@ void main(void) {
     TURN_ON_CCP3_PWM();
     CONFIG_TMR0_INTERRUPT();
     GET_CURRENT_POT_VALUES();
-    PROCESS_RAW_SPEED();
-    TMR0_WRITE(&raw_TMR0);
-
+    PROCESS_RAW_SPEED_AND_PRESCALER();
+    PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
+    PROCESS_FINAL_SPEED_AND_PRESCALER();
+    TMR0_WRITE(&final_TMR0);
     GIE = 1;
 
     while(1){
-        _delay((unsigned long)((10)*(32000000/4000.0)));
+
         GET_CURRENT_POT_VALUES();
-        PROCESS_RAW_SPEED();
+        PROCESS_RAW_SPEED_AND_PRESCALER();
+        PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
+        PROCESS_FINAL_SPEED_AND_PRESCALER();
         }
 }
