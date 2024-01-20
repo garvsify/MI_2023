@@ -1523,8 +1523,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 369 ]
 "281
-[; ;main.c: 281:     if(TMR0_offset_sign == (POSITIVE || DONT_CARE)){
-[e $ ! == -> _TMR0_offset_sign `i -> || != -> _POSITIVE `i -> 0 `i != -> _DONT_CARE `i -> 0 `i `i 370  ]
+[; ;main.c: 281:     if((TMR0_offset_sign == POSITIVE) || (TMR0_offset_sign == DONT_CARE)){
+[e $ ! || == -> _TMR0_offset_sign `i -> _POSITIVE `i == -> _TMR0_offset_sign `i -> _DONT_CARE `i 370  ]
 {
 "282
 [; ;main.c: 282:         final_TMR0 = raw_TMR0 + TMR0_offset;
@@ -1728,481 +1728,465 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _LENGTHEN_PERIOD ]
 [f ]
+"336
+[; ;main.c: 336:     dTMR0_ideal = 97 - ((97 * current_symmetry) >> 7);
+[e = _dTMR0_ideal -> - -> -> 97 `i `ui >> * -> -> 97 `i `ui -> _current_symmetry `ui -> 7 `i `us ]
 "337
-[; ;main.c: 337:     dTMR0_ideal = 97 - (97 * current_symmetry) >> 7;
-[e = _dTMR0_ideal -> >> - -> -> 97 `i `ui * -> -> 97 `i `ui -> _current_symmetry `ui -> 7 `i `us ]
-"338
-[; ;main.c: 338:         if(raw_TMR0 < dTMR0_ideal){
+[; ;main.c: 337:         if(raw_TMR0 < dTMR0_ideal){
 [e $ ! < -> _raw_TMR0 `ui -> _dTMR0_ideal `ui 390  ]
 {
-"339
-[; ;main.c: 339:             TMR0_offset = (uint8_t) 128 - (dTMR0_ideal - raw_TMR0);
+"338
+[; ;main.c: 338:             TMR0_offset = (uint8_t) 128 - (dTMR0_ideal - raw_TMR0);
 [e = _TMR0_offset -> - -> -> -> 128 `i `uc `ui - -> _dTMR0_ideal `ui -> _raw_TMR0 `ui `uc ]
-"340
-[; ;main.c: 340:             TMR0_offset_sign = POSITIVE;
+"339
+[; ;main.c: 339:             TMR0_offset_sign = POSITIVE;
 [e = _TMR0_offset_sign _POSITIVE ]
-"341
-[; ;main.c: 341:             prescaler_adjust = MULTIPLY_BY_TWO;
+"340
+[; ;main.c: 340:             prescaler_adjust = MULTIPLY_BY_TWO;
 [e = _prescaler_adjust _MULTIPLY_BY_TWO ]
-"342
-[; ;main.c: 342:             clear_TMR0_please = YES;
+"341
+[; ;main.c: 341:             clear_TMR0_please = YES;
 [e = _clear_TMR0_please _YES ]
-"343
-[; ;main.c: 343:         }
+"342
+[; ;main.c: 342:         }
 }
 [e $U 391  ]
-"344
-[; ;main.c: 344:         else{
+"343
+[; ;main.c: 343:         else{
 [e :U 390 ]
 {
-"345
-[; ;main.c: 345:             TMR0_offset = (uint8_t)dTMR0_ideal;
+"344
+[; ;main.c: 344:             TMR0_offset = (uint8_t)dTMR0_ideal;
 [e = _TMR0_offset -> _dTMR0_ideal `uc ]
-"346
-[; ;main.c: 346:             TMR0_offset_sign = NEGATIVE;
+"345
+[; ;main.c: 345:             TMR0_offset_sign = NEGATIVE;
 [e = _TMR0_offset_sign _NEGATIVE ]
-"347
-[; ;main.c: 347:             prescaler_adjust = DO_NOTHING;
+"346
+[; ;main.c: 346:             prescaler_adjust = DO_NOTHING;
 [e = _prescaler_adjust _DO_NOTHING ]
-"348
-[; ;main.c: 348:             clear_TMR0_please = NO;
+"347
+[; ;main.c: 347:             clear_TMR0_please = NO;
 [e = _clear_TMR0_please _NO ]
-"349
-[; ;main.c: 349:         }
+"348
+[; ;main.c: 348:         }
 }
 [e :U 391 ]
-"350
-[; ;main.c: 350:     return 1;
+"349
+[; ;main.c: 349:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 389  ]
-"351
-[; ;main.c: 351: }
+"350
+[; ;main.c: 350: }
 [e :UE 389 ]
 }
-"353
-[; ;main.c: 353: uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
+"352
+[; ;main.c: 352: uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
 [v _PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST `(uc ~T0 @X0 1 ef ]
 {
 [e :U _PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST ]
 [f ]
-"354
-[; ;main.c: 354:     if(current_symmetry == 128){
+"353
+[; ;main.c: 353:     if(current_symmetry == 128){
 [e $ ! == -> _current_symmetry `ui -> -> 128 `i `ui 393  ]
 {
-"355
-[; ;main.c: 355:         TMR0_offset = 0;
+"354
+[; ;main.c: 354:         TMR0_offset = 0;
 [e = _TMR0_offset -> -> 0 `i `uc ]
-"356
-[; ;main.c: 356:         TMR0_offset_sign = POSITIVE;
+"355
+[; ;main.c: 355:         TMR0_offset_sign = POSITIVE;
 [e = _TMR0_offset_sign _POSITIVE ]
-"357
-[; ;main.c: 357:         prescaler_adjust = DO_NOTHING;
+"356
+[; ;main.c: 356:         prescaler_adjust = DO_NOTHING;
 [e = _prescaler_adjust _DO_NOTHING ]
-"358
-[; ;main.c: 358:         clear_TMR0_please = NO;
+"357
+[; ;main.c: 357:         clear_TMR0_please = NO;
 [e = _clear_TMR0_please _NO ]
-"359
-[; ;main.c: 359:         return 1;
+"358
+[; ;main.c: 358:         return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 392  ]
-"360
-[; ;main.c: 360:     }
+"359
+[; ;main.c: 359:     }
 }
 [e :U 393 ]
-"361
-[; ;main.c: 361:     uint8_t symmetry_status = CCW;
+"360
+[; ;main.c: 360:     uint8_t symmetry_status = CCW;
 [v _symmetry_status `uc ~T0 @X0 1 a ]
 [e = _symmetry_status _CCW ]
-"362
-[; ;main.c: 362:     if(current_symmetry > 128){
+"361
+[; ;main.c: 361:     if(current_symmetry > 128){
 [e $ ! > -> _current_symmetry `ui -> -> 128 `i `ui 394  ]
 {
-"363
-[; ;main.c: 363:         current_symmetry = 255 - current_symmetry;
+"362
+[; ;main.c: 362:         current_symmetry = 255 - current_symmetry;
 [e = _current_symmetry -> - -> -> 255 `i `ui -> _current_symmetry `ui `us ]
-"364
-[; ;main.c: 364:         symmetry_status = CW;
+"363
+[; ;main.c: 363:         symmetry_status = CW;
 [e = _symmetry_status _CW ]
-"365
-[; ;main.c: 365:     }
+"364
+[; ;main.c: 364:     }
 }
 [e :U 394 ]
-"366
-[; ;main.c: 366:     if((current_halfcycle == 0) && (symmetry_status == CCW)){
+"365
+[; ;main.c: 365:     if((current_halfcycle == 0) && (symmetry_status == CCW)){
 [e $ ! && == -> _current_halfcycle `i -> 0 `i == -> _symmetry_status `i -> _CCW `i 395  ]
 {
-"367
-[; ;main.c: 367:         SHORTEN_PERIOD();
+"366
+[; ;main.c: 366:         SHORTEN_PERIOD();
 [e ( _SHORTEN_PERIOD ..  ]
-"368
-[; ;main.c: 368:     }
+"367
+[; ;main.c: 367:     }
 }
 [e $U 396  ]
-"369
-[; ;main.c: 369:     else if((current_halfcycle == 0) && (symmetry_status == CW)){
+"368
+[; ;main.c: 368:     else if((current_halfcycle == 0) && (symmetry_status == CW)){
 [e :U 395 ]
 [e $ ! && == -> _current_halfcycle `i -> 0 `i == -> _symmetry_status `i -> _CW `i 397  ]
 {
-"371
-[; ;main.c: 371:         TMR0_offset=0;
-[e = _TMR0_offset -> -> 0 `i `uc ]
-"372
-[; ;main.c: 372:         TMR0_offset_sign=DONT_CARE;
-[e = _TMR0_offset_sign _DONT_CARE ]
-"373
-[; ;main.c: 373:         prescaler_adjust=DO_NOTHING;
-[e = _prescaler_adjust _DO_NOTHING ]
-"374
-[; ;main.c: 374:     }
+"369
+[; ;main.c: 369:         LENGTHEN_PERIOD();
+[e ( _LENGTHEN_PERIOD ..  ]
+"370
+[; ;main.c: 370:     }
 }
 [e $U 398  ]
-"375
-[; ;main.c: 375:     else if((current_halfcycle == 1) && (symmetry_status == CCW)){
+"371
+[; ;main.c: 371:     else if((current_halfcycle == 1) && (symmetry_status == CCW)){
 [e :U 397 ]
 [e $ ! && == -> _current_halfcycle `i -> 1 `i == -> _symmetry_status `i -> _CCW `i 399  ]
 {
-"377
-[; ;main.c: 377:         TMR0_offset=0;
-[e = _TMR0_offset -> -> 0 `i `uc ]
-"378
-[; ;main.c: 378:         TMR0_offset_sign=DONT_CARE;
-[e = _TMR0_offset_sign _DONT_CARE ]
-"379
-[; ;main.c: 379:         prescaler_adjust=DO_NOTHING;
-[e = _prescaler_adjust _DO_NOTHING ]
-"380
-[; ;main.c: 380:     }
+"372
+[; ;main.c: 372:         LENGTHEN_PERIOD();
+[e ( _LENGTHEN_PERIOD ..  ]
+"373
+[; ;main.c: 373:     }
 }
 [e $U 400  ]
-"381
-[; ;main.c: 381:     else if((current_halfcycle == 1) && (symmetry_status == CW)){
+"374
+[; ;main.c: 374:     else if((current_halfcycle == 1) && (symmetry_status == CW)){
 [e :U 399 ]
 [e $ ! && == -> _current_halfcycle `i -> 1 `i == -> _symmetry_status `i -> _CW `i 401  ]
 {
-"382
-[; ;main.c: 382:         SHORTEN_PERIOD();
+"375
+[; ;main.c: 375:         SHORTEN_PERIOD();
 [e ( _SHORTEN_PERIOD ..  ]
-"383
-[; ;main.c: 383:     }
+"376
+[; ;main.c: 376:     }
 }
 [e :U 401 ]
 [e :U 400 ]
 [e :U 398 ]
 [e :U 396 ]
-"384
-[; ;main.c: 384:     return 1;
+"377
+[; ;main.c: 377:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 392  ]
-"385
-[; ;main.c: 385: }
+"378
+[; ;main.c: 378: }
 [e :UE 392 ]
 }
 [v $root$_INTERRUPT_InterruptManager `(v ~T0 @X0 0 e ]
-"387
-[; ;main.c: 387: uint8_t __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
+"380
+[; ;main.c: 380: uint8_t __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
 [v _INTERRUPT_InterruptManager `(uc ~T1 @X0 1 ef ]
 {
 [e :U _INTERRUPT_InterruptManager ]
 [f ]
-"388
-[; ;main.c: 388:     if(TMR0IF == 1){
+"381
+[; ;main.c: 381:     if(TMR0IF == 1){
 [e $ ! == -> _TMR0IF `i -> 1 `i 403  ]
 {
-"389
-[; ;main.c: 389:     GIE = 0;
+"382
+[; ;main.c: 382:     GIE = 0;
 [e = _GIE -> -> 0 `i `b ]
-"391
-[; ;main.c: 391:     TMR0 = final_TMR0;
+"383
+[; ;main.c: 383:     TMR0 = final_TMR0;
 [e = _TMR0 _final_TMR0 ]
-"392
-[; ;main.c: 392:     LATC5 = 1;
+"384
+[; ;main.c: 384:     LATC5 = 1;
 [e = _LATC5 -> -> 1 `i `b ]
-"393
-[; ;main.c: 393:     TMR0IF = 0;
+"385
+[; ;main.c: 385:     TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
-"395
-[; ;main.c: 395:     if(current_waveshape == 0){
+"387
+[; ;main.c: 387:     if(current_waveshape == 0){
 [e $ ! == -> _current_waveshape `i -> 0 `i 404  ]
 {
-"396
-[; ;main.c: 396:         duty = tri_table_one_quadrant[current_one_quadrant_index];
+"388
+[; ;main.c: 388:         duty = tri_table_one_quadrant[current_one_quadrant_index];
 [e = _duty *U + &U _tri_table_one_quadrant * -> _current_one_quadrant_index `ux -> -> # *U &U _tri_table_one_quadrant `ui `ux ]
-"397
-[; ;main.c: 397:     }
+"389
+[; ;main.c: 389:     }
 }
 [e $U 405  ]
-"398
-[; ;main.c: 398:     else if(current_waveshape == 1){
+"390
+[; ;main.c: 390:     else if(current_waveshape == 1){
 [e :U 404 ]
 [e $ ! == -> _current_waveshape `i -> 1 `i 406  ]
 {
-"399
-[; ;main.c: 399:         duty = sine_table_one_quadrant[current_one_quadrant_index];
+"391
+[; ;main.c: 391:         duty = sine_table_one_quadrant[current_one_quadrant_index];
 [e = _duty *U + &U _sine_table_one_quadrant * -> _current_one_quadrant_index `ux -> -> # *U &U _sine_table_one_quadrant `ui `ux ]
-"400
-[; ;main.c: 400:     }
+"392
+[; ;main.c: 392:     }
 }
 [e $U 407  ]
-"401
-[; ;main.c: 401:     else if(current_waveshape == 2){
+"393
+[; ;main.c: 393:     else if(current_waveshape == 2){
 [e :U 406 ]
 [e $ ! == -> _current_waveshape `i -> 2 `i 408  ]
 {
-"402
-[; ;main.c: 402:         duty = 1023;
+"394
+[; ;main.c: 394:         duty = 1023;
 [e = _duty -> -> 1023 `i `us ]
-"403
-[; ;main.c: 403:     }
+"395
+[; ;main.c: 395:     }
 }
 [e :U 408 ]
 [e :U 407 ]
 [e :U 405 ]
-"404
-[; ;main.c: 404:     if(current_one_quadrant_index == 128){
+"396
+[; ;main.c: 396:     if(current_one_quadrant_index == 128){
 [e $ ! == -> _current_one_quadrant_index `i -> 128 `i 409  ]
 {
-"405
-[; ;main.c: 405:         current_quadrant = 1;
+"397
+[; ;main.c: 397:         current_quadrant = 1;
 [e = _current_quadrant -> -> 1 `i `uc ]
-"406
-[; ;main.c: 406:     }
+"398
+[; ;main.c: 398:     }
 }
 [e :U 409 ]
-"407
-[; ;main.c: 407:     if(current_one_quadrant_index == 0){
+"399
+[; ;main.c: 399:     if(current_one_quadrant_index == 0){
 [e $ ! == -> _current_one_quadrant_index `i -> 0 `i 410  ]
 {
-"408
-[; ;main.c: 408:         current_quadrant = 0;
+"400
+[; ;main.c: 400:         current_quadrant = 0;
 [e = _current_quadrant -> -> 0 `i `uc ]
-"409
-[; ;main.c: 409:         if(current_halfcycle == 0){
+"401
+[; ;main.c: 401:         if(current_halfcycle == 0){
 [e $ ! == -> _current_halfcycle `i -> 0 `i 411  ]
 {
-"410
-[; ;main.c: 410:             current_halfcycle = 1;
+"402
+[; ;main.c: 402:             current_halfcycle = 1;
 [e = _current_halfcycle -> -> 1 `i `uc ]
-"411
-[; ;main.c: 411:         }
+"403
+[; ;main.c: 403:         }
 }
 [e $U 412  ]
-"412
-[; ;main.c: 412:         else{
+"404
+[; ;main.c: 404:         else{
 [e :U 411 ]
 {
-"413
-[; ;main.c: 413:             current_halfcycle = 0;
+"405
+[; ;main.c: 405:             current_halfcycle = 0;
 [e = _current_halfcycle -> -> 0 `i `uc ]
-"414
-[; ;main.c: 414:         }
+"406
+[; ;main.c: 406:         }
 }
 [e :U 412 ]
-"415
-[; ;main.c: 415:     }
+"407
+[; ;main.c: 407:     }
 }
 [e :U 410 ]
-"416
-[; ;main.c: 416:         if(current_quadrant == 0){
+"408
+[; ;main.c: 408:         if(current_quadrant == 0){
 [e $ ! == -> _current_quadrant `i -> 0 `i 413  ]
 {
-"417
-[; ;main.c: 417:             current_one_quadrant_index++;
+"409
+[; ;main.c: 409:             current_one_quadrant_index++;
 [e ++ _current_one_quadrant_index -> -> 1 `i `Vuc ]
-"418
-[; ;main.c: 418:         }
+"410
+[; ;main.c: 410:         }
 }
 [e $U 414  ]
-"419
-[; ;main.c: 419:         else{
+"411
+[; ;main.c: 411:         else{
 [e :U 413 ]
 {
-"420
-[; ;main.c: 420:             current_one_quadrant_index--;
+"412
+[; ;main.c: 412:             current_one_quadrant_index--;
 [e -- _current_one_quadrant_index -> -> 1 `i `Vuc ]
-"421
-[; ;main.c: 421:         }
+"413
+[; ;main.c: 413:         }
 }
 [e :U 414 ]
-"422
-[; ;main.c: 422:         if(current_halfcycle == 1){
+"414
+[; ;main.c: 414:         if(current_halfcycle == 1){
 [e $ ! == -> _current_halfcycle `i -> 1 `i 415  ]
 {
-"423
-[; ;main.c: 423:         duty = 1023 - duty;
+"415
+[; ;main.c: 415:         duty = 1023 - duty;
 [e = _duty -> - -> -> 1023 `i `ui -> _duty `ui `us ]
-"424
-[; ;main.c: 424:         }
+"416
+[; ;main.c: 416:         }
 }
 [e :U 415 ]
-"427
-[; ;main.c: 427:     if(current_depth != 0){
+"419
+[; ;main.c: 419:     if(current_depth != 0){
 [e $ ! != -> _current_depth `ui -> -> 0 `i `ui 416  ]
 {
-"428
-[; ;main.c: 428:         duty_low_byte = duty & 0xFF;
+"420
+[; ;main.c: 420:         duty_low_byte = duty & 0xFF;
 [e = _duty_low_byte -> & -> _duty `ui -> -> 255 `i `ui `uc ]
-"429
-[; ;main.c: 429:         duty_high_byte = duty >> 8;
+"421
+[; ;main.c: 421:         duty_high_byte = duty >> 8;
 [e = _duty_high_byte -> >> -> _duty `ui -> 8 `i `uc ]
-"437
-[; ;main.c: 437:         __asm("CLRF r3");
+"429
+[; ;main.c: 429:         __asm("CLRF r3");
 [; <" CLRF r3 ;# ">
-"438
-[; ;main.c: 438:         __asm("CLRF r1");
+"430
+[; ;main.c: 430:         __asm("CLRF r1");
 [; <" CLRF r1 ;# ">
-"439
-[; ;main.c: 439:         __asm("BCF STATUS,0");
+"431
+[; ;main.c: 431:         __asm("BCF STATUS,0");
 [; <" BCF STATUS,0 ;# ">
-"440
-[; ;main.c: 440:         __asm("MOVF _current_depth,0");
+"432
+[; ;main.c: 432:         __asm("MOVF _current_depth,0");
 [; <" MOVF _current_depth,0 ;# ">
-"442
-[; ;main.c: 442:         __asm("mmac _duty_low_byte,0,r3,r1");
+"434
+[; ;main.c: 434:         __asm("mmac _duty_low_byte,0,r3,r1");
 [; <" mmac _duty_low_byte,0,r3,r1 ;# ">
-"443
-[; ;main.c: 443:         __asm("mmac _duty_low_byte,1,r3,r1");
+"435
+[; ;main.c: 435:         __asm("mmac _duty_low_byte,1,r3,r1");
 [; <" mmac _duty_low_byte,1,r3,r1 ;# ">
-"444
-[; ;main.c: 444:         __asm("mmac _duty_low_byte,2,r3,r1");
+"436
+[; ;main.c: 436:         __asm("mmac _duty_low_byte,2,r3,r1");
 [; <" mmac _duty_low_byte,2,r3,r1 ;# ">
-"445
-[; ;main.c: 445:         __asm("mmac _duty_low_byte,3,r3,r1");
+"437
+[; ;main.c: 437:         __asm("mmac _duty_low_byte,3,r3,r1");
 [; <" mmac _duty_low_byte,3,r3,r1 ;# ">
-"446
-[; ;main.c: 446:         __asm("mmac _duty_low_byte,4,r3,r1");
+"438
+[; ;main.c: 438:         __asm("mmac _duty_low_byte,4,r3,r1");
 [; <" mmac _duty_low_byte,4,r3,r1 ;# ">
-"447
-[; ;main.c: 447:         __asm("mmac _duty_low_byte,5,r3,r1");
+"439
+[; ;main.c: 439:         __asm("mmac _duty_low_byte,5,r3,r1");
 [; <" mmac _duty_low_byte,5,r3,r1 ;# ">
-"448
-[; ;main.c: 448:         __asm("mmac _duty_low_byte,6,r3,r1");
+"440
+[; ;main.c: 440:         __asm("mmac _duty_low_byte,6,r3,r1");
 [; <" mmac _duty_low_byte,6,r3,r1 ;# ">
-"449
-[; ;main.c: 449:         __asm("mmac _duty_low_byte,7,r3,r1");
+"441
+[; ;main.c: 441:         __asm("mmac _duty_low_byte,7,r3,r1");
 [; <" mmac _duty_low_byte,7,r3,r1 ;# ">
-"451
-[; ;main.c: 451:         __asm("CLRF r2");
+"443
+[; ;main.c: 443:         __asm("CLRF r2");
 [; <" CLRF r2 ;# ">
-"454
-[; ;main.c: 454:         __asm("mmac _duty_high_byte,0,r3,r2");
+"446
+[; ;main.c: 446:         __asm("mmac _duty_high_byte,0,r3,r2");
 [; <" mmac _duty_high_byte,0,r3,r2 ;# ">
-"455
-[; ;main.c: 455:         __asm("mmac _duty_high_byte,1,r3,r2");
+"447
+[; ;main.c: 447:         __asm("mmac _duty_high_byte,1,r3,r2");
 [; <" mmac _duty_high_byte,1,r3,r2 ;# ">
-"456
-[; ;main.c: 456:         __asm("mmac _duty_high_byte,2,r3,r2");
+"448
+[; ;main.c: 448:         __asm("mmac _duty_high_byte,2,r3,r2");
 [; <" mmac _duty_high_byte,2,r3,r2 ;# ">
-"457
-[; ;main.c: 457:         __asm("mmac _duty_high_byte,3,r3,r2");
+"449
+[; ;main.c: 449:         __asm("mmac _duty_high_byte,3,r3,r2");
 [; <" mmac _duty_high_byte,3,r3,r2 ;# ">
-"458
-[; ;main.c: 458:         __asm("mmac _duty_high_byte,4,r3,r2");
+"450
+[; ;main.c: 450:         __asm("mmac _duty_high_byte,4,r3,r2");
 [; <" mmac _duty_high_byte,4,r3,r2 ;# ">
-"459
-[; ;main.c: 459:         __asm("mmac _duty_high_byte,5,r3,r2");
+"451
+[; ;main.c: 451:         __asm("mmac _duty_high_byte,5,r3,r2");
 [; <" mmac _duty_high_byte,5,r3,r2 ;# ">
-"460
-[; ;main.c: 460:         __asm("mmac _duty_high_byte,6,r3,r2");
+"452
+[; ;main.c: 452:         __asm("mmac _duty_high_byte,6,r3,r2");
 [; <" mmac _duty_high_byte,6,r3,r2 ;# ">
-"461
-[; ;main.c: 461:         __asm("mmac _duty_high_byte,7,r3,r2");
+"453
+[; ;main.c: 453:         __asm("mmac _duty_high_byte,7,r3,r2");
 [; <" mmac _duty_high_byte,7,r3,r2 ;# ">
-"464
-[; ;main.c: 464:         duty = 1023 - *top_two_bytes_ptr;
+"456
+[; ;main.c: 456:         duty = 1023 - *top_two_bytes_ptr;
 [e = _duty -> - -> -> 1023 `i `ui -> *U _top_two_bytes_ptr `ui `us ]
-"465
-[; ;main.c: 465:     }
+"457
+[; ;main.c: 457:     }
 }
 [e $U 417  ]
-"466
-[; ;main.c: 466:     else{
+"458
+[; ;main.c: 458:     else{
 [e :U 416 ]
 {
-"467
-[; ;main.c: 467:         duty = 1023;
+"459
+[; ;main.c: 459:         duty = 1023;
 [e = _duty -> -> 1023 `i `us ]
+"460
+[; ;main.c: 460:     }
+}
+[e :U 417 ]
+"463
+[; ;main.c: 463:     SET_DUTY_CCP3(&duty);
+[e ( _SET_DUTY_CCP3 (1 &U _duty ]
+"466
+[; ;main.c: 466:     LATC5 = 0;
+[e = _LATC5 -> -> 0 `i `b ]
+"467
+[; ;main.c: 467:     GIE = 1;
+[e = _GIE -> -> 1 `i `b ]
 "468
 [; ;main.c: 468:     }
 }
-[e :U 417 ]
-"471
-[; ;main.c: 471:     SET_DUTY_CCP3(&duty);
-[e ( _SET_DUTY_CCP3 (1 &U _duty ]
-"474
-[; ;main.c: 474:     LATC5 = 0;
-[e = _LATC5 -> -> 0 `i `b ]
-"475
-[; ;main.c: 475:     GIE = 1;
-[e = _GIE -> -> 1 `i `b ]
-"476
-[; ;main.c: 476:     }
-}
 [e :U 403 ]
-"477
-[; ;main.c: 477:     return 1;
-[e ) -> -> 1 `i `uc ]
-[e $UE 402  ]
-"478
-[; ;main.c: 478: }
+"469
+[; ;main.c: 469: }
 [e :UE 402 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"480
-[; ;main.c: 480: void main(void) {
+"471
+[; ;main.c: 471: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"482
-[; ;main.c: 482:     CONFIG_SYSTEM();
+"473
+[; ;main.c: 473:     CONFIG_SYSTEM();
 [e ( _CONFIG_SYSTEM ..  ]
-"483
-[; ;main.c: 483:     TURN_ON_CCP3_PWM();
+"474
+[; ;main.c: 474:     TURN_ON_CCP3_PWM();
 [e ( _TURN_ON_CCP3_PWM ..  ]
-"484
-[; ;main.c: 484:     CONFIG_TMR0_INTERRUPT();
+"475
+[; ;main.c: 475:     CONFIG_TMR0_INTERRUPT();
 [e ( _CONFIG_TMR0_INTERRUPT ..  ]
-"485
-[; ;main.c: 485:     GET_CURRENT_POT_VALUES();
+"476
+[; ;main.c: 476:     GET_CURRENT_POT_VALUES();
 [e ( _GET_CURRENT_POT_VALUES ..  ]
-"486
-[; ;main.c: 486:     PROCESS_RAW_SPEED_AND_PRESCALER();
+"477
+[; ;main.c: 477:     PROCESS_RAW_SPEED_AND_PRESCALER();
 [e ( _PROCESS_RAW_SPEED_AND_PRESCALER ..  ]
-"487
-[; ;main.c: 487:     PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
+"478
+[; ;main.c: 478:     PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
 [e ( _PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST ..  ]
-"488
-[; ;main.c: 488:     PROCESS_FINAL_SPEED_AND_PRESCALER();
+"479
+[; ;main.c: 479:     PROCESS_FINAL_SPEED_AND_PRESCALER();
 [e ( _PROCESS_FINAL_SPEED_AND_PRESCALER ..  ]
-"489
-[; ;main.c: 489:     TMR0_WRITE(&final_TMR0);
+"480
+[; ;main.c: 480:     TMR0_WRITE(&final_TMR0);
 [e ( _TMR0_WRITE (1 &U _final_TMR0 ]
-"490
-[; ;main.c: 490:     GIE = 1;
+"481
+[; ;main.c: 481:     GIE = 1;
 [e = _GIE -> -> 1 `i `b ]
-"492
-[; ;main.c: 492:     while(1){
+"483
+[; ;main.c: 483:     while(1){
 [e :U 420 ]
 {
-"494
-[; ;main.c: 494:         GET_CURRENT_POT_VALUES();
+"485
+[; ;main.c: 485:         GET_CURRENT_POT_VALUES();
 [e ( _GET_CURRENT_POT_VALUES ..  ]
-"495
-[; ;main.c: 495:         PROCESS_RAW_SPEED_AND_PRESCALER();
+"486
+[; ;main.c: 486:         PROCESS_RAW_SPEED_AND_PRESCALER();
 [e ( _PROCESS_RAW_SPEED_AND_PRESCALER ..  ]
-"496
-[; ;main.c: 496:         PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
+"487
+[; ;main.c: 487:         PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
 [e ( _PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST ..  ]
-"497
-[; ;main.c: 497:         PROCESS_FINAL_SPEED_AND_PRESCALER();
+"488
+[; ;main.c: 488:         PROCESS_FINAL_SPEED_AND_PRESCALER();
 [e ( _PROCESS_FINAL_SPEED_AND_PRESCALER ..  ]
-"498
-[; ;main.c: 498:         }
+"489
+[; ;main.c: 489:         }
 }
 [e :U 419 ]
 [e $U 420  ]
 [e :U 421 ]
-"499
-[; ;main.c: 499: }
+"490
+[; ;main.c: 490: }
 [e :UE 418 ]
 }

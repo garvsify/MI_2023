@@ -5050,7 +5050,7 @@ uint8_t PROCESS_FINAL_SPEED_AND_PRESCALER(void){
     if(clear_TMR0_please){
         raw_TMR0 = 0;
     }
-    if(TMR0_offset_sign == (POSITIVE || DONT_CARE)){
+    if((TMR0_offset_sign == POSITIVE) || (TMR0_offset_sign == DONT_CARE)){
         final_TMR0 = raw_TMR0 + TMR0_offset;
     }
     else if(TMR0_offset_sign == NEGATIVE){
@@ -5105,8 +5105,7 @@ uint8_t SHORTEN_PERIOD(void){
 }
 
 uint8_t LENGTHEN_PERIOD(void){
-
-    dTMR0_ideal = 97 - (97 * current_symmetry) >> 7;
+    dTMR0_ideal = 97 - ((97 * current_symmetry) >> 7);
         if(raw_TMR0 < dTMR0_ideal){
             TMR0_offset = (uint8_t) 128 - (dTMR0_ideal - raw_TMR0);
             TMR0_offset_sign = POSITIVE;
@@ -5139,16 +5138,10 @@ uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
         SHORTEN_PERIOD();
     }
     else if((current_halfcycle == 0) && (symmetry_status == CW)){
-
-        TMR0_offset=0;
-        TMR0_offset_sign=DONT_CARE;
-        prescaler_adjust=DO_NOTHING;
+        LENGTHEN_PERIOD();
     }
     else if((current_halfcycle == 1) && (symmetry_status == CCW)){
-
-        TMR0_offset=0;
-        TMR0_offset_sign=DONT_CARE;
-        prescaler_adjust=DO_NOTHING;
+        LENGTHEN_PERIOD();
     }
     else if((current_halfcycle == 1) && (symmetry_status == CW)){
         SHORTEN_PERIOD();
@@ -5159,7 +5152,6 @@ uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
 uint8_t __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
     if(TMR0IF == 1){
     GIE = 0;
-
     TMR0 = final_TMR0;
     LATC5 = 1;
     TMR0IF = 0;
@@ -5246,7 +5238,6 @@ uint8_t __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
     LATC5 = 0;
     GIE = 1;
     }
-    return 1;
 }
 
 void main(void) {

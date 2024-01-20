@@ -45,11 +45,13 @@
 [v _PROCESS_FINAL_SPEED_AND_PRESCALER PROCESS_FINAL_SPEED_AND_PRESCALER `(uc  1 e 1 0 ]
 "302
 [v _SHORTEN_PERIOD SHORTEN_PERIOD `(uc  1 e 1 0 ]
-"353
+"335
+[v _LENGTHEN_PERIOD LENGTHEN_PERIOD `(uc  1 e 1 0 ]
+"352
 [v _PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST `(uc  1 e 1 0 ]
-"387
+"380
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(uc  1 e 1 0 ]
-"480
+"471
 [v _main main `(v  1 e 1 0 ]
 "682 /Applications/microchip/mplabx/v6.15/packs/Microchip/PIC12-16F1xxx_DFP/1.6.241/xc8/pic/include/proc/pic16f1824.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @21 ]
@@ -173,10 +175,10 @@
 [v _clear_TMR0_please clear_TMR0_please `VEuc  1 e 1 0 ]
 "122
 [v _symmetry_status symmetry_status `VEuc  1 e 1 0 ]
-"480
+"471
 [v _main main `(v  1 e 1 0 ]
 {
-"499
+"490
 } 0
 "220
 [v _TURN_ON_CCP3_PWM TURN_ON_CCP3_PWM `(uc  1 e 1 0 ]
@@ -191,12 +193,12 @@
 [v TMR0_WRITE@timer_value_ptr timer_value_ptr `*.4VEuc  1 a 1 0 ]
 "246
 } 0
-"353
+"352
 [v _PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST `(uc  1 e 1 0 ]
 {
-"361
-[v PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST@symmetry_status symmetry_status `uc  1 a 1 6 ]
-"385
+"360
+[v PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST@symmetry_status symmetry_status `uc  1 a 1 10 ]
+"378
 } 0
 "302
 [v _SHORTEN_PERIOD SHORTEN_PERIOD `(uc  1 e 1 0 ]
@@ -205,7 +207,22 @@
 [v SHORTEN_PERIOD@TMR0_raw_extra TMR0_raw_extra `us  1 a 2 3 ]
 "333
 } 0
-"258
+"335
+[v _LENGTHEN_PERIOD LENGTHEN_PERIOD `(uc  1 e 1 0 ]
+{
+"350
+} 0
+"15 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"258 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
 [v _PROCESS_RAW_SPEED_AND_PRESCALER PROCESS_RAW_SPEED_AND_PRESCALER `(uc  1 e 1 0 ]
 {
 "275
@@ -278,10 +295,10 @@
 {
 "160
 } 0
-"387
+"380
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(uc  1 e 1 0 ]
 {
-"478
+"469
 } 0
 "193
 [v _SET_DUTY_CCP3 SET_DUTY_CCP3 `(uc  1 e 1 0 ]
