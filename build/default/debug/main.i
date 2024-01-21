@@ -4867,6 +4867,11 @@ uint16_t *top_two_bytes_ptr = (uint16_t *)0x21;
 
 const uint16_t sine_table_one_quadrant[129]={512,518,524,530,537,543,549,555,562,568,574,580,587,593,599,605,611,617,624,630,636,642,648,654,660,666,672,678,684,690,696,701,707,713,719,725,730,736,741,747,753,758,764,769,774,780,785,790,796,801,806,811,816,821,826,831,836,841,846,850,855,860,864,869,873,878,882,886,890,895,899,903,907,911,915,919,922,926,930,933,937,940,944,947,950,953,957,960,963,966,968,971,974,977,979,982,984,986,989,991,993,995,997,999,1001,1003,1004,1006,1008,1009,1011,1012,1013,1014,1015,1017,1017,1018,1019,1020,1021,1021,1022,1022,1022,1023,1023,1023,1023};
 const uint16_t tri_table_one_quadrant[129]={512,516,520,524,528,532,536,540,544,548,552,556,560,564,568,572,576,580,584,588,592,596,600,604,608,612,616,620,624,628,632,636,640,644,648,652,656,660,664,668,672,676,680,684,688,692,696,700,704,708,712,716,720,724,728,732,736,740,744,748,752,756,760,763,767,771,775,779,783,787,791,795,799,803,807,811,815,819,823,827,831,835,839,843,847,851,855,859,863,867,871,875,879,883,887,891,895,899,903,907,911,915,919,923,927,931,935,939,943,947,951,955,959,963,967,971,975,979,983,987,991,995,999,1003,1007,1011,1015,1019,1023};
+const uint8_t lengthen_period_log_table[129]={97,97,97,97,96,96,96,96,96,96,95,95,95,95,95,95,94,94,94,94,94,93,93,93,93,93,93,92,92,92,92,92,91,91,91,91,90,90,90,90,90,89,89,89,89,88,88,88,88,87,87,87,87,86,86,86,86,85,85,85,85,84,84,84,83,83,83,82,82,82,81,81,81,80,80,80,79,79,78,78,78,77,77,76,76,76,75,75,74,74,73,73,72,72,71,70,70,69,69,68,67,67,66,65,64,63,63,62,61,60,59,58,57,55,54,53,51,50,48,46,44,42,39,36,32,28,22,14,0};
+
+
+
+const uint16_t shorten_period_log_table[129]={256,245,234,224,215,206,197,188,180,173,165,158,152,145,139,133,127,122,117,112,107,102,98,94,90,86,82,79,75,72,69,66,63,60,58,55,53,51,48,46,44,42,41,39,37,35,34,32,31,30,28,27,26,25,24,23,22,21,20,19,18,17,16,16,15,14,14,13,12,12,11,11,10,10,9,9,9,8,8,7,7,7,6,6,6,5,5,5,5,4,4,4,4,4,3,3,3,3,3,3,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0};
 
 const uint8_t prescaler_bits[8] = {0b111,0b110,0b101,0b100,0b011,0b010,0b001,0b000};
 const uint8_t waveshape_adc_config_value = 0b100;
@@ -4882,12 +4887,9 @@ const uint8_t DIVIDE_BY_FOUR = 3;
 const uint8_t DONT_CARE = 4;
 const uint8_t YES = 1;
 const uint8_t NO = 0;
-const uint8_t CCW = 0;
-const uint8_t CW = 1;
-# 97 "main.c"
+# 100 "main.c"
 volatile uint16_t speed_control;
 volatile uint32_t speed_control_32;
-volatile uint16_t speed_control_subtracted;
 volatile uint16_t how_many_128;
 volatile uint16_t duty;
 volatile uint8_t duty_low_byte;
@@ -4911,7 +4913,7 @@ volatile uint8_t base_prescaler_bits_index;
 volatile uint16_t dTMR0_ideal;
 volatile uint8_t clear_TMR0_please;
 volatile uint8_t symmetry_status;
-# 143 "main.c"
+# 147 "main.c"
 uint8_t CONFIG_INT_OSC(void){
     OSCCON = 0b11110000;
     OSCTUNE = 0b00011111;
@@ -4934,14 +4936,14 @@ uint8_t CONFIG_ADC_PINS(void){
 uint16_t DO_ADC(const uint8_t *modifier){
     ADCON0 = 0x00;
 
-    uint8_t temp = *modifier << 2;
+    uint8_t temp = (uint8_t)(*modifier << 2);
     ADCON0 = ADCON0 | temp;
     ADON = 1;
     _delay((unsigned long)((0.005)*(32000000/4000.0)));
     GO_nDONE = 1;
     while(GO_nDONE == 1){}
     ADON = 0;
-    uint16_t adc_result = ((ADRESH << 8) | ADRESL);
+    uint16_t adc_result = ((uint16_t)(ADRESH << 8) | ADRESL);
     return adc_result;
 }
 
@@ -4964,9 +4966,9 @@ uint8_t DETERMINE_WAVESHAPE(){
 
 uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr){
 
-    CCPR3L = *duty_ptr >> 2;
+    CCPR3L = (uint8_t)(*duty_ptr >> 2);
     uint8_t temp = *duty_ptr % 0b100;
-    CCP3CON = CCP3CON | (temp << 4);
+    CCP3CON = CCP3CON | ((uint8_t)(temp << 4));
 
 
     return 1;
@@ -5038,10 +5040,11 @@ uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void){
             base_prescaler_bits_index = 1;
         }
         else{
+            uint16_t speed_control_subtracted;
             speed_control_subtracted = speed_control - (127-12);
-            how_many_128 = speed_control_subtracted >> 7;
+            how_many_128 = (uint8_t)(speed_control_subtracted >> 7);
             raw_TMR0 = (uint8_t) (speed_control_subtracted - (how_many_128 << 7));
-            base_prescaler_bits_index = how_many_128 + 2;
+            base_prescaler_bits_index = (uint8_t)(how_many_128 + 2);
         }
     return 1;
 }
@@ -5107,7 +5110,7 @@ uint8_t SHORTEN_PERIOD(void){
 uint8_t LENGTHEN_PERIOD(void){
     dTMR0_ideal = 97 - ((97 * current_symmetry) >> 7);
         if(raw_TMR0 < dTMR0_ideal){
-            TMR0_offset = (uint8_t) 128 - (dTMR0_ideal - raw_TMR0);
+            TMR0_offset = (uint8_t)(128 - (dTMR0_ideal - raw_TMR0));
             TMR0_offset_sign = POSITIVE;
             prescaler_adjust = MULTIPLY_BY_TWO;
             clear_TMR0_please = YES;
@@ -5129,27 +5132,27 @@ uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
         clear_TMR0_please = NO;
         return 1;
     }
-    uint8_t symmetry_status = CCW;
+    uint8_t symmetry_status = 0;
     if(current_symmetry > 128){
         current_symmetry = 255 - current_symmetry;
-        symmetry_status = CW;
+        symmetry_status = 1;
     }
-    if((current_halfcycle == 0) && (symmetry_status == CCW)){
+    if((current_halfcycle == 0) && (symmetry_status == 0)){
         SHORTEN_PERIOD();
     }
-    else if((current_halfcycle == 0) && (symmetry_status == CW)){
+    else if((current_halfcycle == 0) && (symmetry_status == 1)){
         LENGTHEN_PERIOD();
     }
-    else if((current_halfcycle == 1) && (symmetry_status == CCW)){
+    else if((current_halfcycle == 1) && (symmetry_status == 0)){
         LENGTHEN_PERIOD();
     }
-    else if((current_halfcycle == 1) && (symmetry_status == CW)){
+    else if((current_halfcycle == 1) && (symmetry_status == 1)){
         SHORTEN_PERIOD();
     }
     return 1;
 }
 
-uint8_t __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
+void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
     if(TMR0IF == 1){
     GIE = 0;
     TMR0 = final_TMR0;

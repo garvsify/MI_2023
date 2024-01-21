@@ -81,8 +81,6 @@ const uint8_t DIVIDE_BY_FOUR = 3;
 const uint8_t DONT_CARE = 4;
 const uint8_t YES = 1;
 const uint8_t NO = 0;
-const uint8_t CCW = 0;
-const uint8_t CW = 1;
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////// PRE-REQUISITES ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -101,7 +99,6 @@ const uint8_t CW = 1;
 
 volatile uint16_t speed_control;
 volatile uint32_t speed_control_32;
-volatile uint16_t speed_control_subtracted;
 volatile uint16_t how_many_128;
 volatile uint16_t duty;
 volatile uint8_t duty_low_byte;
@@ -140,6 +137,8 @@ volatile uint8_t symmetry_status;
 #define TRIANGLE_MODE_ADC_THRESHOLD 341
 #define SINE_MODE_ADC_THRESHOLD 682
 #define SQUARE_MODE_ADC_THRESHOLD 1023
+#define CW 1
+#define CCW 0
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////// DEFINE FUNCTIONS //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -167,14 +166,14 @@ uint8_t CONFIG_ADC_PINS(void){
 uint16_t DO_ADC(const uint8_t *modifier){
     ADCON0 = 0x00; //clear ADCON0 first
     //uint8_t temp = A2D_lookup[*modifier];
-    uint8_t temp = *modifier << 2;
+    uint8_t temp = (uint8_t)(*modifier << 2);
     ADCON0 = ADCON0 | temp; //select appropriate ADC channel
     ADON = 1; //turn on ADC
     __delay_ms(0.005); //acquisition time
     GO_nDONE = 1; //start A2D
     while(GO_nDONE == 1){} //do nothing while ADC conversion in progress
     ADON = 0; //turn off ADC
-    uint16_t adc_result = ((ADRESH << 8) | ADRESL); //concatenate high and low registers to get ADC result
+    uint16_t adc_result = ((uint16_t)(ADRESH << 8) | ADRESL); //concatenate high and low registers to get ADC result
     return adc_result;
 }
 
@@ -197,9 +196,9 @@ uint8_t DETERMINE_WAVESHAPE(){
 
 uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr){
     //we need to split up the duty cycle value (0-1023) into two parts, the 8 MSBs (CCPR3L register) and the 2 LSBs (DC3B bits within the CCP3CON register) and write the separate bit portions to those registers
-    CCPR3L = *duty_ptr >> 2; //extract 8 MSBs from duty value (dereference the ptr first)
+    CCPR3L = (uint8_t)(*duty_ptr >> 2); //extract 8 MSBs from duty value (dereference the ptr first)
     uint8_t temp = *duty_ptr % 0b100;
-    CCP3CON = CCP3CON | (temp << 4); //extract 2 LSBs from duty value and write to the DC3B bits (bits 5 and 4 within the CCP3CON register)
+    CCP3CON = CCP3CON | ((uint8_t)(temp << 4)); //extract 2 LSBs from duty value and write to the DC3B bits (bits 5 and 4 within the CCP3CON register)
     //although we can write to the above registers at any time to specify the duty cycle, the duty cycle will not update until the
     //timer overflow
     return 1;
@@ -271,10 +270,11 @@ uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void){
             base_prescaler_bits_index = 1;
         }
         else{ 	//(speed_control > (127-12))
+            uint16_t speed_control_subtracted;
             speed_control_subtracted = speed_control - (127-12);
-            how_many_128 = speed_control_subtracted >> 7; //divide by 128, i.e. return how many 128s go into the speed_control
+            how_many_128 = (uint8_t)(speed_control_subtracted >> 7); //divide by 128, i.e. return how many 128s go into the speed_control
             raw_TMR0 = (uint8_t) (speed_control_subtracted - (how_many_128 << 7)); //how_many_128*128, set TMR0
-            base_prescaler_bits_index = how_many_128 + 2;
+            base_prescaler_bits_index = (uint8_t)(how_many_128 + 2);
         }
     return 1;
 }
@@ -340,7 +340,7 @@ uint8_t SHORTEN_PERIOD(void){ //THIS WORKS DON'T TOCUH
 uint8_t LENGTHEN_PERIOD(void){
     dTMR0_ideal = 97 - ((97 * current_symmetry) >> 7);
         if(raw_TMR0 < dTMR0_ideal){
-            TMR0_offset = (uint8_t) 128 - (dTMR0_ideal - raw_TMR0);
+            TMR0_offset = (uint8_t)(128 - (dTMR0_ideal - raw_TMR0));
             TMR0_offset_sign = POSITIVE;                
             prescaler_adjust = MULTIPLY_BY_TWO;
             clear_TMR0_please = YES;

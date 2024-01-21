@@ -4887,12 +4887,9 @@ const uint8_t DIVIDE_BY_FOUR = 3;
 const uint8_t DONT_CARE = 4;
 const uint8_t YES = 1;
 const uint8_t NO = 0;
-const uint8_t CCW = 0;
-const uint8_t CW = 1;
-# 102 "main.c"
+# 100 "main.c"
 volatile uint16_t speed_control;
 volatile uint32_t speed_control_32;
-volatile uint16_t speed_control_subtracted;
 volatile uint16_t how_many_128;
 volatile uint16_t duty;
 volatile uint8_t duty_low_byte;
@@ -4916,7 +4913,7 @@ volatile uint8_t base_prescaler_bits_index;
 volatile uint16_t dTMR0_ideal;
 volatile uint8_t clear_TMR0_please;
 volatile uint8_t symmetry_status;
-# 148 "main.c"
+# 147 "main.c"
 uint8_t CONFIG_INT_OSC(void){
     OSCCON = 0b11110000;
     OSCTUNE = 0b00011111;
@@ -4939,14 +4936,14 @@ uint8_t CONFIG_ADC_PINS(void){
 uint16_t DO_ADC(const uint8_t *modifier){
     ADCON0 = 0x00;
 
-    uint8_t temp = *modifier << 2;
+    uint8_t temp = (uint8_t)(*modifier << 2);
     ADCON0 = ADCON0 | temp;
     ADON = 1;
     _delay((unsigned long)((0.005)*(32000000/4000.0)));
     GO_nDONE = 1;
     while(GO_nDONE == 1){}
     ADON = 0;
-    uint16_t adc_result = ((ADRESH << 8) | ADRESL);
+    uint16_t adc_result = ((uint16_t)(ADRESH << 8) | ADRESL);
     return adc_result;
 }
 
@@ -4969,9 +4966,9 @@ uint8_t DETERMINE_WAVESHAPE(){
 
 uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr){
 
-    CCPR3L = *duty_ptr >> 2;
+    CCPR3L = (uint8_t)(*duty_ptr >> 2);
     uint8_t temp = *duty_ptr % 0b100;
-    CCP3CON = CCP3CON | (temp << 4);
+    CCP3CON = CCP3CON | ((uint8_t)(temp << 4));
 
 
     return 1;
@@ -5043,10 +5040,11 @@ uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void){
             base_prescaler_bits_index = 1;
         }
         else{
+            uint16_t speed_control_subtracted;
             speed_control_subtracted = speed_control - (127-12);
-            how_many_128 = speed_control_subtracted >> 7;
+            how_many_128 = (uint8_t)(speed_control_subtracted >> 7);
             raw_TMR0 = (uint8_t) (speed_control_subtracted - (how_many_128 << 7));
-            base_prescaler_bits_index = how_many_128 + 2;
+            base_prescaler_bits_index = (uint8_t)(how_many_128 + 2);
         }
     return 1;
 }
@@ -5112,7 +5110,7 @@ uint8_t SHORTEN_PERIOD(void){
 uint8_t LENGTHEN_PERIOD(void){
     dTMR0_ideal = 97 - ((97 * current_symmetry) >> 7);
         if(raw_TMR0 < dTMR0_ideal){
-            TMR0_offset = (uint8_t) 128 - (dTMR0_ideal - raw_TMR0);
+            TMR0_offset = (uint8_t)(128 - (dTMR0_ideal - raw_TMR0));
             TMR0_offset_sign = POSITIVE;
             prescaler_adjust = MULTIPLY_BY_TWO;
             clear_TMR0_please = YES;
@@ -5134,21 +5132,21 @@ uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
         clear_TMR0_please = NO;
         return 1;
     }
-    uint8_t symmetry_status = CCW;
+    uint8_t symmetry_status = 0;
     if(current_symmetry > 128){
         current_symmetry = 255 - current_symmetry;
-        symmetry_status = CW;
+        symmetry_status = 1;
     }
-    if((current_halfcycle == 0) && (symmetry_status == CCW)){
+    if((current_halfcycle == 0) && (symmetry_status == 0)){
         SHORTEN_PERIOD();
     }
-    else if((current_halfcycle == 0) && (symmetry_status == CW)){
+    else if((current_halfcycle == 0) && (symmetry_status == 1)){
         LENGTHEN_PERIOD();
     }
-    else if((current_halfcycle == 1) && (symmetry_status == CCW)){
+    else if((current_halfcycle == 1) && (symmetry_status == 0)){
         LENGTHEN_PERIOD();
     }
-    else if((current_halfcycle == 1) && (symmetry_status == CW)){
+    else if((current_halfcycle == 1) && (symmetry_status == 1)){
         SHORTEN_PERIOD();
     }
     return 1;
