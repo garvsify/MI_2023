@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "config.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,7 +6,11 @@
 # 1 "<built-in>" 2
 # 1 "/Applications/microchip/xc8/v2.45/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
+# 1 "config.c" 2
+# 1 "./config.h" 1
+
+
+
 # 1 "/Applications/microchip/xc8/v2.45/pic/include/xc.h" 1 3
 # 18 "/Applications/microchip/xc8/v2.45/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4290,7 +4294,160 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/Applications/microchip/xc8/v2.45/pic/include/xc.h" 2 3
-# 2 "main.c" 2
+# 5 "./config.h" 2
+# 1 "/Applications/microchip/xc8/v2.45/pic/include/c99/stdio.h" 1 3
+# 24 "/Applications/microchip/xc8/v2.45/pic/include/c99/stdio.h" 3
+# 1 "/Applications/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 1 3
+# 12 "/Applications/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
+typedef void * va_list[1];
+
+
+
+
+typedef void * __isoc_va_list[1];
+# 143 "/Applications/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
+typedef short ssize_t;
+# 255 "/Applications/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
+typedef long long off_t;
+# 409 "/Applications/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
+typedef struct _IO_FILE FILE;
+# 25 "/Applications/microchip/xc8/v2.45/pic/include/c99/stdio.h" 2 3
+# 52 "/Applications/microchip/xc8/v2.45/pic/include/c99/stdio.h" 3
+typedef union _G_fpos64_t {
+ char __opaque[16];
+ double __align;
+} fpos_t;
+
+extern FILE *const stdin;
+extern FILE *const stdout;
+extern FILE *const stderr;
+
+
+
+
+
+FILE *fopen(const char *restrict, const char *restrict);
+FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
+int fclose(FILE *);
+
+int remove(const char *);
+int rename(const char *, const char *);
+
+int feof(FILE *);
+int ferror(FILE *);
+int fflush(FILE *);
+void clearerr(FILE *);
+
+int fseek(FILE *, long, int);
+long ftell(FILE *);
+void rewind(FILE *);
+
+int fgetpos(FILE *restrict, fpos_t *restrict);
+int fsetpos(FILE *, const fpos_t *);
+
+size_t fread(void *restrict, size_t, size_t, FILE *restrict);
+size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
+
+int fgetc(FILE *);
+int getc(FILE *);
+int getchar(void);
+
+
+
+
+
+int ungetc(int, FILE *);
+int getch(void);
+
+int fputc(int, FILE *);
+int putc(int, FILE *);
+int putchar(int);
+
+
+
+
+
+void putch(char);
+
+char *fgets(char *restrict, int, FILE *restrict);
+
+char *gets(char *);
+
+
+int fputs(const char *restrict, FILE *restrict);
+int puts(const char *);
+
+__attribute__((__format__(__printf__, 1, 2)))
+int printf(const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int fprintf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 2, 3)))
+int sprintf(char *restrict, const char *restrict, ...);
+__attribute__((__format__(__printf__, 3, 4)))
+int snprintf(char *restrict, size_t, const char *restrict, ...);
+
+__attribute__((__format__(__printf__, 1, 0)))
+int vprintf(const char *restrict, __isoc_va_list);
+int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 2, 0)))
+int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__printf__, 3, 0)))
+int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
+
+__attribute__((__format__(__scanf__, 1, 2)))
+int scanf(const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int fscanf(FILE *restrict, const char *restrict, ...);
+__attribute__((__format__(__scanf__, 2, 3)))
+int sscanf(const char *restrict, const char *restrict, ...);
+
+__attribute__((__format__(__scanf__, 1, 0)))
+int vscanf(const char *restrict, __isoc_va_list);
+int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
+__attribute__((__format__(__scanf__, 2, 0)))
+int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
+
+void perror(const char *);
+
+int setvbuf(FILE *restrict, char *restrict, int, size_t);
+void setbuf(FILE *restrict, char *restrict);
+
+char *tmpnam(char *);
+FILE *tmpfile(void);
+
+
+
+
+FILE *fmemopen(void *restrict, size_t, const char *restrict);
+FILE *open_memstream(char **, size_t *);
+FILE *fdopen(int, const char *);
+FILE *popen(const char *, const char *);
+int pclose(FILE *);
+int fileno(FILE *);
+int fseeko(FILE *, off_t, int);
+off_t ftello(FILE *);
+int dprintf(int, const char *restrict, ...);
+int vdprintf(int, const char *restrict, __isoc_va_list);
+void flockfile(FILE *);
+int ftrylockfile(FILE *);
+void funlockfile(FILE *);
+int getc_unlocked(FILE *);
+int getchar_unlocked(void);
+int putc_unlocked(int, FILE *);
+int putchar_unlocked(int);
+ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
+ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
+int renameat(int, const char *, int, const char *);
+char *ctermid(char *);
+
+
+
+
+
+
+
+char *tempnam(const char *, const char *);
+# 6 "./config.h" 2
 # 1 "/Applications/microchip/xc8/v2.45/pic/include/c99/math.h" 1 3
 # 15 "/Applications/microchip/xc8/v2.45/pic/include/c99/math.h" 3
 # 1 "/Applications/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 1 3
@@ -4663,167 +4820,7 @@ double jn(int, double);
 double y0(double);
 double y1(double);
 double yn(int, double);
-# 3 "main.c" 2
-# 1 "/Applications/microchip/xc8/v2.45/pic/include/c99/stdio.h" 1 3
-# 24 "/Applications/microchip/xc8/v2.45/pic/include/c99/stdio.h" 3
-# 1 "/Applications/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 1 3
-# 12 "/Applications/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
-typedef void * va_list[1];
-
-
-
-
-typedef void * __isoc_va_list[1];
-# 143 "/Applications/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
-typedef short ssize_t;
-# 255 "/Applications/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
-typedef long long off_t;
-# 409 "/Applications/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 3
-typedef struct _IO_FILE FILE;
-# 25 "/Applications/microchip/xc8/v2.45/pic/include/c99/stdio.h" 2 3
-# 52 "/Applications/microchip/xc8/v2.45/pic/include/c99/stdio.h" 3
-typedef union _G_fpos64_t {
- char __opaque[16];
- double __align;
-} fpos_t;
-
-extern FILE *const stdin;
-extern FILE *const stdout;
-extern FILE *const stderr;
-
-
-
-
-
-FILE *fopen(const char *restrict, const char *restrict);
-FILE *freopen(const char *restrict, const char *restrict, FILE *restrict);
-int fclose(FILE *);
-
-int remove(const char *);
-int rename(const char *, const char *);
-
-int feof(FILE *);
-int ferror(FILE *);
-int fflush(FILE *);
-void clearerr(FILE *);
-
-int fseek(FILE *, long, int);
-long ftell(FILE *);
-void rewind(FILE *);
-
-int fgetpos(FILE *restrict, fpos_t *restrict);
-int fsetpos(FILE *, const fpos_t *);
-
-size_t fread(void *restrict, size_t, size_t, FILE *restrict);
-size_t fwrite(const void *restrict, size_t, size_t, FILE *restrict);
-
-int fgetc(FILE *);
-int getc(FILE *);
-int getchar(void);
-
-
-
-
-
-int ungetc(int, FILE *);
-int getch(void);
-
-int fputc(int, FILE *);
-int putc(int, FILE *);
-int putchar(int);
-
-
-
-
-
-void putch(char);
-
-char *fgets(char *restrict, int, FILE *restrict);
-
-char *gets(char *);
-
-
-int fputs(const char *restrict, FILE *restrict);
-int puts(const char *);
-
-__attribute__((__format__(__printf__, 1, 2)))
-int printf(const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int fprintf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 2, 3)))
-int sprintf(char *restrict, const char *restrict, ...);
-__attribute__((__format__(__printf__, 3, 4)))
-int snprintf(char *restrict, size_t, const char *restrict, ...);
-
-__attribute__((__format__(__printf__, 1, 0)))
-int vprintf(const char *restrict, __isoc_va_list);
-int vfprintf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 2, 0)))
-int vsprintf(char *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__printf__, 3, 0)))
-int vsnprintf(char *restrict, size_t, const char *restrict, __isoc_va_list);
-
-__attribute__((__format__(__scanf__, 1, 2)))
-int scanf(const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int fscanf(FILE *restrict, const char *restrict, ...);
-__attribute__((__format__(__scanf__, 2, 3)))
-int sscanf(const char *restrict, const char *restrict, ...);
-
-__attribute__((__format__(__scanf__, 1, 0)))
-int vscanf(const char *restrict, __isoc_va_list);
-int vfscanf(FILE *restrict, const char *restrict, __isoc_va_list);
-__attribute__((__format__(__scanf__, 2, 0)))
-int vsscanf(const char *restrict, const char *restrict, __isoc_va_list);
-
-void perror(const char *);
-
-int setvbuf(FILE *restrict, char *restrict, int, size_t);
-void setbuf(FILE *restrict, char *restrict);
-
-char *tmpnam(char *);
-FILE *tmpfile(void);
-
-
-
-
-FILE *fmemopen(void *restrict, size_t, const char *restrict);
-FILE *open_memstream(char **, size_t *);
-FILE *fdopen(int, const char *);
-FILE *popen(const char *, const char *);
-int pclose(FILE *);
-int fileno(FILE *);
-int fseeko(FILE *, off_t, int);
-off_t ftello(FILE *);
-int dprintf(int, const char *restrict, ...);
-int vdprintf(int, const char *restrict, __isoc_va_list);
-void flockfile(FILE *);
-int ftrylockfile(FILE *);
-void funlockfile(FILE *);
-int getc_unlocked(FILE *);
-int getchar_unlocked(void);
-int putc_unlocked(int, FILE *);
-int putchar_unlocked(int);
-ssize_t getdelim(char **restrict, size_t *restrict, int, FILE *restrict);
-ssize_t getline(char **restrict, size_t *restrict, FILE *restrict);
-int renameat(int, const char *, int, const char *);
-char *ctermid(char *);
-
-
-
-
-
-
-
-char *tempnam(const char *, const char *);
-# 4 "main.c" 2
-# 1 "./config.h" 1
-
-
-
-
-
-
+# 7 "./config.h" 2
 
 
 #pragma config FOSC = INTOSC
@@ -4857,211 +4854,84 @@ char *tempnam(const char *, const char *);
     uint8_t CONFIG_TMR0_INTERRUPT(void);
     uint8_t CONFIG_SYSTEM(void);
     uint8_t TURN_ON_CCP3_PWM(void);
-# 5 "main.c" 2
-# 1 "./system.h" 1
-# 51 "./system.h"
-                __asm("r1 EQU 20h");
-                __asm("r2 EQU 21h");
-                __asm("r3 EQU 22h");
-                __asm("aL EQU 23h");
-                __asm("aH EQU 24h");
-                __asm("B EQU 25h");
+# 2 "config.c" 2
 
+uint8_t CONFIG_INT_OSC(void){
+    OSCCON = 0b11110000;
+    OSCTUNE = 0b00011111;
 
-                __asm("mmac MACRO A,bit,u2,u1");
-                __asm("BTFSC A,bit");
-                __asm("ADDWF u2,F");
-                __asm("RRF u2,F");
-                __asm("RRF u1,F");
-                __asm("ENDM");
-        uint16_t *top_two_bytes_ptr = (uint16_t *)0x21;
-
-
-
-    const uint8_t prescaler_bits[8] = {0b111,0b110,0b101,0b100,0b011,0b010,0b001,0b000};
-    const uint8_t waveshape_adc_config_value = 0b100;
-    const uint8_t speed_adc_config_value = 0b101;
-    const uint8_t depth_adc_config_value = 0b110;
-    const uint8_t symmetry_adc_config_value = 0b111;
-    const uint8_t POSITIVE = 1;
-    const uint8_t NEGATIVE = 0;
-    const uint8_t DO_NOTHING = 0;
-    const uint8_t DIVIDE_BY_TWO = 1;
-    const uint8_t MULTIPLY_BY_TWO = 2;
-    const uint8_t DIVIDE_BY_FOUR = 3;
-    const uint8_t DONT_CARE = 4;
-    const uint8_t YES = 1;
-    const uint8_t NO = 0;
-
-    uint8_t DETERMINE_WAVESHAPE(void);
-    uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr);
-    uint8_t GET_CURRENT_POT_VALUES(void);
-    uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void);
-    uint8_t CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1(void);
-    uint8_t TURN_PRESCALER_OFF(void);
-    uint8_t TURN_PRESCALER_ON(void);
-    uint8_t PROCESS_FINAL_SPEED_AND_PRESCALER(void);
-    uint8_t ADJUST_TMR0(void);
-    uint8_t ADJUST_PRESCALER(void);
-    uint8_t SHORTEN_PERIOD(void);
-    uint8_t LENGTHEN_PERIOD(void);
-    uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void);
-    uint16_t DO_ADC(const uint8_t *waveshape_adc_config_value);
-
-    volatile extern uint8_t final_TMR0;
-    volatile extern uint8_t TMR0_offset;
-    volatile extern uint8_t TMR0_offset_sign;
-    volatile extern uint8_t prescaler_adjust;
-    volatile extern uint8_t raw_TMR0;
-    volatile extern uint8_t base_prescaler_bits_index;
-    volatile extern uint16_t dTMR0_ideal;
-    volatile extern uint8_t clear_TMR0_please;
-    volatile extern uint8_t symmetry_status;
-    volatile extern uint32_t symmetry_total;
-    volatile extern uint16_t speed_control;
-    volatile extern uint32_t speed_control_32;
-    volatile extern uint8_t how_many_128;
-    volatile extern uint16_t duty;
-    volatile extern uint8_t duty_low_byte;
-    volatile extern uint8_t duty_high_byte;
-    volatile extern uint8_t current_waveshape;
-    volatile extern uint16_t current_speed_linear;
-    volatile extern uint32_t current_speed_linear_32;
-    volatile extern uint16_t current_depth;
-    volatile extern uint16_t current_symmetry;
-    volatile extern uint8_t current_one_quadrant_index;
-    volatile extern uint8_t current_halfcycle;
-    volatile extern uint8_t current_quadrant;
-# 6 "main.c" 2
-# 1 "./wavetables.h" 1
-
-
-
-
-
-
-    const uint16_t sine_table_one_quadrant[129]={512,518,524,530,537,543,549,555,562,568,574,580,587,593,599,605,611,617,624,630,636,642,648,654,660,666,672,678,684,690,696,701,707,713,719,725,730,736,741,747,753,758,764,769,774,780,785,790,796,801,806,811,816,821,826,831,836,841,846,850,855,860,864,869,873,878,882,886,890,895,899,903,907,911,915,919,922,926,930,933,937,940,944,947,950,953,957,960,963,966,968,971,974,977,979,982,984,986,989,991,993,995,997,999,1001,1003,1004,1006,1008,1009,1011,1012,1013,1014,1015,1017,1017,1018,1019,1020,1021,1021,1022,1022,1022,1023,1023,1023,1023};
-    const uint16_t tri_table_one_quadrant[129]={512,516,520,524,528,532,536,540,544,548,552,556,560,564,568,572,576,580,584,588,592,596,600,604,608,612,616,620,624,628,632,636,640,644,648,652,656,660,664,668,672,676,680,684,688,692,696,700,704,708,712,716,720,724,728,732,736,740,744,748,752,756,760,763,767,771,775,779,783,787,791,795,799,803,807,811,815,819,823,827,831,835,839,843,847,851,855,859,863,867,871,875,879,883,887,891,895,899,903,907,911,915,919,923,927,931,935,939,943,947,951,955,959,963,967,971,975,979,983,987,991,995,999,1003,1007,1011,1015,1019,1023};
-# 7 "main.c" 2
-
-volatile uint16_t duty = 0;
-
-void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
-    if(TMR0IF == 1){
-    GIE = 0;
-    TMR0 = final_TMR0;
-
-    TMR0IF = 0;
-
-    if(current_waveshape == 0){
-        duty = tri_table_one_quadrant[current_one_quadrant_index];
-    }
-    else if(current_waveshape == 1){
-        duty = sine_table_one_quadrant[current_one_quadrant_index];
-    }
-    else if(current_waveshape == 2){
-        duty = 1023;
-    }
-    if(current_one_quadrant_index == 128){
-        current_quadrant = 1;
-    }
-    if(current_one_quadrant_index == 0){
-        current_quadrant = 0;
-        if(current_halfcycle == 0){
-            current_halfcycle = 1;
-        }
-        else{
-            current_halfcycle = 0;
-        }
-    }
-        if(current_quadrant == 0){
-            current_one_quadrant_index++;
-        }
-        else{
-            current_one_quadrant_index--;
-        }
-        if(current_halfcycle == 1){
-        duty = 1023 - duty;
-        }
-
-
-
-        if(current_depth != 0){
-            duty_low_byte = duty & 0xFF;
-            duty_high_byte = duty >> 8;
-
-
-
-
-
-
-
-            __asm("CLRF r3");
-            __asm("CLRF r1");
-            __asm("BCF STATUS,0");
-            __asm("MOVF _current_depth,0");
-
-            __asm("mmac _duty_low_byte,0,r3,r1");
-            __asm("mmac _duty_low_byte,1,r3,r1");
-            __asm("mmac _duty_low_byte,2,r3,r1");
-            __asm("mmac _duty_low_byte,3,r3,r1");
-            __asm("mmac _duty_low_byte,4,r3,r1");
-            __asm("mmac _duty_low_byte,5,r3,r1");
-            __asm("mmac _duty_low_byte,6,r3,r1");
-            __asm("mmac _duty_low_byte,7,r3,r1");
-
-            __asm("CLRF r2");
-
-
-            __asm("mmac _duty_high_byte,0,r3,r2");
-            __asm("mmac _duty_high_byte,1,r3,r2");
-            __asm("mmac _duty_high_byte,2,r3,r2");
-            __asm("mmac _duty_high_byte,3,r3,r2");
-            __asm("mmac _duty_high_byte,4,r3,r2");
-            __asm("mmac _duty_high_byte,5,r3,r2");
-            __asm("mmac _duty_high_byte,6,r3,r2");
-            __asm("mmac _duty_high_byte,7,r3,r2");
-
-
-            duty = 1023 - *top_two_bytes_ptr;
-        }
-        else{
-            duty = 1023;
-        }
-
-
-
-    SET_DUTY_CCP3(&duty);
-
-
-
-    GIE = 1;
-    }
+    return 1;
 }
 
-void main(void) {
 
-    CONFIG_SYSTEM();
-    TURN_ON_CCP3_PWM();
-    CONFIG_TMR0_INTERRUPT();
-    GET_CURRENT_POT_VALUES();
-    PROCESS_RAW_SPEED_AND_PRESCALER();
-
-
+uint8_t CONFIG_PORTS(void){
+    ANSELC = 0b00001111;
+    TRISC = 0b00001111;
+    WPUC = 0b00000000;
+    return 1;
+}
 
 
-
-    PROCESS_FINAL_SPEED_AND_PRESCALER();
-    TMR0 = final_TMR0;
-    GIE = 1;
-
-    while(1){
-        GET_CURRENT_POT_VALUES();
-        PROCESS_RAW_SPEED_AND_PRESCALER();
+uint8_t CONFIG_ADC_PINS(void){
+    ADCON1 = 0b10100000;
+    return 1;
+}
 
 
+uint16_t DO_ADC(const uint8_t *modifier){
+    ADCON0 = 0x00;
+
+    uint8_t temp = (uint8_t)(*modifier << 2);
+    ADCON0 = ADCON0 | temp;
+    ADON = 1;
+    _delay((unsigned long)((0.005)*(32000000/4000.0)));
+    GO_nDONE = 1;
+    while(GO_nDONE == 1){}
+    ADON = 0;
+    uint16_t adc_result = ((uint16_t)(ADRESH << 8) | ADRESL);
+    return adc_result;
+}
 
 
-        PROCESS_FINAL_SPEED_AND_PRESCALER();
-        }
+uint8_t CONFIG_PWM_CCP3(void){
+    SRLEN = 0;
+    C1ON = 0;
+
+    TRISA2 = 1;
+    PR2 = 0xFF;
+    CCP3CON = CCP3CON | 0b00001111;
+
+    CCPTMRS0 = 0x00;
+    TMR2IF = 0;
+    T2CON = T2CON | 0b00000000;
+
+
+
+    return 1;
+}
+
+
+uint8_t CONFIG_TMR0_INTERRUPT(void){
+    TMR0IE = 1;
+    return 1;
+}
+
+
+uint8_t CONFIG_SYSTEM(void){
+    CONFIG_INT_OSC();
+    CONFIG_PORTS();
+    CONFIG_ADC_PINS();
+    CONFIG_PWM_CCP3();
+    return 1;
+}
+
+
+uint8_t TURN_ON_CCP3_PWM(void){
+
+    TMR2IF = 0;
+    TMR2ON = 1;
+    while(TMR2IF == 0){}
+    TMR2IF = 0;
+    TRISA2 = 0;
+    return 1;
 }

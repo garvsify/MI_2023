@@ -7,30 +7,6 @@
 # 1 "/Applications/microchip/xc8/v2.45/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-# 13 "main.c"
-#pragma config FOSC = INTOSC
-#pragma config WDTE = OFF
-#pragma config PWRTE = OFF
-#pragma config MCLRE = ON
-#pragma config CP = OFF
-#pragma config CPD = OFF
-#pragma config BOREN = OFF
-#pragma config CLKOUTEN = OFF
-#pragma config IESO = OFF
-#pragma config FCMEN = OFF
-
-
-#pragma config WRT = OFF
-#pragma config PLLEN = ON
-#pragma config STVREN = ON
-#pragma config BORV = LO
-#pragma config DEBUG = ON
-#pragma config LVP = OFF
-
-
-
-
-
 # 1 "/Applications/microchip/xc8/v2.45/pic/include/xc.h" 1 3
 # 18 "/Applications/microchip/xc8/v2.45/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4314,7 +4290,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/Applications/microchip/xc8/v2.45/pic/include/xc.h" 2 3
-# 36 "main.c" 2
+# 2 "main.c" 2
 # 1 "/Applications/microchip/xc8/v2.45/pic/include/c99/math.h" 1 3
 # 15 "/Applications/microchip/xc8/v2.45/pic/include/c99/math.h" 3
 # 1 "/Applications/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 1 3
@@ -4687,7 +4663,7 @@ double jn(int, double);
 double y0(double);
 double y1(double);
 double yn(int, double);
-# 37 "main.c" 2
+# 3 "main.c" 2
 # 1 "/Applications/microchip/xc8/v2.45/pic/include/c99/stdio.h" 1 3
 # 24 "/Applications/microchip/xc8/v2.45/pic/include/c99/stdio.h" 3
 # 1 "/Applications/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 1 3
@@ -4840,401 +4816,117 @@ char *ctermid(char *);
 
 
 char *tempnam(const char *, const char *);
-# 38 "main.c" 2
-
-
-
-
-
-
-
-const uint16_t sine_table_one_quadrant[129]={512,518,524,530,537,543,549,555,562,568,574,580,587,593,599,605,611,617,624,630,636,642,648,654,660,666,672,678,684,690,696,701,707,713,719,725,730,736,741,747,753,758,764,769,774,780,785,790,796,801,806,811,816,821,826,831,836,841,846,850,855,860,864,869,873,878,882,886,890,895,899,903,907,911,915,919,922,926,930,933,937,940,944,947,950,953,957,960,963,966,968,971,974,977,979,982,984,986,989,991,993,995,997,999,1001,1003,1004,1006,1008,1009,1011,1012,1013,1014,1015,1017,1017,1018,1019,1020,1021,1021,1022,1022,1022,1023,1023,1023,1023};
-
-const uint16_t tri_table_one_quadrant[129]={512,516,520,524,528,532,536,540,544,548,552,556,560,564,568,572,576,580,584,588,592,596,600,604,608,612,616,620,624,628,632,636,640,644,648,652,656,660,664,668,672,676,680,684,688,692,696,700,704,708,712,716,720,724,728,732,736,740,744,748,752,756,760,763,767,771,775,779,783,787,791,795,799,803,807,811,815,819,823,827,831,835,839,843,847,851,855,859,863,867,871,875,879,883,887,891,895,899,903,907,911,915,919,923,927,931,935,939,943,947,951,955,959,963,967,971,975,979,983,987,991,995,999,1003,1007,1011,1015,1019,1023};
-
-const uint8_t prescaler_bits[8] = {0b111,0b110,0b101,0b100,0b011,0b010,0b001,0b000};
-const uint8_t waveshape_adc_config_value = 0b100;
-const uint8_t speed_adc_config_value = 0b101;
-const uint8_t depth_adc_config_value = 0b110;
-const uint8_t symmetry_adc_config_value = 0b111;
-const uint8_t POSITIVE = 1;
-const uint8_t NEGATIVE = 0;
-const uint8_t DO_NOTHING = 0;
-const uint8_t DIVIDE_BY_TWO = 1;
-const uint8_t MULTIPLY_BY_TWO = 2;
-const uint8_t DIVIDE_BY_FOUR = 3;
-const uint8_t DONT_CARE = 4;
-const uint8_t YES = 1;
-const uint8_t NO = 0;
-
-
-
-uint8_t CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1(void);
-uint8_t TURN_PRESCALER_OFF(void);
-uint8_t TURN_PRESCALER_ON(void);
-uint8_t ADJUST_TMR0(void);
-uint8_t ADJUST_PRESCALER(void);
-# 91 "main.c"
-volatile uint16_t speed_control;
-volatile uint32_t speed_control_32;
-volatile uint16_t how_many_128;
-volatile uint16_t duty;
-volatile uint8_t duty_low_byte;
-volatile uint8_t duty_high_byte;
-volatile uint8_t current_waveshape;
-volatile uint16_t current_speed_linear;
-volatile uint32_t current_speed_linear_32;
-volatile uint16_t current_speed_log;
-volatile uint32_t current_speed_log_32;
-volatile uint16_t current_depth;
-volatile uint16_t current_symmetry;
-volatile uint8_t current_one_quadrant_index = 0;
-volatile uint8_t current_halfcycle = 0;
-volatile uint8_t current_quadrant = 0;
-volatile uint8_t final_TMR0;
-volatile uint8_t TMR0_offset;
-volatile uint8_t TMR0_offset_sign;
-volatile uint8_t prescaler_adjust;
-volatile uint8_t raw_TMR0;
-volatile uint8_t base_prescaler_bits_index;
-volatile uint16_t dTMR0_ideal;
-volatile uint8_t clear_TMR0_please;
-volatile uint8_t symmetry_status;
-volatile uint32_t symmetry_total;
-# 164 "main.c"
-            __asm("r1 EQU 20h");
-            __asm("r2 EQU 21h");
-            __asm("r3 EQU 22h");
-            __asm("aL EQU 23h");
-            __asm("aH EQU 24h");
-            __asm("B EQU 25h");
-
-
-            __asm("mmac MACRO A,bit,u2,u1");
-            __asm("BTFSC A,bit");
-            __asm("ADDWF u2,F");
-            __asm("RRF u2,F");
-            __asm("RRF u1,F");
-            __asm("ENDM");
-    uint16_t *top_two_bytes_ptr = (uint16_t *)0x21;
-# 187 "main.c"
-uint8_t CONFIG_INT_OSC(void){
-    OSCCON = 0b11110000;
-    OSCTUNE = 0b00011111;
-
-    return 1;
-}
-
-
-uint8_t CONFIG_PORTS(void){
-    ANSELC = 0b00001111;
-    TRISC = 0b00001111;
-    WPUC = 0b00000000;
-    return 1;
-}
-
-
-uint8_t CONFIG_ADC_PINS(void){
-    ADCON1 = 0b10100000;
-    return 1;
-}
-
-
-uint16_t DO_ADC(const uint8_t *modifier){
-    ADCON0 = 0x00;
+# 4 "main.c" 2
+# 1 "./config.h" 1
+
+
+
+
+
+
+
+
+#pragma config FOSC = INTOSC
+#pragma config WDTE = OFF
+#pragma config PWRTE = OFF
+#pragma config MCLRE = ON
+#pragma config CP = OFF
+#pragma config CPD = OFF
+#pragma config BOREN = OFF
+#pragma config CLKOUTEN = OFF
+#pragma config IESO = OFF
+#pragma config FCMEN = OFF
+
+
+#pragma config WRT = OFF
+#pragma config PLLEN = ON
+#pragma config STVREN = ON
+#pragma config BORV = LO
+#pragma config DEBUG = ON
+#pragma config LVP = OFF
+
+
+
+
+
+ uint8_t CONFIG_INT_OSC(void);
+    uint8_t CONFIG_PORTS(void);
+    uint8_t CONFIG_ADC_PINS(void);
+    uint16_t DO_ADC(const uint8_t *modifier);
+    uint8_t CONFIG_PWM_CCP3(void);
+    uint8_t CONFIG_TMR0_INTERRUPT(void);
+    uint8_t CONFIG_SYSTEM(void);
+    uint8_t TURN_ON_CCP3_PWM(void);
+# 5 "main.c" 2
+# 1 "./system.h" 1
+# 69 "./system.h"
+    const uint8_t prescaler_bits[8] = {0b111,0b110,0b101,0b100,0b011,0b010,0b001,0b000};
+    const uint8_t waveshape_adc_config_value = 0b100;
+    const uint8_t speed_adc_config_value = 0b101;
+    const uint8_t depth_adc_config_value = 0b110;
+    const uint8_t symmetry_adc_config_value = 0b111;
+    const uint8_t POSITIVE = 1;
+    const uint8_t NEGATIVE = 0;
+    const uint8_t DO_NOTHING = 0;
+    const uint8_t DIVIDE_BY_TWO = 1;
+    const uint8_t MULTIPLY_BY_TWO = 2;
+    const uint8_t DIVIDE_BY_FOUR = 3;
+    const uint8_t DONT_CARE = 4;
+    const uint8_t YES = 1;
+    const uint8_t NO = 0;
+
+    uint8_t DETERMINE_WAVESHAPE(void);
+    uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr);
+    uint8_t GET_CURRENT_POT_VALUES(void);
+    uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void);
+    uint8_t CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1(void);
+    uint8_t TURN_PRESCALER_OFF(void);
+    uint8_t TURN_PRESCALER_ON(void);
+    uint8_t PROCESS_FINAL_SPEED_AND_PRESCALER(void);
+    uint8_t ADJUST_TMR0(void);
+    uint8_t ADJUST_PRESCALER(void);
+    uint8_t SHORTEN_PERIOD(void);
+    uint8_t LENGTHEN_PERIOD(void);
+    uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void);
+    uint16_t DO_ADC(const uint8_t *waveshape_adc_config_value);
+
+    volatile extern uint8_t final_TMR0;
+    volatile extern uint8_t TMR0_offset;
+    volatile extern uint8_t TMR0_offset_sign;
+    volatile extern uint8_t prescaler_adjust;
+    volatile extern uint8_t raw_TMR0;
+    volatile extern uint8_t base_prescaler_bits_index;
+    volatile extern uint16_t dTMR0_ideal;
+    volatile extern uint8_t clear_TMR0_please;
+    volatile extern uint8_t symmetry_status;
+    volatile extern uint32_t symmetry_total;
+    volatile extern uint16_t speed_control;
+    volatile extern uint32_t speed_control_32;
+    volatile extern uint8_t how_many_128;
+    volatile extern uint16_t duty;
+    volatile extern uint8_t duty_low_byte;
+    volatile extern uint8_t duty_high_byte;
+    volatile extern uint8_t current_waveshape;
+    volatile extern uint16_t current_speed_linear;
+    volatile extern uint32_t current_speed_linear_32;
+    volatile extern uint16_t current_depth;
+    volatile extern uint16_t current_symmetry;
+    volatile extern uint8_t current_one_quadrant_index;
+    volatile extern uint8_t current_halfcycle;
+    volatile extern uint8_t current_quadrant;
+# 6 "main.c" 2
+# 1 "./wavetables.h" 1
+
 
-    uint8_t temp = (uint8_t)(*modifier << 2);
-    ADCON0 = ADCON0 | temp;
-    ADON = 1;
-    _delay((unsigned long)((0.005)*(32000000/4000.0)));
-    GO_nDONE = 1;
-    while(GO_nDONE == 1){}
-    ADON = 0;
-    uint16_t adc_result = ((uint16_t)(ADRESH << 8) | ADRESL);
-    return adc_result;
-}
 
 
-uint8_t DETERMINE_WAVESHAPE(){
-    uint16_t ADC = DO_ADC(&waveshape_adc_config_value);
-    if(ADC <= 341){
-            return 0;
-        }
-        if (ADC <= 682){
-            return 1;
-        }
-        if (ADC <= 1023){
-            return 2;
-        }
-        else{
-            return 1;
-        }
-    return 1;
-}
 
 
-uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr){
+    const uint16_t sine_table_one_quadrant[129]={512,518,524,530,537,543,549,555,562,568,574,580,587,593,599,605,611,617,624,630,636,642,648,654,660,666,672,678,684,690,696,701,707,713,719,725,730,736,741,747,753,758,764,769,774,780,785,790,796,801,806,811,816,821,826,831,836,841,846,850,855,860,864,869,873,878,882,886,890,895,899,903,907,911,915,919,922,926,930,933,937,940,944,947,950,953,957,960,963,966,968,971,974,977,979,982,984,986,989,991,993,995,997,999,1001,1003,1004,1006,1008,1009,1011,1012,1013,1014,1015,1017,1017,1018,1019,1020,1021,1021,1022,1022,1022,1023,1023,1023,1023};
+    const uint16_t tri_table_one_quadrant[129]={512,516,520,524,528,532,536,540,544,548,552,556,560,564,568,572,576,580,584,588,592,596,600,604,608,612,616,620,624,628,632,636,640,644,648,652,656,660,664,668,672,676,680,684,688,692,696,700,704,708,712,716,720,724,728,732,736,740,744,748,752,756,760,763,767,771,775,779,783,787,791,795,799,803,807,811,815,819,823,827,831,835,839,843,847,851,855,859,863,867,871,875,879,883,887,891,895,899,903,907,911,915,919,923,927,931,935,939,943,947,951,955,959,963,967,971,975,979,983,987,991,995,999,1003,1007,1011,1015,1019,1023};
+# 7 "main.c" 2
 
-    CCPR3L = (uint8_t)(*duty_ptr >> 2);
-    uint8_t temp = *duty_ptr % 0b100;
-    CCP3CON = CCP3CON | ((uint8_t)(temp << 4));
-
-
-    return 1;
-}
-
-
-uint8_t CONFIG_PWM_CCP3(void){
-    SRLEN = 0;
-    C1ON = 0;
-
-    TRISA2 = 1;
-    PR2 = 0xFF;
-    CCP3CON = CCP3CON | 0b00001111;
-
-    CCPTMRS0 = 0x00;
-    TMR2IF = 0;
-    T2CON = T2CON | 0b00000000;
-
-
-
-    return 1;
-}
-
-
-uint8_t TURN_ON_CCP3_PWM(void){
-
-    TMR2IF = 0;
-    TMR2ON = 1;
-    while(TMR2IF == 0){}
-    TMR2IF = 0;
-    TRISA2 = 0;
-    return 1;
-}
-
-
-uint8_t CONFIG_TMR0_INTERRUPT(void){
-    TMR0IE = 1;
-    return 1;
-}
-
-
-uint8_t CONFIG_SYSTEM(void){
-    CONFIG_INT_OSC();
-    CONFIG_PORTS();
-    CONFIG_ADC_PINS();
-    CONFIG_PWM_CCP3();
-    return 1;
-}
-
-
-uint8_t TMR0_WRITE(volatile uint8_t *timer_value_ptr){
-    TMR0 = (uint8_t) *timer_value_ptr;
-    return 1;
-}
-
-
-uint8_t GET_CURRENT_POT_VALUES(void){
-    current_waveshape = DETERMINE_WAVESHAPE();
-    current_speed_linear = DO_ADC(&speed_adc_config_value);
-
-        current_depth = DO_ADC(&depth_adc_config_value);
-        current_depth = current_depth >> 2;
-
-
-        current_symmetry = DO_ADC(&symmetry_adc_config_value);
-        uint8_t symmetry_ADC_resolution = 8;
-        if(symmetry_ADC_resolution == 8){
-            current_symmetry = current_symmetry >> 2;
-        }
-
-    return 1;
-}
-
-
-uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void){
-    current_speed_linear_32 = current_speed_linear;
-    speed_control_32 = current_speed_linear_32 * 760;;
-    speed_control_32 = speed_control_32 >> 10;
-    speed_control = (uint16_t) speed_control_32;
-
-        if(speed_control <= (127-12)){
-            raw_TMR0 = (uint8_t) speed_control + 12;
-            base_prescaler_bits_index = 1;
-        }
-        else{
-            uint16_t speed_control_subtracted;
-            speed_control_subtracted = speed_control - (127-12);
-            how_many_128 = (uint8_t)(speed_control_subtracted >> 7);
-            raw_TMR0 = (uint8_t) (speed_control_subtracted - (how_many_128 << 7));
-
-
-            base_prescaler_bits_index = (uint8_t)(how_many_128 + 2);
-# 347 "main.c"
-        }
-    return 1;
-}
-
-
-uint8_t CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1(){
-    if(((base_prescaler_bits_index + 1) > 7)){
-
-        return 1;
-    }
-    else{
-        return 0;
-    }
-}
-
-
-uint8_t TURN_PRESCALER_OFF(){
-    OPTION_REG = OPTION_REG & (1<<3);
-    return 1;
-}
-
-
-uint8_t TURN_PRESCALER_ON(){
-    OPTION_REG = OPTION_REG & (0<<3);
-    return 1;
-}
-
-
-uint8_t PROCESS_FINAL_SPEED_AND_PRESCALER(void){
-
-
-    ADJUST_TMR0();
-
-   uint8_t prescaler_overflow_flag = CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1();
-
-
-    if(prescaler_overflow_flag){
-        TURN_PRESCALER_OFF();
-        return 1;
-    }
-    else{
-        TURN_PRESCALER_ON();
-    }
-
-    ADJUST_PRESCALER();
-# 400 "main.c"
-    return 1;
-}
-
-
-
-uint8_t ADJUST_TMR0(){
-    if(clear_TMR0_please){
-        raw_TMR0 = 0;
-    }
-    if((TMR0_offset_sign == POSITIVE) || (TMR0_offset_sign == DONT_CARE)){
-        final_TMR0 = raw_TMR0 + TMR0_offset;
-    }
-    else if(TMR0_offset_sign == NEGATIVE){
-        final_TMR0 = raw_TMR0 - TMR0_offset;
-    }
-    return 1;
-}
-
-uint8_t ADJUST_PRESCALER(){
-    if(prescaler_adjust == DIVIDE_BY_TWO){
-        OPTION_REG = prescaler_bits[base_prescaler_bits_index + 1];
-    }
-    else if(prescaler_adjust == DIVIDE_BY_FOUR){
-        OPTION_REG = prescaler_bits[base_prescaler_bits_index + 2];
-    }
-    else if(prescaler_adjust == MULTIPLY_BY_TWO){
-        OPTION_REG = prescaler_bits[base_prescaler_bits_index - 1];
-    }
-    else if(prescaler_adjust == DO_NOTHING){
-        OPTION_REG = prescaler_bits[base_prescaler_bits_index];
-    }
-    return 1;
-}
-
-uint8_t SHORTEN_PERIOD(void){
-    uint16_t dTMR0_ideal = (uint16_t)((uint32_t)(symmetry_total * 47926) >> 16);
-
-    if((dTMR0_ideal + raw_TMR0) < 128){
-        TMR0_offset = (uint8_t)dTMR0_ideal;
-        TMR0_offset_sign = POSITIVE;
-        prescaler_adjust = DO_NOTHING;
-        clear_TMR0_please = NO;
-    }
-    else if((dTMR0_ideal + raw_TMR0) == 128){
-        TMR0_offset = 0;
-        TMR0_offset_sign = DONT_CARE;
-        prescaler_adjust = DIVIDE_BY_TWO;
-        clear_TMR0_please = YES;
-    }
-    else if((dTMR0_ideal + raw_TMR0) > 128){
-        uint16_t TMR0_raw_extra = dTMR0_ideal + raw_TMR0 - 128;
-        if(TMR0_raw_extra >> 7 == 0){
-            TMR0_offset = (uint8_t)TMR0_raw_extra;
-            TMR0_offset_sign = POSITIVE;
-            prescaler_adjust = DIVIDE_BY_TWO;
-            clear_TMR0_please = YES;
-        }
-        else if(TMR0_raw_extra >> 7 == 1){
-            TMR0_raw_extra = TMR0_raw_extra - 128;
-            TMR0_offset = (uint8_t)TMR0_raw_extra;
-            TMR0_offset_sign = POSITIVE;
-            prescaler_adjust = DIVIDE_BY_FOUR;
-            clear_TMR0_please = YES;
-        }
-    }
-    return 1;
-}
-
-uint8_t LENGTHEN_PERIOD(void){
-    uint16_t dTMR0_ideal = (uint16_t)((uint32_t)(symmetry_total * 17609) >> 16);
-
-        if(raw_TMR0 < dTMR0_ideal){
-            TMR0_offset = (uint8_t)(128 - (dTMR0_ideal - raw_TMR0));
-            TMR0_offset_sign = POSITIVE;
-            prescaler_adjust = MULTIPLY_BY_TWO;
-            clear_TMR0_please = YES;
-        }
-        else{
-            TMR0_offset = (uint8_t)dTMR0_ideal;
-            TMR0_offset_sign = NEGATIVE;
-            prescaler_adjust = DO_NOTHING;
-            clear_TMR0_please = NO;
-        }
-    return 1;
-}
-
-uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
-    if(current_symmetry == 128){
-        TMR0_offset = 0;
-        TMR0_offset_sign = POSITIVE;
-        prescaler_adjust = DO_NOTHING;
-        clear_TMR0_please = NO;
-        return 1;
-    }
-    uint8_t symmetry_status = 0;
-    if(current_symmetry > 128){
-        current_symmetry = 255 - current_symmetry;
-        symmetry_status = 1;
-    }
-
-    uint32_t temp = (uint32_t)(361 * (uint32_t)(128 - current_symmetry));
-    symmetry_total = (temp >> 7);
-
-    if((current_halfcycle == 0) && (symmetry_status == 0)){
-        SHORTEN_PERIOD();
-    }
-    else if((current_halfcycle == 0) && (symmetry_status == 1)){
-        LENGTHEN_PERIOD();
-    }
-    else if((current_halfcycle == 1) && (symmetry_status == 0)){
-        LENGTHEN_PERIOD();
-    }
-    else if((current_halfcycle == 1) && (symmetry_status == 1)){
-        SHORTEN_PERIOD();
-    }
-    return 1;
-}
-
+volatile uint16_t duty = 0;
 
 void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
     if(TMR0IF == 1){
@@ -5273,54 +4965,7 @@ void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
         if(current_halfcycle == 1){
         duty = 1023 - duty;
         }
-
-
-
-        if(current_depth != 0){
-            duty_low_byte = duty & 0xFF;
-            duty_high_byte = duty >> 8;
-
-
-
-
-
-
-
-            __asm("CLRF r3");
-            __asm("CLRF r1");
-            __asm("BCF STATUS,0");
-            __asm("MOVF _current_depth,0");
-
-            __asm("mmac _duty_low_byte,0,r3,r1");
-            __asm("mmac _duty_low_byte,1,r3,r1");
-            __asm("mmac _duty_low_byte,2,r3,r1");
-            __asm("mmac _duty_low_byte,3,r3,r1");
-            __asm("mmac _duty_low_byte,4,r3,r1");
-            __asm("mmac _duty_low_byte,5,r3,r1");
-            __asm("mmac _duty_low_byte,6,r3,r1");
-            __asm("mmac _duty_low_byte,7,r3,r1");
-
-            __asm("CLRF r2");
-
-
-            __asm("mmac _duty_high_byte,0,r3,r2");
-            __asm("mmac _duty_high_byte,1,r3,r2");
-            __asm("mmac _duty_high_byte,2,r3,r2");
-            __asm("mmac _duty_high_byte,3,r3,r2");
-            __asm("mmac _duty_high_byte,4,r3,r2");
-            __asm("mmac _duty_high_byte,5,r3,r2");
-            __asm("mmac _duty_high_byte,6,r3,r2");
-            __asm("mmac _duty_high_byte,7,r3,r2");
-
-
-            duty = 1023 - *top_two_bytes_ptr;
-        }
-        else{
-            duty = 1023;
-        }
-
-
-
+# 95 "main.c"
     SET_DUTY_CCP3(&duty);
 
 
@@ -5338,23 +4983,20 @@ void main(void) {
     PROCESS_RAW_SPEED_AND_PRESCALER();
 
 
-    PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
+
 
 
     PROCESS_FINAL_SPEED_AND_PRESCALER();
-    TMR0_WRITE(&final_TMR0);
+    TMR0 = final_TMR0;
     GIE = 1;
 
     while(1){
-
         GET_CURRENT_POT_VALUES();
         PROCESS_RAW_SPEED_AND_PRESCALER();
 
 
-        PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
 
-        LATC5 = 1;
+
         PROCESS_FINAL_SPEED_AND_PRESCALER();
-        LATC5 = 0;
         }
 }
