@@ -13,54 +13,53 @@
 %PSECTS
 $dist/default/production/MI_2023.production.o
 cinit CODE 0 D2 D2 19 2 1
-text1 CODE 0 7B9 7B9 8 2 1
-text2 CODE 0 7C1 7C1 8 2 1
-text3 CODE 0 578 578 61 2 1
-text4 CODE 0 76E 76E 1B 2 1
-text5 CODE 0 3F1 3F1 99 2 1
-text6 CODE 0 626 626 42 2 1
-text7 CODE 0 50B 50B 6D 2 1
-text8 CODE 0 6A5 6A5 2F 2 1
-text9 CODE 0 5D9 5D9 4D 2 1
-text10 CODE 0 668 668 3D 2 1
-text11 CODE 0 727 727 27 2 1
-text12 CODE 0 6D4 6D4 2C 2 1
-text13 CODE 0 7DB 7DB 2 2 1
-text14 CODE 0 79C 79C C 2 1
-text15 CODE 0 789 789 13 2 1
-text16 CODE 0 7A8 7A8 9 2 1
-text17 CODE 0 7CF 7CF 6 2 1
-text18 CODE 0 7D5 7D5 4 2 1
-text20 CODE 0 74E 74E 20 2 1
-maintext CODE 0 700 700 27 2 1
+text1 CODE 0 7A6 7A6 8 2 1
+text2 CODE 0 7AE 7AE 8 2 1
+text3 CODE 0 50B 50B 75 2 1
+text4 CODE 0 3F1 3F1 99 2 1
+text5 CODE 0 63A 63A 42 2 1
+text6 CODE 0 580 580 6D 2 1
+text7 CODE 0 6AD 6AD 2F 2 1
+text8 CODE 0 5ED 5ED 4D 2 1
+text9 CODE 0 67C 67C 31 2 1
+text10 CODE 0 72F 72F 27 2 1
+text11 CODE 0 6DC 6DC 2C 2 1
+text12 CODE 0 7C8 7C8 2 2 1
+text13 CODE 0 789 789 C 2 1
+text14 CODE 0 776 776 13 2 1
+text15 CODE 0 795 795 9 2 1
+text16 CODE 0 7BC 7BC 6 2 1
+text17 CODE 0 7C2 7C2 4 2 1
+text19 CODE 0 756 756 20 2 1
+maintext CODE 0 708 708 27 2 1
 cstackCOMMON COMMON 1 76 76 6 1 1
-cstackBANK0 BANK0 1 48 48 19 1 1
+cstackBANK0 BANK0 1 48 48 1D 1 1
 stringtext1 STRCODE 0 EB EB 102 2 1
 stringtext2 STRCODE 0 1ED 1ED 102 2 1
 stringtext3 STRCODE 0 2EF 2EF 102 2 1
 stringtext4 STRCODE 0 48A 48A 81 2 1
-stringtext5 STRCODE 0 7B1 7B1 8 2 1
-stringtext6 STRCODE 0 7DD 7DD 1 2 1
-stringtext7 STRCODE 0 7DE 7DE 1 2 1
-stringtext8 STRCODE 0 7DF 7DF 1 2 1
-stringtext9 STRCODE 0 7E0 7E0 1 2 1
+stringtext5 STRCODE 0 79E 79E 8 2 1
+stringtext6 STRCODE 0 7CA 7CA 1 2 1
+stringtext7 STRCODE 0 7CB 7CB 1 2 1
+stringtext8 STRCODE 0 7CC 7CC 1 2 1
+stringtext9 STRCODE 0 7CD 7CD 1 2 1
 intentry CODE 0 4 4 CC 2 1
 bssBANK0 BANK0 1 20 20 28 1 1
-idataBANK0 CODE 0 7D9 7D9 2 2 1
-dataBANK0 BANK0 1 61 61 2 1 1
-clrtext CODE 0 7C9 7C9 6 2 1
+idataBANK0 CODE 0 7C6 7C6 2 2 1
+dataBANK0 BANK0 1 65 65 2 1 1
+clrtext CODE 0 7B6 7B6 6 2 1
 bssCOMMON COMMON 1 70 70 6 1 1
-stringtext10 STRCODE 0 7E1 7E1 1 2 1
-stringtext11 STRCODE 0 7E2 7E2 1 2 1
-stringtext12 STRCODE 0 7E3 7E3 1 2 1
-stringtext13 STRCODE 0 7E4 7E4 1 2 1
-stringtext14 STRCODE 0 7E5 7E5 1 2 1
-stringtext15 STRCODE 0 7E6 7E6 1 2 1
-stringtext16 STRCODE 0 7E7 7E7 1 2 1
-stringtext17 STRCODE 0 7E8 7E8 1 2 1
-stringtext18 STRCODE 0 7E9 7E9 1 2 1
+stringtext10 STRCODE 0 7CE 7CE 1 2 1
+stringtext11 STRCODE 0 7CF 7CF 1 2 1
+stringtext12 STRCODE 0 7D0 7D0 1 2 1
+stringtext13 STRCODE 0 7D1 7D1 1 2 1
+stringtext14 STRCODE 0 7D2 7D2 1 2 1
+stringtext15 STRCODE 0 7D3 7D3 1 2 1
+stringtext16 STRCODE 0 7D4 7D4 1 2 1
+stringtext17 STRCODE 0 7D5 7D5 1 2 1
+stringtext18 STRCODE 0 7D6 7D6 1 2 1
 config CONFIG 4 8007 8007 2 2 1
-$/tmp/xcouSBzcn/driver_tmp_15.o
+$/tmp/xclOe5m7i/driver_tmp_15.o
 reset_vec CODE 0 0 0 2 2 1
 end_init CODE 0 D0 D0 2 2 1
 config CONFIG 4 8007 8007 2 2 1
@@ -70,16 +69,16 @@ config CONFIG 4 8007 8007 2 2 1
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 63-6F 1
+RAM 67-6F 1
 RAM A0-EF 1
 RAM 120-16F 1
-BANK0 63-6F 1
+BANK0 67-6F 1
 BANK1 A0-EF 1
 BANK2 120-16F 1
 CONST 2-3 2
-CONST 7EA-FFF 2
+CONST 7D7-FFF 2
 ENTRY 2-3 2
-ENTRY 7EA-FFF 2
+ENTRY 7D7-FFF 2
 IDLOC 8000-8003 2
 SFR10 500-56F 1
 SFR11 580-5EF 1
@@ -104,7 +103,7 @@ SFR29 E80-EEF 1
 SFR30 F00-F6F 1
 SFR31 F80-FEF 1
 CODE 2-3 2
-CODE 7EA-FFF 2
+CODE 7D7-FFF 2
 SFR0 0-1F 1
 SFR1 80-9F 1
 SFR2 100-11F 1
@@ -119,9 +118,9 @@ BIGRAM 2000-20EF 1
 COMMON 7C-7D 1
 EEDATA F000-F0FF 2
 STRCODE 2-3 2
-STRCODE 7EA-FFF 2
+STRCODE 7D7-FFF 2
 STRING 2-3 2
-STRING 7EA-FFF 2
+STRING 7D7-FFF 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -136,374 +135,362 @@ STRING 7EA-FFF 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production/MI_2023.production.o
-D2 cinit CODE >2335:/tmp/xcouSBzcn/driver_tmp_1.s
-D2 cinit CODE >2338:/tmp/xcouSBzcn/driver_tmp_1.s
-D2 cinit CODE >2436:/tmp/xcouSBzcn/driver_tmp_1.s
-D5 cinit CODE >2437:/tmp/xcouSBzcn/driver_tmp_1.s
-D6 cinit CODE >2438:/tmp/xcouSBzcn/driver_tmp_1.s
-D9 cinit CODE >2439:/tmp/xcouSBzcn/driver_tmp_1.s
-DA cinit CODE >2456:/tmp/xcouSBzcn/driver_tmp_1.s
-DB cinit CODE >2457:/tmp/xcouSBzcn/driver_tmp_1.s
-DC cinit CODE >2458:/tmp/xcouSBzcn/driver_tmp_1.s
-DD cinit CODE >2459:/tmp/xcouSBzcn/driver_tmp_1.s
-DE cinit CODE >2460:/tmp/xcouSBzcn/driver_tmp_1.s
-DF cinit CODE >2461:/tmp/xcouSBzcn/driver_tmp_1.s
-E0 cinit CODE >2465:/tmp/xcouSBzcn/driver_tmp_1.s
-E1 cinit CODE >2466:/tmp/xcouSBzcn/driver_tmp_1.s
-E2 cinit CODE >2467:/tmp/xcouSBzcn/driver_tmp_1.s
-E3 cinit CODE >2468:/tmp/xcouSBzcn/driver_tmp_1.s
-E4 cinit CODE >2469:/tmp/xcouSBzcn/driver_tmp_1.s
-E5 cinit CODE >2470:/tmp/xcouSBzcn/driver_tmp_1.s
-E7 cinit CODE >2476:/tmp/xcouSBzcn/driver_tmp_1.s
-E7 cinit CODE >2478:/tmp/xcouSBzcn/driver_tmp_1.s
-E8 cinit CODE >2479:/tmp/xcouSBzcn/driver_tmp_1.s
-E9 cinit CODE >2480:/tmp/xcouSBzcn/driver_tmp_1.s
-4 intentry CODE >395:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-6 intentry CODE >396:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-8 intentry CODE >397:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-9 intentry CODE >398:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-C intentry CODE >399:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-E intentry CODE >400:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-F intentry CODE >402:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-12 intentry CODE >403:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-22 intentry CODE >405:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-25 intentry CODE >406:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-35 intentry CODE >408:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-39 intentry CODE >409:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-3D intentry CODE >411:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-41 intentry CODE >412:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-44 intentry CODE >414:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-47 intentry CODE >415:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-49 intentry CODE >416:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-4C intentry CODE >417:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-4E intentry CODE >418:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-4F intentry CODE >420:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-50 intentry CODE >423:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-54 intentry CODE >424:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-58 intentry CODE >425:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-59 intentry CODE >427:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5B intentry CODE >428:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5B intentry CODE >429:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5E intentry CODE >430:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-68 intentry CODE >431:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-68 intentry CODE >434:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-6C intentry CODE >435:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-6E intentry CODE >436:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-70 intentry CODE >444:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-71 intentry CODE >445:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-72 intentry CODE >446:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-73 intentry CODE >447:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-74 intentry CODE >449:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-75 intentry CODE >449:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-76 intentry CODE >449:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-77 intentry CODE >449:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-78 intentry CODE >450:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-79 intentry CODE >450:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7A intentry CODE >450:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7B intentry CODE >450:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7C intentry CODE >451:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7D intentry CODE >451:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7E intentry CODE >451:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7F intentry CODE >451:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-80 intentry CODE >452:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-81 intentry CODE >452:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-82 intentry CODE >452:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-83 intentry CODE >452:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-84 intentry CODE >453:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-85 intentry CODE >453:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-86 intentry CODE >453:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-87 intentry CODE >453:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-88 intentry CODE >454:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-89 intentry CODE >454:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-8A intentry CODE >454:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-8B intentry CODE >454:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-8C intentry CODE >455:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-8D intentry CODE >455:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-8E intentry CODE >455:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-8F intentry CODE >455:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-90 intentry CODE >456:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-91 intentry CODE >456:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-92 intentry CODE >456:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-93 intentry CODE >456:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-94 intentry CODE >458:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-95 intentry CODE >461:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-96 intentry CODE >461:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-97 intentry CODE >461:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-98 intentry CODE >461:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-99 intentry CODE >462:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-9A intentry CODE >462:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-9B intentry CODE >462:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-9C intentry CODE >462:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-9D intentry CODE >463:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-9E intentry CODE >463:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-9F intentry CODE >463:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-A0 intentry CODE >463:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-A1 intentry CODE >464:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-A2 intentry CODE >464:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-A3 intentry CODE >464:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-A4 intentry CODE >464:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-A5 intentry CODE >465:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-A6 intentry CODE >465:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-A7 intentry CODE >465:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-A8 intentry CODE >465:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-A9 intentry CODE >466:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-AA intentry CODE >466:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-AB intentry CODE >466:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-AC intentry CODE >466:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-AD intentry CODE >467:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-AE intentry CODE >467:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-AF intentry CODE >467:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-B0 intentry CODE >467:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-B1 intentry CODE >468:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-B2 intentry CODE >468:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-B3 intentry CODE >468:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-B4 intentry CODE >468:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-B5 intentry CODE >471:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-C4 intentry CODE >474:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-C8 intentry CODE >478:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-CB intentry CODE >481:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-CD intentry CODE >482:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-CE intentry CODE >484:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-74E text20 CODE >201:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-74F text20 CODE >203:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-75D text20 CODE >204:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-763 text20 CODE >205:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-768 text20 CODE >205:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-76D text20 CODE >209:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7D5 text18 CODE >165:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7D5 text18 CODE >166:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7D8 text18 CODE >168:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7CF text17 CODE >151:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7CF text17 CODE >152:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7D2 text17 CODE >153:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7D4 text17 CODE >156:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7A8 text16 CODE >158:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7A8 text16 CODE >159:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7AB text16 CODE >160:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7AE text16 CODE >161:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7B0 text16 CODE >163:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-789 text15 CODE >211:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-789 text15 CODE >212:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-78B text15 CODE >213:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-78C text15 CODE >215:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-78E text15 CODE >216:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-791 text15 CODE >217:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-795 text15 CODE >219:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-797 text15 CODE >220:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-799 text15 CODE >221:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-79B text15 CODE >226:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-79C text14 CODE >243:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-79C text14 CODE >244:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-79F text14 CODE >245:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7A2 text14 CODE >246:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7A5 text14 CODE >247:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7A7 text14 CODE >249:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7DB text13 CODE >238:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7DB text13 CODE >239:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7DC text13 CODE >241:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-6D4 text12 CODE >170:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-6D4 text12 CODE >171:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-6D6 text12 CODE >173:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-6E0 text12 CODE >173:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-6E4 text12 CODE >174:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-6EA text12 CODE >175:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-6EB text12 CODE >176:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-6EF text12 CODE >177:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-6F1 text12 CODE >178:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-6F3 text12 CODE >179:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-6F4 text12 CODE >180:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-6FB text12 CODE >181:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-6FF text12 CODE >182:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-727 text11 CODE >184:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-727 text11 CODE >185:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-733 text11 CODE >186:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-736 text11 CODE >186:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-738 text11 CODE >186:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-73A text11 CODE >187:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-73C text11 CODE >189:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-73F text11 CODE >189:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-741 text11 CODE >189:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-743 text11 CODE >190:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-745 text11 CODE >192:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-748 text11 CODE >192:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-74A text11 CODE >192:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-74C text11 CODE >193:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-74D text11 CODE >199:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-668 text10 CODE >256:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-668 text10 CODE >257:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-66C text10 CODE >258:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-677 text10 CODE >259:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-682 text10 CODE >260:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-68E text10 CODE >261:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-698 text10 CODE >262:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-6A4 text10 CODE >264:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5D9 text9 CODE >286:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5D9 text9 CODE >287:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5DB text9 CODE >288:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5DC text9 CODE >290:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5E3 text9 CODE >291:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5E6 text9 CODE >293:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5E9 text9 CODE >294:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5EC text9 CODE >295:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5EC text9 CODE >296:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5EF text9 CODE >297:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5F3 text9 CODE >297:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5F9 text9 CODE >298:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5FA text9 CODE >299:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5FE text9 CODE >300:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-602 text9 CODE >300:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-608 text9 CODE >301:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-609 text9 CODE >302:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-60D text9 CODE >303:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-611 text9 CODE >303:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-617 text9 CODE >304:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-618 text9 CODE >305:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-61B text9 CODE >306:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-61F text9 CODE >306:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-6A5 text8 CODE >15:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
-6A5 text8 CODE >119:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
-6AD text8 CODE >121:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
-6AF text8 CODE >122:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
-6B7 text8 CODE >123:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
-6BE text8 CODE >124:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
-6C5 text8 CODE >125:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
-6C9 text8 CODE >125:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
-6CB text8 CODE >128:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
-6D3 text8 CODE >129:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
-50B text7 CODE >266:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-50B text7 CODE >267:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-511 text7 CODE >268:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-52C text7 CODE >269:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-543 text7 CODE >270:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-547 text7 CODE >272:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-54A text7 CODE >272:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-54C text7 CODE >272:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-54E text7 CODE >273:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-551 text7 CODE >274:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-553 text7 CODE >275:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-554 text7 CODE >278:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-55A text7 CODE >279:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-56A text7 CODE >280:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-56F text7 CODE >280:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-574 text7 CODE >281:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-577 text7 CODE >284:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-626 text6 CODE >345:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-626 text6 CODE >346:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-64C text6 CODE >348:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-651 text6 CODE >348:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-655 text6 CODE >348:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-657 text6 CODE >349:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-65B text6 CODE >75:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-65D text6 CODE >79:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-65F text6 CODE >82:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-661 text6 CODE >353:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-662 text6 CODE >355:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-664 text6 CODE >76:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-665 text6 CODE >77:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-666 text6 CODE >83:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-667 text6 CODE >361:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-3F1 text5 CODE >311:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-3F1 text5 CODE >312:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-417 text5 CODE >314:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-41B text5 CODE >314:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-421 text5 CODE >314:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-423 text5 CODE >314:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-425 text5 CODE >315:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-427 text5 CODE >75:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-429 text5 CODE >77:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-42A text5 CODE >83:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-42B text5 CODE >319:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-42C text5 CODE >320:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-430 text5 CODE >320:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-438 text5 CODE >321:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-439 text5 CODE >81:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-43B text5 CODE >78:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-43D text5 CODE >82:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-43F text5 CODE >325:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-440 text5 CODE >326:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-444 text5 CODE >326:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-44A text5 CODE >326:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-44C text5 CODE >326:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-44E text5 CODE >327:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-452 text5 CODE >327:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-45B text5 CODE >328:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-468 text5 CODE >329:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-46A text5 CODE >75:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-46C text5 CODE >78:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-46E text5 CODE >82:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-470 text5 CODE >333:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-471 text5 CODE >334:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-47E text5 CODE >335:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-484 text5 CODE >336:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-486 text5 CODE >75:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-488 text5 CODE >80:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-76E text4 CODE >15:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
-76E text4 CODE >43:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
-770 text4 CODE >45:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
-772 text4 CODE >46:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
-776 text4 CODE >47:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
-77B text4 CODE >48:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
-780 text4 CODE >49:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
-784 text4 CODE >52:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
-788 text4 CODE >53:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul16.c
-578 text3 CODE >363:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-578 text3 CODE >364:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-57D text3 CODE >365:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-57E text3 CODE >75:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-580 text3 CODE >77:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-581 text3 CODE >83:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-582 text3 CODE >369:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-583 text3 CODE >371:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-584 text3 CODE >372:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-587 text3 CODE >372:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-589 text3 CODE >372:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-58B text3 CODE >373:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-591 text3 CODE >373:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-594 text3 CODE >374:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-596 text3 CODE >377:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-59C text3 CODE >377:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5AA text3 CODE >378:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5B9 text3 CODE >380:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5BF text3 CODE >381:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5C1 text3 CODE >382:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5C2 text3 CODE >383:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5C9 text3 CODE >386:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5CC text3 CODE >384:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5CE text3 CODE >385:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5CF text3 CODE >386:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-5D2 text3 CODE >389:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7C1 text2 CODE >251:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7C3 text2 CODE >252:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7C8 text2 CODE >254:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7B9 text1 CODE >228:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7B9 text1 CODE >230:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7BA text1 CODE >231:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7BB text1 CODE >232:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7BD text1 CODE >233:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7BE text1 CODE >234:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7C0 text1 CODE >236:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-700 maintext CODE >486:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-700 maintext CODE >488:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-703 maintext CODE >489:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-706 maintext CODE >490:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-709 maintext CODE >491:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-70C maintext CODE >492:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-70F maintext CODE >493:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-712 maintext CODE >494:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-715 maintext CODE >495:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-719 maintext CODE >496:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-71A maintext CODE >500:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-71D maintext CODE >501:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-720 maintext CODE >502:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-723 maintext CODE >503:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
-7C9 clrtext CODE >2445:/tmp/xcouSBzcn/driver_tmp_1.s
-7C9 clrtext CODE >2446:/tmp/xcouSBzcn/driver_tmp_1.s
-7CA clrtext CODE >2447:/tmp/xcouSBzcn/driver_tmp_1.s
-7CA clrtext CODE >2448:/tmp/xcouSBzcn/driver_tmp_1.s
-7CB clrtext CODE >2449:/tmp/xcouSBzcn/driver_tmp_1.s
-7CC clrtext CODE >2450:/tmp/xcouSBzcn/driver_tmp_1.s
-7CD clrtext CODE >2451:/tmp/xcouSBzcn/driver_tmp_1.s
-7CE clrtext CODE >2452:/tmp/xcouSBzcn/driver_tmp_1.s
+D2 cinit CODE >2335:/tmp/xclOe5m7i/driver_tmp_1.s
+D2 cinit CODE >2338:/tmp/xclOe5m7i/driver_tmp_1.s
+D2 cinit CODE >2436:/tmp/xclOe5m7i/driver_tmp_1.s
+D5 cinit CODE >2437:/tmp/xclOe5m7i/driver_tmp_1.s
+D6 cinit CODE >2438:/tmp/xclOe5m7i/driver_tmp_1.s
+D9 cinit CODE >2439:/tmp/xclOe5m7i/driver_tmp_1.s
+DA cinit CODE >2456:/tmp/xclOe5m7i/driver_tmp_1.s
+DB cinit CODE >2457:/tmp/xclOe5m7i/driver_tmp_1.s
+DC cinit CODE >2458:/tmp/xclOe5m7i/driver_tmp_1.s
+DD cinit CODE >2459:/tmp/xclOe5m7i/driver_tmp_1.s
+DE cinit CODE >2460:/tmp/xclOe5m7i/driver_tmp_1.s
+DF cinit CODE >2461:/tmp/xclOe5m7i/driver_tmp_1.s
+E0 cinit CODE >2465:/tmp/xclOe5m7i/driver_tmp_1.s
+E1 cinit CODE >2466:/tmp/xclOe5m7i/driver_tmp_1.s
+E2 cinit CODE >2467:/tmp/xclOe5m7i/driver_tmp_1.s
+E3 cinit CODE >2468:/tmp/xclOe5m7i/driver_tmp_1.s
+E4 cinit CODE >2469:/tmp/xclOe5m7i/driver_tmp_1.s
+E5 cinit CODE >2470:/tmp/xclOe5m7i/driver_tmp_1.s
+E7 cinit CODE >2476:/tmp/xclOe5m7i/driver_tmp_1.s
+E7 cinit CODE >2478:/tmp/xclOe5m7i/driver_tmp_1.s
+E8 cinit CODE >2479:/tmp/xclOe5m7i/driver_tmp_1.s
+E9 cinit CODE >2480:/tmp/xclOe5m7i/driver_tmp_1.s
+4 intentry CODE >412:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+6 intentry CODE >413:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+8 intentry CODE >414:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+9 intentry CODE >415:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+C intentry CODE >416:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+E intentry CODE >417:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+F intentry CODE >419:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+12 intentry CODE >420:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+22 intentry CODE >422:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+25 intentry CODE >423:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+35 intentry CODE >425:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+39 intentry CODE >426:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+3D intentry CODE >428:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+41 intentry CODE >429:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+44 intentry CODE >431:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+47 intentry CODE >432:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+49 intentry CODE >433:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+4C intentry CODE >434:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+4E intentry CODE >435:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+4F intentry CODE >437:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+50 intentry CODE >440:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+54 intentry CODE >441:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+58 intentry CODE >442:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+59 intentry CODE >444:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5B intentry CODE >445:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5B intentry CODE >446:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5E intentry CODE >447:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+68 intentry CODE >448:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+68 intentry CODE >451:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+6C intentry CODE >452:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+6E intentry CODE >453:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+70 intentry CODE >461:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+71 intentry CODE >462:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+72 intentry CODE >463:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+73 intentry CODE >464:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+74 intentry CODE >466:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+75 intentry CODE >466:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+76 intentry CODE >466:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+77 intentry CODE >466:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+78 intentry CODE >467:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+79 intentry CODE >467:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7A intentry CODE >467:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7B intentry CODE >467:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7C intentry CODE >468:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7D intentry CODE >468:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7E intentry CODE >468:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7F intentry CODE >468:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+80 intentry CODE >469:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+81 intentry CODE >469:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+82 intentry CODE >469:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+83 intentry CODE >469:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+84 intentry CODE >470:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+85 intentry CODE >470:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+86 intentry CODE >470:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+87 intentry CODE >470:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+88 intentry CODE >471:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+89 intentry CODE >471:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+8A intentry CODE >471:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+8B intentry CODE >471:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+8C intentry CODE >472:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+8D intentry CODE >472:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+8E intentry CODE >472:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+8F intentry CODE >472:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+90 intentry CODE >473:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+91 intentry CODE >473:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+92 intentry CODE >473:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+93 intentry CODE >473:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+94 intentry CODE >475:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+95 intentry CODE >478:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+96 intentry CODE >478:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+97 intentry CODE >478:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+98 intentry CODE >478:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+99 intentry CODE >479:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+9A intentry CODE >479:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+9B intentry CODE >479:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+9C intentry CODE >479:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+9D intentry CODE >480:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+9E intentry CODE >480:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+9F intentry CODE >480:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+A0 intentry CODE >480:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+A1 intentry CODE >481:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+A2 intentry CODE >481:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+A3 intentry CODE >481:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+A4 intentry CODE >481:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+A5 intentry CODE >482:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+A6 intentry CODE >482:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+A7 intentry CODE >482:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+A8 intentry CODE >482:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+A9 intentry CODE >483:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+AA intentry CODE >483:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+AB intentry CODE >483:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+AC intentry CODE >483:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+AD intentry CODE >484:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+AE intentry CODE >484:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+AF intentry CODE >484:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+B0 intentry CODE >484:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+B1 intentry CODE >485:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+B2 intentry CODE >485:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+B3 intentry CODE >485:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+B4 intentry CODE >485:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+B5 intentry CODE >488:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+C4 intentry CODE >491:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+C8 intentry CODE >495:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+CB intentry CODE >498:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+CD intentry CODE >499:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+CE intentry CODE >501:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+756 text19 CODE >215:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+757 text19 CODE >217:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+765 text19 CODE >218:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+76B text19 CODE >219:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+770 text19 CODE >219:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+775 text19 CODE >223:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7C2 text17 CODE >179:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7C2 text17 CODE >180:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7C5 text17 CODE >182:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7BC text16 CODE >165:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7BC text16 CODE >166:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7BF text16 CODE >167:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7C1 text16 CODE >170:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+795 text15 CODE >172:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+795 text15 CODE >173:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+798 text15 CODE >174:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+79B text15 CODE >175:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+79D text15 CODE >177:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+776 text14 CODE >225:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+776 text14 CODE >226:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+778 text14 CODE >227:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+779 text14 CODE >229:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+77B text14 CODE >230:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+77E text14 CODE >231:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+782 text14 CODE >233:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+784 text14 CODE >234:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+786 text14 CODE >235:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+788 text14 CODE >240:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+789 text13 CODE >257:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+789 text13 CODE >258:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+78C text13 CODE >259:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+78F text13 CODE >260:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+792 text13 CODE >261:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+794 text13 CODE >263:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7C8 text12 CODE >252:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7C8 text12 CODE >253:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7C9 text12 CODE >255:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+6DC text11 CODE >184:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+6DC text11 CODE >185:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+6DE text11 CODE >187:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+6E8 text11 CODE >187:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+6EC text11 CODE >188:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+6F2 text11 CODE >189:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+6F3 text11 CODE >190:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+6F7 text11 CODE >191:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+6F9 text11 CODE >192:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+6FB text11 CODE >193:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+6FC text11 CODE >194:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+703 text11 CODE >195:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+707 text11 CODE >196:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+72F text10 CODE >198:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+72F text10 CODE >199:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+73B text10 CODE >200:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+73E text10 CODE >200:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+740 text10 CODE >200:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+742 text10 CODE >201:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+744 text10 CODE >203:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+747 text10 CODE >203:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+749 text10 CODE >203:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+74B text10 CODE >204:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+74D text10 CODE >206:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+750 text10 CODE >206:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+752 text10 CODE >206:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+754 text10 CODE >207:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+755 text10 CODE >213:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+67C text9 CODE >270:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+67C text9 CODE >271:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+680 text9 CODE >272:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+68B text9 CODE >273:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+696 text9 CODE >274:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+6A2 text9 CODE >275:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+6AC text9 CODE >281:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5ED text8 CODE >303:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5ED text8 CODE >304:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5EF text8 CODE >305:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5F0 text8 CODE >307:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5F7 text8 CODE >308:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5FA text8 CODE >310:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5FD text8 CODE >311:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+600 text8 CODE >312:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+600 text8 CODE >313:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+603 text8 CODE >314:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+607 text8 CODE >314:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+60D text8 CODE >315:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+60E text8 CODE >316:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+612 text8 CODE >317:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+616 text8 CODE >317:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+61C text8 CODE >318:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+61D text8 CODE >319:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+621 text8 CODE >320:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+625 text8 CODE >320:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+62B text8 CODE >321:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+62C text8 CODE >322:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+62F text8 CODE >323:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+633 text8 CODE >323:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+6AD text7 CODE >15:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
+6AD text7 CODE >119:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
+6B5 text7 CODE >121:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
+6B7 text7 CODE >122:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
+6BF text7 CODE >123:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
+6C6 text7 CODE >124:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
+6CD text7 CODE >125:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
+6D1 text7 CODE >125:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
+6D3 text7 CODE >128:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
+6DB text7 CODE >129:/Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
+580 text6 CODE >283:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+580 text6 CODE >284:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+586 text6 CODE >285:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5A1 text6 CODE >286:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5B8 text6 CODE >287:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5BC text6 CODE >289:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5BF text6 CODE >289:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5C1 text6 CODE >289:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5C3 text6 CODE >290:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5C6 text6 CODE >291:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5C8 text6 CODE >292:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5C9 text6 CODE >295:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5CF text6 CODE >296:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5DF text6 CODE >297:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5E4 text6 CODE >297:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5E9 text6 CODE >298:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+5EC text6 CODE >301:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+63A text5 CODE >362:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+63A text5 CODE >363:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+660 text5 CODE >365:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+665 text5 CODE >365:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+669 text5 CODE >365:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+66B text5 CODE >366:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+66F text5 CODE >75:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+671 text5 CODE >79:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+673 text5 CODE >82:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+675 text5 CODE >370:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+676 text5 CODE >372:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+678 text5 CODE >76:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+679 text5 CODE >77:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+67A text5 CODE >83:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+67B text5 CODE >378:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+3F1 text4 CODE >328:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+3F1 text4 CODE >329:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+417 text4 CODE >331:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+41B text4 CODE >331:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+421 text4 CODE >331:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+423 text4 CODE >331:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+425 text4 CODE >332:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+427 text4 CODE >75:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+429 text4 CODE >77:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+42A text4 CODE >83:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+42B text4 CODE >336:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+42C text4 CODE >337:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+430 text4 CODE >337:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+438 text4 CODE >338:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+439 text4 CODE >81:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+43B text4 CODE >78:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+43D text4 CODE >82:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+43F text4 CODE >342:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+440 text4 CODE >343:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+444 text4 CODE >343:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+44A text4 CODE >343:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+44C text4 CODE >343:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+44E text4 CODE >344:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+452 text4 CODE >344:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+45B text4 CODE >345:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+468 text4 CODE >346:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+46A text4 CODE >75:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+46C text4 CODE >78:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+46E text4 CODE >82:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+470 text4 CODE >350:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+471 text4 CODE >351:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+47E text4 CODE >352:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+484 text4 CODE >353:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+486 text4 CODE >75:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+488 text4 CODE >80:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+50B text3 CODE >380:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+50B text3 CODE >381:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+510 text3 CODE >382:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+511 text3 CODE >75:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+513 text3 CODE >77:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+514 text3 CODE >83:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+515 text3 CODE >386:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+516 text3 CODE >388:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+517 text3 CODE >389:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+51A text3 CODE >389:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+51C text3 CODE >389:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+51E text3 CODE >390:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+528 text3 CODE >391:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+52A text3 CODE >394:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+549 text3 CODE >395:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+560 text3 CODE >397:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+566 text3 CODE >398:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+568 text3 CODE >399:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+569 text3 CODE >400:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+570 text3 CODE >403:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+573 text3 CODE >401:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+575 text3 CODE >402:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+576 text3 CODE >403:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+579 text3 CODE >406:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7AE text2 CODE >265:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7B0 text2 CODE >266:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7B5 text2 CODE >268:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7A6 text1 CODE >242:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7A6 text1 CODE >244:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7A7 text1 CODE >245:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7A8 text1 CODE >246:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7AA text1 CODE >247:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7AB text1 CODE >248:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7AD text1 CODE >250:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+708 maintext CODE >503:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+708 maintext CODE >505:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+70B maintext CODE >506:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+70E maintext CODE >507:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+711 maintext CODE >508:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+714 maintext CODE >509:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+717 maintext CODE >510:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+71A maintext CODE >511:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+71D maintext CODE >512:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+721 maintext CODE >513:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+722 maintext CODE >517:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+725 maintext CODE >518:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+728 maintext CODE >519:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+72B maintext CODE >520:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
+7B6 clrtext CODE >2445:/tmp/xclOe5m7i/driver_tmp_1.s
+7B6 clrtext CODE >2446:/tmp/xclOe5m7i/driver_tmp_1.s
+7B7 clrtext CODE >2447:/tmp/xclOe5m7i/driver_tmp_1.s
+7B7 clrtext CODE >2448:/tmp/xclOe5m7i/driver_tmp_1.s
+7B8 clrtext CODE >2449:/tmp/xclOe5m7i/driver_tmp_1.s
+7B9 clrtext CODE >2450:/tmp/xclOe5m7i/driver_tmp_1.s
+7BA clrtext CODE >2451:/tmp/xclOe5m7i/driver_tmp_1.s
+7BB clrtext CODE >2452:/tmp/xclOe5m7i/driver_tmp_1.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -518,16 +505,16 @@ CE intentry CODE >484:/Users/jamesgarvey/Documents/Git/MI_2023/main.c
 %SYMTAB
 ___latbits 1 0 ABS 0 - dist/default/production/MI_2023.production.o
 __LdataBANK0 0 0 ABS 0 dataBANK0 -
-__Hspace_0 7EA 0 ABS 0 - -
+__Hspace_0 7D7 0 ABS 0 - -
 __Hspace_1 7C 0 ABS 0 - -
 __Hspace_2 0 0 ABS 0 - -
 __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 10010 0 ABS 0 - -
 __HidataBANK0 0 0 ABS 0 idataBANK0 -
-__end_of_CONFIG_SYSTEM F50 0 CODE 0 text14 dist/default/production/MI_2023.production.o
-__end_of_TURN_ON_CCP3_PWM F82 0 CODE 0 text1 dist/default/production/MI_2023.production.o
+__end_of_CONFIG_SYSTEM F2A 0 CODE 0 text13 dist/default/production/MI_2023.production.o
+__end_of_TURN_ON_CCP3_PWM F5C 0 CODE 0 text1 dist/default/production/MI_2023.production.o
 PROCESS_RAW_SPEED_AND_PRESCALER@speed_control_subtracted 58 0 BANK0 1 cstackBANK0 dist/default/production/MI_2023.production.o
-__end_of_speed_adc_config_value FD2 0 STRCODE 0 stringtext17 dist/default/production/MI_2023.production.o
+__end_of_speed_adc_config_value FAC 0 STRCODE 0 stringtext17 dist/default/production/MI_2023.production.o
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __end_of_lengthen_period_log_table A16 0 STRCODE 0 stringtext4 dist/default/production/MI_2023.production.o
 __L__absolute__ 0 0 ABS 0 __absolute__ -
@@ -536,14 +523,14 @@ _ADON 4E8 0 ABS 0 - dist/default/production/MI_2023.production.o
 _C1ON 88F 0 ABS 0 - dist/default/production/MI_2023.production.o
 _TMR0 15 0 ABS 0 - dist/default/production/MI_2023.production.o
 _WPUC 20E 0 ABS 0 - dist/default/production/MI_2023.production.o
-___sp 0 0 STACK 2 stack /tmp/xcouSBzcn/driver_tmp_15.o
+___sp 0 0 STACK 2 stack /tmp/xclOe5m7i/driver_tmp_15.o
 _duty 73 0 COMMON 1 bssCOMMON dist/default/production/MI_2023.production.o
-_main E00 0 CODE 0 maintext dist/default/production/MI_2023.production.o
+_main E10 0 CODE 0 maintext dist/default/production/MI_2023.production.o
 btemp 7E 0 ABS 0 - dist/default/production/MI_2023.production.o
-___stack_hi 0 0 STACK 2 stack /tmp/xcouSBzcn/driver_tmp_15.o
-___stack_lo 0 0 STACK 2 stack /tmp/xcouSBzcn/driver_tmp_15.o
-start 1A0 0 CODE 0 init /tmp/xcouSBzcn/driver_tmp_15.o
-_LENGTHEN_PERIOD C4C 0 CODE 0 text6 dist/default/production/MI_2023.production.o
+___stack_hi 0 0 STACK 2 stack /tmp/xclOe5m7i/driver_tmp_15.o
+___stack_lo 0 0 STACK 2 stack /tmp/xclOe5m7i/driver_tmp_15.o
+start 1A0 0 CODE 0 init /tmp/xclOe5m7i/driver_tmp_15.o
+_LENGTHEN_PERIOD C74 0 CODE 0 text5 dist/default/production/MI_2023.production.o
 __Hstringtext10 0 0 ABS 0 stringtext10 -
 __Hstringtext11 0 0 ABS 0 stringtext11 -
 __Hstringtext12 0 0 ABS 0 stringtext12 -
@@ -555,50 +542,47 @@ __Hstringtext17 0 0 ABS 0 stringtext17 -
 __Hstringtext18 0 0 ABS 0 stringtext18 -
 __HbssCOMMON 0 0 ABS 0 bssCOMMON -
 ?___lmul 48 0 BANK0 1 cstackBANK0 dist/default/production/MI_2023.production.o
-?___wmul 48 0 BANK0 1 cstackBANK0 dist/default/production/MI_2023.production.o
 _current_quadrant 44 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
 __LidataBANK0 0 0 ABS 0 idataBANK0 -
 TMR0_WRITE@timer_value_ptr 48 0 BANK0 1 cstackBANK0 dist/default/production/MI_2023.production.o
-_waveshape_adc_config_value FD2 0 STRCODE 0 stringtext18 dist/default/production/MI_2023.production.o
+_waveshape_adc_config_value FAC 0 STRCODE 0 stringtext18 dist/default/production/MI_2023.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-_top_two_bytes_ptr 61 0 BANK0 1 dataBANK0 dist/default/production/MI_2023.production.o
-__end_of_DIVIDE_BY_TWO FC6 0 STRCODE 0 stringtext11 dist/default/production/MI_2023.production.o
-intlevel0 0 0 ENTRY 0 functab /tmp/xcouSBzcn/driver_tmp_15.o
-intlevel1 0 0 ENTRY 0 functab /tmp/xcouSBzcn/driver_tmp_15.o
-intlevel2 0 0 ENTRY 0 functab /tmp/xcouSBzcn/driver_tmp_15.o
-intlevel3 0 0 ENTRY 0 functab /tmp/xcouSBzcn/driver_tmp_15.o
-intlevel4 0 0 ENTRY 0 functab /tmp/xcouSBzcn/driver_tmp_15.o
-intlevel5 0 0 ENTRY 0 functab /tmp/xcouSBzcn/driver_tmp_15.o
+_top_two_bytes_ptr 65 0 BANK0 1 dataBANK0 dist/default/production/MI_2023.production.o
+__end_of_DIVIDE_BY_TWO FA0 0 STRCODE 0 stringtext11 dist/default/production/MI_2023.production.o
+intlevel0 0 0 ENTRY 0 functab /tmp/xclOe5m7i/driver_tmp_15.o
+intlevel1 0 0 ENTRY 0 functab /tmp/xclOe5m7i/driver_tmp_15.o
+intlevel2 0 0 ENTRY 0 functab /tmp/xclOe5m7i/driver_tmp_15.o
+intlevel3 0 0 ENTRY 0 functab /tmp/xclOe5m7i/driver_tmp_15.o
+intlevel4 0 0 ENTRY 0 functab /tmp/xclOe5m7i/driver_tmp_15.o
+intlevel5 0 0 ENTRY 0 functab /tmp/xclOe5m7i/driver_tmp_15.o
 __LbssCOMMON 0 0 ABS 0 bssCOMMON -
 _duty_low_byte 47 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
 DO_ADC@adc_result 4B 0 BANK0 1 cstackBANK0 dist/default/production/MI_2023.production.o
-__end_of_GET_CURRENT_POT_VALUES D4A 0 CODE 0 text10 dist/default/production/MI_2023.production.o
+__end_of_GET_CURRENT_POT_VALUES D5A 0 CODE 0 text9 dist/default/production/MI_2023.production.o
 wtemp0 7E 0 ABS 0 - dist/default/production/MI_2023.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 0 0 ABS 0 clrtext -
-___wmul@multiplicand 4A 0 BANK0 1 cstackBANK0 dist/default/production/MI_2023.production.o
-__end_of_CONFIG_ADC_PINS FB2 0 CODE 0 text18 dist/default/production/MI_2023.production.o
+__end_of_CONFIG_ADC_PINS F8C 0 CODE 0 text17 dist/default/production/MI_2023.production.o
 __end_of_shorten_period_log_table 3DA 0 STRCODE 0 stringtext1 dist/default/production/MI_2023.production.o
 _ADCON0 9D 0 ABS 0 - dist/default/production/MI_2023.production.o
 _ADCON1 9E 0 ABS 0 - dist/default/production/MI_2023.production.o
 _ADRESH 9C 0 ABS 0 - dist/default/production/MI_2023.production.o
 _ADRESL 9B 0 ABS 0 - dist/default/production/MI_2023.production.o
 _ANSELC 18E 0 ABS 0 - dist/default/production/MI_2023.production.o
-_PROCESS_RAW_SPEED_AND_PRESCALER A16 0 CODE 0 text7 dist/default/production/MI_2023.production.o
+_PROCESS_RAW_SPEED_AND_PRESCALER B00 0 CODE 0 text6 dist/default/production/MI_2023.production.o
 _CCPR3L 311 0 ABS 0 - dist/default/production/MI_2023.production.o
 __end_of_INTERRUPT_InterruptManager 1A0 0 CODE 0 intentry dist/default/production/MI_2023.production.o
-__end_of___lmul DA8 0 CODE 0 text8 dist/default/production/MI_2023.production.o
-__end_of___wmul F12 0 CODE 0 text4 dist/default/production/MI_2023.production.o
-_DO_ADC DA8 0 CODE 0 text12 dist/default/production/MI_2023.production.o
-_DETERMINE_WAVESHAPE E4E 0 CODE 0 text11 dist/default/production/MI_2023.production.o
+__end_of___lmul DB8 0 CODE 0 text7 dist/default/production/MI_2023.production.o
+_DO_ADC DB8 0 CODE 0 text11 dist/default/production/MI_2023.production.o
+_DETERMINE_WAVESHAPE E5E 0 CODE 0 text10 dist/default/production/MI_2023.production.o
 __Lmaintext 0 0 ABS 0 maintext -
 _clear_TMR0_please 3F 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
 _current_symmetry 32 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
 _OPTION_REG 95 0 ABS 0 - dist/default/production/MI_2023.production.o
-___stackhi 0 0 ABS 0 - /tmp/xcouSBzcn/driver_tmp_15.o
-___stacklo 0 0 ABS 0 - /tmp/xcouSBzcn/driver_tmp_15.o
+___stackhi 0 0 ABS 0 - /tmp/xclOe5m7i/driver_tmp_15.o
+___stacklo 0 0 ABS 0 - /tmp/xclOe5m7i/driver_tmp_15.o
 _speed_control 3C 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
-_CONFIG_ADC_PINS FAA 0 CODE 0 text18 dist/default/production/MI_2023.production.o
+_CONFIG_ADC_PINS F84 0 CODE 0 text17 dist/default/production/MI_2023.production.o
 __Lstringtext10 0 0 ABS 0 stringtext10 -
 __Lstringtext11 0 0 ABS 0 stringtext11 -
 __Lstringtext12 0 0 ABS 0 stringtext12 -
@@ -610,21 +594,21 @@ __Lstringtext17 0 0 ABS 0 stringtext17 -
 __Lstringtext18 0 0 ABS 0 stringtext18 -
 start_initialization 1A4 0 CODE 0 cinit dist/default/production/MI_2023.production.o
 _OSCCON 99 0 ABS 0 - dist/default/production/MI_2023.production.o
-__end_of_symmetry_adc_config_value FCE 0 STRCODE 0 stringtext15 dist/default/production/MI_2023.production.o
+__end_of_symmetry_adc_config_value FA8 0 STRCODE 0 stringtext15 dist/default/production/MI_2023.production.o
 _GO_nDONE 4E9 0 ABS 0 - dist/default/production/MI_2023.production.o
-__end_of_NO FBC 0 STRCODE 0 stringtext6 dist/default/production/MI_2023.production.o
+__end_of_NO F96 0 STRCODE 0 stringtext6 dist/default/production/MI_2023.production.o
 _base_prescaler_bits_index 70 0 COMMON 1 bssCOMMON dist/default/production/MI_2023.production.o
-clear_ram0 F92 0 CODE 0 clrtext dist/default/production/MI_2023.production.o
+clear_ram0 F6C 0 CODE 0 clrtext dist/default/production/MI_2023.production.o
 __pcstackBANK0 48 0 BANK0 1 cstackBANK0 dist/default/production/MI_2023.production.o
 _TMR0IE 5D 0 ABS 0 - dist/default/production/MI_2023.production.o
 _TMR0IF 5A 0 ABS 0 - dist/default/production/MI_2023.production.o
 _TMR2IF 89 0 ABS 0 - dist/default/production/MI_2023.production.o
 _TMR2ON E2 0 ABS 0 - dist/default/production/MI_2023.production.o
 _TRISA2 462 0 ABS 0 - dist/default/production/MI_2023.production.o
-_depth_adc_config_value FCE 0 STRCODE 0 stringtext16 dist/default/production/MI_2023.production.o
-_PROCESS_FINAL_SPEED_AND_PRESCALER BB2 0 CODE 0 text9 dist/default/production/MI_2023.production.o
-_CONFIG_INT_OSC F9E 0 CODE 0 text17 dist/default/production/MI_2023.production.o
-___int_sp 0 0 STACK 2 stack /tmp/xcouSBzcn/driver_tmp_15.o
+_depth_adc_config_value FA8 0 STRCODE 0 stringtext16 dist/default/production/MI_2023.production.o
+_PROCESS_FINAL_SPEED_AND_PRESCALER BDA 0 CODE 0 text8 dist/default/production/MI_2023.production.o
+_CONFIG_INT_OSC F78 0 CODE 0 text16 dist/default/production/MI_2023.production.o
+___int_sp 0 0 STACK 2 stack /tmp/xclOe5m7i/driver_tmp_15.o
 __Hbank0 0 0 ABS 0 bank0 -
 __Hbank1 0 0 ABS 0 bank1 -
 __Hbank2 0 0 ABS 0 bank2 -
@@ -685,8 +669,8 @@ __Hbigram 0 0 ABS 0 bigram -
 __Hmaintext 0 0 ABS 0 maintext -
 __Hcommon 0 0 ABS 0 common -
 __Hconfig 10012 0 CONFIG 4 config -
-__end_of_DETERMINE_WAVESHAPE E9C 0 CODE 0 text11 dist/default/production/MI_2023.production.o
-__end_of_DO_NOTHING FC8 0 STRCODE 0 stringtext12 dist/default/production/MI_2023.production.o
+__end_of_DETERMINE_WAVESHAPE EAC 0 CODE 0 text10 dist/default/production/MI_2023.production.o
+__end_of_DO_NOTHING FA2 0 STRCODE 0 stringtext12 dist/default/production/MI_2023.production.o
 __Lbank0 0 0 ABS 0 bank0 -
 __Lbank1 0 0 ABS 0 bank1 -
 __Lbank2 0 0 ABS 0 bank2 -
@@ -756,51 +740,50 @@ __pstringtext1 1D6 0 STRCODE 0 stringtext1 dist/default/production/MI_2023.produ
 __pstringtext2 3DA 0 STRCODE 0 stringtext2 dist/default/production/MI_2023.production.o
 __pstringtext3 5DE 0 STRCODE 0 stringtext3 dist/default/production/MI_2023.production.o
 __pstringtext4 914 0 STRCODE 0 stringtext4 dist/default/production/MI_2023.production.o
-__pstringtext5 F62 0 STRCODE 0 stringtext5 dist/default/production/MI_2023.production.o
-__pstringtext6 FBA 0 STRCODE 0 stringtext6 dist/default/production/MI_2023.production.o
-__pstringtext7 FBC 0 STRCODE 0 stringtext7 dist/default/production/MI_2023.production.o
-__pstringtext8 FBE 0 STRCODE 0 stringtext8 dist/default/production/MI_2023.production.o
-__pstringtext9 FC0 0 STRCODE 0 stringtext9 dist/default/production/MI_2023.production.o
-__pstringtext10 FC2 0 STRCODE 0 stringtext10 dist/default/production/MI_2023.production.o
-__pstringtext11 FC4 0 STRCODE 0 stringtext11 dist/default/production/MI_2023.production.o
-__pstringtext12 FC6 0 STRCODE 0 stringtext12 dist/default/production/MI_2023.production.o
-__pstringtext13 FC8 0 STRCODE 0 stringtext13 dist/default/production/MI_2023.production.o
-__pstringtext14 FCA 0 STRCODE 0 stringtext14 dist/default/production/MI_2023.production.o
-__pstringtext15 FCC 0 STRCODE 0 stringtext15 dist/default/production/MI_2023.production.o
-__pstringtext16 FCE 0 STRCODE 0 stringtext16 dist/default/production/MI_2023.production.o
-__pstringtext17 FD0 0 STRCODE 0 stringtext17 dist/default/production/MI_2023.production.o
-__pstringtext18 FD2 0 STRCODE 0 stringtext18 dist/default/production/MI_2023.production.o
+__pstringtext5 F3C 0 STRCODE 0 stringtext5 dist/default/production/MI_2023.production.o
+__pstringtext6 F94 0 STRCODE 0 stringtext6 dist/default/production/MI_2023.production.o
+__pstringtext7 F96 0 STRCODE 0 stringtext7 dist/default/production/MI_2023.production.o
+__pstringtext8 F98 0 STRCODE 0 stringtext8 dist/default/production/MI_2023.production.o
+__pstringtext9 F9A 0 STRCODE 0 stringtext9 dist/default/production/MI_2023.production.o
+__pstringtext10 F9C 0 STRCODE 0 stringtext10 dist/default/production/MI_2023.production.o
+__pstringtext11 F9E 0 STRCODE 0 stringtext11 dist/default/production/MI_2023.production.o
+__pstringtext12 FA0 0 STRCODE 0 stringtext12 dist/default/production/MI_2023.production.o
+__pstringtext13 FA2 0 STRCODE 0 stringtext13 dist/default/production/MI_2023.production.o
+__pstringtext14 FA4 0 STRCODE 0 stringtext14 dist/default/production/MI_2023.production.o
+__pstringtext15 FA6 0 STRCODE 0 stringtext15 dist/default/production/MI_2023.production.o
+__pstringtext16 FA8 0 STRCODE 0 stringtext16 dist/default/production/MI_2023.production.o
+__pstringtext17 FAA 0 STRCODE 0 stringtext17 dist/default/production/MI_2023.production.o
+__pstringtext18 FAC 0 STRCODE 0 stringtext18 dist/default/production/MI_2023.production.o
 _current_speed_log 36 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
-___lmul D4A 0 CODE 0 text8 dist/default/production/MI_2023.production.o
-___wmul EDC 0 CODE 0 text4 dist/default/production/MI_2023.production.o
+___lmul D5A 0 CODE 0 text7 dist/default/production/MI_2023.production.o
 SHORTEN_PERIOD@TMR0_raw_extra 5A 0 BANK0 1 cstackBANK0 dist/default/production/MI_2023.production.o
-__end_of_CONFIG_TMR0_INTERRUPT FBA 0 CODE 0 text13 dist/default/production/MI_2023.production.o
+__end_of_CONFIG_TMR0_INTERRUPT F94 0 CODE 0 text12 dist/default/production/MI_2023.production.o
 __LcstackBANK0 0 0 ABS 0 cstackBANK0 -
 int$flags 7E 0 ABS 0 - dist/default/production/MI_2023.production.o
 __HcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-_prescaler_bits F62 0 STRCODE 0 stringtext5 dist/default/production/MI_2023.production.o
+_prescaler_bits F3C 0 STRCODE 0 stringtext5 dist/default/production/MI_2023.production.o
 _GIE 5F 0 ABS 0 - dist/default/production/MI_2023.production.o
 _PR2 1B 0 ABS 0 - dist/default/production/MI_2023.production.o
-__S0 7EA 0 ABS 0 - -
+__S0 7D7 0 ABS 0 - -
 __S1 7C 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 _final_TMR0 75 0 COMMON 1 bssCOMMON dist/default/production/MI_2023.production.o
 _how_many_128 3A 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
 _duty_high_byte 46 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
-__end_of_CONFIG_INT_OSC FAA 0 CODE 0 text17 dist/default/production/MI_2023.production.o
-_CONFIG_TMR0_INTERRUPT FB6 0 CODE 0 text13 dist/default/production/MI_2023.production.o
-_CONFIG_PORTS F50 0 CODE 0 text16 dist/default/production/MI_2023.production.o
+__end_of_CONFIG_INT_OSC F84 0 CODE 0 text16 dist/default/production/MI_2023.production.o
+_CONFIG_TMR0_INTERRUPT F90 0 CODE 0 text12 dist/default/production/MI_2023.production.o
+_CONFIG_PORTS F2A 0 CODE 0 text15 dist/default/production/MI_2023.production.o
 _TMR0_offset_sign 42 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
 _current_depth 34 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
-__end_of_YES FBE 0 STRCODE 0 stringtext7 dist/default/production/MI_2023.production.o
+__end_of_YES F98 0 STRCODE 0 stringtext7 dist/default/production/MI_2023.production.o
 _tri_table_one_quadrant 3DA 0 STRCODE 0 stringtext2 dist/default/production/MI_2023.production.o
 DETERMINE_WAVESHAPE@ADC 4E 0 BANK0 1 cstackBANK0 dist/default/production/MI_2023.production.o
 __Lintentry 8 0 CODE 0 intentry -
-reset_vec 0 0 CODE 0 reset_vec /tmp/xcouSBzcn/driver_tmp_15.o
-__end_of_POSITIVE FCC 0 STRCODE 0 stringtext14 dist/default/production/MI_2023.production.o
+reset_vec 0 0 CODE 0 reset_vec /tmp/xclOe5m7i/driver_tmp_15.o
+__end_of_POSITIVE FA6 0 STRCODE 0 stringtext14 dist/default/production/MI_2023.production.o
 _current_waveshape 72 0 COMMON 1 bssCOMMON dist/default/production/MI_2023.production.o
-_SHORTEN_PERIOD 7E2 0 CODE 0 text5 dist/default/production/MI_2023.production.o
-__pdataBANK0 61 0 BANK0 1 dataBANK0 dist/default/production/MI_2023.production.o
+_SHORTEN_PERIOD 7E2 0 CODE 0 text4 dist/default/production/MI_2023.production.o
+__pdataBANK0 65 0 BANK0 1 dataBANK0 dist/default/production/MI_2023.production.o
 __LbssBANK0 0 0 ABS 0 bssBANK0 -
 __Lstringtext1 0 0 ABS 0 stringtext1 -
 __Lstringtext2 0 0 ABS 0 stringtext2 -
@@ -812,20 +795,19 @@ __Lstringtext7 0 0 ABS 0 stringtext7 -
 __Lstringtext8 0 0 ABS 0 stringtext8 -
 __Lstringtext9 0 0 ABS 0 stringtext9 -
 _INTERRUPT_InterruptManager 8 0 CODE 0 intentry dist/default/production/MI_2023.production.o
-__end_of_NEGATIVE FCA 0 STRCODE 0 stringtext13 dist/default/production/MI_2023.production.o
-__end_of_prescaler_bits F72 0 STRCODE 0 stringtext5 dist/default/production/MI_2023.production.o
-_PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST AF0 0 CODE 0 text3 dist/default/production/MI_2023.production.o
-__end_of_PROCESS_FINAL_SPEED_AND_PRESCALER C4C 0 CODE 0 text9 dist/default/production/MI_2023.production.o
-__ptext10 CD0 0 CODE 0 text10 dist/default/production/MI_2023.production.o
-__ptext11 E4E 0 CODE 0 text11 dist/default/production/MI_2023.production.o
-__ptext12 DA8 0 CODE 0 text12 dist/default/production/MI_2023.production.o
-__ptext13 FB6 0 CODE 0 text13 dist/default/production/MI_2023.production.o
-__ptext14 F38 0 CODE 0 text14 dist/default/production/MI_2023.production.o
-__ptext15 F12 0 CODE 0 text15 dist/default/production/MI_2023.production.o
-__ptext16 F50 0 CODE 0 text16 dist/default/production/MI_2023.production.o
-__ptext17 F9E 0 CODE 0 text17 dist/default/production/MI_2023.production.o
-__ptext18 FAA 0 CODE 0 text18 dist/default/production/MI_2023.production.o
-__ptext20 E9C 0 CODE 0 text20 dist/default/production/MI_2023.production.o
+__end_of_NEGATIVE FA4 0 STRCODE 0 stringtext13 dist/default/production/MI_2023.production.o
+__end_of_prescaler_bits F4C 0 STRCODE 0 stringtext5 dist/default/production/MI_2023.production.o
+_PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST A16 0 CODE 0 text3 dist/default/production/MI_2023.production.o
+__end_of_PROCESS_FINAL_SPEED_AND_PRESCALER C74 0 CODE 0 text8 dist/default/production/MI_2023.production.o
+__ptext10 E5E 0 CODE 0 text10 dist/default/production/MI_2023.production.o
+__ptext11 DB8 0 CODE 0 text11 dist/default/production/MI_2023.production.o
+__ptext12 F90 0 CODE 0 text12 dist/default/production/MI_2023.production.o
+__ptext13 F12 0 CODE 0 text13 dist/default/production/MI_2023.production.o
+__ptext14 EEC 0 CODE 0 text14 dist/default/production/MI_2023.production.o
+__ptext15 F2A 0 CODE 0 text15 dist/default/production/MI_2023.production.o
+__ptext16 F78 0 CODE 0 text16 dist/default/production/MI_2023.production.o
+__ptext17 F84 0 CODE 0 text17 dist/default/production/MI_2023.production.o
+__ptext19 EAC 0 CODE 0 text19 dist/default/production/MI_2023.production.o
 SET_DUTY_CCP3@temp 78 0 COMMON 1 cstackCOMMON dist/default/production/MI_2023.production.o
 __Lbank10 0 0 BANK10 1 bank10 -
 __Lbank11 0 0 BANK11 1 bank11 -
@@ -849,59 +831,58 @@ __Lbank28 0 0 BANK28 1 bank28 -
 __Lbank29 0 0 BANK29 1 bank29 -
 __Lbank30 0 0 BANK30 1 bank30 -
 __Lbank31 0 0 BANK31 1 bank31 -
-__pmaintext E00 0 CODE 0 maintext dist/default/production/MI_2023.production.o
+__pmaintext E10 0 CODE 0 maintext dist/default/production/MI_2023.production.o
 __Lbigram 0 0 ABS 0 bigram -
 ___lmul@multiplier 48 0 BANK0 1 cstackBANK0 dist/default/production/MI_2023.production.o
 __Lcommon 0 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
-___wmul@multiplier 48 0 BANK0 1 cstackBANK0 dist/default/production/MI_2023.production.o
-PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST@symmetry_status 60 0 BANK0 1 cstackBANK0 dist/default/production/MI_2023.production.o
-__end_of_PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST BB2 0 CODE 0 text3 dist/default/production/MI_2023.production.o
+PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST@symmetry_status 64 0 BANK0 1 cstackBANK0 dist/default/production/MI_2023.production.o
+__end_of_PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST B00 0 CODE 0 text3 dist/default/production/MI_2023.production.o
 DO_ADC@modifier 48 0 BANK0 1 cstackBANK0 dist/default/production/MI_2023.production.o
 _raw_TMR0 40 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
 _current_speed_linear 38 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
 _current_speed_log_32 24 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
-__end_of_depth_adc_config_value FD0 0 STRCODE 0 stringtext16 dist/default/production/MI_2023.production.o
-__end_of_SHORTEN_PERIOD 914 0 CODE 0 text5 dist/default/production/MI_2023.production.o
+__end_of_depth_adc_config_value FAA 0 STRCODE 0 stringtext16 dist/default/production/MI_2023.production.o
+__end_of_SHORTEN_PERIOD 914 0 CODE 0 text4 dist/default/production/MI_2023.production.o
 _OSCTUNE 98 0 ABS 0 - dist/default/production/MI_2023.production.o
 _current_speed_linear_32 28 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
-__end_of_CONFIG_PORTS F62 0 CODE 0 text16 dist/default/production/MI_2023.production.o
-_symmetry_adc_config_value FCC 0 STRCODE 0 stringtext15 dist/default/production/MI_2023.production.o
+__end_of_CONFIG_PORTS F3C 0 CODE 0 text15 dist/default/production/MI_2023.production.o
+_symmetry_adc_config_value FA6 0 STRCODE 0 stringtext15 dist/default/production/MI_2023.production.o
 _TMR0_offset 43 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
 __Lspace_3 0 0 ABS 0 - -
 __Lspace_4 0 0 ABS 0 - -
-_SET_DUTY_CCP3 E9C 0 CODE 0 text20 dist/default/production/MI_2023.production.o
+_SET_DUTY_CCP3 EAC 0 CODE 0 text19 dist/default/production/MI_2023.production.o
 __pbssCOMMON 70 0 COMMON 1 bssCOMMON dist/default/production/MI_2023.production.o
 __HcstackBANK0 0 0 ABS 0 cstackBANK0 -
 __Lend_init 1A0 0 CODE 0 end_init -
 _speed_control_32 2C 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
 __LcstackCOMMON 0 0 ABS 0 cstackCOMMON -
-__end_of_waveshape_adc_config_value FD4 0 STRCODE 0 stringtext18 dist/default/production/MI_2023.production.o
+__end_of_waveshape_adc_config_value FAE 0 STRCODE 0 stringtext18 dist/default/production/MI_2023.production.o
 end_of_initialization 1CE 0 CODE 0 cinit dist/default/production/MI_2023.production.o
-_speed_adc_config_value FD0 0 STRCODE 0 stringtext17 dist/default/production/MI_2023.production.o
+_speed_adc_config_value FAA 0 STRCODE 0 stringtext17 dist/default/production/MI_2023.production.o
 __Hintentry 1A0 0 CODE 0 intentry -
 _current_halfcycle 45 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
-_CONFIG_SYSTEM F38 0 CODE 0 text14 dist/default/production/MI_2023.production.o
+_CONFIG_SYSTEM F12 0 CODE 0 text13 dist/default/production/MI_2023.production.o
 __Lstrings 0 0 ABS 0 strings -
-__end_of_DONT_CARE FC0 0 STRCODE 0 stringtext8 dist/default/production/MI_2023.production.o
+__end_of_DONT_CARE F9A 0 STRCODE 0 stringtext8 dist/default/production/MI_2023.production.o
 __Hreset_vec 4 0 CODE 0 reset_vec -
 _sine_table_one_quadrant 5DE 0 STRCODE 0 stringtext3 dist/default/production/MI_2023.production.o
 __HbssBANK0 0 0 ABS 0 bssBANK0 -
 __end_of_sine_table_one_quadrant 7E2 0 STRCODE 0 stringtext3 dist/default/production/MI_2023.production.o
-__end_of_MULTIPLY_BY_TWO FC4 0 STRCODE 0 stringtext10 dist/default/production/MI_2023.production.o
-_TMR0_WRITE F82 0 CODE 0 text2 dist/default/production/MI_2023.production.o
-__ptext1 F72 0 CODE 0 text1 dist/default/production/MI_2023.production.o
-__ptext2 F82 0 CODE 0 text2 dist/default/production/MI_2023.production.o
-__ptext3 AF0 0 CODE 0 text3 dist/default/production/MI_2023.production.o
-__ptext4 EDC 0 CODE 0 text4 dist/default/production/MI_2023.production.o
-__ptext5 7E2 0 CODE 0 text5 dist/default/production/MI_2023.production.o
-__ptext6 C4C 0 CODE 0 text6 dist/default/production/MI_2023.production.o
-__ptext7 A16 0 CODE 0 text7 dist/default/production/MI_2023.production.o
-__ptext8 D4A 0 CODE 0 text8 dist/default/production/MI_2023.production.o
-__ptext9 BB2 0 CODE 0 text9 dist/default/production/MI_2023.production.o
+__end_of_MULTIPLY_BY_TWO F9E 0 STRCODE 0 stringtext10 dist/default/production/MI_2023.production.o
+_TMR0_WRITE F5C 0 CODE 0 text2 dist/default/production/MI_2023.production.o
+__ptext1 F4C 0 CODE 0 text1 dist/default/production/MI_2023.production.o
+__ptext2 F5C 0 CODE 0 text2 dist/default/production/MI_2023.production.o
+__ptext3 A16 0 CODE 0 text3 dist/default/production/MI_2023.production.o
+__ptext4 7E2 0 CODE 0 text4 dist/default/production/MI_2023.production.o
+__ptext5 C74 0 CODE 0 text5 dist/default/production/MI_2023.production.o
+__ptext6 B00 0 CODE 0 text6 dist/default/production/MI_2023.production.o
+__ptext7 D5A 0 CODE 0 text7 dist/default/production/MI_2023.production.o
+__ptext8 BDA 0 CODE 0 text8 dist/default/production/MI_2023.production.o
+__ptext9 CF8 0 CODE 0 text9 dist/default/production/MI_2023.production.o
 LENGTHEN_PERIOD@dTMR0_ideal 58 0 BANK0 1 cstackBANK0 dist/default/production/MI_2023.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
@@ -909,7 +890,7 @@ SHORTEN_PERIOD@dTMR0_ideal 58 0 BANK0 1 cstackBANK0 dist/default/production/MI_2
 __H__absolute__ 0 0 ABS 0 __absolute__ -
 _symmetry_total 20 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
 __Lreset_vec 0 0 CODE 0 reset_vec -
-__end_of_PROCESS_RAW_SPEED_AND_PRESCALER AF0 0 CODE 0 text7 dist/default/production/MI_2023.production.o
+__end_of_PROCESS_RAW_SPEED_AND_PRESCALER BDA 0 CODE 0 text6 dist/default/production/MI_2023.production.o
 __Hstringtext1 0 0 ABS 0 stringtext1 -
 __Hstringtext2 0 0 ABS 0 stringtext2 -
 __Hstringtext3 0 0 ABS 0 stringtext3 -
@@ -919,16 +900,16 @@ __Hstringtext6 0 0 ABS 0 stringtext6 -
 __Hstringtext7 0 0 ABS 0 stringtext7 -
 __Hstringtext8 0 0 ABS 0 stringtext8 -
 __Hstringtext9 0 0 ABS 0 stringtext9 -
-___heap_hi 0 0 ABS 0 - /tmp/xcouSBzcn/driver_tmp_15.o
-___heap_lo 0 0 ABS 0 - /tmp/xcouSBzcn/driver_tmp_15.o
+___heap_hi 0 0 ABS 0 - /tmp/xclOe5m7i/driver_tmp_15.o
+___heap_lo 0 0 ABS 0 - /tmp/xclOe5m7i/driver_tmp_15.o
 ?_DO_ADC 48 0 BANK0 1 cstackBANK0 dist/default/production/MI_2023.production.o
-__end_of_CONFIG_PWM_CCP3 F38 0 CODE 0 text15 dist/default/production/MI_2023.production.o
+__end_of_CONFIG_PWM_CCP3 F12 0 CODE 0 text14 dist/default/production/MI_2023.production.o
 __end_of__initialization 1CE 0 CODE 0 cinit dist/default/production/MI_2023.production.o
-_GET_CURRENT_POT_VALUES CD0 0 CODE 0 text10 dist/default/production/MI_2023.production.o
+_GET_CURRENT_POT_VALUES CF8 0 CODE 0 text9 dist/default/production/MI_2023.production.o
 __Lfunctab 0 0 ENTRY 0 functab -
-_TURN_ON_CCP3_PWM F72 0 CODE 0 text1 dist/default/production/MI_2023.production.o
+_TURN_ON_CCP3_PWM F4C 0 CODE 0 text1 dist/default/production/MI_2023.production.o
 __end_of_tri_table_one_quadrant 5DE 0 STRCODE 0 stringtext2 dist/default/production/MI_2023.production.o
-__pidataBANK0 FB2 0 CODE 0 idataBANK0 dist/default/production/MI_2023.production.o
+__pidataBANK0 F8C 0 CODE 0 idataBANK0 dist/default/production/MI_2023.production.o
 _prescaler_adjust 41 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
 __Lclrtext 0 0 ABS 0 clrtext -
 ___lmul@product 50 0 BANK0 1 cstackBANK0 dist/default/production/MI_2023.production.o
@@ -938,29 +919,28 @@ __pcstackCOMMON 76 0 COMMON 1 cstackCOMMON dist/default/production/MI_2023.produ
 __Hend_init 1A4 0 CODE 0 end_init -
 _symmetry_status 3E 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
 _CCPTMRS0 29E 0 ABS 0 - dist/default/production/MI_2023.production.o
-__end_of_TMR0_WRITE F92 0 CODE 0 text2 dist/default/production/MI_2023.production.o
-__end_of_main E4E 0 CODE 0 maintext dist/default/production/MI_2023.production.o
+__end_of_TMR0_WRITE F6C 0 CODE 0 text2 dist/default/production/MI_2023.production.o
+__end_of_main E5E 0 CODE 0 maintext dist/default/production/MI_2023.production.o
 _LATC5 875 0 ABS 0 - dist/default/production/MI_2023.production.o
 _SRLEN 8D7 0 ABS 0 - dist/default/production/MI_2023.production.o
 _T2CON 1C 0 ABS 0 - dist/default/production/MI_2023.production.o
 _TRISC 8E 0 ABS 0 - dist/default/production/MI_2023.production.o
 __Hram 0 0 ABS 0 ram -
 __Lram 0 0 ABS 0 ram -
-PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST@temp 5E 0 BANK0 1 cstackBANK0 dist/default/production/MI_2023.production.o
+PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST@temp 60 0 BANK0 1 cstackBANK0 dist/default/production/MI_2023.production.o
 __pintentry 8 0 CODE 0 intentry dist/default/production/MI_2023.production.o
 _CCP3CON 313 0 ABS 0 - dist/default/production/MI_2023.production.o
 __HdataBANK0 0 0 ABS 0 dataBANK0 -
-__end_of_LENGTHEN_PERIOD CD0 0 CODE 0 text6 dist/default/production/MI_2023.production.o
-_CONFIG_PWM_CCP3 F12 0 CODE 0 text15 dist/default/production/MI_2023.production.o
+__end_of_LENGTHEN_PERIOD CF8 0 CODE 0 text5 dist/default/production/MI_2023.production.o
+_CONFIG_PWM_CCP3 EEC 0 CODE 0 text14 dist/default/production/MI_2023.production.o
 __initialization 1A4 0 CODE 0 cinit dist/default/production/MI_2023.production.o
 __pbssBANK0 20 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
-__end_of_DO_ADC E00 0 CODE 0 text12 dist/default/production/MI_2023.production.o
-___wmul@product 4C 0 BANK0 1 cstackBANK0 dist/default/production/MI_2023.production.o
+__end_of_DO_ADC E10 0 CODE 0 text11 dist/default/production/MI_2023.production.o
 _dTMR0_ideal 30 0 BANK0 1 bssBANK0 dist/default/production/MI_2023.production.o
-__end_of_DIVIDE_BY_FOUR FC2 0 STRCODE 0 stringtext9 dist/default/production/MI_2023.production.o
-__end_of_SET_DUTY_CCP3 EDC 0 CODE 0 text20 dist/default/production/MI_2023.production.o
-___int_stack_hi 0 0 STACK 2 stack /tmp/xcouSBzcn/driver_tmp_15.o
-___int_stack_lo 0 0 STACK 2 stack /tmp/xcouSBzcn/driver_tmp_15.o
+__end_of_DIVIDE_BY_FOUR F9C 0 STRCODE 0 stringtext9 dist/default/production/MI_2023.production.o
+__end_of_SET_DUTY_CCP3 EEC 0 CODE 0 text19 dist/default/production/MI_2023.production.o
+___int_stack_hi 0 0 STACK 2 stack /tmp/xclOe5m7i/driver_tmp_15.o
+___int_stack_lo 0 0 STACK 2 stack /tmp/xclOe5m7i/driver_tmp_15.o
 _current_one_quadrant_index 71 0 COMMON 1 bssCOMMON dist/default/production/MI_2023.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
@@ -987,16 +967,16 @@ _current_one_quadrant_index 71 0 COMMON 1 bssCOMMON dist/default/production/MI_2
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-text1 0 7B9 F72 24 2
-text5 0 3F1 7E2 99 2
-text7 0 50B A16 2A6 2
+text1 0 7A6 F4C 24 2
+text3 0 50B A16 293 2
+text4 0 3F1 7E2 99 2
 stringtext1 0 EB 1D6 306 2
 stringtext4 0 48A 914 81 2
-stringtext5 0 7B1 F62 8 2
-stringtext6 0 7DD FBA D 2
+stringtext5 0 79E F3C 8 2
+stringtext6 0 7CA F94 D 2
 intentry 0 4 8 E7 2
 reset_vec 0 0 0 2 2
-bssBANK0 1 20 20 43 1
+bssBANK0 1 20 20 47 1
 bssCOMMON 1 70 70 C 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section

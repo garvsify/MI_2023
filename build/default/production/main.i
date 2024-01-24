@@ -4914,7 +4914,7 @@ volatile uint16_t dTMR0_ideal;
 volatile uint8_t clear_TMR0_please;
 volatile uint8_t symmetry_status;
 volatile uint32_t symmetry_total;
-# 151 "main.c"
+# 165 "main.c"
 uint8_t CONFIG_INT_OSC(void){
     OSCCON = 0b11110000;
     OSCTUNE = 0b00011111;
@@ -5026,7 +5026,10 @@ uint8_t GET_CURRENT_POT_VALUES(void){
     current_depth = DO_ADC(&depth_adc_config_value);
     current_depth = current_depth >> 2;
     current_symmetry = DO_ADC(&symmetry_adc_config_value);
-    current_symmetry = current_symmetry >> 2;
+    uint8_t symmetry_ADC_resolution = 10;
+    if(symmetry_ADC_resolution == 8){
+        current_symmetry = current_symmetry >> 2;
+    }
     return 1;
 }
 
@@ -5128,7 +5131,7 @@ uint8_t LENGTHEN_PERIOD(void){
 }
 
 uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
-    if(current_symmetry == 128){
+    if(current_symmetry == 512){
         TMR0_offset = 0;
         TMR0_offset_sign = POSITIVE;
         prescaler_adjust = DO_NOTHING;
@@ -5136,13 +5139,13 @@ uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
         return 1;
     }
     uint8_t symmetry_status = 0;
-    if(current_symmetry > 128){
-        current_symmetry = 255 - current_symmetry;
+    if(current_symmetry > 512){
+        current_symmetry = 1023 - current_symmetry;
         symmetry_status = 1;
     }
 
-    uint16_t temp = (uint16_t)(361 * (128 - current_symmetry));
-    symmetry_total = (uint32_t)(temp >> 7);
+    uint32_t temp = (uint32_t)(361 * (uint32_t)(512 - current_symmetry));
+    symmetry_total = (temp >> 9);
 
     if((current_halfcycle == 0) && (symmetry_status == 0)){
         SHORTEN_PERIOD();

@@ -143,6 +143,20 @@ volatile uint32_t symmetry_total;
 #define MAX_SYMMETRY_TOTAL 361
 #define SHORTEN_PERIOD_FRACTION_16_BIT_NUMBER 47926
 #define LENGTHEN_PERIOD_FRACTION_16_BIT_NUMBER 17609
+#define RESOLUTION_OF_TOTAL_SYMMETRY_FRACTION 16
+#define SYMMETRY_ADC_RESOLUTION 10
+
+#if SYMMETRY_ADC_RESOLUTION == 10
+    #define SYMMETRY_ADC_HALF_SCALE_NO_BITS 9
+    #define SYMMETRY_ADC_FULL_SCALE 1023
+    #define SYMMETRY_ADC_HALF_SCALE 512
+#endif
+
+#if SYMMETRY_ADC_RESOLUTION == 8
+    #define SYMMETRY_ADC_HALF_SCALE_NO_BITS 7
+    #define SYMMETRY_ADC_FULL_SCALE 255
+    #define SYMMETRY_ADC_HALF_SCALE 128
+#endif
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////// DEFINE FUNCTIONS //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -259,7 +273,10 @@ uint8_t GET_CURRENT_POT_VALUES(void){
     current_depth = DO_ADC(&depth_adc_config_value); //get depth (10-bit linear)
     current_depth = current_depth >> 2; //convert to 8-bit
     current_symmetry = DO_ADC(&symmetry_adc_config_value); //get symmetry (10-bit linear)
-    current_symmetry = current_symmetry >> 2; //convert to 8-bit
+    uint8_t symmetry_ADC_resolution = SYMMETRY_ADC_RESOLUTION;
+    if(symmetry_ADC_resolution == 8){
+        current_symmetry = current_symmetry >> 2; //convert to 8-bit
+    }
     return 1;
 }
 
@@ -309,7 +326,7 @@ uint8_t PROCESS_FINAL_SPEED_AND_PRESCALER(void){
 }   
 
 uint8_t SHORTEN_PERIOD(void){
-    uint16_t dTMR0_ideal = (uint16_t)((uint32_t)(symmetry_total * SHORTEN_PERIOD_FRACTION_16_BIT_NUMBER) >> 16);
+    uint16_t dTMR0_ideal = (uint16_t)((uint32_t)(symmetry_total * SHORTEN_PERIOD_FRACTION_16_BIT_NUMBER) >> RESOLUTION_OF_TOTAL_SYMMETRY_FRACTION);
 
     if((dTMR0_ideal + raw_TMR0) < 128){
         TMR0_offset = (uint8_t)dTMR0_ideal;
@@ -343,7 +360,7 @@ uint8_t SHORTEN_PERIOD(void){
 }   
 
 uint8_t LENGTHEN_PERIOD(void){
-    uint16_t dTMR0_ideal = (uint16_t)((uint32_t)(symmetry_total * LENGTHEN_PERIOD_FRACTION_16_BIT_NUMBER) >> 16);
+    uint16_t dTMR0_ideal = (uint16_t)((uint32_t)(symmetry_total * LENGTHEN_PERIOD_FRACTION_16_BIT_NUMBER) >> RESOLUTION_OF_TOTAL_SYMMETRY_FRACTION);
     
         if(raw_TMR0 < dTMR0_ideal){
             TMR0_offset = (uint8_t)(128 - (dTMR0_ideal - raw_TMR0));
@@ -361,7 +378,7 @@ uint8_t LENGTHEN_PERIOD(void){
 }
 
 uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
-    if(current_symmetry == 128){
+    if(current_symmetry == SYMMETRY_ADC_HALF_SCALE){
         TMR0_offset = 0;
         TMR0_offset_sign = POSITIVE;
         prescaler_adjust = DO_NOTHING;
@@ -369,13 +386,13 @@ uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
         return 1; //exit function
     }
     uint8_t symmetry_status = CCW;
-    if(current_symmetry > 128){
-        current_symmetry = 255 - current_symmetry; //converts current_symmetry to 128 -> 0 range (same range as CCW regime, more or less)
+    if(current_symmetry > SYMMETRY_ADC_HALF_SCALE){
+        current_symmetry = SYMMETRY_ADC_FULL_SCALE - current_symmetry; //converts current_symmetry to 128 -> 0 range (same range as CCW regime, more or less)
         symmetry_status = CW;
     }
     
-    uint16_t temp = (uint16_t)(MAX_SYMMETRY_TOTAL * (128 - current_symmetry));
-    symmetry_total = (uint32_t)(temp >> 7);
+    uint32_t temp = (uint32_t)(MAX_SYMMETRY_TOTAL * (uint32_t)(SYMMETRY_ADC_HALF_SCALE - current_symmetry)); //must be 32-bit int if ADC is ever 10-bit
+    symmetry_total = (temp >> SYMMETRY_ADC_HALF_SCALE_NO_BITS);
 
     if((current_halfcycle == FIRST_HALFCYCLE) && (symmetry_status == CCW)){
         SHORTEN_PERIOD();
