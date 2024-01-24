@@ -13,43 +13,43 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"165 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
+"167 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
 [v _CONFIG_INT_OSC CONFIG_INT_OSC `(uc  1 e 1 0 ]
-"172
+"174
 [v _CONFIG_PORTS CONFIG_PORTS `(uc  1 e 1 0 ]
-"179
+"181
 [v _CONFIG_ADC_PINS CONFIG_ADC_PINS `(uc  1 e 1 0 ]
-"184
+"186
 [v _DO_ADC DO_ADC `(us  1 e 2 0 ]
-"198
+"200
 [v _DETERMINE_WAVESHAPE DETERMINE_WAVESHAPE `(uc  1 e 1 0 ]
-"215
+"217
 [v _SET_DUTY_CCP3 SET_DUTY_CCP3 `(uc  1 e 1 0 ]
-"225
+"227
 [v _CONFIG_PWM_CCP3 CONFIG_PWM_CCP3 `(uc  1 e 1 0 ]
-"242
+"244
 [v _TURN_ON_CCP3_PWM TURN_ON_CCP3_PWM `(uc  1 e 1 0 ]
-"252
+"254
 [v _CONFIG_TMR0_INTERRUPT CONFIG_TMR0_INTERRUPT `(uc  1 e 1 0 ]
-"257
+"259
 [v _CONFIG_SYSTEM CONFIG_SYSTEM `(uc  1 e 1 0 ]
-"265
+"267
 [v _TMR0_WRITE TMR0_WRITE `(uc  1 e 1 0 ]
-"270
+"272
 [v _GET_CURRENT_POT_VALUES GET_CURRENT_POT_VALUES `(uc  1 e 1 0 ]
-"283
+"285
 [v _PROCESS_RAW_SPEED_AND_PRESCALER PROCESS_RAW_SPEED_AND_PRESCALER `(uc  1 e 1 0 ]
-"303
+"305
 [v _PROCESS_FINAL_SPEED_AND_PRESCALER PROCESS_FINAL_SPEED_AND_PRESCALER `(uc  1 e 1 0 ]
-"328
+"330
 [v _SHORTEN_PERIOD SHORTEN_PERIOD `(uc  1 e 1 0 ]
-"362
+"364
 [v _LENGTHEN_PERIOD LENGTHEN_PERIOD `(uc  1 e 1 0 ]
-"380
+"382
 [v _PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST `(uc  1 e 1 0 ]
-"412
+"414
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
-"503
+"505
 [v _main main `(v  1 e 1 0 ]
 "682 /Applications/microchip/mplabx/v6.15/packs/Microchip/PIC12-16F1xxx_DFP/1.6.241/xc8/pic/include/proc/pic16f1824.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @21 ]
@@ -107,121 +107,121 @@
 [v _TRISA2 TRISA2 `VEb  1 e 0 @1122 ]
 "56 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
 [v _top_two_bytes_ptr top_two_bytes_ptr `*.39us  1 e 2 0 ]
-"62
-[v _sine_table_one_quadrant sine_table_one_quadrant `DC[129]us  1 e 258 0 ]
 "63
+[v _sine_table_one_quadrant sine_table_one_quadrant `DC[513]us  1 e 1026 0 ]
+"64
 [v _tri_table_one_quadrant tri_table_one_quadrant `DC[129]us  1 e 258 0 ]
-"70
-[v _prescaler_bits prescaler_bits `DC[8]uc  1 e 8 0 ]
 "71
-[v _waveshape_adc_config_value waveshape_adc_config_value `DCuc  1 e 1 0 ]
+[v _prescaler_bits prescaler_bits `DC[8]uc  1 e 8 0 ]
 "72
-[v _speed_adc_config_value speed_adc_config_value `DCuc  1 e 1 0 ]
+[v _waveshape_adc_config_value waveshape_adc_config_value `DCuc  1 e 1 0 ]
 "73
-[v _depth_adc_config_value depth_adc_config_value `DCuc  1 e 1 0 ]
+[v _speed_adc_config_value speed_adc_config_value `DCuc  1 e 1 0 ]
 "74
+[v _depth_adc_config_value depth_adc_config_value `DCuc  1 e 1 0 ]
+"75
 [v _symmetry_adc_config_value symmetry_adc_config_value `DCuc  1 e 1 0 ]
-"100
-[v _speed_control speed_control `VEus  1 e 2 0 ]
 "101
-[v _speed_control_32 speed_control_32 `VEul  1 e 4 0 ]
+[v _speed_control speed_control `VEus  1 e 2 0 ]
 "102
-[v _how_many_128 how_many_128 `VEus  1 e 2 0 ]
+[v _speed_control_32 speed_control_32 `VEul  1 e 4 0 ]
 "103
-[v _duty duty `VEus  1 e 2 0 ]
+[v _how_many_128 how_many_128 `VEus  1 e 2 0 ]
 "104
-[v _duty_low_byte duty_low_byte `VEuc  1 e 1 0 ]
+[v _duty duty `VEus  1 e 2 0 ]
 "105
-[v _duty_high_byte duty_high_byte `VEuc  1 e 1 0 ]
+[v _duty_low_byte duty_low_byte `VEuc  1 e 1 0 ]
 "106
-[v _current_waveshape current_waveshape `VEuc  1 e 1 0 ]
+[v _duty_high_byte duty_high_byte `VEuc  1 e 1 0 ]
 "107
-[v _current_speed_linear current_speed_linear `VEus  1 e 2 0 ]
+[v _current_waveshape current_waveshape `VEuc  1 e 1 0 ]
 "108
-[v _current_speed_linear_32 current_speed_linear_32 `VEul  1 e 4 0 ]
+[v _current_speed_linear current_speed_linear `VEus  1 e 2 0 ]
 "109
-[v _current_speed_log current_speed_log `VEus  1 e 2 0 ]
+[v _current_speed_linear_32 current_speed_linear_32 `VEul  1 e 4 0 ]
 "110
-[v _current_speed_log_32 current_speed_log_32 `VEul  1 e 4 0 ]
+[v _current_speed_log current_speed_log `VEus  1 e 2 0 ]
 "111
-[v _current_depth current_depth `VEus  1 e 2 0 ]
+[v _current_speed_log_32 current_speed_log_32 `VEul  1 e 4 0 ]
 "112
-[v _current_symmetry current_symmetry `VEus  1 e 2 0 ]
+[v _current_depth current_depth `VEus  1 e 2 0 ]
 "113
-[v _current_one_quadrant_index current_one_quadrant_index `VEuc  1 e 1 0 ]
+[v _current_symmetry current_symmetry `VEus  1 e 2 0 ]
 "114
-[v _current_halfcycle current_halfcycle `VEuc  1 e 1 0 ]
+[v _current_one_quadrant_index current_one_quadrant_index `VEuc  1 e 1 0 ]
 "115
-[v _current_quadrant current_quadrant `VEuc  1 e 1 0 ]
+[v _current_halfcycle current_halfcycle `VEuc  1 e 1 0 ]
 "116
-[v _final_TMR0 final_TMR0 `VEuc  1 e 1 0 ]
+[v _current_quadrant current_quadrant `VEuc  1 e 1 0 ]
 "117
-[v _TMR0_offset TMR0_offset `VEuc  1 e 1 0 ]
+[v _final_TMR0 final_TMR0 `VEuc  1 e 1 0 ]
 "118
-[v _TMR0_offset_sign TMR0_offset_sign `VEuc  1 e 1 0 ]
+[v _TMR0_offset TMR0_offset `VEuc  1 e 1 0 ]
 "119
-[v _prescaler_adjust prescaler_adjust `VEuc  1 e 1 0 ]
+[v _TMR0_offset_sign TMR0_offset_sign `VEuc  1 e 1 0 ]
 "120
-[v _raw_TMR0 raw_TMR0 `VEuc  1 e 1 0 ]
+[v _prescaler_adjust prescaler_adjust `VEuc  1 e 1 0 ]
 "121
-[v _base_prescaler_bits_index base_prescaler_bits_index `VEuc  1 e 1 0 ]
+[v _raw_TMR0 raw_TMR0 `VEuc  1 e 1 0 ]
 "122
-[v _dTMR0_ideal dTMR0_ideal `VEus  1 e 2 0 ]
+[v _base_prescaler_bits_index base_prescaler_bits_index `VEuc  1 e 1 0 ]
 "123
-[v _clear_TMR0_please clear_TMR0_please `VEuc  1 e 1 0 ]
+[v _dTMR0_ideal dTMR0_ideal `VEus  1 e 2 0 ]
 "124
-[v _symmetry_status symmetry_status `VEuc  1 e 1 0 ]
+[v _clear_TMR0_please clear_TMR0_please `VEuc  1 e 1 0 ]
 "125
+[v _symmetry_status symmetry_status `VEuc  1 e 1 0 ]
+"126
 [v _symmetry_total symmetry_total `VEul  1 e 4 0 ]
-"503
+"505
 [v _main main `(v  1 e 1 0 ]
 {
-"522
+"524
 } 0
-"242
+"244
 [v _TURN_ON_CCP3_PWM TURN_ON_CCP3_PWM `(uc  1 e 1 0 ]
 {
-"250
+"252
 } 0
-"265
+"267
 [v _TMR0_WRITE TMR0_WRITE `(uc  1 e 1 0 ]
 {
 [v TMR0_WRITE@timer_value_ptr timer_value_ptr `*.1VEuc  1 a 1 wreg ]
 [v TMR0_WRITE@timer_value_ptr timer_value_ptr `*.1VEuc  1 a 1 wreg ]
 [v TMR0_WRITE@timer_value_ptr timer_value_ptr `*.1VEuc  1 a 1 0 ]
-"268
+"270
 } 0
-"380
+"382
 [v _PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST `(uc  1 e 1 0 ]
 {
-"394
+"396
 [v PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST@temp temp `ul  1 a 4 24 ]
-"388
+"390
 [v PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST@symmetry_status symmetry_status `uc  1 a 1 28 ]
-"410
+"412
 } 0
-"328
+"330
 [v _SHORTEN_PERIOD SHORTEN_PERIOD `(uc  1 e 1 0 ]
 {
-"344
+"346
 [v SHORTEN_PERIOD@TMR0_raw_extra TMR0_raw_extra `us  1 a 2 18 ]
-"329
+"331
 [v SHORTEN_PERIOD@dTMR0_ideal dTMR0_ideal `us  1 a 2 16 ]
-"360
-} 0
 "362
+} 0
+"364
 [v _LENGTHEN_PERIOD LENGTHEN_PERIOD `(uc  1 e 1 0 ]
 {
-"363
+"365
 [v LENGTHEN_PERIOD@dTMR0_ideal dTMR0_ideal `us  1 a 2 16 ]
-"378
+"380
 } 0
-"283
+"285
 [v _PROCESS_RAW_SPEED_AND_PRESCALER PROCESS_RAW_SPEED_AND_PRESCALER `(uc  1 e 1 0 ]
 {
-"294
+"296
 [v PROCESS_RAW_SPEED_AND_PRESCALER@speed_control_subtracted speed_control_subtracted `us  1 a 2 16 ]
-"301
+"303
 } 0
 "15 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
@@ -233,78 +233,78 @@
 [v ___lmul@multiplicand multiplicand `ul  1 p 4 4 ]
 "129
 } 0
-"303 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
+"305 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
 [v _PROCESS_FINAL_SPEED_AND_PRESCALER PROCESS_FINAL_SPEED_AND_PRESCALER `(uc  1 e 1 0 ]
 {
-"326
+"328
 } 0
-"270
+"272
 [v _GET_CURRENT_POT_VALUES GET_CURRENT_POT_VALUES `(uc  1 e 1 0 ]
 {
-"281
+"283
 } 0
-"198
+"200
 [v _DETERMINE_WAVESHAPE DETERMINE_WAVESHAPE `(uc  1 e 1 0 ]
 {
-"199
+"201
 [v DETERMINE_WAVESHAPE@ADC ADC `us  1 a 2 6 ]
-"213
+"215
 } 0
-"184
+"186
 [v _DO_ADC DO_ADC `(us  1 e 2 0 ]
 {
-"194
-[v DO_ADC@adc_result adc_result `us  1 a 2 3 ]
-"187
-[v DO_ADC@temp temp `uc  1 a 1 5 ]
-"184
-[v DO_ADC@modifier modifier `*.25DCuc  1 p 2 0 ]
 "196
+[v DO_ADC@adc_result adc_result `us  1 a 2 3 ]
+"189
+[v DO_ADC@temp temp `uc  1 a 1 5 ]
+"186
+[v DO_ADC@modifier modifier `*.25DCuc  1 p 2 0 ]
+"198
 } 0
-"252
+"254
 [v _CONFIG_TMR0_INTERRUPT CONFIG_TMR0_INTERRUPT `(uc  1 e 1 0 ]
 {
-"255
-} 0
 "257
+} 0
+"259
 [v _CONFIG_SYSTEM CONFIG_SYSTEM `(uc  1 e 1 0 ]
 {
-"263
+"265
 } 0
-"225
+"227
 [v _CONFIG_PWM_CCP3 CONFIG_PWM_CCP3 `(uc  1 e 1 0 ]
 {
-"240
+"242
 } 0
-"172
+"174
 [v _CONFIG_PORTS CONFIG_PORTS `(uc  1 e 1 0 ]
 {
-"177
+"179
 } 0
-"165
+"167
 [v _CONFIG_INT_OSC CONFIG_INT_OSC `(uc  1 e 1 0 ]
 {
-"170
+"172
 } 0
-"179
+"181
 [v _CONFIG_ADC_PINS CONFIG_ADC_PINS `(uc  1 e 1 0 ]
 {
-"182
+"184
 } 0
-"412
+"414
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
 {
-"501
+"503
 } 0
-"215
+"217
 [v _SET_DUTY_CCP3 SET_DUTY_CCP3 `(uc  1 e 1 0 ]
 {
 [v SET_DUTY_CCP3@duty_ptr duty_ptr `*.1VEus  1 a 1 wreg ]
-"218
+"220
 [v SET_DUTY_CCP3@temp temp `uc  1 a 1 2 ]
-"215
-[v SET_DUTY_CCP3@duty_ptr duty_ptr `*.1VEus  1 a 1 wreg ]
 "217
+[v SET_DUTY_CCP3@duty_ptr duty_ptr `*.1VEus  1 a 1 wreg ]
+"219
 [v SET_DUTY_CCP3@duty_ptr duty_ptr `*.1VEus  1 a 1 3 ]
-"223
+"225
 } 0
