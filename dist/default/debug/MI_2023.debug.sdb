@@ -13,43 +13,49 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"167 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
+"187 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
 [v _CONFIG_INT_OSC CONFIG_INT_OSC `(uc  1 e 1 0 ]
-"174
+"195
 [v _CONFIG_PORTS CONFIG_PORTS `(uc  1 e 1 0 ]
-"181
+"203
 [v _CONFIG_ADC_PINS CONFIG_ADC_PINS `(uc  1 e 1 0 ]
-"186
+"209
 [v _DO_ADC DO_ADC `(us  1 e 2 0 ]
-"200
+"224
 [v _DETERMINE_WAVESHAPE DETERMINE_WAVESHAPE `(uc  1 e 1 0 ]
-"217
+"242
 [v _SET_DUTY_CCP3 SET_DUTY_CCP3 `(uc  1 e 1 0 ]
-"227
+"253
 [v _CONFIG_PWM_CCP3 CONFIG_PWM_CCP3 `(uc  1 e 1 0 ]
-"244
+"271
 [v _TURN_ON_CCP3_PWM TURN_ON_CCP3_PWM `(uc  1 e 1 0 ]
-"254
+"282
 [v _CONFIG_TMR0_INTERRUPT CONFIG_TMR0_INTERRUPT `(uc  1 e 1 0 ]
-"259
+"288
 [v _CONFIG_SYSTEM CONFIG_SYSTEM `(uc  1 e 1 0 ]
-"267
+"297
 [v _TMR0_WRITE TMR0_WRITE `(uc  1 e 1 0 ]
-"272
+"303
 [v _GET_CURRENT_POT_VALUES GET_CURRENT_POT_VALUES `(uc  1 e 1 0 ]
-"285
+"321
 [v _PROCESS_RAW_SPEED_AND_PRESCALER PROCESS_RAW_SPEED_AND_PRESCALER `(uc  1 e 1 0 ]
-"305
+"351
+[v _CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1 CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1 `(uc  1 e 1 0 ]
+"362
+[v _TURN_PRESCALER_OFF TURN_PRESCALER_OFF `(uc  1 e 1 0 ]
+"368
+[v _TURN_PRESCALER_ON TURN_PRESCALER_ON `(uc  1 e 1 0 ]
+"374
 [v _PROCESS_FINAL_SPEED_AND_PRESCALER PROCESS_FINAL_SPEED_AND_PRESCALER `(uc  1 e 1 0 ]
-"330
+"437
 [v _SHORTEN_PERIOD SHORTEN_PERIOD `(uc  1 e 1 0 ]
-"364
+"471
 [v _LENGTHEN_PERIOD LENGTHEN_PERIOD `(uc  1 e 1 0 ]
-"382
+"489
 [v _PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST `(uc  1 e 1 0 ]
-"414
+"522
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
-"505
+"615
 [v _main main `(v  1 e 1 0 ]
 "682 /Applications/microchip/mplabx/v6.15/packs/Microchip/PIC12-16F1xxx_DFP/1.6.241/xc8/pic/include/proc/pic16f1824.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @21 ]
@@ -105,123 +111,125 @@
 [v _TMR2ON TMR2ON `VEb  1 e 0 @226 ]
 "7734
 [v _TRISA2 TRISA2 `VEb  1 e 0 @1122 ]
-"56 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
-[v _top_two_bytes_ptr top_two_bytes_ptr `*.39us  1 e 2 0 ]
-"63
-[v _sine_table_one_quadrant sine_table_one_quadrant `DC[513]us  1 e 1026 0 ]
-"64
+"45 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
+[v _sine_table_one_quadrant sine_table_one_quadrant `DC[129]us  1 e 258 0 ]
+"47
 [v _tri_table_one_quadrant tri_table_one_quadrant `DC[129]us  1 e 258 0 ]
-"71
+"49
 [v _prescaler_bits prescaler_bits `DC[8]uc  1 e 8 0 ]
-"72
+"50
 [v _waveshape_adc_config_value waveshape_adc_config_value `DCuc  1 e 1 0 ]
-"73
+"51
 [v _speed_adc_config_value speed_adc_config_value `DCuc  1 e 1 0 ]
-"74
+"52
 [v _depth_adc_config_value depth_adc_config_value `DCuc  1 e 1 0 ]
-"75
+"53
 [v _symmetry_adc_config_value symmetry_adc_config_value `DCuc  1 e 1 0 ]
-"101
+"91
 [v _speed_control speed_control `VEus  1 e 2 0 ]
-"102
+"92
 [v _speed_control_32 speed_control_32 `VEul  1 e 4 0 ]
-"103
+"93
 [v _how_many_128 how_many_128 `VEus  1 e 2 0 ]
-"104
+"94
 [v _duty duty `VEus  1 e 2 0 ]
-"105
+"95
 [v _duty_low_byte duty_low_byte `VEuc  1 e 1 0 ]
-"106
+"96
 [v _duty_high_byte duty_high_byte `VEuc  1 e 1 0 ]
-"107
+"97
 [v _current_waveshape current_waveshape `VEuc  1 e 1 0 ]
-"108
+"98
 [v _current_speed_linear current_speed_linear `VEus  1 e 2 0 ]
-"109
+"99
 [v _current_speed_linear_32 current_speed_linear_32 `VEul  1 e 4 0 ]
-"110
+"100
 [v _current_speed_log current_speed_log `VEus  1 e 2 0 ]
-"111
+"101
 [v _current_speed_log_32 current_speed_log_32 `VEul  1 e 4 0 ]
-"112
+"102
 [v _current_depth current_depth `VEus  1 e 2 0 ]
-"113
+"103
 [v _current_symmetry current_symmetry `VEus  1 e 2 0 ]
-"114
+"104
 [v _current_one_quadrant_index current_one_quadrant_index `VEuc  1 e 1 0 ]
-"115
+"105
 [v _current_halfcycle current_halfcycle `VEuc  1 e 1 0 ]
-"116
+"106
 [v _current_quadrant current_quadrant `VEuc  1 e 1 0 ]
-"117
+"107
 [v _final_TMR0 final_TMR0 `VEuc  1 e 1 0 ]
-"118
+"108
 [v _TMR0_offset TMR0_offset `VEuc  1 e 1 0 ]
-"119
+"109
 [v _TMR0_offset_sign TMR0_offset_sign `VEuc  1 e 1 0 ]
-"120
+"110
 [v _prescaler_adjust prescaler_adjust `VEuc  1 e 1 0 ]
-"121
+"111
 [v _raw_TMR0 raw_TMR0 `VEuc  1 e 1 0 ]
-"122
+"112
 [v _base_prescaler_bits_index base_prescaler_bits_index `VEuc  1 e 1 0 ]
-"123
+"113
 [v _dTMR0_ideal dTMR0_ideal `VEus  1 e 2 0 ]
-"124
+"114
 [v _clear_TMR0_please clear_TMR0_please `VEuc  1 e 1 0 ]
-"125
+"115
 [v _symmetry_status symmetry_status `VEuc  1 e 1 0 ]
-"126
+"116
 [v _symmetry_total symmetry_total `VEul  1 e 4 0 ]
-"505
+"178
+[v _top_two_bytes_ptr top_two_bytes_ptr `*.39us  1 e 2 0 ]
+"615
 [v _main main `(v  1 e 1 0 ]
 {
-"524
+"642
 } 0
-"244
+"271
 [v _TURN_ON_CCP3_PWM TURN_ON_CCP3_PWM `(uc  1 e 1 0 ]
 {
-"252
+"279
 } 0
-"267
+"297
 [v _TMR0_WRITE TMR0_WRITE `(uc  1 e 1 0 ]
 {
 [v TMR0_WRITE@timer_value_ptr timer_value_ptr `*.1VEuc  1 a 1 wreg ]
 [v TMR0_WRITE@timer_value_ptr timer_value_ptr `*.1VEuc  1 a 1 wreg ]
 [v TMR0_WRITE@timer_value_ptr timer_value_ptr `*.1VEuc  1 a 1 0 ]
-"270
+"300
 } 0
-"382
+"489
 [v _PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST `(uc  1 e 1 0 ]
 {
-"396
+"503
 [v PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST@temp temp `ul  1 a 4 24 ]
-"390
+"497
 [v PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST@symmetry_status symmetry_status `uc  1 a 1 28 ]
-"412
+"519
 } 0
-"330
+"437
 [v _SHORTEN_PERIOD SHORTEN_PERIOD `(uc  1 e 1 0 ]
 {
-"346
+"453
 [v SHORTEN_PERIOD@TMR0_raw_extra TMR0_raw_extra `us  1 a 2 18 ]
-"331
+"438
 [v SHORTEN_PERIOD@dTMR0_ideal dTMR0_ideal `us  1 a 2 16 ]
-"362
+"469
 } 0
-"364
+"471
 [v _LENGTHEN_PERIOD LENGTHEN_PERIOD `(uc  1 e 1 0 ]
 {
-"365
+"472
 [v LENGTHEN_PERIOD@dTMR0_ideal dTMR0_ideal `us  1 a 2 16 ]
-"380
+"487
 } 0
-"285
+"321
 [v _PROCESS_RAW_SPEED_AND_PRESCALER PROCESS_RAW_SPEED_AND_PRESCALER `(uc  1 e 1 0 ]
 {
-"296
-[v PROCESS_RAW_SPEED_AND_PRESCALER@speed_control_subtracted speed_control_subtracted `us  1 a 2 16 ]
-"303
+"332
+[v PROCESS_RAW_SPEED_AND_PRESCALER@speed_control_subtracted speed_control_subtracted `us  1 a 2 17 ]
+"339
+[v PROCESS_RAW_SPEED_AND_PRESCALER@prescaler_overflow_flag prescaler_overflow_flag `uc  1 a 1 16 ]
+"348
 } 0
 "15 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
@@ -233,78 +241,93 @@
 [v ___lmul@multiplicand multiplicand `ul  1 p 4 4 ]
 "129
 } 0
-"305 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
+"368 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
+[v _TURN_PRESCALER_ON TURN_PRESCALER_ON `(uc  1 e 1 0 ]
+{
+"371
+} 0
+"362
+[v _TURN_PRESCALER_OFF TURN_PRESCALER_OFF `(uc  1 e 1 0 ]
+{
+"365
+} 0
+"351
+[v _CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1 CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1 `(uc  1 e 1 0 ]
+{
+"359
+} 0
+"374
 [v _PROCESS_FINAL_SPEED_AND_PRESCALER PROCESS_FINAL_SPEED_AND_PRESCALER `(uc  1 e 1 0 ]
 {
-"328
+"404
 } 0
-"272
+"303
 [v _GET_CURRENT_POT_VALUES GET_CURRENT_POT_VALUES `(uc  1 e 1 0 ]
 {
-"283
+"318
 } 0
-"200
+"224
 [v _DETERMINE_WAVESHAPE DETERMINE_WAVESHAPE `(uc  1 e 1 0 ]
 {
-"201
+"225
 [v DETERMINE_WAVESHAPE@ADC ADC `us  1 a 2 6 ]
-"215
+"239
 } 0
-"186
+"209
 [v _DO_ADC DO_ADC `(us  1 e 2 0 ]
 {
-"196
+"219
 [v DO_ADC@adc_result adc_result `us  1 a 2 3 ]
-"189
+"212
 [v DO_ADC@temp temp `uc  1 a 1 5 ]
-"186
+"209
 [v DO_ADC@modifier modifier `*.25DCuc  1 p 2 0 ]
-"198
+"221
 } 0
-"254
+"282
 [v _CONFIG_TMR0_INTERRUPT CONFIG_TMR0_INTERRUPT `(uc  1 e 1 0 ]
 {
-"257
+"285
 } 0
-"259
+"288
 [v _CONFIG_SYSTEM CONFIG_SYSTEM `(uc  1 e 1 0 ]
 {
-"265
+"294
 } 0
-"227
+"253
 [v _CONFIG_PWM_CCP3 CONFIG_PWM_CCP3 `(uc  1 e 1 0 ]
 {
-"242
+"268
 } 0
-"174
+"195
 [v _CONFIG_PORTS CONFIG_PORTS `(uc  1 e 1 0 ]
 {
-"179
+"200
 } 0
-"167
+"187
 [v _CONFIG_INT_OSC CONFIG_INT_OSC `(uc  1 e 1 0 ]
 {
-"172
+"192
 } 0
-"181
+"203
 [v _CONFIG_ADC_PINS CONFIG_ADC_PINS `(uc  1 e 1 0 ]
 {
-"184
+"206
 } 0
-"414
+"522
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
 {
-"503
+"613
 } 0
-"217
+"242
 [v _SET_DUTY_CCP3 SET_DUTY_CCP3 `(uc  1 e 1 0 ]
 {
 [v SET_DUTY_CCP3@duty_ptr duty_ptr `*.1VEus  1 a 1 wreg ]
-"220
+"245
 [v SET_DUTY_CCP3@temp temp `uc  1 a 1 2 ]
-"217
+"242
 [v SET_DUTY_CCP3@duty_ptr duty_ptr `*.1VEus  1 a 1 wreg ]
-"219
+"244
 [v SET_DUTY_CCP3@duty_ptr duty_ptr `*.1VEus  1 a 1 3 ]
-"225
+"250
 } 0

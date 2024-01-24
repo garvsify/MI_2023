@@ -36,37 +36,15 @@
 #include <math.h>
 #include <stdio.h>
 
-/////Stuff for ASM Code////////////////////////////
-
-//equate names for registers with the register addresses
-        asm("r1 EQU 20h");
-        asm("r2 EQU 21h");
-        asm("r3 EQU 22h");
-        asm("aL EQU 23h");
-        asm("aH EQU 24h");
-        asm("B EQU 25h");
-        //asm("STATUS EQU 03h"); //don't think I need to do this as maybe STATUS is already equ in xc.h
-//define macro mmac, you then can 'call' the macro, and the arguments in sequence get replaced with the parameters you specify
-        asm("mmac MACRO A,bit,u2,u1");
-        asm("BTFSC A,bit");
-        asm("ADDWF u2,F"); //don't know what the Fs mean tbh, but they appear in the electric druid code so...?
-        asm("RRF u2,F");
-        asm("RRF u1,F");
-        asm("ENDM");
-uint16_t *top_two_bytes_ptr = (uint16_t *)0x21; //point to specific memory address
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////// DEFINE WAVETABLES /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////// DEFINE WAVETABLES AND CONSTANTS /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//const uint16_t sine_table_one_quadrant[129]={512,518,524,530,537,543,549,555,562,568,574,580,587,593,599,605,611,617,624,630,636,642,648,654,660,666,672,678,684,690,696,701,707,713,719,725,730,736,741,747,753,758,764,769,774,780,785,790,796,801,806,811,816,821,826,831,836,841,846,850,855,860,864,869,873,878,882,886,890,895,899,903,907,911,915,919,922,926,930,933,937,940,944,947,950,953,957,960,963,966,968,971,974,977,979,982,984,986,989,991,993,995,997,999,1001,1003,1004,1006,1008,1009,1011,1012,1013,1014,1015,1017,1017,1018,1019,1020,1021,1021,1022,1022,1022,1023,1023,1023,1023};
-const uint16_t sine_table_one_quadrant[513]={512,513,515,516,518,519,521,522,524,526,527,529,530,532,533,535,537,538,540,541,543,544,546,548,549,551,552,554,555,557,559,560,562,563,565,566,568,569,571,573,574,576,577,579,580,582,583,585,587,588,590,591,593,594,596,597,599,600,602,604,605,607,608,610,611,613,614,616,617,619,621,622,624,625,627,628,630,631,633,634,636,637,639,640,642,643,645,646,648,649,651,652,654,655,657,658,660,661,663,664,666,667,669,670,672,673,675,676,678,679,681,682,684,685,687,688,690,691,693,694,696,697,699,700,701,703,704,706,707,709,710,712,713,714,716,717,719,720,722,723,725,726,727,729,730,732,733,734,736,737,739,740,741,743,744,746,747,748,750,751,753,754,755,757,758,760,761,762,764,765,766,768,769,770,772,773,774,776,777,778,780,781,782,784,785,786,788,789,790,792,793,794,796,797,798,800,801,802,803,805,806,807,809,810,811,812,814,815,816,817,819,820,821,822,824,825,826,827,829,830,831,832,834,835,836,837,838,840,841,842,843,844,846,847,848,849,850,851,853,854,855,856,857,858,860,861,862,863,864,865,866,868,869,870,871,872,873,874,875,876,878,879,880,881,882,883,884,885,886,887,888,889,890,892,893,894,895,896,897,898,899,900,901,902,903,904,905,906,907,908,909,910,911,912,913,914,915,916,917,918,919,920,920,921,922,923,924,925,926,927,928,929,930,931,931,932,933,934,935,936,937,938,939,939,940,941,942,943,944,944,945,946,947,948,949,949,950,951,952,953,953,954,955,956,957,957,958,959,960,960,961,962,963,963,964,965,966,966,967,968,968,969,970,970,971,972,973,973,974,975,975,976,977,977,978,978,979,980,980,981,982,982,983,983,984,985,985,986,986,987,988,988,989,989,990,990,991,991,992,993,993,994,994,995,995,996,996,997,997,998,998,999,999,1000,1000,1001,1001,1001,1002,1002,1003,1003,1004,1004,1004,1005,1005,1006,1006,1007,1007,1007,1008,1008,1008,1009,1009,1010,1010,1010,1011,1011,1011,1012,1012,1012,1013,1013,1013,1013,1014,1014,1014,1015,1015,1015,1015,1016,1016,1016,1017,1017,1017,1017,1017,1018,1018,1018,1018,1019,1019,1019,1019,1019,1020,1020,1020,1020,1020,1020,1021,1021,1021,1021,1021,1021,1021,1021,1022,1022,1022,1022,1022,1022,1022,1022,1022,1022,1023,1023,1023,1023,1023,1023,1023,1023,1023,1023,1023,1023,1023,1023,1023};
+
+const uint16_t sine_table_one_quadrant[129]={512,518,524,530,537,543,549,555,562,568,574,580,587,593,599,605,611,617,624,630,636,642,648,654,660,666,672,678,684,690,696,701,707,713,719,725,730,736,741,747,753,758,764,769,774,780,785,790,796,801,806,811,816,821,826,831,836,841,846,850,855,860,864,869,873,878,882,886,890,895,899,903,907,911,915,919,922,926,930,933,937,940,944,947,950,953,957,960,963,966,968,971,974,977,979,982,984,986,989,991,993,995,997,999,1001,1003,1004,1006,1008,1009,1011,1012,1013,1014,1015,1017,1017,1018,1019,1020,1021,1021,1022,1022,1022,1023,1023,1023,1023};
+//const uint16_t sine_table_one_quadrant[65]={512,524,537,549,562,574,587,599,611,624,636,648,660,672,684,696,707,719,730,741,753,764,774,785,796,806,816,826,836,846,855,864,873,882,890,899,907,915,922,930,937,944,950,957,963,968,974,979,984,989,993,997,1001,1004,1008,1011,1013,1015,1017,1019,1021,1022,1022,1023,1023};
 const uint16_t tri_table_one_quadrant[129]={512,516,520,524,528,532,536,540,544,548,552,556,560,564,568,572,576,580,584,588,592,596,600,604,608,612,616,620,624,628,632,636,640,644,648,652,656,660,664,668,672,676,680,684,688,692,696,700,704,708,712,716,720,724,728,732,736,740,744,748,752,756,760,763,767,771,775,779,783,787,791,795,799,803,807,811,815,819,823,827,831,835,839,843,847,851,855,859,863,867,871,875,879,883,887,891,895,899,903,907,911,915,919,923,927,931,935,939,943,947,951,955,959,963,967,971,975,979,983,987,991,995,999,1003,1007,1011,1015,1019,1023};
-const uint8_t lengthen_period_log_table[129]={97,97,97,97,96,96,96,96,96,96,95,95,95,95,95,95,94,94,94,94,94,93,93,93,93,93,93,92,92,92,92,92,91,91,91,91,90,90,90,90,90,89,89,89,89,88,88,88,88,87,87,87,87,86,86,86,86,85,85,85,85,84,84,84,83,83,83,82,82,82,81,81,81,80,80,80,79,79,78,78,78,77,77,76,76,76,75,75,74,74,73,73,72,72,71,70,70,69,69,68,67,67,66,65,64,63,63,62,61,60,59,58,57,55,54,53,51,50,48,46,44,42,39,36,32,28,22,14,0};
-//const uint8_t lengthen_period_log_table[129]={108,108,108,107,107,107,107,107,107,106,106,106,106,106,105,105,105,105,105,104,104,104,104,104,103,103,103,103,103,102,102,102,102,101,101,101,101,100,100,100,100,100,99,99,99,98,98,98,98,97,97,97,97,96,96,96,95,95,95,94,94,94,93,93,93,92,92,92,91,91,91,90,90,89,89,89,88,88,87,87,86,86,86,85,85,84,84,83,83,82,81,81,80,80,79,78,78,77,76,76,75,74,73,72,72,71,70,69,68,67,65,64,63,62,60,59,57,55,53,51,49,46,43,40,36,31,24,15,0};
-//const uint8_t lengthen_period_log_table[129]={110,110,110,109,109,109,109,109,109,108,108,108,108,108,107,107,107,107,107,106,106,106,106,106,105,105,105,105,104,104,104,104,104,103,103,103,103,102,102,102,102,101,101,101,101,100,100,100,99,99,99,99,98,98,98,97,97,97,96,96,96,96,95,95,94,94,94,93,93,93,92,92,92,91,91,90,90,89,89,89,88,88,87,87,86,86,85,85,84,83,83,82,82,81,80,80,79,78,78,77,76,75,75,74,73,72,71,70,69,68,67,65,64,63,61,60,58,56,54,52,50,47,44,41,36,31,25,16,0};
-//const uint8_t lengthen_period_log_table[129]={106,106,106,105,105,105,105,105,105,104,104,104,104,104,103,103,103,103,103,103,102,102,102,102,102,101,101,101,101,100,100,100,100,100,99,99,99,99,98,98,98,98,97,97,97,97,96,96,96,96,95,95,95,94,94,94,94,93,93,93,92,92,92,91,91,91,90,90,90,89,89,89,88,88,87,87,87,86,86,85,85,84,84,84,83,83,82,82,81,80,80,79,79,78,78,77,76,76,75,74,73,73,72,71,70,69,68,67,66,65,64,63,62,60,59,58,56,54,52,50,48,45,42,39,35,30,24,15,0};
-const uint16_t shorten_period_log_table[129]={256,245,234,224,215,206,197,188,180,173,165,158,152,145,139,133,127,122,117,112,107,102,98,94,90,86,82,79,75,72,69,66,63,60,58,55,53,51,48,46,44,42,41,39,37,35,34,32,31,30,28,27,26,25,24,23,22,21,20,19,18,17,16,16,15,14,14,13,12,12,11,11,10,10,9,9,9,8,8,7,7,7,6,6,6,5,5,5,5,4,4,4,4,4,3,3,3,3,3,3,2,2,2,2,2,2,2,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0};
 //const uint16_t prescaler[8] = {256,128,64,32,16,8,4,2};
 const uint8_t prescaler_bits[8] = {0b111,0b110,0b101,0b100,0b011,0b010,0b001,0b000}; //we don't use 2x prescaler but here for completeness
 const uint8_t waveshape_adc_config_value = 0b100;
@@ -83,9 +61,19 @@ const uint8_t DONT_CARE = 4;
 const uint8_t YES = 1;
 const uint8_t NO = 0;
 
+
+//DECLARE THESE FUNCTION SO THAT ITS CALL MAY APPEAR BEFORE THE DEFINITION
+uint8_t CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1(void);
+uint8_t TURN_PRESCALER_OFF(void);
+uint8_t TURN_PRESCALER_ON(void);
+uint8_t ADJUST_TMR0(void);
+uint8_t ADJUST_PRESCALER(void);
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////// PRE-REQUISITES ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 // Wave selection pot is connected to RC0 (AN4) - modifier = 0
 ////////// If 0 <= ADC < 341 -> triangle selected
@@ -94,9 +82,11 @@ const uint8_t NO = 0;
 // Speed pot (or external treadle pot) is connected to RC1 (AN5) - modifier = 1
 // Depth pot is connected to RC2 (AN6) - modifier = 2
 
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////// DECLARE VARIABLES //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 volatile uint16_t speed_control;
 volatile uint32_t speed_control_32;
@@ -111,8 +101,7 @@ volatile uint16_t current_speed_log;
 volatile uint32_t current_speed_log_32;
 volatile uint16_t current_depth;
 volatile uint16_t current_symmetry;
-//volatile uint8_t current_one_quadrant_index = 0;
-volatile uint16_t current_one_quadrant_index = 0;
+volatile uint8_t current_one_quadrant_index = 0;
 volatile uint8_t current_halfcycle = 0;
 volatile uint8_t current_quadrant = 0;
 volatile uint8_t final_TMR0;
@@ -126,14 +115,16 @@ volatile uint8_t clear_TMR0_please;
 volatile uint8_t symmetry_status;
 volatile uint32_t symmetry_total;
 
-//#define MAX_QUADRANT_INDEX 128
-#define MAX_QUADRANT_INDEX 512
+
+#define MAX_QUADRANT_INDEX 128
+//#define MAX_QUADRANT_INDEX 64
 #define MIN_QUADRANT_INDEX 0
 #define _XTAL_FREQ 32000000
 #define TRIANGLE_MODE 0
 #define SINE_MODE 1
 #define SQUARE_MODE 2
-#define NUMBER_OF_FREQUENCY_STEPS 600; //883 in calcs, seems to be wrong, but 650 gives 15Hz max freq.
+#define NUMBER_OF_FREQUENCY_STEPS 760; //883 in calcs, seems to be wrong, but 650 gives 15Hz max freq.
+//#define NUMBER_OF_FREQUENCY_STEPS 300; //883 in calcs, seems to be wrong, but 650 gives 15Hz max freq.
 #define FIRST_HALFCYCLE 0
 #define SECOND_HALFCYCLE 1
 #define FIRST_QUADRANT 0
@@ -147,7 +138,10 @@ volatile uint32_t symmetry_total;
 #define SHORTEN_PERIOD_FRACTION_16_BIT_NUMBER 47926
 #define LENGTHEN_PERIOD_FRACTION_16_BIT_NUMBER 17609
 #define RESOLUTION_OF_TOTAL_SYMMETRY_FRACTION 16
-#define SYMMETRY_ADC_RESOLUTION 10
+#define SYMMETRY_ADC_RESOLUTION 8
+#define SYMMETRY_ON_OR_OFF 1
+#define DEPTH_ON_OR_OFF 1
+
 
 #if SYMMETRY_ADC_RESOLUTION == 10
     #define SYMMETRY_ADC_HALF_SCALE_NO_BITS 9
@@ -155,15 +149,40 @@ volatile uint32_t symmetry_total;
     #define SYMMETRY_ADC_HALF_SCALE 512
 #endif
 
+
 #if SYMMETRY_ADC_RESOLUTION == 8
     #define SYMMETRY_ADC_HALF_SCALE_NO_BITS 7
     #define SYMMETRY_ADC_FULL_SCALE 255
     #define SYMMETRY_ADC_HALF_SCALE 128
 #endif
 
+
+#if DEPTH_ON_OR_OFF == 1
+    /////Stuff for ASM Code////////////////////////////
+
+    //equate names for registers with the register addresses
+            asm("r1 EQU 20h");
+            asm("r2 EQU 21h");
+            asm("r3 EQU 22h");
+            asm("aL EQU 23h");
+            asm("aH EQU 24h");
+            asm("B EQU 25h");
+            //asm("STATUS EQU 03h"); //don't think I need to do this as maybe STATUS is already equ in xc.h
+    //define macro mmac, you then can 'call' the macro, and the arguments in sequence get replaced with the parameters you specify
+            asm("mmac MACRO A,bit,u2,u1");
+            asm("BTFSC A,bit");
+            asm("ADDWF u2,F"); //don't know what the Fs mean tbh, but they appear in the electric druid code so...?
+            asm("RRF u2,F");
+            asm("RRF u1,F");
+            asm("ENDM");
+    uint16_t *top_two_bytes_ptr = (uint16_t *)0x21; //point to specific memory address
+#endif
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////// DEFINE FUNCTIONS //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////// DEFINE/DECLARE FUNCTIONS //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 uint8_t CONFIG_INT_OSC(void){
     OSCCON = 0b11110000; //defer clock selection to configuration word 1, also select 32MHz as the system clock, and turn on PLL. 
@@ -172,6 +191,7 @@ uint8_t CONFIG_INT_OSC(void){
     return 1;
 }
 
+
 uint8_t CONFIG_PORTS(void){
     ANSELC = 0b00001111; //set RC0-3 to analog inputs, RC5 as output
     TRISC = 0b00001111; //set RC0-3 to inputs, RC5 as output
@@ -179,10 +199,12 @@ uint8_t CONFIG_PORTS(void){
     return 1;
 }
 
+
 uint8_t CONFIG_ADC_PINS(void){
     ADCON1 = 0b10100000; //set ADC references to VDD and VSS, choose ADC clock source to be system_clock/32, and right-justify the ADC result registers.
     return 1;
 }
+
 
 uint16_t DO_ADC(const uint8_t *modifier){
     ADCON0 = 0x00; //clear ADCON0 first
@@ -197,6 +219,7 @@ uint16_t DO_ADC(const uint8_t *modifier){
     uint16_t adc_result = ((uint16_t)(ADRESH << 8) | ADRESL); //concatenate high and low registers to get ADC result
     return adc_result;
 }
+
 
 uint8_t DETERMINE_WAVESHAPE(){
     uint16_t ADC = DO_ADC(&waveshape_adc_config_value);
@@ -215,6 +238,7 @@ uint8_t DETERMINE_WAVESHAPE(){
     return 1;
 }
 
+
 uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr){
     //we need to split up the duty cycle value (0-1023) into two parts, the 8 MSBs (CCPR3L register) and the 2 LSBs (DC3B bits within the CCP3CON register) and write the separate bit portions to those registers
     CCPR3L = (uint8_t)(*duty_ptr >> 2); //extract 8 MSBs from duty value (dereference the ptr first)
@@ -224,6 +248,7 @@ uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr){
     //timer overflow
     return 1;
 }
+
 
 uint8_t CONFIG_PWM_CCP3(void){
     SRLEN = 0; //disable SR latch from interfering with CCP3 output (on same pin))
@@ -242,6 +267,7 @@ uint8_t CONFIG_PWM_CCP3(void){
     return 1;
 }
 
+
 uint8_t TURN_ON_CCP3_PWM(void){
     //this procedure ensures near as dammit that a the PWM output will start with a full cycle
     TMR2IF = 0; //make sure TMR2IF is cleared
@@ -252,10 +278,12 @@ uint8_t TURN_ON_CCP3_PWM(void){
     return 1;
 }
 
+
 uint8_t CONFIG_TMR0_INTERRUPT(void){
     TMR0IE = 1; //enable TMR0 interrupts
     return 1;
 }
+
 
 uint8_t CONFIG_SYSTEM(void){
     CONFIG_INT_OSC();
@@ -265,23 +293,30 @@ uint8_t CONFIG_SYSTEM(void){
     return 1;
 }
 
+
 uint8_t TMR0_WRITE(volatile uint8_t *timer_value_ptr){
     TMR0 = (uint8_t) *timer_value_ptr; //recast as 8-bit
     return 1;
 }
     
+
 uint8_t GET_CURRENT_POT_VALUES(void){
     current_waveshape = DETERMINE_WAVESHAPE();
     current_speed_linear = DO_ADC(&speed_adc_config_value); //get speed (10-bit linear)
-    current_depth = DO_ADC(&depth_adc_config_value); //get depth (10-bit linear)
-    current_depth = current_depth >> 2; //convert to 8-bit
-    current_symmetry = DO_ADC(&symmetry_adc_config_value); //get symmetry (10-bit linear)
-    uint8_t symmetry_ADC_resolution = SYMMETRY_ADC_RESOLUTION;
-    if(symmetry_ADC_resolution == 8){
-        current_symmetry = current_symmetry >> 2; //convert to 8-bit
-    }
+    #if DEPTH_ON_OR_OFF == 1
+        current_depth = DO_ADC(&depth_adc_config_value); //get depth (10-bit linear)
+        current_depth = current_depth >> 2; //convert to 8-bit
+    #endif
+    #if SYMMETRY_ON_OR_OFF == 1
+        current_symmetry = DO_ADC(&symmetry_adc_config_value); //get symmetry (10-bit linear)
+        uint8_t symmetry_ADC_resolution = SYMMETRY_ADC_RESOLUTION;
+        if(symmetry_ADC_resolution == 8){
+            current_symmetry = current_symmetry >> 2; //convert to 8-bit
+        }
+    #endif
     return 1;
 }
+
 
 uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void){
     current_speed_linear_32 = current_speed_linear;
@@ -298,12 +333,76 @@ uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void){
             speed_control_subtracted = speed_control - (127-12);
             how_many_128 = (uint8_t)(speed_control_subtracted >> 7); //divide by 128, i.e. return how many 128s go into the speed_control
             raw_TMR0 = (uint8_t) (speed_control_subtracted - (how_many_128 << 7)); //how_many_128*128, set TMR0
+            //biggest how_many_128 for NUMBER_OF_FREQUENCY_STEPS == 600 is 3
+            //biggest base_prescaler_bits_index == 5 for NUMBER_OF_FREQUENCY_STEPS == 600
             base_prescaler_bits_index = (uint8_t)(how_many_128 + 2);
+            /*
+            uint8_t prescaler_overflow_flag = CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1();
+            if(prescaler_overflow_flag){
+                TURN_PRESCALER_OFF();
+            }
+            else{
+                TURN_PRESCALER_ON();
+            */
         }
     return 1;
 }
 
+
+uint8_t CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1(){
+    if(((base_prescaler_bits_index + 1) > 7)){
+        //set prescaler to 1:1
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+
+uint8_t TURN_PRESCALER_OFF(){
+    OPTION_REG = OPTION_REG & (1<<3); //turn off prescaler to select 1:1
+    return 1;
+}
+
+
+uint8_t TURN_PRESCALER_ON(){
+    OPTION_REG = OPTION_REG & (0<<3); //turn on prescaler
+    return 1;
+}
+
+
 uint8_t PROCESS_FINAL_SPEED_AND_PRESCALER(void){
+    #if SYMMETRY_ON_OR_OFF == 1
+
+    ADJUST_TMR0();
+
+   uint8_t prescaler_overflow_flag = CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1();
+
+
+    if(prescaler_overflow_flag){
+        TURN_PRESCALER_OFF();
+        return 1;
+    }
+    else{
+        TURN_PRESCALER_ON();
+    }
+
+    ADJUST_PRESCALER();
+    #endif
+
+    
+    #if SYMMETRY_ON_OR_OFF == 0
+        final_TMR0 = raw_TMR0;
+        OPTION_REG = prescaler_bits[base_prescaler_bits_index];
+    #endif
+
+    return 1;
+}   
+
+
+#if SYMMETRY_ON_OR_OFF == 1
+uint8_t ADJUST_TMR0(){
     if(clear_TMR0_please){
         raw_TMR0 = 0;
     }
@@ -313,6 +412,10 @@ uint8_t PROCESS_FINAL_SPEED_AND_PRESCALER(void){
     else if(TMR0_offset_sign == NEGATIVE){
         final_TMR0 = raw_TMR0 - TMR0_offset;
     }
+    return 1;
+}
+
+uint8_t ADJUST_PRESCALER(){
     if(prescaler_adjust == DIVIDE_BY_TWO){
         OPTION_REG = prescaler_bits[base_prescaler_bits_index + 1];
     }
@@ -326,7 +429,7 @@ uint8_t PROCESS_FINAL_SPEED_AND_PRESCALER(void){
         OPTION_REG = prescaler_bits[base_prescaler_bits_index];
     }
     return 1;
-}   
+}
 
 uint8_t SHORTEN_PERIOD(void){
     uint16_t dTMR0_ideal = (uint16_t)((uint32_t)(symmetry_total * SHORTEN_PERIOD_FRACTION_16_BIT_NUMBER) >> RESOLUTION_OF_TOTAL_SYMMETRY_FRACTION);
@@ -411,12 +514,13 @@ uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
     }
     return 1;
 }
+#endif
     
 void __interrupt() INTERRUPT_InterruptManager(void){
     if(TMR0IF == 1){
     GIE = 0; //disable interrupts
     TMR0 = final_TMR0; //this line must go here!
-    LATC5 = 1; //start ISR length measurement
+    //LATC5 = 1; //start ISR length measurement
     TMR0IF = 0; //clear TMR0 interrupt flag
     
     if(current_waveshape == TRIANGLE_MODE){
@@ -450,55 +554,57 @@ void __interrupt() INTERRUPT_InterruptManager(void){
         duty = 1023 - duty;
         }
     
-    //Apply Depth
-    if(current_depth != 0){
-        duty_low_byte = duty & 0xFF;
-        duty_high_byte = duty >> 8;
-        
-        //////////////////////////////////////////////////////////////////////////////////
-        //multiply 16x8 in assembly. Copied from 16x8 multiply algorithm by Martin Sturm//
-        //////////////////////////////////////////////////////////////////////////////////
-        
-        ///See equates outside of ISR/////////////////////////////////////////////////////
+    #if DEPTH_ON_OR_OFF == 1
+        //Apply Depth
+        if(current_depth != 0){
+            duty_low_byte = duty & 0xFF;
+            duty_high_byte = duty >> 8;
+            
+            //////////////////////////////////////////////////////////////////////////////////
+            //multiply 16x8 in assembly. Copied from 16x8 multiply algorithm by Martin Sturm//
+            //////////////////////////////////////////////////////////////////////////////////
+            
+            ///See equates outside of ISR/////////////////////////////////////////////////////
 
-        asm("CLRF r3");
-        asm("CLRF r1");
-        asm("BCF STATUS,0"); //a.k.a CLRC - clear carry bit
-        asm("MOVF _current_depth,0"); //move B to W //comment out if 8bit multiplicand already in W
-        //also, b can be removed from macro arguments
-        asm("mmac _duty_low_byte,0,r3,r1");
-        asm("mmac _duty_low_byte,1,r3,r1");
-        asm("mmac _duty_low_byte,2,r3,r1");
-        asm("mmac _duty_low_byte,3,r3,r1");
-        asm("mmac _duty_low_byte,4,r3,r1");
-        asm("mmac _duty_low_byte,5,r3,r1");
-        asm("mmac _duty_low_byte,6,r3,r1");
-        asm("mmac _duty_low_byte,7,r3,r1");
-        
-        asm("CLRF r2");
-        //carry already cleared from last RRF of mmac above
-        //8bit multiplicand still in W
-        asm("mmac _duty_high_byte,0,r3,r2");
-        asm("mmac _duty_high_byte,1,r3,r2");
-        asm("mmac _duty_high_byte,2,r3,r2");
-        asm("mmac _duty_high_byte,3,r3,r2");
-        asm("mmac _duty_high_byte,4,r3,r2");
-        asm("mmac _duty_high_byte,5,r3,r2");
-        asm("mmac _duty_high_byte,6,r3,r2");
-        asm("mmac _duty_high_byte,7,r3,r2");
-        
-        //by accessing only the top and middle bytes of the 24-bit result, we also divide by 256. So end result is duty = 1023 - duty*(current_depth/256)
-        duty = 1023 - *top_two_bytes_ptr;
-    }
-    else{
-        duty = 1023; //if depth is 0, just output 1023
-    }
- 
+            asm("CLRF r3");
+            asm("CLRF r1");
+            asm("BCF STATUS,0"); //a.k.a CLRC - clear carry bit
+            asm("MOVF _current_depth,0"); //move B to W //comment out if 8bit multiplicand already in W
+            //also, b can be removed from macro arguments
+            asm("mmac _duty_low_byte,0,r3,r1");
+            asm("mmac _duty_low_byte,1,r3,r1");
+            asm("mmac _duty_low_byte,2,r3,r1");
+            asm("mmac _duty_low_byte,3,r3,r1");
+            asm("mmac _duty_low_byte,4,r3,r1");
+            asm("mmac _duty_low_byte,5,r3,r1");
+            asm("mmac _duty_low_byte,6,r3,r1");
+            asm("mmac _duty_low_byte,7,r3,r1");
+            
+            asm("CLRF r2");
+            //carry already cleared from last RRF of mmac above
+            //8bit multiplicand still in W
+            asm("mmac _duty_high_byte,0,r3,r2");
+            asm("mmac _duty_high_byte,1,r3,r2");
+            asm("mmac _duty_high_byte,2,r3,r2");
+            asm("mmac _duty_high_byte,3,r3,r2");
+            asm("mmac _duty_high_byte,4,r3,r2");
+            asm("mmac _duty_high_byte,5,r3,r2");
+            asm("mmac _duty_high_byte,6,r3,r2");
+            asm("mmac _duty_high_byte,7,r3,r2");
+            
+            //by accessing only the top and middle bytes of the 24-bit result, we also divide by 256. So end result is duty = 1023 - duty*(current_depth/256)
+            duty = 1023 - *top_two_bytes_ptr;
+        }
+        else{
+            duty = 1023; //if depth is 0, just output 1023
+        }
+    #endif
+
     //Write Duty
     SET_DUTY_CCP3(&duty);
     
     //Finish Up
-    LATC5 = 0; //finish ISR length measurement
+    //LATC5 = 0; //finish ISR length measurement
     GIE = 1;
     }
 }
@@ -510,7 +616,11 @@ void main(void) {
     CONFIG_TMR0_INTERRUPT();
     GET_CURRENT_POT_VALUES();
     PROCESS_RAW_SPEED_AND_PRESCALER();
+
+    #if SYMMETRY_ON_OR_OFF == 1
     PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
+    #endif
+
     PROCESS_FINAL_SPEED_AND_PRESCALER();
     TMR0_WRITE(&final_TMR0);
     GIE = 1; //enable interrupts
@@ -519,8 +629,13 @@ void main(void) {
         //__delay_ms(1);
         GET_CURRENT_POT_VALUES();
         PROCESS_RAW_SPEED_AND_PRESCALER();
+
+        #if SYMMETRY_ON_OR_OFF == 1
         PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
+        #endif
+        LATC5 = 1;
         PROCESS_FINAL_SPEED_AND_PRESCALER();
+        LATC5 = 0;
         }
 }
        
