@@ -122,6 +122,7 @@ volatile uint8_t base_prescaler_bits_index;
 volatile uint16_t dTMR0_ideal;
 volatile uint8_t clear_TMR0_please;
 volatile uint8_t symmetry_status;
+volatile uint32_t symmetry_total;
 
 #define MAX_QUADRANT_INDEX 128
 #define MIN_QUADRANT_INDEX 0
@@ -139,6 +140,9 @@ volatile uint8_t symmetry_status;
 #define SQUARE_MODE_ADC_THRESHOLD 1023
 #define CW 1
 #define CCW 0
+#define MAX_SYMMETRY_TOTAL 361
+#define SHORTEN_PERIOD_FRACTION_16_BIT_NUMBER 47926
+#define LENGTHEN_PERIOD_FRACTION_16_BIT_NUMBER 17609
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////// DEFINE FUNCTIONS //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -304,8 +308,9 @@ uint8_t PROCESS_FINAL_SPEED_AND_PRESCALER(void){
     return 1;
 }   
 
-uint8_t SHORTEN_PERIOD(void){ //THIS WORKS DON'T TOCUH
-    dTMR0_ideal = (128 - current_symmetry) << 1; //2*(128-x)
+uint8_t SHORTEN_PERIOD(void){
+    uint16_t dTMR0_ideal = (uint16_t)((uint32_t)(symmetry_total * SHORTEN_PERIOD_FRACTION_16_BIT_NUMBER) >> 16);
+
     if((dTMR0_ideal + raw_TMR0) < 128){
         TMR0_offset = (uint8_t)dTMR0_ideal;
         TMR0_offset_sign = POSITIVE;
@@ -338,7 +343,8 @@ uint8_t SHORTEN_PERIOD(void){ //THIS WORKS DON'T TOCUH
 }   
 
 uint8_t LENGTHEN_PERIOD(void){
-    dTMR0_ideal = 97 - ((97 * current_symmetry) >> 7);
+    uint16_t dTMR0_ideal = (uint16_t)((uint32_t)(symmetry_total * LENGTHEN_PERIOD_FRACTION_16_BIT_NUMBER) >> 16);
+    
         if(raw_TMR0 < dTMR0_ideal){
             TMR0_offset = (uint8_t)(128 - (dTMR0_ideal - raw_TMR0));
             TMR0_offset_sign = POSITIVE;                
@@ -367,6 +373,10 @@ uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
         current_symmetry = 255 - current_symmetry; //converts current_symmetry to 128 -> 0 range (same range as CCW regime, more or less)
         symmetry_status = CW;
     }
+    
+    uint16_t temp = (uint16_t)(MAX_SYMMETRY_TOTAL * (128 - current_symmetry));
+    symmetry_total = (uint32_t)(temp >> 7);
+
     if((current_halfcycle == FIRST_HALFCYCLE) && (symmetry_status == CCW)){
         SHORTEN_PERIOD();
     }

@@ -4913,7 +4913,8 @@ volatile uint8_t base_prescaler_bits_index;
 volatile uint16_t dTMR0_ideal;
 volatile uint8_t clear_TMR0_please;
 volatile uint8_t symmetry_status;
-# 147 "main.c"
+volatile uint32_t symmetry_total;
+# 151 "main.c"
 uint8_t CONFIG_INT_OSC(void){
     OSCCON = 0b11110000;
     OSCTUNE = 0b00011111;
@@ -5075,7 +5076,8 @@ uint8_t PROCESS_FINAL_SPEED_AND_PRESCALER(void){
 }
 
 uint8_t SHORTEN_PERIOD(void){
-    dTMR0_ideal = (128 - current_symmetry) << 1;
+    uint16_t dTMR0_ideal = (uint16_t)((uint32_t)(symmetry_total * 47926) >> 16);
+
     if((dTMR0_ideal + raw_TMR0) < 128){
         TMR0_offset = (uint8_t)dTMR0_ideal;
         TMR0_offset_sign = POSITIVE;
@@ -5108,7 +5110,8 @@ uint8_t SHORTEN_PERIOD(void){
 }
 
 uint8_t LENGTHEN_PERIOD(void){
-    dTMR0_ideal = 97 - ((97 * current_symmetry) >> 7);
+    uint16_t dTMR0_ideal = (uint16_t)((uint32_t)(symmetry_total * 17609) >> 16);
+
         if(raw_TMR0 < dTMR0_ideal){
             TMR0_offset = (uint8_t)(128 - (dTMR0_ideal - raw_TMR0));
             TMR0_offset_sign = POSITIVE;
@@ -5137,6 +5140,10 @@ uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
         current_symmetry = 255 - current_symmetry;
         symmetry_status = 1;
     }
+
+    uint16_t temp = (uint16_t)(361 * (128 - current_symmetry));
+    symmetry_total = (uint32_t)(temp >> 7);
+
     if((current_halfcycle == 0) && (symmetry_status == 0)){
         SHORTEN_PERIOD();
     }
