@@ -1,27 +1,24 @@
-#include <xc.h>
 #include "system.h"
 
     volatile uint8_t current_waveshape = 0;
     volatile uint16_t current_speed_linear = 0;
     volatile uint32_t current_speed_linear_32 = 0;
     volatile uint16_t current_depth = 0;
-    volatile uint16_t current_symmetry = 0;
+    volatile uint32_t current_symmetry = 0;
     volatile uint8_t current_one_quadrant_index = 0;
     volatile uint8_t current_halfcycle = 0;
     volatile uint8_t current_quadrant = 0;
     volatile uint8_t how_many_128 = 0;
-    volatile uint8_t final_TMR0 = 0;
-    volatile uint8_t TMR0_offset = 0;
-    volatile uint8_t TMR0_offset_sign = 0;
+    volatile uint32_t final_TMR0 = 0;
     volatile uint8_t prescaler_adjust = 0;
-    volatile uint8_t raw_TMR0 = 0;
+    volatile uint32_t raw_TMR0 = 0;
     volatile uint8_t base_prescaler_bits_index = 0;
-    volatile uint16_t dTMR0_ideal = 0;
-    volatile uint8_t clear_TMR0_please = 0;
     volatile uint8_t symmetry_status = 0;
-    volatile uint32_t symmetry_total = 0;
     volatile uint16_t speed_control = 0;
-    volatile uint32_t speed_control_32 = 0;;
+    volatile uint32_t speed_control_32 = 0;
+    volatile uint8_t duty_low_byte;
+    volatile uint8_t duty_high_byte;
+    volatile uint16_t duty = 0;
 
     
 uint8_t DETERMINE_WAVESHAPE(void){
@@ -62,10 +59,12 @@ uint8_t GET_CURRENT_POT_VALUES(void){
     #endif
     #if SYMMETRY_ON_OR_OFF == 1
         current_symmetry = DO_ADC(&symmetry_adc_config_value); //get symmetry (10-bit linear)
-        uint8_t symmetry_ADC_resolution = SYMMETRY_ADC_RESOLUTION;
-        if(symmetry_ADC_resolution == 8){
+        #if SYMMETRY_ADC_RESOLUTION == 8
             current_symmetry = current_symmetry >> 2; //convert to 8-bit
-        }
+        #endif
+        #if SYMMETRY_ADC_RESOLUTION == 10
+            current_symmetry = current_symmetry;
+        #endif
     #endif
     return 1;
 }
@@ -85,23 +84,24 @@ uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void){
             uint16_t speed_control_subtracted;
             speed_control_subtracted = speed_control - (127-12);
             how_many_128 = (uint8_t)(speed_control_subtracted >> 7); //divide by 128, i.e. return how many 128s go into the speed_control
-            raw_TMR0 = (uint8_t) (speed_control_subtracted - (uint16_t)(how_many_128 << 7)); //how_many_128*128, set TMR0
+            raw_TMR0 = (uint8_t)(speed_control_subtracted - (uint16_t)(how_many_128 << 7)); //how_many_128*128, set TMR0
             //biggest how_many_128 for NUMBER_OF_FREQUENCY_STEPS == 600 is 3
             //biggest base_prescaler_bits_index == 5 for NUMBER_OF_FREQUENCY_STEPS == 600
             base_prescaler_bits_index = (uint8_t)(how_many_128 + 2);
-            /*
-            uint8_t prescaler_overflow_flag = CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1();
+            
+            /*uint8_t prescaler_overflow_flag = CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1();
             if(prescaler_overflow_flag){
                 TURN_PRESCALER_OFF();
             }
             else{
                 TURN_PRESCALER_ON();
-            */
-        }
+            
+        }*/
+    }
     return 1;
 }
 
-
+/*
 uint8_t CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1(void){
     if(((base_prescaler_bits_index + 1) > 7)){
         //set prescaler to 1:1
@@ -123,52 +123,9 @@ uint8_t TURN_PRESCALER_ON(void){
     OPTION_REG = OPTION_REG & (0<<3); //turn on prescaler
     return 1;
 }
+*/
 
-
-uint8_t PROCESS_FINAL_SPEED_AND_PRESCALER(void){
-    #if SYMMETRY_ON_OR_OFF == 1
-
-    ADJUST_TMR0();
-
-   uint8_t prescaler_overflow_flag = CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1();
-
-
-    if(prescaler_overflow_flag){
-        TURN_PRESCALER_OFF();
-        return 1;
-    }
-    else{
-        TURN_PRESCALER_ON();
-    }
-
-    ADJUST_PRESCALER();
-    #endif
-
-    
-    #if SYMMETRY_ON_OR_OFF == 0
-        final_TMR0 = raw_TMR0;
-        OPTION_REG = prescaler_bits[base_prescaler_bits_index];
-    #endif
-
-    return 1;
-}   
-
-
-#if SYMMETRY_ON_OR_OFF == 1
-uint8_t ADJUST_TMR0(void){
-    if(clear_TMR0_please){
-        raw_TMR0 = 0;
-    }
-    if((TMR0_offset_sign == POSITIVE) || (TMR0_offset_sign == DONT_CARE)){
-        final_TMR0 = raw_TMR0 + TMR0_offset;
-    }
-    else if(TMR0_offset_sign == NEGATIVE){
-        final_TMR0 = raw_TMR0 - TMR0_offset;
-    }
-    return 1;
-}
-
-uint8_t ADJUST_PRESCALER(void){
+uint8_t ADJUST_AND_SET_PRESCALER(void){
     if(prescaler_adjust == DIVIDE_BY_TWO){
         OPTION_REG = prescaler_bits[base_prescaler_bits_index + 1];
     }
@@ -184,87 +141,68 @@ uint8_t ADJUST_PRESCALER(void){
     return 1;
 }
 
-uint8_t SHORTEN_PERIOD(void){
-    uint16_t dTMR0_ideal = (uint16_t)((uint32_t)(symmetry_total * SHORTEN_PERIOD_FRACTION_16_BIT_NUMBER) >> RESOLUTION_OF_TOTAL_SYMMETRY_FRACTION);
+#if SYMMETRY_ON_OR_OFF == 1
+    uint8_t SHORTEN_PERIOD(void){
+        #if SYMMETRY_ADC_RESOLUTION == 8
+            uint24_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0) * (SHORTEN_POWER_OF_TWO_CONSTANT+(24*current_symmetry))) >> SHORTEN_POWER_OF_TWO_DIVISOR);
+        #endif
 
-    if((dTMR0_ideal + raw_TMR0) < 128){
-        TMR0_offset = (uint8_t)dTMR0_ideal;
-        TMR0_offset_sign = POSITIVE;
+        final_TMR0 = (256 - twofiftysix_minus_TMR0_final);
         prescaler_adjust = DO_NOTHING;
-        clear_TMR0_please = NO;
-    }
-    else if((dTMR0_ideal + raw_TMR0) == 128){
-        TMR0_offset = 0;
-        TMR0_offset_sign = DONT_CARE;
-        prescaler_adjust = DIVIDE_BY_TWO;
-        clear_TMR0_please = YES;
-    }
-    else if((dTMR0_ideal + raw_TMR0) > 128){
-        uint16_t TMR0_raw_extra = dTMR0_ideal + raw_TMR0 - 128;
-        if(TMR0_raw_extra >> 7 == 0){ //divide by 128
-            TMR0_offset = (uint8_t)TMR0_raw_extra;
-            TMR0_offset_sign = POSITIVE;
-            prescaler_adjust = DIVIDE_BY_TWO;
-            clear_TMR0_please = YES;
-        }
-        else if(TMR0_raw_extra >> 7 == 1){ //divide by 128
-            TMR0_raw_extra = TMR0_raw_extra - 128;
-            TMR0_offset = (uint8_t)TMR0_raw_extra;
-            TMR0_offset_sign = POSITIVE;
-            prescaler_adjust = DIVIDE_BY_FOUR;
-            clear_TMR0_please = YES;
-        }
-    }
-    return 1;
-}   
+        return 1;
 
-uint8_t LENGTHEN_PERIOD(void){
-    uint16_t dTMR0_ideal = (uint16_t)((uint32_t)(symmetry_total * LENGTHEN_PERIOD_FRACTION_16_BIT_NUMBER) >> RESOLUTION_OF_TOTAL_SYMMETRY_FRACTION);
-    
-        if(raw_TMR0 < dTMR0_ideal){
-            TMR0_offset = (uint8_t)(128 - (dTMR0_ideal - raw_TMR0));
-            TMR0_offset_sign = POSITIVE;                
+    }   
+
+    uint8_t LENGTHEN_PERIOD(void){
+        uint24_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0) * (LENGTHEN_CONSTANT-(3*current_symmetry))) >> LENGTHEN_POWER_OF_TWO_DIVISOR);
+
+        if(twofiftysix_minus_TMR0_final > 256){
+            twofiftysix_minus_TMR0_final = (twofiftysix_minus_TMR0_final >> 1);
+            final_TMR0 = (256 - twofiftysix_minus_TMR0_final);
             prescaler_adjust = MULTIPLY_BY_TWO;
-            clear_TMR0_please = YES;
         }
-        else{ //TMR0 >= dTMR0_ideal
-            TMR0_offset = (uint8_t)dTMR0_ideal;
-            TMR0_offset_sign = NEGATIVE;
+        else{
+            final_TMR0 = 256 - twofiftysix_minus_TMR0_final;
             prescaler_adjust = DO_NOTHING;
-            clear_TMR0_please = NO;
         }
-    return 1;
-}
-
-uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void){
-    if(current_symmetry == SYMMETRY_ADC_HALF_SCALE){
-        TMR0_offset = 0;
-        TMR0_offset_sign = POSITIVE;
-        prescaler_adjust = DO_NOTHING;
-        clear_TMR0_please = NO;
-        return 1; //exit function
+        return 1;
     }
-    uint8_t symmetry_status = CCW;
-    if(current_symmetry > SYMMETRY_ADC_HALF_SCALE){
-        current_symmetry = SYMMETRY_ADC_FULL_SCALE - current_symmetry; //converts current_symmetry to 128 -> 0 range (same range as CCW regime, more or less)
-        symmetry_status = CW;
-    }
-    
-    uint32_t temp = (uint32_t)(MAX_SYMMETRY_TOTAL * (uint32_t)(SYMMETRY_ADC_HALF_SCALE - current_symmetry)); //must be 32-bit int if ADC is ever 10-bit
-    symmetry_total = (temp >> SYMMETRY_ADC_HALF_SCALE_NO_BITS);
-
-    if((current_halfcycle == FIRST_HALFCYCLE) && (symmetry_status == CCW)){
-        SHORTEN_PERIOD();
-    }
-    else if((current_halfcycle == FIRST_HALFCYCLE) && (symmetry_status == CW)){
-        LENGTHEN_PERIOD();
-    }
-    else if((current_halfcycle == SECOND_HALFCYCLE) && (symmetry_status == CCW)){
-        LENGTHEN_PERIOD();
-    }    
-    else if((current_halfcycle == SECOND_HALFCYCLE) && (symmetry_status == CW)){
-        SHORTEN_PERIOD();
-    }
-    return 1;
-}
 #endif
+
+
+uint8_t PROCESS_TMR0_AND_PRESCALER_ADJUST(void){
+    #if SYMMETRY_ON_OR_OFF == 1
+        if(current_symmetry == SYMMETRY_ADC_HALF_SCALE){
+            final_TMR0 = raw_TMR0;
+            prescaler_adjust = DO_NOTHING;
+        }
+        else{
+        uint8_t symmetry_status = CCW;
+        if(current_symmetry > SYMMETRY_ADC_HALF_SCALE){
+            current_symmetry = SYMMETRY_ADC_FULL_SCALE - current_symmetry; //converts current_symmetry to 128 -> 0 range (same range as CCW regime, more or less)
+            symmetry_status = CW;
+        }
+
+        if((current_halfcycle == FIRST_HALFCYCLE) && (symmetry_status == CCW)){
+            SHORTEN_PERIOD();
+        }
+        else if((current_halfcycle == FIRST_HALFCYCLE) && (symmetry_status == CW)){
+            LENGTHEN_PERIOD();
+        }
+        else if((current_halfcycle == SECOND_HALFCYCLE) && (symmetry_status == CCW)){
+            LENGTHEN_PERIOD();
+        }    
+        else if((current_halfcycle == SECOND_HALFCYCLE) && (symmetry_status == CW)){
+            SHORTEN_PERIOD();
+        }
+        }
+    #endif
+
+    #if SYMMETRY_ON_OR_OFF == 0
+        final_TMR0 = raw_TMR0;
+        prescaler_adjust = DO_NOTHING;
+    #endif
+
+    ADJUST_AND_SET_PRESCALER();
+    return 1;
+}

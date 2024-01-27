@@ -29,29 +29,39 @@
 [v _CONFIG_SYSTEM CONFIG_SYSTEM `(uc  1 e 1 0 ]
 "73
 [v _TURN_ON_CCP3_PWM TURN_ON_CCP3_PWM `(uc  1 e 1 0 ]
-"10 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
+"30 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
-"103
+"124
 [v _main main `(v  1 e 1 0 ]
-"27 /Users/jamesgarvey/Documents/Git/MI_2023/system.c
+"24 /Users/jamesgarvey/Documents/Git/MI_2023/system.c
 [v _DETERMINE_WAVESHAPE DETERMINE_WAVESHAPE `(uc  1 e 1 0 ]
-"45
+"42
 [v _SET_DUTY_CCP3 SET_DUTY_CCP3 `(uc  1 e 1 0 ]
-"56
+"53
 [v _GET_CURRENT_POT_VALUES GET_CURRENT_POT_VALUES `(uc  1 e 1 0 ]
-"74
+"73
 [v _PROCESS_RAW_SPEED_AND_PRESCALER PROCESS_RAW_SPEED_AND_PRESCALER `(uc  1 e 1 0 ]
 "128
-[v _PROCESS_FINAL_SPEED_AND_PRESCALER PROCESS_FINAL_SPEED_AND_PRESCALER `(uc  1 e 1 0 ]
-"69 /Users/jamesgarvey/Documents/Git/MI_2023/system.h
+[v _ADJUST_AND_SET_PRESCALER ADJUST_AND_SET_PRESCALER `(uc  1 e 1 0 ]
+"145
+[v _SHORTEN_PERIOD SHORTEN_PERIOD `(uc  1 e 1 0 ]
+"156
+[v _LENGTHEN_PERIOD LENGTHEN_PERIOD `(uc  1 e 1 0 ]
+"173
+[v _PROCESS_TMR0_AND_PRESCALER_ADJUST PROCESS_TMR0_AND_PRESCALER_ADJUST `(uc  1 e 1 0 ]
+"51 /Users/jamesgarvey/Documents/Git/MI_2023/system.h
 [v _prescaler_bits prescaler_bits `DC[8]uc  1 e 8 0 ]
-"70
+"52
 [v _waveshape_adc_config_value waveshape_adc_config_value `DCuc  1 e 1 0 ]
-"71
+"53
 [v _speed_adc_config_value speed_adc_config_value `DCuc  1 e 1 0 ]
-"7 /Users/jamesgarvey/Documents/Git/MI_2023/wavetables.h
+"54
+[v _depth_adc_config_value depth_adc_config_value `DCuc  1 e 1 0 ]
+"55
+[v _symmetry_adc_config_value symmetry_adc_config_value `DCuc  1 e 1 0 ]
+"5 /Users/jamesgarvey/Documents/Git/MI_2023/wavetables.h
 [v _sine_table_one_quadrant sine_table_one_quadrant `DC[129]us  1 e 258 0 ]
-"8
+"6
 [v _tri_table_one_quadrant tri_table_one_quadrant `DC[129]us  1 e 258 0 ]
 "682 /Applications/microchip/mplabx/v6.15/packs/Microchip/PIC12-16F1xxx_DFP/1.6.241/xc8/pic/include/proc/pic16f1824.h
 [v _TMR0 TMR0 `VEuc  1 e 1 @21 ]
@@ -93,6 +103,8 @@
 [v _GIE GIE `VEb  1 e 0 @95 ]
 "6945
 [v _GO_nDONE GO_nDONE `VEb  1 e 0 @1257 ]
+"7104
+[v _LATC5 LATC5 `VEb  1 e 0 @2165 ]
 "7446
 [v _SRLEN SRLEN `VEb  1 e 0 @2263 ]
 "7668
@@ -105,65 +117,87 @@
 [v _TMR2ON TMR2ON `VEb  1 e 0 @226 ]
 "7734
 [v _TRISA2 TRISA2 `VEb  1 e 0 @1122 ]
-"8 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
-[v _duty duty `VEus  1 e 2 0 ]
-"4 /Users/jamesgarvey/Documents/Git/MI_2023/system.c
+"26 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
+[v _top_two_bytes_ptr top_two_bytes_ptr `*.39us  1 e 2 0 ]
+"3 /Users/jamesgarvey/Documents/Git/MI_2023/system.c
 [v _current_waveshape current_waveshape `VEuc  1 e 1 0 ]
-"5
+"4
 [v _current_speed_linear current_speed_linear `VEus  1 e 2 0 ]
-"6
+"5
 [v _current_speed_linear_32 current_speed_linear_32 `VEul  1 e 4 0 ]
-"7
+"6
 [v _current_depth current_depth `VEus  1 e 2 0 ]
+"7
+[v _current_symmetry current_symmetry `VEul  1 e 4 0 ]
 "8
-[v _current_symmetry current_symmetry `VEus  1 e 2 0 ]
-"9
 [v _current_one_quadrant_index current_one_quadrant_index `VEuc  1 e 1 0 ]
-"10
+"9
 [v _current_halfcycle current_halfcycle `VEuc  1 e 1 0 ]
-"11
+"10
 [v _current_quadrant current_quadrant `VEuc  1 e 1 0 ]
-"12
+"11
 [v _how_many_128 how_many_128 `VEuc  1 e 1 0 ]
+"12
+[v _final_TMR0 final_TMR0 `VEul  1 e 4 0 ]
 "13
-[v _final_TMR0 final_TMR0 `VEuc  1 e 1 0 ]
-"14
-[v _TMR0_offset TMR0_offset `VEuc  1 e 1 0 ]
-"15
-[v _TMR0_offset_sign TMR0_offset_sign `VEuc  1 e 1 0 ]
-"16
 [v _prescaler_adjust prescaler_adjust `VEuc  1 e 1 0 ]
-"17
-[v _raw_TMR0 raw_TMR0 `VEuc  1 e 1 0 ]
-"18
+"14
+[v _raw_TMR0 raw_TMR0 `VEul  1 e 4 0 ]
+"15
 [v _base_prescaler_bits_index base_prescaler_bits_index `VEuc  1 e 1 0 ]
-"19
-[v _dTMR0_ideal dTMR0_ideal `VEus  1 e 2 0 ]
-"20
-[v _clear_TMR0_please clear_TMR0_please `VEuc  1 e 1 0 ]
-"21
+"16
 [v _symmetry_status symmetry_status `VEuc  1 e 1 0 ]
-"22
-[v _symmetry_total symmetry_total `VEul  1 e 4 0 ]
-"23
+"17
 [v _speed_control speed_control `VEus  1 e 2 0 ]
-"24
+"18
 [v _speed_control_32 speed_control_32 `VEul  1 e 4 0 ]
-"103 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
+"19
+[v _duty_low_byte duty_low_byte `VEuc  1 e 1 0 ]
+"20
+[v _duty_high_byte duty_high_byte `VEuc  1 e 1 0 ]
+"21
+[v _duty duty `VEus  1 e 2 0 ]
+"124 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"128
+"140
 } 0
 "73 /Users/jamesgarvey/Documents/Git/MI_2023/config.c
 [v _TURN_ON_CCP3_PWM TURN_ON_CCP3_PWM `(uc  1 e 1 0 ]
 {
 "81
 } 0
-"74 /Users/jamesgarvey/Documents/Git/MI_2023/system.c
+"173 /Users/jamesgarvey/Documents/Git/MI_2023/system.c
+[v _PROCESS_TMR0_AND_PRESCALER_ADJUST PROCESS_TMR0_AND_PRESCALER_ADJUST `(uc  1 e 1 0 ]
+{
+"180
+[v PROCESS_TMR0_AND_PRESCALER_ADJUST@symmetry_status symmetry_status `uc  1 a 1 31 ]
+"208
+} 0
+"145
+[v _SHORTEN_PERIOD SHORTEN_PERIOD `(uc  1 e 1 0 ]
+{
+"147
+[v SHORTEN_PERIOD@twofiftysix_minus_TMR0_final twofiftysix_minus_TMR0_final `um  1 a 3 24 ]
+"154
+} 0
+"156
+[v _LENGTHEN_PERIOD LENGTHEN_PERIOD `(uc  1 e 1 0 ]
+{
+"157
+[v LENGTHEN_PERIOD@twofiftysix_minus_TMR0_final twofiftysix_minus_TMR0_final `um  1 a 3 24 ]
+"169
+} 0
+"128
+[v _ADJUST_AND_SET_PRESCALER ADJUST_AND_SET_PRESCALER `(uc  1 e 1 0 ]
+{
+"142
+} 0
+"73
 [v _PROCESS_RAW_SPEED_AND_PRESCALER PROCESS_RAW_SPEED_AND_PRESCALER `(uc  1 e 1 0 ]
 {
-"85
-[v PROCESS_RAW_SPEED_AND_PRESCALER@speed_control_subtracted speed_control_subtracted `us  1 a 2 16 ]
+"84
+[v PROCESS_RAW_SPEED_AND_PRESCALER@speed_control_subtracted speed_control_subtracted `us  1 a 2 17 ]
 "102
 } 0
 "15 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
@@ -176,22 +210,17 @@
 [v ___lmul@multiplicand multiplicand `ul  1 p 4 4 ]
 "129
 } 0
-"128 /Users/jamesgarvey/Documents/Git/MI_2023/system.c
-[v _PROCESS_FINAL_SPEED_AND_PRESCALER PROCESS_FINAL_SPEED_AND_PRESCALER `(uc  1 e 1 0 ]
-{
-"154
-} 0
-"56
+"53 /Users/jamesgarvey/Documents/Git/MI_2023/system.c
 [v _GET_CURRENT_POT_VALUES GET_CURRENT_POT_VALUES `(uc  1 e 1 0 ]
 {
-"71
+"70
 } 0
-"27
+"24
 [v _DETERMINE_WAVESHAPE DETERMINE_WAVESHAPE `(uc  1 e 1 0 ]
 {
-"28
+"25
 [v DETERMINE_WAVESHAPE@ADC ADC `us  1 a 2 6 ]
-"42
+"39
 } 0
 "25 /Users/jamesgarvey/Documents/Git/MI_2023/config.c
 [v _DO_ADC DO_ADC `(us  1 e 2 0 ]
@@ -234,20 +263,20 @@
 {
 "22
 } 0
-"10 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
+"30 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 1 0 ]
 {
-"101
+"121
 } 0
-"45 /Users/jamesgarvey/Documents/Git/MI_2023/system.c
+"42 /Users/jamesgarvey/Documents/Git/MI_2023/system.c
 [v _SET_DUTY_CCP3 SET_DUTY_CCP3 `(uc  1 e 1 0 ]
 {
-[v SET_DUTY_CCP3@duty_ptr duty_ptr `*.4VEus  1 a 1 wreg ]
-"48
-[v SET_DUTY_CCP3@temp temp `uc  1 a 1 2 ]
+[v SET_DUTY_CCP3@duty_ptr duty_ptr `*.1VEus  1 a 1 wreg ]
 "45
-[v SET_DUTY_CCP3@duty_ptr duty_ptr `*.4VEus  1 a 1 wreg ]
-"47
-[v SET_DUTY_CCP3@duty_ptr duty_ptr `*.4VEus  1 a 1 3 ]
-"53
+[v SET_DUTY_CCP3@temp temp `uc  1 a 1 2 ]
+"42
+[v SET_DUTY_CCP3@duty_ptr duty_ptr `*.1VEus  1 a 1 wreg ]
+"44
+[v SET_DUTY_CCP3@duty_ptr duty_ptr `*.1VEus  1 a 1 3 ]
+"50
 } 0

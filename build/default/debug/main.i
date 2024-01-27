@@ -4860,6 +4860,71 @@ char *tempnam(const char *, const char *);
 # 5 "main.c" 2
 # 1 "./system.h" 1
 # 51 "./system.h"
+    const uint8_t prescaler_bits[8] = {0b111,0b110,0b101,0b100,0b011,0b010,0b001,0b000};
+    const uint8_t waveshape_adc_config_value = 0b100;
+    const uint8_t speed_adc_config_value = 0b101;
+    const uint8_t depth_adc_config_value = 0b110;
+    const uint8_t symmetry_adc_config_value = 0b111;
+    const uint8_t POSITIVE = 1;
+    const uint8_t NEGATIVE = 0;
+    const uint8_t DO_NOTHING = 0;
+    const uint8_t DIVIDE_BY_TWO = 1;
+    const uint8_t MULTIPLY_BY_TWO = 2;
+    const uint8_t DIVIDE_BY_FOUR = 3;
+    const uint8_t DONT_CARE = 4;
+    const uint8_t YES = 1;
+    const uint8_t NO = 0;
+
+
+    uint8_t DETERMINE_WAVESHAPE(void);
+    uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr);
+    uint8_t GET_CURRENT_POT_VALUES(void);
+    uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void);
+    uint8_t CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1(void);
+    uint8_t TURN_PRESCALER_OFF(void);
+    uint8_t TURN_PRESCALER_ON(void);
+    uint8_t ADJUST_TMR0(void);
+    uint8_t ADJUST_AND_SET_PRESCALER(void);
+    uint8_t SHORTEN_PERIOD(void);
+    uint8_t LENGTHEN_PERIOD(void);
+    uint8_t PROCESS_TMR0_AND_PRESCALER_ADJUST(void);
+    uint16_t DO_ADC(const uint8_t *waveshape_adc_config_value);
+
+
+    volatile extern uint32_t final_TMR0;
+    volatile extern uint8_t prescaler_adjust;
+    volatile extern uint32_t raw_TMR0;
+    volatile extern uint8_t base_prescaler_bits_index;
+    volatile extern uint8_t symmetry_status;
+    volatile extern uint32_t symmetry_total;
+    volatile extern uint16_t speed_control;
+    volatile extern uint32_t speed_control_32;
+    volatile extern uint8_t how_many_128;
+    volatile extern uint16_t duty;
+    volatile extern uint8_t duty_low_byte;
+    volatile extern uint8_t duty_high_byte;
+    volatile extern uint8_t current_waveshape;
+    volatile extern uint16_t current_speed_linear;
+    volatile extern uint32_t current_speed_linear_32;
+    volatile extern uint16_t current_depth;
+    volatile extern uint32_t current_symmetry;
+    volatile extern uint8_t current_one_quadrant_index;
+    volatile extern uint8_t current_halfcycle;
+    volatile extern uint8_t current_quadrant;
+# 6 "main.c" 2
+# 1 "./wavetables.h" 1
+
+
+
+
+    const uint16_t sine_table_one_quadrant[129]={512,518,524,530,537,543,549,555,562,568,574,580,587,593,599,605,611,617,624,630,636,642,648,654,660,666,672,678,684,690,696,701,707,713,719,725,730,736,741,747,753,758,764,769,774,780,785,790,796,801,806,811,816,821,826,831,836,841,846,850,855,860,864,869,873,878,882,886,890,895,899,903,907,911,915,919,922,926,930,933,937,940,944,947,950,953,957,960,963,966,968,971,974,977,979,982,984,986,989,991,993,995,997,999,1001,1003,1004,1006,1008,1009,1011,1012,1013,1014,1015,1017,1017,1018,1019,1020,1021,1021,1022,1022,1022,1023,1023,1023,1023};
+    const uint16_t tri_table_one_quadrant[129]={512,516,520,524,528,532,536,540,544,548,552,556,560,564,568,572,576,580,584,588,592,596,600,604,608,612,616,620,624,628,632,636,640,644,648,652,656,660,664,668,672,676,680,684,688,692,696,700,704,708,712,716,720,724,728,732,736,740,744,748,752,756,760,763,767,771,775,779,783,787,791,795,799,803,807,811,815,819,823,827,831,835,839,843,847,851,855,859,863,867,871,875,879,883,887,891,895,899,903,907,911,915,919,923,927,931,935,939,943,947,951,955,959,963,967,971,975,979,983,987,991,995,999,1003,1007,1011,1015,1019,1023};
+# 7 "main.c" 2
+
+
+
+
+
                 __asm("r1 EQU 20h");
                 __asm("r2 EQU 21h");
                 __asm("r3 EQU 22h");
@@ -4878,78 +4943,10 @@ char *tempnam(const char *, const char *);
 
 
 
-    const uint8_t prescaler_bits[8] = {0b111,0b110,0b101,0b100,0b011,0b010,0b001,0b000};
-    const uint8_t waveshape_adc_config_value = 0b100;
-    const uint8_t speed_adc_config_value = 0b101;
-    const uint8_t depth_adc_config_value = 0b110;
-    const uint8_t symmetry_adc_config_value = 0b111;
-    const uint8_t POSITIVE = 1;
-    const uint8_t NEGATIVE = 0;
-    const uint8_t DO_NOTHING = 0;
-    const uint8_t DIVIDE_BY_TWO = 1;
-    const uint8_t MULTIPLY_BY_TWO = 2;
-    const uint8_t DIVIDE_BY_FOUR = 3;
-    const uint8_t DONT_CARE = 4;
-    const uint8_t YES = 1;
-    const uint8_t NO = 0;
-
-    uint8_t DETERMINE_WAVESHAPE(void);
-    uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr);
-    uint8_t GET_CURRENT_POT_VALUES(void);
-    uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void);
-    uint8_t CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1(void);
-    uint8_t TURN_PRESCALER_OFF(void);
-    uint8_t TURN_PRESCALER_ON(void);
-    uint8_t PROCESS_FINAL_SPEED_AND_PRESCALER(void);
-    uint8_t ADJUST_TMR0(void);
-    uint8_t ADJUST_PRESCALER(void);
-    uint8_t SHORTEN_PERIOD(void);
-    uint8_t LENGTHEN_PERIOD(void);
-    uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void);
-    uint16_t DO_ADC(const uint8_t *waveshape_adc_config_value);
-
-    volatile extern uint8_t final_TMR0;
-    volatile extern uint8_t TMR0_offset;
-    volatile extern uint8_t TMR0_offset_sign;
-    volatile extern uint8_t prescaler_adjust;
-    volatile extern uint8_t raw_TMR0;
-    volatile extern uint8_t base_prescaler_bits_index;
-    volatile extern uint16_t dTMR0_ideal;
-    volatile extern uint8_t clear_TMR0_please;
-    volatile extern uint8_t symmetry_status;
-    volatile extern uint32_t symmetry_total;
-    volatile extern uint16_t speed_control;
-    volatile extern uint32_t speed_control_32;
-    volatile extern uint8_t how_many_128;
-    volatile extern uint16_t duty;
-    volatile extern uint8_t duty_low_byte;
-    volatile extern uint8_t duty_high_byte;
-    volatile extern uint8_t current_waveshape;
-    volatile extern uint16_t current_speed_linear;
-    volatile extern uint32_t current_speed_linear_32;
-    volatile extern uint16_t current_depth;
-    volatile extern uint16_t current_symmetry;
-    volatile extern uint8_t current_one_quadrant_index;
-    volatile extern uint8_t current_halfcycle;
-    volatile extern uint8_t current_quadrant;
-# 6 "main.c" 2
-# 1 "./wavetables.h" 1
-
-
-
-
-
-
-    const uint16_t sine_table_one_quadrant[129]={512,518,524,530,537,543,549,555,562,568,574,580,587,593,599,605,611,617,624,630,636,642,648,654,660,666,672,678,684,690,696,701,707,713,719,725,730,736,741,747,753,758,764,769,774,780,785,790,796,801,806,811,816,821,826,831,836,841,846,850,855,860,864,869,873,878,882,886,890,895,899,903,907,911,915,919,922,926,930,933,937,940,944,947,950,953,957,960,963,966,968,971,974,977,979,982,984,986,989,991,993,995,997,999,1001,1003,1004,1006,1008,1009,1011,1012,1013,1014,1015,1017,1017,1018,1019,1020,1021,1021,1022,1022,1022,1023,1023,1023,1023};
-    const uint16_t tri_table_one_quadrant[129]={512,516,520,524,528,532,536,540,544,548,552,556,560,564,568,572,576,580,584,588,592,596,600,604,608,612,616,620,624,628,632,636,640,644,648,652,656,660,664,668,672,676,680,684,688,692,696,700,704,708,712,716,720,724,728,732,736,740,744,748,752,756,760,763,767,771,775,779,783,787,791,795,799,803,807,811,815,819,823,827,831,835,839,843,847,851,855,859,863,867,871,875,879,883,887,891,895,899,903,907,911,915,919,923,927,931,935,939,943,947,951,955,959,963,967,971,975,979,983,987,991,995,999,1003,1007,1011,1015,1019,1023};
-# 7 "main.c" 2
-
-volatile uint16_t duty = 0;
-
 void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
     if(TMR0IF == 1){
     GIE = 0;
-    TMR0 = final_TMR0;
+    TMR0 = (uint8_t)final_TMR0;
 
     TMR0IF = 0;
 
@@ -5039,6 +5036,7 @@ void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
     }
 }
 
+
 void main(void) {
 
     CONFIG_SYSTEM();
@@ -5046,22 +5044,13 @@ void main(void) {
     CONFIG_TMR0_INTERRUPT();
     GET_CURRENT_POT_VALUES();
     PROCESS_RAW_SPEED_AND_PRESCALER();
-
-
-
-
-
-    PROCESS_FINAL_SPEED_AND_PRESCALER();
-    TMR0 = final_TMR0;
+    PROCESS_TMR0_AND_PRESCALER_ADJUST();
+    TMR0 = (uint8_t)final_TMR0;
     GIE = 1;
 
     while(1){
         GET_CURRENT_POT_VALUES();
         PROCESS_RAW_SPEED_AND_PRESCALER();
-
-
-
-
-        PROCESS_FINAL_SPEED_AND_PRESCALER();
+        PROCESS_TMR0_AND_PRESCALER_ADJUST();
         }
 }

@@ -7,6 +7,10 @@
 # 1 "/Applications/microchip/xc8/v2.45/pic/include/language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "system.c" 2
+# 1 "./system.h" 1
+
+
+
 # 1 "/Applications/microchip/xc8/v2.45/pic/include/xc.h" 1 3
 # 18 "/Applications/microchip/xc8/v2.45/pic/include/xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -4290,12 +4294,7 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 29 "/Applications/microchip/xc8/v2.45/pic/include/xc.h" 2 3
-# 2 "system.c" 2
-# 1 "./system.h" 1
-
-
-
-
+# 5 "./system.h" 2
 # 1 "/Applications/microchip/xc8/v2.45/pic/include/c99/stdio.h" 1 3
 # 24 "/Applications/microchip/xc8/v2.45/pic/include/c99/stdio.h" 3
 # 1 "/Applications/microchip/xc8/v2.45/pic/include/c99/bits/alltypes.h" 1 3
@@ -4822,7 +4821,7 @@ double y0(double);
 double y1(double);
 double yn(int, double);
 # 7 "./system.h" 2
-# 69 "./system.h"
+# 51 "./system.h"
     const uint8_t prescaler_bits[8] = {0b111,0b110,0b101,0b100,0b011,0b010,0b001,0b000};
     const uint8_t waveshape_adc_config_value = 0b100;
     const uint8_t speed_adc_config_value = 0b101;
@@ -4838,6 +4837,7 @@ double yn(int, double);
     const uint8_t YES = 1;
     const uint8_t NO = 0;
 
+
     uint8_t DETERMINE_WAVESHAPE(void);
     uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr);
     uint8_t GET_CURRENT_POT_VALUES(void);
@@ -4845,22 +4845,18 @@ double yn(int, double);
     uint8_t CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1(void);
     uint8_t TURN_PRESCALER_OFF(void);
     uint8_t TURN_PRESCALER_ON(void);
-    uint8_t PROCESS_FINAL_SPEED_AND_PRESCALER(void);
     uint8_t ADJUST_TMR0(void);
-    uint8_t ADJUST_PRESCALER(void);
+    uint8_t ADJUST_AND_SET_PRESCALER(void);
     uint8_t SHORTEN_PERIOD(void);
     uint8_t LENGTHEN_PERIOD(void);
-    uint8_t PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST(void);
+    uint8_t PROCESS_TMR0_AND_PRESCALER_ADJUST(void);
     uint16_t DO_ADC(const uint8_t *waveshape_adc_config_value);
 
-    volatile extern uint8_t final_TMR0;
-    volatile extern uint8_t TMR0_offset;
-    volatile extern uint8_t TMR0_offset_sign;
+
+    volatile extern uint32_t final_TMR0;
     volatile extern uint8_t prescaler_adjust;
-    volatile extern uint8_t raw_TMR0;
+    volatile extern uint32_t raw_TMR0;
     volatile extern uint8_t base_prescaler_bits_index;
-    volatile extern uint16_t dTMR0_ideal;
-    volatile extern uint8_t clear_TMR0_please;
     volatile extern uint8_t symmetry_status;
     volatile extern uint32_t symmetry_total;
     volatile extern uint16_t speed_control;
@@ -4873,33 +4869,31 @@ double yn(int, double);
     volatile extern uint16_t current_speed_linear;
     volatile extern uint32_t current_speed_linear_32;
     volatile extern uint16_t current_depth;
-    volatile extern uint16_t current_symmetry;
+    volatile extern uint32_t current_symmetry;
     volatile extern uint8_t current_one_quadrant_index;
     volatile extern uint8_t current_halfcycle;
     volatile extern uint8_t current_quadrant;
-# 3 "system.c" 2
+# 2 "system.c" 2
 
     volatile uint8_t current_waveshape = 0;
     volatile uint16_t current_speed_linear = 0;
     volatile uint32_t current_speed_linear_32 = 0;
     volatile uint16_t current_depth = 0;
-    volatile uint16_t current_symmetry = 0;
+    volatile uint32_t current_symmetry = 0;
     volatile uint8_t current_one_quadrant_index = 0;
     volatile uint8_t current_halfcycle = 0;
     volatile uint8_t current_quadrant = 0;
     volatile uint8_t how_many_128 = 0;
-    volatile uint8_t final_TMR0 = 0;
-    volatile uint8_t TMR0_offset = 0;
-    volatile uint8_t TMR0_offset_sign = 0;
+    volatile uint32_t final_TMR0 = 0;
     volatile uint8_t prescaler_adjust = 0;
-    volatile uint8_t raw_TMR0 = 0;
+    volatile uint32_t raw_TMR0 = 0;
     volatile uint8_t base_prescaler_bits_index = 0;
-    volatile uint16_t dTMR0_ideal = 0;
-    volatile uint8_t clear_TMR0_please = 0;
     volatile uint8_t symmetry_status = 0;
-    volatile uint32_t symmetry_total = 0;
     volatile uint16_t speed_control = 0;
-    volatile uint32_t speed_control_32 = 0;;
+    volatile uint32_t speed_control_32 = 0;
+    volatile uint8_t duty_low_byte;
+    volatile uint8_t duty_high_byte;
+    volatile uint16_t duty = 0;
 
 
 uint8_t DETERMINE_WAVESHAPE(void){
@@ -4934,14 +4928,26 @@ uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr){
 uint8_t GET_CURRENT_POT_VALUES(void){
     current_waveshape = DETERMINE_WAVESHAPE();
     current_speed_linear = DO_ADC(&speed_adc_config_value);
-# 70 "system.c"
+
+        current_depth = DO_ADC(&depth_adc_config_value);
+        current_depth = current_depth >> 2;
+
+
+        current_symmetry = DO_ADC(&symmetry_adc_config_value);
+
+            current_symmetry = current_symmetry >> 2;
+
+
+
+
+
     return 1;
 }
 
 
 uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void){
     current_speed_linear_32 = current_speed_linear;
-    speed_control_32 = current_speed_linear_32 * 600;;
+    speed_control_32 = current_speed_linear_32 * 580;;
     speed_control_32 = speed_control_32 >> 10;
     speed_control = (uint16_t) speed_control_32;
 
@@ -4953,44 +4959,93 @@ uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void){
             uint16_t speed_control_subtracted;
             speed_control_subtracted = speed_control - (127-12);
             how_many_128 = (uint8_t)(speed_control_subtracted >> 7);
-            raw_TMR0 = (uint8_t) (speed_control_subtracted - (uint16_t)(how_many_128 << 7));
+            raw_TMR0 = (uint8_t)(speed_control_subtracted - (uint16_t)(how_many_128 << 7));
 
 
             base_prescaler_bits_index = (uint8_t)(how_many_128 + 2);
 # 100 "system.c"
-        }
+    }
+    return 1;
+}
+# 128 "system.c"
+uint8_t ADJUST_AND_SET_PRESCALER(void){
+    if(prescaler_adjust == DIVIDE_BY_TWO){
+        OPTION_REG = prescaler_bits[base_prescaler_bits_index + 1];
+    }
+    else if(prescaler_adjust == DIVIDE_BY_FOUR){
+        OPTION_REG = prescaler_bits[base_prescaler_bits_index + 2];
+    }
+    else if(prescaler_adjust == MULTIPLY_BY_TWO){
+        OPTION_REG = prescaler_bits[base_prescaler_bits_index - 1];
+    }
+    else if(prescaler_adjust == DO_NOTHING){
+        OPTION_REG = prescaler_bits[base_prescaler_bits_index];
+    }
     return 1;
 }
 
 
-uint8_t CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1(void){
-    if(((base_prescaler_bits_index + 1) > 7)){
+    uint8_t SHORTEN_PERIOD(void){
 
+            uint24_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0) * (1024 +(24*current_symmetry))) >> 12);
+
+
+        final_TMR0 = (256 - twofiftysix_minus_TMR0_final);
+        prescaler_adjust = DO_NOTHING;
+        return 1;
+
+    }
+
+    uint8_t LENGTHEN_PERIOD(void){
+        uint24_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0) * (896 -(3*current_symmetry))) >> 9);
+
+        if(twofiftysix_minus_TMR0_final > 256){
+            twofiftysix_minus_TMR0_final = (twofiftysix_minus_TMR0_final >> 1);
+            final_TMR0 = (256 - twofiftysix_minus_TMR0_final);
+            prescaler_adjust = MULTIPLY_BY_TWO;
+        }
+        else{
+            final_TMR0 = 256 - twofiftysix_minus_TMR0_final;
+            prescaler_adjust = DO_NOTHING;
+        }
         return 1;
     }
-    else{
-        return 0;
-    }
-}
 
 
-uint8_t TURN_PRESCALER_OFF(void){
-    OPTION_REG = OPTION_REG & (1<<3);
-    return 1;
-}
+
+uint8_t PROCESS_TMR0_AND_PRESCALER_ADJUST(void){
+
+        if(current_symmetry == 128){
+            final_TMR0 = raw_TMR0;
+            prescaler_adjust = DO_NOTHING;
+        }
+        else{
+        uint8_t symmetry_status = 0;
+        if(current_symmetry > 128){
+            current_symmetry = 255 - current_symmetry;
+            symmetry_status = 1;
+        }
+
+        if((current_halfcycle == 0) && (symmetry_status == 0)){
+            SHORTEN_PERIOD();
+        }
+        else if((current_halfcycle == 0) && (symmetry_status == 1)){
+            LENGTHEN_PERIOD();
+        }
+        else if((current_halfcycle == 1) && (symmetry_status == 0)){
+            LENGTHEN_PERIOD();
+        }
+        else if((current_halfcycle == 1) && (symmetry_status == 1)){
+            SHORTEN_PERIOD();
+        }
+        }
 
 
-uint8_t TURN_PRESCALER_ON(void){
-    OPTION_REG = OPTION_REG & (0<<3);
-    return 1;
-}
 
 
-uint8_t PROCESS_FINAL_SPEED_AND_PRESCALER(void){
-# 149 "system.c"
-        final_TMR0 = raw_TMR0;
-        OPTION_REG = prescaler_bits[base_prescaler_bits_index];
 
 
+
+    ADJUST_AND_SET_PRESCALER();
     return 1;
 }

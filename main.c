@@ -5,13 +5,33 @@
 #include "system.h"
 #include "wavetables.h"
 
-volatile uint16_t duty = 0;
-  
+#if DEPTH_ON_OR_OFF == 1
+        /////Stuff for ASM Code////////////////////////////
+
+        //equate names for registers with the register addresses
+                asm("r1 EQU 20h");
+                asm("r2 EQU 21h");
+                asm("r3 EQU 22h");
+                asm("aL EQU 23h");
+                asm("aH EQU 24h");
+                asm("B EQU 25h");
+                //asm("STATUS EQU 03h"); //don't think I need to do this as maybe STATUS is already equ in xc.h
+        //define macro mmac, you then can 'call' the macro, and the arguments in sequence get replaced with the parameters you specify
+                asm("mmac MACRO A,bit,u2,u1");
+                asm("BTFSC A,bit");
+                asm("ADDWF u2,F"); //don't know what the Fs mean tbh, but they appear in the electric druid code so...?
+                asm("RRF u2,F");
+                asm("RRF u1,F");
+                asm("ENDM");
+        uint16_t *top_two_bytes_ptr = (uint16_t *)0x21; //point to specific memory address
+    #endif
+
+        
 void __interrupt() INTERRUPT_InterruptManager(void){
     if(TMR0IF == 1){
     GIE = 0; //disable interrupts
-    TMR0 = final_TMR0; //this line must go here!
-    //LATC5 = 1; //start ISR length measurement
+    TMR0 = (uint8_t)final_TMR0; //this line must go here!
+    LATC5 = 1; //start ISR length measurement
     TMR0IF = 0; //clear TMR0 interrupt flag
     
     if(current_waveshape == TRIANGLE_MODE){
@@ -95,10 +115,11 @@ void __interrupt() INTERRUPT_InterruptManager(void){
     SET_DUTY_CCP3(&duty);
     
     //Finish Up
-    //LATC5 = 0; //finish ISR length measurement
+    LATC5 = 0; //finish ISR length measurement
     GIE = 1;
     }
 }
+
 
 void main(void) {
     
@@ -107,23 +128,14 @@ void main(void) {
     CONFIG_TMR0_INTERRUPT();
     GET_CURRENT_POT_VALUES();
     PROCESS_RAW_SPEED_AND_PRESCALER();
-
-    #if SYMMETRY_ON_OR_OFF == 1
-    PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
-    #endif
-
-    PROCESS_FINAL_SPEED_AND_PRESCALER();
-    TMR0 = final_TMR0;
+    PROCESS_TMR0_AND_PRESCALER_ADJUST();
+    TMR0 = (uint8_t)final_TMR0;
     GIE = 1; //enable interrupts
     
     while(1){ //infinite loop
         GET_CURRENT_POT_VALUES();
         PROCESS_RAW_SPEED_AND_PRESCALER();
-
-        #if SYMMETRY_ON_OR_OFF == 1
-        PROCESS_TMR0_OFFSET_AND_PRESCALER_ADJUST();
-        #endif
-        PROCESS_FINAL_SPEED_AND_PRESCALER();
+        PROCESS_TMR0_AND_PRESCALER_ADJUST();
         }
 }
        
