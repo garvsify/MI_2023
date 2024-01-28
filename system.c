@@ -140,7 +140,7 @@ uint8_t ADJUST_AND_SET_PRESCALER(void){
             else{
                 TURN_PRESCALER_ON();
                 OPTION_REG = prescaler_bits[base_prescaler_bits_index + 2];
-                prescaler_final_index = base_prescaler_bits_index + 1;
+                prescaler_final_index = base_prescaler_bits_index + 2;
             }
     }
     else if(prescaler_adjust == MULTIPLY_BY_TWO){
