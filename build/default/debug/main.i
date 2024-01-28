@@ -4911,6 +4911,8 @@ char *tempnam(const char *, const char *);
     volatile extern uint8_t current_one_quadrant_index;
     volatile extern uint8_t current_halfcycle;
     volatile extern uint8_t current_quadrant;
+    volatile extern uint8_t prescaler_overflow_flag;
+    volatile extern uint8_t prescaler_final_index;
 # 6 "main.c" 2
 # 1 "./wavetables.h" 1
 
@@ -4944,9 +4946,9 @@ char *tempnam(const char *, const char *);
 
 
 void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
+    TMR0 = (uint8_t)final_TMR0;
     if(TMR0IF == 1){
     GIE = 0;
-    TMR0 = (uint8_t)final_TMR0;
     LATC5 = 1;
     TMR0IF = 0;
 
@@ -4983,7 +4985,10 @@ void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
 
 
 
-        if(current_depth != 0){
+        if(current_depth == 255){
+            duty = 1023 - duty;
+        }
+        else if(current_depth != 0){
             duty_low_byte = duty & 0xFF;
             duty_high_byte = duty >> 8;
 

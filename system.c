@@ -19,6 +19,8 @@
     volatile uint8_t duty_low_byte;
     volatile uint8_t duty_high_byte;
     volatile uint16_t duty = 0;
+    volatile uint8_t prescaler_overflow_flag = 0;
+    volatile uint8_t prescaler_final_index = 0;
 
     
 uint8_t DETERMINE_WAVESHAPE(void){
@@ -118,7 +120,7 @@ uint8_t TURN_PRESCALER_ON(void){
 
 uint8_t ADJUST_AND_SET_PRESCALER(void){
     if(prescaler_adjust == DIVIDE_BY_TWO){
-        uint8_t prescaler_overflow_flag = CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1();
+        prescaler_overflow_flag = CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1();
             if(prescaler_overflow_flag){
                 TURN_PRESCALER_OFF();
                 return 1;
@@ -126,10 +128,11 @@ uint8_t ADJUST_AND_SET_PRESCALER(void){
             else{
                 TURN_PRESCALER_ON();
                 OPTION_REG = prescaler_bits[base_prescaler_bits_index + 1];
+                prescaler_final_index = base_prescaler_bits_index + 1;
             }
     }
     else if(prescaler_adjust == DIVIDE_BY_FOUR){
-        uint8_t prescaler_overflow_flag = CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1();
+        prescaler_overflow_flag = CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1();
             if(prescaler_overflow_flag){
                 TURN_PRESCALER_OFF();
                 return 1;
@@ -137,13 +140,16 @@ uint8_t ADJUST_AND_SET_PRESCALER(void){
             else{
                 TURN_PRESCALER_ON();
                 OPTION_REG = prescaler_bits[base_prescaler_bits_index + 2];
+                prescaler_final_index = base_prescaler_bits_index + 1;
             }
     }
     else if(prescaler_adjust == MULTIPLY_BY_TWO){
         OPTION_REG = prescaler_bits[base_prescaler_bits_index - 1];
+        prescaler_final_index = base_prescaler_bits_index - 1;
     }
     else if(prescaler_adjust == DO_NOTHING){
         OPTION_REG = prescaler_bits[base_prescaler_bits_index];
+        prescaler_final_index = base_prescaler_bits_index;
     }
     return 1;
 }
@@ -151,7 +157,7 @@ uint8_t ADJUST_AND_SET_PRESCALER(void){
 #if SYMMETRY_ON_OR_OFF == 1
     uint8_t SHORTEN_PERIOD(void){
         #if SYMMETRY_ADC_RESOLUTION == 8
-            uint24_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0) * (SHORTEN_POWER_OF_TWO_CONSTANT+(24*current_symmetry))) >> SHORTEN_POWER_OF_TWO_DIVISOR);
+            uint24_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0) * (SHORTEN_POWER_OF_TWO_CONSTANT_8_BIT_SYM+(24*current_symmetry))) >> SHORTEN_POWER_OF_TWO_DIVISOR_8_BIT_SYM);
         #endif
 
         final_TMR0 = (256 - twofiftysix_minus_TMR0_final);
@@ -161,7 +167,9 @@ uint8_t ADJUST_AND_SET_PRESCALER(void){
     }   
 
     uint8_t LENGTHEN_PERIOD(void){
-        uint24_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0) * (LENGTHEN_CONSTANT-(3*current_symmetry))) >> LENGTHEN_POWER_OF_TWO_DIVISOR);
+        #if SYMMETRY_ADC_RESOLUTION == 8
+            uint24_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0) * (LENGTHEN_CONSTANT_8_BIT_SYM-(3*current_symmetry))) >> LENGTHEN_POWER_OF_TWO_DIVISOR_8_BIT_SYM);
+        #endif
 
         if(twofiftysix_minus_TMR0_final > 256){
             twofiftysix_minus_TMR0_final = (twofiftysix_minus_TMR0_final >> 1);
@@ -203,6 +211,17 @@ uint8_t PROCESS_TMR0_AND_PRESCALER_ADJUST(void){
             SHORTEN_PERIOD();
         }
         }
+
+        ADJUST_AND_SET_PRESCALER();
+
+        //Adjust TMR0 for 2 instruction tick delay on update (for low prescaler values)
+        if(prescaler_overflow_flag == 1){//prescaler is 1:1
+            final_TMR0 = final_TMR0 + 2; //(256-TMR0_final) needs to be 2 counts less
+        }
+        else if(prescaler_final_index == 7){//prescaler is 2:1
+            final_TMR0 = final_TMR0 + 1; //(256-TMR0_final) needs to be 1 counts less
+        }
+
     #endif
 
     #if SYMMETRY_ON_OR_OFF == 0
@@ -210,6 +229,5 @@ uint8_t PROCESS_TMR0_AND_PRESCALER_ADJUST(void){
         prescaler_adjust = DO_NOTHING;
     #endif
 
-    ADJUST_AND_SET_PRESCALER();
     return 1;
 }

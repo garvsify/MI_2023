@@ -665,561 +665,607 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _duty
 -> -> 0 `i `us
 ]
-"24
-[; ;system.c: 24: uint8_t DETERMINE_WAVESHAPE(void){
+"22
+[; ;system.c: 22:     volatile uint8_t prescaler_overflow_flag = 0;
+[v _prescaler_overflow_flag `Vuc ~T0 @X0 1 e ]
+[i _prescaler_overflow_flag
+-> -> 0 `i `uc
+]
+"23
+[; ;system.c: 23:     volatile uint8_t prescaler_final_index = 0;
+[v _prescaler_final_index `Vuc ~T0 @X0 1 e ]
+[i _prescaler_final_index
+-> -> 0 `i `uc
+]
+"26
+[; ;system.c: 26: uint8_t DETERMINE_WAVESHAPE(void){
 [v _DETERMINE_WAVESHAPE `(uc ~T0 @X0 1 ef ]
 {
 [e :U _DETERMINE_WAVESHAPE ]
 [f ]
-"25
-[; ;system.c: 25:     uint16_t ADC = DO_ADC(&waveshape_adc_config_value);
+"27
+[; ;system.c: 27:     uint16_t ADC = DO_ADC(&waveshape_adc_config_value);
 [v _ADC `us ~T0 @X0 1 a ]
 [e = _ADC ( _DO_ADC (1 &U _waveshape_adc_config_value ]
-"26
-[; ;system.c: 26:     if(ADC <= 341){
+"28
+[; ;system.c: 28:     if(ADC <= 341){
 [e $ ! <= -> _ADC `ui -> -> 341 `i `ui 344  ]
 {
-"27
-[; ;system.c: 27:             return 0;
+"29
+[; ;system.c: 29:             return 0;
 [e ) -> -> 0 `i `uc ]
 [e $UE 343  ]
-"28
-[; ;system.c: 28:         }
+"30
+[; ;system.c: 30:         }
 }
 [e :U 344 ]
-"29
-[; ;system.c: 29:         if (ADC <= 682){
+"31
+[; ;system.c: 31:         if (ADC <= 682){
 [e $ ! <= -> _ADC `ui -> -> 682 `i `ui 345  ]
 {
-"30
-[; ;system.c: 30:             return 1;
+"32
+[; ;system.c: 32:             return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 343  ]
-"31
-[; ;system.c: 31:         }
+"33
+[; ;system.c: 33:         }
 }
 [e :U 345 ]
-"32
-[; ;system.c: 32:         if (ADC <= 1023){
+"34
+[; ;system.c: 34:         if (ADC <= 1023){
 [e $ ! <= -> _ADC `ui -> -> 1023 `i `ui 346  ]
 {
-"33
-[; ;system.c: 33:             return 2;
+"35
+[; ;system.c: 35:             return 2;
 [e ) -> -> 2 `i `uc ]
 [e $UE 343  ]
-"34
-[; ;system.c: 34:         }
+"36
+[; ;system.c: 36:         }
 }
 [e $U 347  ]
-"35
-[; ;system.c: 35:         else{
+"37
+[; ;system.c: 37:         else{
 [e :U 346 ]
 {
-"36
-[; ;system.c: 36:             return 1;
-[e ) -> -> 1 `i `uc ]
-[e $UE 343  ]
-"37
-[; ;system.c: 37:         }
-}
-[e :U 347 ]
 "38
-[; ;system.c: 38:     return 1;
+[; ;system.c: 38:             return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 343  ]
 "39
-[; ;system.c: 39: }
+[; ;system.c: 39:         }
+}
+[e :U 347 ]
+"40
+[; ;system.c: 40:     return 1;
+[e ) -> -> 1 `i `uc ]
+[e $UE 343  ]
+"41
+[; ;system.c: 41: }
 [e :UE 343 ]
 }
-"42
-[; ;system.c: 42: uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr){
+"44
+[; ;system.c: 44: uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr){
 [v _SET_DUTY_CCP3 `(uc ~T0 @X0 1 ef1`*Vus ]
 {
 [e :U _SET_DUTY_CCP3 ]
 [v _duty_ptr `*Vus ~T0 @X0 1 r1 ]
 [f ]
-"44
-[; ;system.c: 44:     CCPR3L = (uint8_t)(*duty_ptr >> 2);
+"46
+[; ;system.c: 46:     CCPR3L = (uint8_t)(*duty_ptr >> 2);
 [e = _CCPR3L -> >> -> *U _duty_ptr `ui -> 2 `i `uc ]
-"45
-[; ;system.c: 45:     uint8_t temp = *duty_ptr % 0b100;
+"47
+[; ;system.c: 47:     uint8_t temp = *duty_ptr % 0b100;
 [v _temp `uc ~T0 @X0 1 a ]
 [e = _temp -> % -> *U _duty_ptr `ui -> -> 4 `i `ui `uc ]
-"46
-[; ;system.c: 46:     CCP3CON = CCP3CON | ((uint8_t)(temp << 4));
+"48
+[; ;system.c: 48:     CCP3CON = CCP3CON | ((uint8_t)(temp << 4));
 [e = _CCP3CON -> | -> _CCP3CON `i -> -> << -> _temp `i -> 4 `i `uc `i `uc ]
-"49
-[; ;system.c: 49:     return 1;
+"51
+[; ;system.c: 51:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 348  ]
-"50
-[; ;system.c: 50: }
+"52
+[; ;system.c: 52: }
 [e :UE 348 ]
 }
-"53
-[; ;system.c: 53: uint8_t GET_CURRENT_POT_VALUES(void){
+"55
+[; ;system.c: 55: uint8_t GET_CURRENT_POT_VALUES(void){
 [v _GET_CURRENT_POT_VALUES `(uc ~T0 @X0 1 ef ]
 {
 [e :U _GET_CURRENT_POT_VALUES ]
 [f ]
-"54
-[; ;system.c: 54:     current_waveshape = DETERMINE_WAVESHAPE();
+"56
+[; ;system.c: 56:     current_waveshape = DETERMINE_WAVESHAPE();
 [e = _current_waveshape ( _DETERMINE_WAVESHAPE ..  ]
-"55
-[; ;system.c: 55:     current_speed_linear = DO_ADC(&speed_adc_config_value);
-[e = _current_speed_linear ( _DO_ADC (1 &U _speed_adc_config_value ]
 "57
-[; ;system.c: 57:         current_depth = DO_ADC(&depth_adc_config_value);
+[; ;system.c: 57:     current_speed_linear = DO_ADC(&speed_adc_config_value);
+[e = _current_speed_linear ( _DO_ADC (1 &U _speed_adc_config_value ]
+"59
+[; ;system.c: 59:         current_depth = DO_ADC(&depth_adc_config_value);
 [e = _current_depth ( _DO_ADC (1 &U _depth_adc_config_value ]
-"58
-[; ;system.c: 58:         current_depth = current_depth >> 2;
+"60
+[; ;system.c: 60:         current_depth = current_depth >> 2;
 [e = _current_depth -> >> -> _current_depth `ui -> 2 `i `us ]
-"61
-[; ;system.c: 61:         current_symmetry = DO_ADC(&symmetry_adc_config_value);
-[e = _current_symmetry -> ( _DO_ADC (1 &U _symmetry_adc_config_value `um ]
 "63
-[; ;system.c: 63:             current_symmetry = current_symmetry >> 2;
+[; ;system.c: 63:         current_symmetry = DO_ADC(&symmetry_adc_config_value);
+[e = _current_symmetry -> ( _DO_ADC (1 &U _symmetry_adc_config_value `um ]
+"65
+[; ;system.c: 65:             current_symmetry = current_symmetry >> 2;
 [e = _current_symmetry >> _current_symmetry -> 2 `i ]
-"69
-[; ;system.c: 69:     return 1;
+"71
+[; ;system.c: 71:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 349  ]
-"70
-[; ;system.c: 70: }
+"72
+[; ;system.c: 72: }
 [e :UE 349 ]
 }
-"73
-[; ;system.c: 73: uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void){
+"75
+[; ;system.c: 75: uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void){
 [v _PROCESS_RAW_SPEED_AND_PRESCALER `(uc ~T0 @X0 1 ef ]
 {
 [e :U _PROCESS_RAW_SPEED_AND_PRESCALER ]
 [f ]
-"74
-[; ;system.c: 74:     current_speed_linear_32 = current_speed_linear;
-[e = _current_speed_linear_32 -> _current_speed_linear `ul ]
-"75
-[; ;system.c: 75:     speed_control_32 = current_speed_linear_32 * 580;;
-[e = _speed_control_32 * _current_speed_linear_32 -> -> -> 580 `i `l `ul ]
 "76
-[; ;system.c: 76:     speed_control_32 = speed_control_32 >> 10;
-[e = _speed_control_32 >> _speed_control_32 -> 10 `i ]
+[; ;system.c: 76:     current_speed_linear_32 = current_speed_linear;
+[e = _current_speed_linear_32 -> _current_speed_linear `ul ]
 "77
-[; ;system.c: 77:     speed_control = (uint16_t) speed_control_32;
-[e = _speed_control -> _speed_control_32 `us ]
+[; ;system.c: 77:     speed_control_32 = current_speed_linear_32 * 580;;
+[e = _speed_control_32 * _current_speed_linear_32 -> -> -> 580 `i `l `ul ]
+"78
+[; ;system.c: 78:     speed_control_32 = speed_control_32 >> 10;
+[e = _speed_control_32 >> _speed_control_32 -> 10 `i ]
 "79
-[; ;system.c: 79:         if(speed_control <= (127-12)){
+[; ;system.c: 79:     speed_control = (uint16_t) speed_control_32;
+[e = _speed_control -> _speed_control_32 `us ]
+"81
+[; ;system.c: 81:         if(speed_control <= (127-12)){
 [e $ ! <= -> _speed_control `ui -> - -> 127 `i -> 12 `i `ui 351  ]
 {
-"80
-[; ;system.c: 80:             raw_TMR0 = (uint8_t) speed_control + 12;
-[e = _raw_TMR0 -> -> + -> -> _speed_control `uc `i -> 12 `i `m `um ]
-"81
-[; ;system.c: 81:             base_prescaler_bits_index = 1;
-[e = _base_prescaler_bits_index -> -> 1 `i `uc ]
 "82
-[; ;system.c: 82:         }
+[; ;system.c: 82:             raw_TMR0 = (uint8_t) speed_control + 12;
+[e = _raw_TMR0 -> -> + -> -> _speed_control `uc `i -> 12 `i `m `um ]
+"83
+[; ;system.c: 83:             base_prescaler_bits_index = 1;
+[e = _base_prescaler_bits_index -> -> 1 `i `uc ]
+"84
+[; ;system.c: 84:         }
 }
 [e $U 352  ]
-"83
-[; ;system.c: 83:         else{
+"85
+[; ;system.c: 85:         else{
 [e :U 351 ]
 {
-"84
-[; ;system.c: 84:             uint16_t speed_control_subtracted;
-[v _speed_control_subtracted `us ~T0 @X0 1 a ]
-"85
-[; ;system.c: 85:             speed_control_subtracted = speed_control - (127-12);
-[e = _speed_control_subtracted -> - -> _speed_control `ui -> - -> 127 `i -> 12 `i `ui `us ]
 "86
-[; ;system.c: 86:             how_many_128 = (uint8_t)(speed_control_subtracted >> 7);
-[e = _how_many_128 -> >> -> _speed_control_subtracted `ui -> 7 `i `uc ]
+[; ;system.c: 86:             uint16_t speed_control_subtracted;
+[v _speed_control_subtracted `us ~T0 @X0 1 a ]
 "87
-[; ;system.c: 87:             raw_TMR0 = (uint8_t)(speed_control_subtracted - (uint16_t)(how_many_128 << 7));
+[; ;system.c: 87:             speed_control_subtracted = speed_control - (127-12);
+[e = _speed_control_subtracted -> - -> _speed_control `ui -> - -> 127 `i -> 12 `i `ui `us ]
+"88
+[; ;system.c: 88:             how_many_128 = (uint8_t)(speed_control_subtracted >> 7);
+[e = _how_many_128 -> >> -> _speed_control_subtracted `ui -> 7 `i `uc ]
+"89
+[; ;system.c: 89:             raw_TMR0 = (uint8_t)(speed_control_subtracted - (uint16_t)(how_many_128 << 7));
 [e = _raw_TMR0 -> -> - -> _speed_control_subtracted `ui -> -> << -> _how_many_128 `i -> 7 `i `us `ui `uc `um ]
-"90
-[; ;system.c: 90:             base_prescaler_bits_index = (uint8_t)(how_many_128 + 2);
+"92
+[; ;system.c: 92:             base_prescaler_bits_index = (uint8_t)(how_many_128 + 2);
 [e = _base_prescaler_bits_index -> + -> _how_many_128 `i -> 2 `i `uc ]
-"91
-[; ;system.c: 91:         }
+"93
+[; ;system.c: 93:         }
 }
 [e :U 352 ]
-"92
-[; ;system.c: 92:     return 1;
+"94
+[; ;system.c: 94:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 350  ]
-"93
-[; ;system.c: 93: }
+"95
+[; ;system.c: 95: }
 [e :UE 350 ]
 }
-"96
-[; ;system.c: 96: uint8_t CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1(void){
+"98
+[; ;system.c: 98: uint8_t CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1(void){
 [v _CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1 `(uc ~T0 @X0 1 ef ]
 {
 [e :U _CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1 ]
 [f ]
-"97
-[; ;system.c: 97:     if((base_prescaler_bits_index + 1) > 7){
+"99
+[; ;system.c: 99:     if((base_prescaler_bits_index + 1) > 7){
 [e $ ! > + -> _base_prescaler_bits_index `i -> 1 `i -> 7 `i 354  ]
 {
-"99
-[; ;system.c: 99:         return 1;
+"101
+[; ;system.c: 101:         return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 353  ]
-"100
-[; ;system.c: 100:     }
+"102
+[; ;system.c: 102:     }
 }
 [e $U 355  ]
-"101
-[; ;system.c: 101:     else{
+"103
+[; ;system.c: 103:     else{
 [e :U 354 ]
 {
-"102
-[; ;system.c: 102:         return 0;
+"104
+[; ;system.c: 104:         return 0;
 [e ) -> -> 0 `i `uc ]
 [e $UE 353  ]
-"103
-[; ;system.c: 103:     }
+"105
+[; ;system.c: 105:     }
 }
 [e :U 355 ]
-"104
-[; ;system.c: 104: }
+"106
+[; ;system.c: 106: }
 [e :UE 353 ]
 }
-"107
-[; ;system.c: 107: uint8_t TURN_PRESCALER_OFF(void){
+"109
+[; ;system.c: 109: uint8_t TURN_PRESCALER_OFF(void){
 [v _TURN_PRESCALER_OFF `(uc ~T0 @X0 1 ef ]
 {
 [e :U _TURN_PRESCALER_OFF ]
 [f ]
-"108
-[; ;system.c: 108:     OPTION_REG = OPTION_REG & (1<<3);
+"110
+[; ;system.c: 110:     OPTION_REG = OPTION_REG & (1<<3);
 [e = _OPTION_REG -> & -> _OPTION_REG `i << -> 1 `i -> 3 `i `uc ]
-"109
-[; ;system.c: 109:     return 1;
+"111
+[; ;system.c: 111:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 356  ]
-"110
-[; ;system.c: 110: }
+"112
+[; ;system.c: 112: }
 [e :UE 356 ]
 }
-"113
-[; ;system.c: 113: uint8_t TURN_PRESCALER_ON(void){
+"115
+[; ;system.c: 115: uint8_t TURN_PRESCALER_ON(void){
 [v _TURN_PRESCALER_ON `(uc ~T0 @X0 1 ef ]
 {
 [e :U _TURN_PRESCALER_ON ]
 [f ]
-"114
-[; ;system.c: 114:     OPTION_REG = OPTION_REG & (0<<3);
+"116
+[; ;system.c: 116:     OPTION_REG = OPTION_REG & (0<<3);
 [e = _OPTION_REG -> & -> _OPTION_REG `i << -> 0 `i -> 3 `i `uc ]
-"115
-[; ;system.c: 115:     return 1;
+"117
+[; ;system.c: 117:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 357  ]
-"116
-[; ;system.c: 116: }
+"118
+[; ;system.c: 118: }
 [e :UE 357 ]
 }
-"119
-[; ;system.c: 119: uint8_t ADJUST_AND_SET_PRESCALER(void){
+"121
+[; ;system.c: 121: uint8_t ADJUST_AND_SET_PRESCALER(void){
 [v _ADJUST_AND_SET_PRESCALER `(uc ~T0 @X0 1 ef ]
 {
 [e :U _ADJUST_AND_SET_PRESCALER ]
 [f ]
-"120
-[; ;system.c: 120:     if(prescaler_adjust == DIVIDE_BY_TWO){
+"122
+[; ;system.c: 122:     if(prescaler_adjust == DIVIDE_BY_TWO){
 [e $ ! == -> _prescaler_adjust `i -> _DIVIDE_BY_TWO `i 359  ]
 {
-"121
-[; ;system.c: 121:         uint8_t prescaler_overflow_flag = CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1();
-[v _prescaler_overflow_flag `uc ~T0 @X0 1 a ]
+"123
+[; ;system.c: 123:         prescaler_overflow_flag = CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1();
 [e = _prescaler_overflow_flag ( _CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1 ..  ]
-"122
-[; ;system.c: 122:             if(prescaler_overflow_flag){
+"124
+[; ;system.c: 124:             if(prescaler_overflow_flag){
 [e $ ! != -> _prescaler_overflow_flag `i -> 0 `i 360  ]
 {
-"123
-[; ;system.c: 123:                 TURN_PRESCALER_OFF();
+"125
+[; ;system.c: 125:                 TURN_PRESCALER_OFF();
 [e ( _TURN_PRESCALER_OFF ..  ]
-"124
-[; ;system.c: 124:                 return 1;
+"126
+[; ;system.c: 126:                 return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 358  ]
-"125
-[; ;system.c: 125:             }
+"127
+[; ;system.c: 127:             }
 }
 [e $U 361  ]
-"126
-[; ;system.c: 126:             else{
+"128
+[; ;system.c: 128:             else{
 [e :U 360 ]
 {
-"127
-[; ;system.c: 127:                 TURN_PRESCALER_ON();
-[e ( _TURN_PRESCALER_ON ..  ]
-"128
-[; ;system.c: 128:                 OPTION_REG = prescaler_bits[base_prescaler_bits_index + 1];
-[e = _OPTION_REG *U + &U _prescaler_bits * -> -> + -> _base_prescaler_bits_index `i -> 1 `i `ui `ux -> -> # *U &U _prescaler_bits `ui `ux ]
 "129
-[; ;system.c: 129:             }
+[; ;system.c: 129:                 TURN_PRESCALER_ON();
+[e ( _TURN_PRESCALER_ON ..  ]
+"130
+[; ;system.c: 130:                 OPTION_REG = prescaler_bits[base_prescaler_bits_index + 1];
+[e = _OPTION_REG *U + &U _prescaler_bits * -> -> + -> _base_prescaler_bits_index `i -> 1 `i `ui `ux -> -> # *U &U _prescaler_bits `ui `ux ]
+"131
+[; ;system.c: 131:                 prescaler_final_index = base_prescaler_bits_index + 1;
+[e = _prescaler_final_index -> + -> _base_prescaler_bits_index `i -> 1 `i `uc ]
+"132
+[; ;system.c: 132:             }
 }
 [e :U 361 ]
-"130
-[; ;system.c: 130:     }
+"133
+[; ;system.c: 133:     }
 }
 [e $U 362  ]
-"131
-[; ;system.c: 131:     else if(prescaler_adjust == DIVIDE_BY_FOUR){
+"134
+[; ;system.c: 134:     else if(prescaler_adjust == DIVIDE_BY_FOUR){
 [e :U 359 ]
 [e $ ! == -> _prescaler_adjust `i -> _DIVIDE_BY_FOUR `i 363  ]
 {
-"132
-[; ;system.c: 132:         uint8_t prescaler_overflow_flag = CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1();
-[v _prescaler_overflow_flag `uc ~T0 @X0 1 a ]
+"135
+[; ;system.c: 135:         prescaler_overflow_flag = CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1();
 [e = _prescaler_overflow_flag ( _CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1 ..  ]
-"133
-[; ;system.c: 133:             if(prescaler_overflow_flag){
+"136
+[; ;system.c: 136:             if(prescaler_overflow_flag){
 [e $ ! != -> _prescaler_overflow_flag `i -> 0 `i 364  ]
 {
-"134
-[; ;system.c: 134:                 TURN_PRESCALER_OFF();
+"137
+[; ;system.c: 137:                 TURN_PRESCALER_OFF();
 [e ( _TURN_PRESCALER_OFF ..  ]
-"135
-[; ;system.c: 135:                 return 1;
+"138
+[; ;system.c: 138:                 return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 358  ]
-"136
-[; ;system.c: 136:             }
+"139
+[; ;system.c: 139:             }
 }
 [e $U 365  ]
-"137
-[; ;system.c: 137:             else{
+"140
+[; ;system.c: 140:             else{
 [e :U 364 ]
 {
-"138
-[; ;system.c: 138:                 TURN_PRESCALER_ON();
+"141
+[; ;system.c: 141:                 TURN_PRESCALER_ON();
 [e ( _TURN_PRESCALER_ON ..  ]
-"139
-[; ;system.c: 139:                 OPTION_REG = prescaler_bits[base_prescaler_bits_index + 2];
+"142
+[; ;system.c: 142:                 OPTION_REG = prescaler_bits[base_prescaler_bits_index + 2];
 [e = _OPTION_REG *U + &U _prescaler_bits * -> -> + -> _base_prescaler_bits_index `i -> 2 `i `ui `ux -> -> # *U &U _prescaler_bits `ui `ux ]
-"140
-[; ;system.c: 140:             }
+"143
+[; ;system.c: 143:                 prescaler_final_index = base_prescaler_bits_index + 1;
+[e = _prescaler_final_index -> + -> _base_prescaler_bits_index `i -> 1 `i `uc ]
+"144
+[; ;system.c: 144:             }
 }
 [e :U 365 ]
-"141
-[; ;system.c: 141:     }
+"145
+[; ;system.c: 145:     }
 }
 [e $U 366  ]
-"142
-[; ;system.c: 142:     else if(prescaler_adjust == MULTIPLY_BY_TWO){
+"146
+[; ;system.c: 146:     else if(prescaler_adjust == MULTIPLY_BY_TWO){
 [e :U 363 ]
 [e $ ! == -> _prescaler_adjust `i -> _MULTIPLY_BY_TWO `i 367  ]
 {
-"143
-[; ;system.c: 143:         OPTION_REG = prescaler_bits[base_prescaler_bits_index - 1];
+"147
+[; ;system.c: 147:         OPTION_REG = prescaler_bits[base_prescaler_bits_index - 1];
 [e = _OPTION_REG *U + &U _prescaler_bits * -> -> - -> _base_prescaler_bits_index `i -> 1 `i `ui `ux -> -> # *U &U _prescaler_bits `ui `ux ]
-"144
-[; ;system.c: 144:     }
+"148
+[; ;system.c: 148:         prescaler_final_index = base_prescaler_bits_index - 1;
+[e = _prescaler_final_index -> - -> _base_prescaler_bits_index `i -> 1 `i `uc ]
+"149
+[; ;system.c: 149:     }
 }
 [e $U 368  ]
-"145
-[; ;system.c: 145:     else if(prescaler_adjust == DO_NOTHING){
+"150
+[; ;system.c: 150:     else if(prescaler_adjust == DO_NOTHING){
 [e :U 367 ]
 [e $ ! == -> _prescaler_adjust `i -> _DO_NOTHING `i 369  ]
 {
-"146
-[; ;system.c: 146:         OPTION_REG = prescaler_bits[base_prescaler_bits_index];
+"151
+[; ;system.c: 151:         OPTION_REG = prescaler_bits[base_prescaler_bits_index];
 [e = _OPTION_REG *U + &U _prescaler_bits * -> _base_prescaler_bits_index `ux -> -> # *U &U _prescaler_bits `ui `ux ]
-"147
-[; ;system.c: 147:     }
+"152
+[; ;system.c: 152:         prescaler_final_index = base_prescaler_bits_index;
+[e = _prescaler_final_index _base_prescaler_bits_index ]
+"153
+[; ;system.c: 153:     }
 }
 [e :U 369 ]
 [e :U 368 ]
 [e :U 366 ]
 [e :U 362 ]
-"148
-[; ;system.c: 148:     return 1;
+"154
+[; ;system.c: 154:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 358  ]
-"149
-[; ;system.c: 149: }
+"155
+[; ;system.c: 155: }
 [e :UE 358 ]
 }
-"152
-[; ;system.c: 152:     uint8_t SHORTEN_PERIOD(void){
+"158
+[; ;system.c: 158:     uint8_t SHORTEN_PERIOD(void){
 [v _SHORTEN_PERIOD `(uc ~T0 @X0 1 ef ]
 {
 [e :U _SHORTEN_PERIOD ]
 [f ]
-"154
-[; ;system.c: 154:             uint24_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0) * (1024 +(24*current_symmetry))) >> 12);
+"160
+[; ;system.c: 160:             uint24_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0) * (1024 +(24*current_symmetry))) >> 12);
 [v _twofiftysix_minus_TMR0_final `um ~T0 @X0 1 a ]
 [e = _twofiftysix_minus_TMR0_final >> * - -> -> -> 256 `i `m `um _raw_TMR0 + -> -> -> 1024 `i `m `um * -> -> -> 24 `i `m `um _current_symmetry -> 12 `i ]
-"157
-[; ;system.c: 157:         final_TMR0 = (256 - twofiftysix_minus_TMR0_final);
+"163
+[; ;system.c: 163:         final_TMR0 = (256 - twofiftysix_minus_TMR0_final);
 [e = _final_TMR0 - -> -> -> 256 `i `m `um _twofiftysix_minus_TMR0_final ]
-"158
-[; ;system.c: 158:         prescaler_adjust = DO_NOTHING;
+"164
+[; ;system.c: 164:         prescaler_adjust = DO_NOTHING;
 [e = _prescaler_adjust _DO_NOTHING ]
-"159
-[; ;system.c: 159:         return 1;
+"165
+[; ;system.c: 165:         return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 370  ]
-"161
-[; ;system.c: 161:     }
+"167
+[; ;system.c: 167:     }
 [e :UE 370 ]
 }
-"163
-[; ;system.c: 163:     uint8_t LENGTHEN_PERIOD(void){
+"169
+[; ;system.c: 169:     uint8_t LENGTHEN_PERIOD(void){
 [v _LENGTHEN_PERIOD `(uc ~T0 @X0 1 ef ]
 {
 [e :U _LENGTHEN_PERIOD ]
 [f ]
-"164
-[; ;system.c: 164:         uint24_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0) * (896 -(3*current_symmetry))) >> 9);
+"171
+[; ;system.c: 171:             uint24_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0) * (896 -(3*current_symmetry))) >> 9);
 [v _twofiftysix_minus_TMR0_final `um ~T0 @X0 1 a ]
 [e = _twofiftysix_minus_TMR0_final >> * - -> -> -> 256 `i `m `um _raw_TMR0 - -> -> -> 896 `i `m `um * -> -> -> 3 `i `m `um _current_symmetry -> 9 `i ]
-"166
-[; ;system.c: 166:         if(twofiftysix_minus_TMR0_final > 256){
+"174
+[; ;system.c: 174:         if(twofiftysix_minus_TMR0_final > 256){
 [e $ ! > _twofiftysix_minus_TMR0_final -> -> -> 256 `i `m `um 372  ]
 {
-"167
-[; ;system.c: 167:             twofiftysix_minus_TMR0_final = (twofiftysix_minus_TMR0_final >> 1);
+"175
+[; ;system.c: 175:             twofiftysix_minus_TMR0_final = (twofiftysix_minus_TMR0_final >> 1);
 [e = _twofiftysix_minus_TMR0_final >> _twofiftysix_minus_TMR0_final -> 1 `i ]
-"168
-[; ;system.c: 168:             final_TMR0 = (256 - twofiftysix_minus_TMR0_final);
+"176
+[; ;system.c: 176:             final_TMR0 = (256 - twofiftysix_minus_TMR0_final);
 [e = _final_TMR0 - -> -> -> 256 `i `m `um _twofiftysix_minus_TMR0_final ]
-"169
-[; ;system.c: 169:             prescaler_adjust = MULTIPLY_BY_TWO;
+"177
+[; ;system.c: 177:             prescaler_adjust = MULTIPLY_BY_TWO;
 [e = _prescaler_adjust _MULTIPLY_BY_TWO ]
-"170
-[; ;system.c: 170:         }
+"178
+[; ;system.c: 178:         }
 }
 [e $U 373  ]
-"171
-[; ;system.c: 171:         else{
+"179
+[; ;system.c: 179:         else{
 [e :U 372 ]
 {
-"172
-[; ;system.c: 172:             final_TMR0 = 256 - twofiftysix_minus_TMR0_final;
+"180
+[; ;system.c: 180:             final_TMR0 = 256 - twofiftysix_minus_TMR0_final;
 [e = _final_TMR0 - -> -> -> 256 `i `m `um _twofiftysix_minus_TMR0_final ]
-"173
-[; ;system.c: 173:             prescaler_adjust = DO_NOTHING;
+"181
+[; ;system.c: 181:             prescaler_adjust = DO_NOTHING;
 [e = _prescaler_adjust _DO_NOTHING ]
-"174
-[; ;system.c: 174:         }
+"182
+[; ;system.c: 182:         }
 }
 [e :U 373 ]
-"175
-[; ;system.c: 175:         return 1;
+"183
+[; ;system.c: 183:         return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 371  ]
-"176
-[; ;system.c: 176:     }
+"184
+[; ;system.c: 184:     }
 [e :UE 371 ]
 }
-"180
-[; ;system.c: 180: uint8_t PROCESS_TMR0_AND_PRESCALER_ADJUST(void){
+"188
+[; ;system.c: 188: uint8_t PROCESS_TMR0_AND_PRESCALER_ADJUST(void){
 [v _PROCESS_TMR0_AND_PRESCALER_ADJUST `(uc ~T0 @X0 1 ef ]
 {
 [e :U _PROCESS_TMR0_AND_PRESCALER_ADJUST ]
 [f ]
-"182
-[; ;system.c: 182:         if(current_symmetry == 128){
+"190
+[; ;system.c: 190:         if(current_symmetry == 128){
 [e $ ! == _current_symmetry -> -> -> 128 `i `m `um 375  ]
 {
-"183
-[; ;system.c: 183:             final_TMR0 = raw_TMR0;
+"191
+[; ;system.c: 191:             final_TMR0 = raw_TMR0;
 [e = _final_TMR0 _raw_TMR0 ]
-"184
-[; ;system.c: 184:             prescaler_adjust = DO_NOTHING;
+"192
+[; ;system.c: 192:             prescaler_adjust = DO_NOTHING;
 [e = _prescaler_adjust _DO_NOTHING ]
-"185
-[; ;system.c: 185:         }
+"193
+[; ;system.c: 193:         }
 }
 [e $U 376  ]
-"186
-[; ;system.c: 186:         else{
+"194
+[; ;system.c: 194:         else{
 [e :U 375 ]
 {
-"187
-[; ;system.c: 187:         uint8_t symmetry_status = 0;
+"195
+[; ;system.c: 195:         uint8_t symmetry_status = 0;
 [v _symmetry_status `uc ~T0 @X0 1 a ]
 [e = _symmetry_status -> -> 0 `i `uc ]
-"188
-[; ;system.c: 188:         if(current_symmetry > 128){
+"196
+[; ;system.c: 196:         if(current_symmetry > 128){
 [e $ ! > _current_symmetry -> -> -> 128 `i `m `um 377  ]
 {
-"189
-[; ;system.c: 189:             current_symmetry = 255 - current_symmetry;
+"197
+[; ;system.c: 197:             current_symmetry = 255 - current_symmetry;
 [e = _current_symmetry - -> -> -> 255 `i `m `um _current_symmetry ]
-"190
-[; ;system.c: 190:             symmetry_status = 1;
+"198
+[; ;system.c: 198:             symmetry_status = 1;
 [e = _symmetry_status -> -> 1 `i `uc ]
-"191
-[; ;system.c: 191:         }
+"199
+[; ;system.c: 199:         }
 }
 [e :U 377 ]
-"193
-[; ;system.c: 193:         if((current_halfcycle == 0) && (symmetry_status == 0)){
+"201
+[; ;system.c: 201:         if((current_halfcycle == 0) && (symmetry_status == 0)){
 [e $ ! && == -> _current_halfcycle `i -> 0 `i == -> _symmetry_status `i -> 0 `i 378  ]
 {
-"194
-[; ;system.c: 194:             SHORTEN_PERIOD();
+"202
+[; ;system.c: 202:             SHORTEN_PERIOD();
 [e ( _SHORTEN_PERIOD ..  ]
-"195
-[; ;system.c: 195:         }
+"203
+[; ;system.c: 203:         }
 }
 [e $U 379  ]
-"196
-[; ;system.c: 196:         else if((current_halfcycle == 0) && (symmetry_status == 1)){
+"204
+[; ;system.c: 204:         else if((current_halfcycle == 0) && (symmetry_status == 1)){
 [e :U 378 ]
 [e $ ! && == -> _current_halfcycle `i -> 0 `i == -> _symmetry_status `i -> 1 `i 380  ]
 {
-"197
-[; ;system.c: 197:             LENGTHEN_PERIOD();
+"205
+[; ;system.c: 205:             LENGTHEN_PERIOD();
 [e ( _LENGTHEN_PERIOD ..  ]
-"198
-[; ;system.c: 198:         }
+"206
+[; ;system.c: 206:         }
 }
 [e $U 381  ]
-"199
-[; ;system.c: 199:         else if((current_halfcycle == 1) && (symmetry_status == 0)){
+"207
+[; ;system.c: 207:         else if((current_halfcycle == 1) && (symmetry_status == 0)){
 [e :U 380 ]
 [e $ ! && == -> _current_halfcycle `i -> 1 `i == -> _symmetry_status `i -> 0 `i 382  ]
 {
-"200
-[; ;system.c: 200:             LENGTHEN_PERIOD();
+"208
+[; ;system.c: 208:             LENGTHEN_PERIOD();
 [e ( _LENGTHEN_PERIOD ..  ]
-"201
-[; ;system.c: 201:         }
+"209
+[; ;system.c: 209:         }
 }
 [e $U 383  ]
-"202
-[; ;system.c: 202:         else if((current_halfcycle == 1) && (symmetry_status == 1)){
+"210
+[; ;system.c: 210:         else if((current_halfcycle == 1) && (symmetry_status == 1)){
 [e :U 382 ]
 [e $ ! && == -> _current_halfcycle `i -> 1 `i == -> _symmetry_status `i -> 1 `i 384  ]
 {
-"203
-[; ;system.c: 203:             SHORTEN_PERIOD();
+"211
+[; ;system.c: 211:             SHORTEN_PERIOD();
 [e ( _SHORTEN_PERIOD ..  ]
-"204
-[; ;system.c: 204:         }
+"212
+[; ;system.c: 212:         }
 }
 [e :U 384 ]
 [e :U 383 ]
 [e :U 381 ]
 [e :U 379 ]
-"205
-[; ;system.c: 205:         }
+"213
+[; ;system.c: 213:         }
 }
 [e :U 376 ]
-"213
-[; ;system.c: 213:     ADJUST_AND_SET_PRESCALER();
+"215
+[; ;system.c: 215:         ADJUST_AND_SET_PRESCALER();
 [e ( _ADJUST_AND_SET_PRESCALER ..  ]
-"214
-[; ;system.c: 214:     return 1;
+"218
+[; ;system.c: 218:         if(prescaler_overflow_flag == 1){
+[e $ ! == -> _prescaler_overflow_flag `i -> 1 `i 385  ]
+{
+"219
+[; ;system.c: 219:             final_TMR0 = final_TMR0 + 2;
+[e = _final_TMR0 + _final_TMR0 -> -> -> 2 `i `m `um ]
+"220
+[; ;system.c: 220:         }
+}
+[e $U 386  ]
+"221
+[; ;system.c: 221:         else if(prescaler_final_index == 7){
+[e :U 385 ]
+[e $ ! == -> _prescaler_final_index `i -> 7 `i 387  ]
+{
+"222
+[; ;system.c: 222:             final_TMR0 = final_TMR0 + 1;
+[e = _final_TMR0 + _final_TMR0 -> -> -> 1 `i `m `um ]
+"223
+[; ;system.c: 223:         }
+}
+[e :U 387 ]
+[e :U 386 ]
+"232
+[; ;system.c: 232:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 374  ]
-"215
-[; ;system.c: 215: }
+"233
+[; ;system.c: 233: }
 [e :UE 374 ]
 }

@@ -4911,6 +4911,8 @@ char *tempnam(const char *, const char *);
     volatile extern uint8_t current_one_quadrant_index;
     volatile extern uint8_t current_halfcycle;
     volatile extern uint8_t current_quadrant;
+    volatile extern uint8_t prescaler_overflow_flag;
+    volatile extern uint8_t prescaler_final_index;
 # 6 "main.c" 2
 # 1 "./wavetables.h" 1
 

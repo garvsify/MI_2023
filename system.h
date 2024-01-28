@@ -25,10 +25,10 @@
     #define SHORTEN_PERIOD_FRACTION_16_BIT_NUMBER 47926
     #define LENGTHEN_PERIOD_FRACTION_16_BIT_NUMBER 17609
     #define RESOLUTION_OF_TOTAL_SYMMETRY_FRACTION 16
-    #define SHORTEN_POWER_OF_TWO_CONSTANT 1024
-    #define SHORTEN_POWER_OF_TWO_DIVISOR 12
-    #define LENGTHEN_CONSTANT 896
-    #define LENGTHEN_POWER_OF_TWO_DIVISOR 9
+    #define SHORTEN_POWER_OF_TWO_CONSTANT_8_BIT_SYM 1024
+    #define SHORTEN_POWER_OF_TWO_DIVISOR_8_BIT_SYM 12
+    #define LENGTHEN_CONSTANT_8_BIT_SYM 896
+    #define LENGTHEN_POWER_OF_TWO_DIVISOR_8_BIT_SYM 9
     #define SYMMETRY_ADC_RESOLUTION 8
     #define SYMMETRY_ON_OR_OFF 1
     #define DEPTH_ON_OR_OFF 1
@@ -99,6 +99,8 @@
     volatile extern uint8_t current_one_quadrant_index;
     volatile extern uint8_t current_halfcycle;
     volatile extern uint8_t current_quadrant;
+    volatile extern uint8_t prescaler_overflow_flag;
+    volatile extern uint8_t prescaler_final_index;
 
 #endif
 

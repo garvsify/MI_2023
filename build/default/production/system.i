@@ -4873,6 +4873,8 @@ double yn(int, double);
     volatile extern uint8_t current_one_quadrant_index;
     volatile extern uint8_t current_halfcycle;
     volatile extern uint8_t current_quadrant;
+    volatile extern uint8_t prescaler_overflow_flag;
+    volatile extern uint8_t prescaler_final_index;
 # 2 "system.c" 2
 
     volatile uint8_t current_waveshape = 0;
@@ -4894,6 +4896,8 @@ double yn(int, double);
     volatile uint8_t duty_low_byte;
     volatile uint8_t duty_high_byte;
     volatile uint16_t duty = 0;
+    volatile uint8_t prescaler_overflow_flag = 0;
+    volatile uint8_t prescaler_final_index = 0;
 
 
 uint8_t DETERMINE_WAVESHAPE(void){
@@ -4993,7 +4997,7 @@ uint8_t TURN_PRESCALER_ON(void){
 
 uint8_t ADJUST_AND_SET_PRESCALER(void){
     if(prescaler_adjust == DIVIDE_BY_TWO){
-        uint8_t prescaler_overflow_flag = CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1();
+        prescaler_overflow_flag = CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1();
             if(prescaler_overflow_flag){
                 TURN_PRESCALER_OFF();
                 return 1;
@@ -5001,10 +5005,11 @@ uint8_t ADJUST_AND_SET_PRESCALER(void){
             else{
                 TURN_PRESCALER_ON();
                 OPTION_REG = prescaler_bits[base_prescaler_bits_index + 1];
+                prescaler_final_index = base_prescaler_bits_index + 1;
             }
     }
     else if(prescaler_adjust == DIVIDE_BY_FOUR){
-        uint8_t prescaler_overflow_flag = CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1();
+        prescaler_overflow_flag = CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1();
             if(prescaler_overflow_flag){
                 TURN_PRESCALER_OFF();
                 return 1;
@@ -5012,13 +5017,16 @@ uint8_t ADJUST_AND_SET_PRESCALER(void){
             else{
                 TURN_PRESCALER_ON();
                 OPTION_REG = prescaler_bits[base_prescaler_bits_index + 2];
+                prescaler_final_index = base_prescaler_bits_index + 1;
             }
     }
     else if(prescaler_adjust == MULTIPLY_BY_TWO){
         OPTION_REG = prescaler_bits[base_prescaler_bits_index - 1];
+        prescaler_final_index = base_prescaler_bits_index - 1;
     }
     else if(prescaler_adjust == DO_NOTHING){
         OPTION_REG = prescaler_bits[base_prescaler_bits_index];
+        prescaler_final_index = base_prescaler_bits_index;
     }
     return 1;
 }
@@ -5036,7 +5044,9 @@ uint8_t ADJUST_AND_SET_PRESCALER(void){
     }
 
     uint8_t LENGTHEN_PERIOD(void){
-        uint24_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0) * (896 -(3*current_symmetry))) >> 9);
+
+            uint24_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0) * (896 -(3*current_symmetry))) >> 9);
+
 
         if(twofiftysix_minus_TMR0_final > 256){
             twofiftysix_minus_TMR0_final = (twofiftysix_minus_TMR0_final >> 1);
@@ -5079,12 +5089,15 @@ uint8_t PROCESS_TMR0_AND_PRESCALER_ADJUST(void){
         }
         }
 
+        ADJUST_AND_SET_PRESCALER();
 
 
-
-
-
-
-    ADJUST_AND_SET_PRESCALER();
+        if(prescaler_overflow_flag == 1){
+            final_TMR0 = final_TMR0 + 2;
+        }
+        else if(prescaler_final_index == 7){
+            final_TMR0 = final_TMR0 + 1;
+        }
+# 232 "system.c"
     return 1;
 }
