@@ -4951,7 +4951,7 @@ uint8_t GET_CURRENT_POT_VALUES(void){
 
 uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void){
     current_speed_linear_32 = current_speed_linear;
-    speed_control_32 = current_speed_linear_32 * 580;;
+    speed_control_32 = current_speed_linear_32 * 600;;
     speed_control_32 = speed_control_32 >> 10;
     speed_control = (uint16_t) speed_control_32;
 
@@ -5017,7 +5017,7 @@ uint8_t ADJUST_AND_SET_PRESCALER(void){
             else{
                 TURN_PRESCALER_ON();
                 OPTION_REG = prescaler_bits[base_prescaler_bits_index + 2];
-                prescaler_final_index = base_prescaler_bits_index + 1;
+                prescaler_final_index = base_prescaler_bits_index + 2;
             }
     }
     else if(prescaler_adjust == MULTIPLY_BY_TWO){
@@ -5098,6 +5098,6 @@ uint8_t PROCESS_TMR0_AND_PRESCALER_ADJUST(void){
         else if(prescaler_final_index == 7){
             final_TMR0 = final_TMR0 + 1;
         }
-# 232 "system.c"
+# 233 "system.c"
     return 1;
 }

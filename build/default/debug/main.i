@@ -4949,7 +4949,7 @@ void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
     TMR0 = (uint8_t)final_TMR0;
     if(TMR0IF == 1){
     GIE = 0;
-    LATC5 = 1;
+
     TMR0IF = 0;
 
     if(current_waveshape == 0){
@@ -4964,7 +4964,7 @@ void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
     if(current_one_quadrant_index == 128){
         current_quadrant = 1;
     }
-    if(current_one_quadrant_index == 0){
+    else if(current_one_quadrant_index == 0){
         current_quadrant = 0;
         if(current_halfcycle == 0){
             current_halfcycle = 1;
@@ -4973,15 +4973,15 @@ void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
             current_halfcycle = 0;
         }
     }
-        if(current_quadrant == 0){
-            current_one_quadrant_index++;
-        }
-        else{
-            current_one_quadrant_index--;
-        }
-        if(current_halfcycle == 1){
-        duty = 1023 - duty;
-        }
+    if(current_quadrant == 0){
+        current_one_quadrant_index++;
+    }
+    else{
+        current_one_quadrant_index--;
+    }
+    if(current_halfcycle == 1){
+    duty = 1023 - duty;
+    }
 
 
 
@@ -5036,14 +5036,13 @@ void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
     SET_DUTY_CCP3(&duty);
 
 
-    LATC5 = 0;
+
     GIE = 1;
     }
 }
 
 
 void main(void) {
-
     CONFIG_SYSTEM();
     TURN_ON_CCP3_PWM();
     CONFIG_TMR0_INTERRUPT();
@@ -5057,5 +5056,5 @@ void main(void) {
         GET_CURRENT_POT_VALUES();
         PROCESS_RAW_SPEED_AND_PRESCALER();
         PROCESS_TMR0_AND_PRESCALER_ADJUST();
-        }
+    }
 }

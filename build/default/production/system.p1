@@ -810,8 +810,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;system.c: 76:     current_speed_linear_32 = current_speed_linear;
 [e = _current_speed_linear_32 -> _current_speed_linear `ul ]
 "77
-[; ;system.c: 77:     speed_control_32 = current_speed_linear_32 * 580;;
-[e = _speed_control_32 * _current_speed_linear_32 -> -> -> 580 `i `l `ul ]
+[; ;system.c: 77:     speed_control_32 = current_speed_linear_32 * 600;;
+[e = _speed_control_32 * _current_speed_linear_32 -> -> -> 600 `i `l `ul ]
 "78
 [; ;system.c: 78:     speed_control_32 = speed_control_32 >> 10;
 [e = _speed_control_32 >> _speed_control_32 -> 10 `i ]
@@ -1014,8 +1014,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;system.c: 142:                 OPTION_REG = prescaler_bits[base_prescaler_bits_index + 2];
 [e = _OPTION_REG *U + &U _prescaler_bits * -> -> + -> _base_prescaler_bits_index `i -> 2 `i `ui `ux -> -> # *U &U _prescaler_bits `ui `ux ]
 "143
-[; ;system.c: 143:                 prescaler_final_index = base_prescaler_bits_index + 1;
-[e = _prescaler_final_index -> + -> _base_prescaler_bits_index `i -> 1 `i `uc ]
+[; ;system.c: 143:                 prescaler_final_index = base_prescaler_bits_index + 2;
+[e = _prescaler_final_index -> + -> _base_prescaler_bits_index `i -> 2 `i `uc ]
 "144
 [; ;system.c: 144:             }
 }
@@ -1261,11 +1261,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 387 ]
 [e :U 386 ]
-"232
-[; ;system.c: 232:     return 1;
+"233
+[; ;system.c: 233:     return 1;
 [e ) -> -> 1 `i `uc ]
 [e $UE 374  ]
-"233
-[; ;system.c: 233: }
+"234
+[; ;system.c: 234: }
 [e :UE 374 ]
 }

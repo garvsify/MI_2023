@@ -11,7 +11,7 @@
     #define TRIANGLE_MODE 0
     #define SINE_MODE 1
     #define SQUARE_MODE 2
-    #define NUMBER_OF_FREQUENCY_STEPS 580; //883 in calcs, seems to be wrong, but 650 gives 15Hz max freq.
+    #define NUMBER_OF_FREQUENCY_STEPS 600; //883 in calcs, seems to be wrong, but 650 gives 15Hz max freq.
     #define FIRST_HALFCYCLE 0
     #define SECOND_HALFCYCLE 1
     #define FIRST_QUADRANT 0
@@ -101,7 +101,6 @@
     volatile extern uint8_t current_quadrant;
     volatile extern uint8_t prescaler_overflow_flag;
     volatile extern uint8_t prescaler_final_index;
-
 #endif
 
 

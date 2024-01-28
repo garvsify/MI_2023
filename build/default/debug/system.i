@@ -4935,23 +4935,14 @@ uint8_t GET_CURRENT_POT_VALUES(void){
 
         current_depth = DO_ADC(&depth_adc_config_value);
         current_depth = current_depth >> 2;
-
-
-        current_symmetry = DO_ADC(&symmetry_adc_config_value);
-
-            current_symmetry = current_symmetry >> 2;
-
-
-
-
-
+# 71 "system.c"
     return 1;
 }
 
 
 uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void){
     current_speed_linear_32 = current_speed_linear;
-    speed_control_32 = current_speed_linear_32 * 800;;
+    speed_control_32 = current_speed_linear_32 * 600;;
     speed_control_32 = speed_control_32 >> 10;
     speed_control = (uint16_t) speed_control_32;
 
@@ -5017,7 +5008,7 @@ uint8_t ADJUST_AND_SET_PRESCALER(void){
             else{
                 TURN_PRESCALER_ON();
                 OPTION_REG = prescaler_bits[base_prescaler_bits_index + 2];
-                prescaler_final_index = base_prescaler_bits_index + 1;
+                prescaler_final_index = base_prescaler_bits_index + 2;
             }
     }
     else if(prescaler_adjust == MULTIPLY_BY_TWO){
@@ -5030,74 +5021,12 @@ uint8_t ADJUST_AND_SET_PRESCALER(void){
     }
     return 1;
 }
-
-
-    uint8_t SHORTEN_PERIOD(void){
-
-            uint24_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0) * (1024 +(24*current_symmetry))) >> 12);
-
-
-        final_TMR0 = (256 - twofiftysix_minus_TMR0_final);
-        prescaler_adjust = DO_NOTHING;
-        return 1;
-
-    }
-
-    uint8_t LENGTHEN_PERIOD(void){
-
-            uint24_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0) * (896 -(3*current_symmetry))) >> 9);
-
-
-        if(twofiftysix_minus_TMR0_final > 256){
-            twofiftysix_minus_TMR0_final = (twofiftysix_minus_TMR0_final >> 1);
-            final_TMR0 = (256 - twofiftysix_minus_TMR0_final);
-            prescaler_adjust = MULTIPLY_BY_TWO;
-        }
-        else{
-            final_TMR0 = 256 - twofiftysix_minus_TMR0_final;
-            prescaler_adjust = DO_NOTHING;
-        }
-        return 1;
-    }
-
-
-
+# 188 "system.c"
 uint8_t PROCESS_TMR0_AND_PRESCALER_ADJUST(void){
-
-        if(current_symmetry == 128){
-            final_TMR0 = raw_TMR0;
-            prescaler_adjust = DO_NOTHING;
-        }
-        else{
-        uint8_t symmetry_status = 0;
-        if(current_symmetry > 128){
-            current_symmetry = 255 - current_symmetry;
-            symmetry_status = 1;
-        }
-
-        if((current_halfcycle == 0) && (symmetry_status == 0)){
-            SHORTEN_PERIOD();
-        }
-        else if((current_halfcycle == 0) && (symmetry_status == 1)){
-            LENGTHEN_PERIOD();
-        }
-        else if((current_halfcycle == 1) && (symmetry_status == 0)){
-            LENGTHEN_PERIOD();
-        }
-        else if((current_halfcycle == 1) && (symmetry_status == 1)){
-            SHORTEN_PERIOD();
-        }
-        }
-
-        ADJUST_AND_SET_PRESCALER();
+# 228 "system.c"
+        final_TMR0 = raw_TMR0;
+        prescaler_adjust = DO_NOTHING;
 
 
-        if(prescaler_overflow_flag == 1){
-            final_TMR0 = final_TMR0 + 2;
-        }
-        else if(prescaler_final_index == 7){
-            final_TMR0 = final_TMR0 + 1;
-        }
-# 232 "system.c"
     return 1;
 }

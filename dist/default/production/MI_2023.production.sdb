@@ -111,8 +111,6 @@
 [v _GIE GIE `VEb  1 e 0 @95 ]
 "6945
 [v _GO_nDONE GO_nDONE `VEb  1 e 0 @1257 ]
-"7104
-[v _LATC5 LATC5 `VEb  1 e 0 @2165 ]
 "7446
 [v _SRLEN SRLEN `VEb  1 e 0 @2263 ]
 "7668
@@ -172,7 +170,7 @@
 "127 /Users/jamesgarvey/Documents/Git/MI_2023/main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"143
+"142
 } 0
 "73 /Users/jamesgarvey/Documents/Git/MI_2023/config.c
 [v _TURN_ON_CCP3_PWM TURN_ON_CCP3_PWM `(uc  1 e 1 0 ]
@@ -184,7 +182,7 @@
 {
 "195
 [v PROCESS_TMR0_AND_PRESCALER_ADJUST@symmetry_status symmetry_status `uc  1 a 1 18 ]
-"233
+"234
 } 0
 "158
 [v _SHORTEN_PERIOD SHORTEN_PERIOD `(uc  1 e 1 0 ]

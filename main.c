@@ -31,7 +31,7 @@ void __interrupt() INTERRUPT_InterruptManager(void){
     TMR0 = (uint8_t)final_TMR0; //this line must go here, or at least very near the beginning!
     if(TMR0IF == 1){
     GIE = 0; //disable interrupts
-    LATC5 = 1; //start ISR length measurement
+    //LATC5 = 1; //start ISR length measurement
     TMR0IF = 0; //clear TMR0 interrupt flag
     
     if(current_waveshape == TRIANGLE_MODE){
@@ -46,7 +46,7 @@ void __interrupt() INTERRUPT_InterruptManager(void){
     if(current_one_quadrant_index == MAX_QUADRANT_INDEX){
         current_quadrant = SECOND_QUADRANT;
     }
-    if(current_one_quadrant_index == MIN_QUADRANT_INDEX){
+    else if(current_one_quadrant_index == MIN_QUADRANT_INDEX){
         current_quadrant = FIRST_QUADRANT;
         if(current_halfcycle == FIRST_HALFCYCLE){
             current_halfcycle = SECOND_HALFCYCLE;
@@ -55,15 +55,15 @@ void __interrupt() INTERRUPT_InterruptManager(void){
             current_halfcycle = FIRST_HALFCYCLE;
         }
     }
-        if(current_quadrant == FIRST_QUADRANT){
-            current_one_quadrant_index++;
-        }
-        else{
-            current_one_quadrant_index--;
-        }
-        if(current_halfcycle == SECOND_HALFCYCLE){
-        duty = 1023 - duty;
-        }
+    if(current_quadrant == FIRST_QUADRANT){
+        current_one_quadrant_index++;
+    }
+    else{
+        current_one_quadrant_index--;
+    }
+    if(current_halfcycle == SECOND_HALFCYCLE){
+    duty = 1023 - duty;
+    }
     
     #if DEPTH_ON_OR_OFF == 1
         //Apply Depth
@@ -118,14 +118,13 @@ void __interrupt() INTERRUPT_InterruptManager(void){
     SET_DUTY_CCP3(&duty);
     
     //Finish Up
-    LATC5 = 0; //finish ISR length measurement
+    //LATC5 = 0; //finish ISR length measurement
     GIE = 1;
     }
 }
 
 
 void main(void) {
-    
     CONFIG_SYSTEM();
     TURN_ON_CCP3_PWM();
     CONFIG_TMR0_INTERRUPT();
@@ -139,7 +138,7 @@ void main(void) {
         GET_CURRENT_POT_VALUES();
         PROCESS_RAW_SPEED_AND_PRESCALER();
         PROCESS_TMR0_AND_PRESCALER_ADJUST();
-        }
+    }
 }
        
        
