@@ -4853,12 +4853,12 @@ double yn(int, double);
     uint16_t DO_ADC(const uint8_t *waveshape_adc_config_value);
 
 
-    volatile extern uint32_t final_TMR0;
+    volatile extern uint24_t final_TMR0;
     volatile extern uint8_t prescaler_adjust;
-    volatile extern uint32_t raw_TMR0;
+    volatile extern uint24_t raw_TMR0;
     volatile extern uint8_t base_prescaler_bits_index;
     volatile extern uint8_t symmetry_status;
-    volatile extern uint32_t symmetry_total;
+    volatile extern uint24_t symmetry_total;
     volatile extern uint16_t speed_control;
     volatile extern uint32_t speed_control_32;
     volatile extern uint8_t how_many_128;
@@ -4869,7 +4869,7 @@ double yn(int, double);
     volatile extern uint16_t current_speed_linear;
     volatile extern uint32_t current_speed_linear_32;
     volatile extern uint16_t current_depth;
-    volatile extern uint32_t current_symmetry;
+    volatile extern uint24_t current_symmetry;
     volatile extern uint8_t current_one_quadrant_index;
     volatile extern uint8_t current_halfcycle;
     volatile extern uint8_t current_quadrant;
@@ -4879,14 +4879,14 @@ double yn(int, double);
     volatile uint16_t current_speed_linear = 0;
     volatile uint32_t current_speed_linear_32 = 0;
     volatile uint16_t current_depth = 0;
-    volatile uint32_t current_symmetry = 0;
+    volatile uint24_t current_symmetry = 0;
     volatile uint8_t current_one_quadrant_index = 0;
     volatile uint8_t current_halfcycle = 0;
     volatile uint8_t current_quadrant = 0;
     volatile uint8_t how_many_128 = 0;
-    volatile uint32_t final_TMR0 = 0;
+    volatile uint24_t final_TMR0 = 0;
     volatile uint8_t prescaler_adjust = 0;
-    volatile uint32_t raw_TMR0 = 0;
+    volatile uint24_t raw_TMR0 = 0;
     volatile uint8_t base_prescaler_bits_index = 0;
     volatile uint8_t symmetry_status = 0;
     volatile uint16_t speed_control = 0;
@@ -4947,7 +4947,7 @@ uint8_t GET_CURRENT_POT_VALUES(void){
 
 uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void){
     current_speed_linear_32 = current_speed_linear;
-    speed_control_32 = current_speed_linear_32 * 600;;
+    speed_control_32 = current_speed_linear_32 * 580;;
     speed_control_32 = speed_control_32 >> 10;
     speed_control = (uint16_t) speed_control_32;
 
@@ -4963,17 +4963,56 @@ uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void){
 
 
             base_prescaler_bits_index = (uint8_t)(how_many_128 + 2);
-# 100 "system.c"
-    }
+        }
     return 1;
 }
-# 128 "system.c"
+
+
+uint8_t CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1(void){
+    if((base_prescaler_bits_index + 1) > 7){
+
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+
+uint8_t TURN_PRESCALER_OFF(void){
+    OPTION_REG = OPTION_REG & (1<<3);
+    return 1;
+}
+
+
+uint8_t TURN_PRESCALER_ON(void){
+    OPTION_REG = OPTION_REG & (0<<3);
+    return 1;
+}
+
+
 uint8_t ADJUST_AND_SET_PRESCALER(void){
     if(prescaler_adjust == DIVIDE_BY_TWO){
-        OPTION_REG = prescaler_bits[base_prescaler_bits_index + 1];
+        uint8_t prescaler_overflow_flag = CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1();
+            if(prescaler_overflow_flag){
+                TURN_PRESCALER_OFF();
+                return 1;
+            }
+            else{
+                TURN_PRESCALER_ON();
+                OPTION_REG = prescaler_bits[base_prescaler_bits_index + 1];
+            }
     }
     else if(prescaler_adjust == DIVIDE_BY_FOUR){
-        OPTION_REG = prescaler_bits[base_prescaler_bits_index + 2];
+        uint8_t prescaler_overflow_flag = CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1();
+            if(prescaler_overflow_flag){
+                TURN_PRESCALER_OFF();
+                return 1;
+            }
+            else{
+                TURN_PRESCALER_ON();
+                OPTION_REG = prescaler_bits[base_prescaler_bits_index + 2];
+            }
     }
     else if(prescaler_adjust == MULTIPLY_BY_TWO){
         OPTION_REG = prescaler_bits[base_prescaler_bits_index - 1];

@@ -11,9 +11,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;/Applications/microchip/mplabx/v6.15/packs/Microchip/PIC12-16F1xxx_DFP/1.6.241/xc8/pic/include/proc/pic16f1824.h: 682: extern volatile unsigned char TMR0 __attribute__((address(0x015)));
 [v _TMR0 `Vuc ~T0 @X0 0 e@21 ]
 "82 ./system.h
-[; ;./system.h: 82:     volatile extern uint32_t final_TMR0;
-[v _final_TMR0 `Vul ~T0 @X0 0 e ]
-"94
+[; ;./system.h: 82:     volatile extern uint24_t final_TMR0;
+[v _final_TMR0 `Vum ~T0 @X0 0 e ]
+"7104 /Applications/microchip/mplabx/v6.15/packs/Microchip/PIC12-16F1xxx_DFP/1.6.241/xc8/pic/include/proc/pic16f1824.h
+[; ;/Applications/microchip/mplabx/v6.15/packs/Microchip/PIC12-16F1xxx_DFP/1.6.241/xc8/pic/include/proc/pic16f1824.h: 7104: extern volatile __bit LATC5 __attribute__((address(0x875)));
+[v _LATC5 `Vb ~T0 @X0 0 e@2165 ]
+"94 ./system.h
 [; ;./system.h: 94:     volatile extern uint8_t current_waveshape;
 [v _current_waveshape `Vuc ~T0 @X0 0 e ]
 "91
@@ -968,6 +971,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "33
 [; ;main.c: 33:     TMR0 = (uint8_t)final_TMR0;
 [e = _TMR0 -> _final_TMR0 `uc ]
+"34
+[; ;main.c: 34:     LATC5 = 1;
+[e = _LATC5 -> -> 1 `i `b ]
 "35
 [; ;main.c: 35:     TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
@@ -1179,6 +1185,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "115
 [; ;main.c: 115:     SET_DUTY_CCP3(&duty);
 [e ( _SET_DUTY_CCP3 (1 &U _duty ]
+"118
+[; ;main.c: 118:     LATC5 = 0;
+[e = _LATC5 -> -> 0 `i `b ]
 "119
 [; ;main.c: 119:     GIE = 1;
 [e = _GIE -> -> 1 `i `b ]

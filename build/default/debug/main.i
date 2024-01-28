@@ -4891,12 +4891,12 @@ char *tempnam(const char *, const char *);
     uint16_t DO_ADC(const uint8_t *waveshape_adc_config_value);
 
 
-    volatile extern uint32_t final_TMR0;
+    volatile extern uint24_t final_TMR0;
     volatile extern uint8_t prescaler_adjust;
-    volatile extern uint32_t raw_TMR0;
+    volatile extern uint24_t raw_TMR0;
     volatile extern uint8_t base_prescaler_bits_index;
     volatile extern uint8_t symmetry_status;
-    volatile extern uint32_t symmetry_total;
+    volatile extern uint24_t symmetry_total;
     volatile extern uint16_t speed_control;
     volatile extern uint32_t speed_control_32;
     volatile extern uint8_t how_many_128;
@@ -4907,7 +4907,7 @@ char *tempnam(const char *, const char *);
     volatile extern uint16_t current_speed_linear;
     volatile extern uint32_t current_speed_linear_32;
     volatile extern uint16_t current_depth;
-    volatile extern uint32_t current_symmetry;
+    volatile extern uint24_t current_symmetry;
     volatile extern uint8_t current_one_quadrant_index;
     volatile extern uint8_t current_halfcycle;
     volatile extern uint8_t current_quadrant;
@@ -4947,7 +4947,7 @@ void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
     if(TMR0IF == 1){
     GIE = 0;
     TMR0 = (uint8_t)final_TMR0;
-
+    LATC5 = 1;
     TMR0IF = 0;
 
     if(current_waveshape == 0){
@@ -5031,7 +5031,7 @@ void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
     SET_DUTY_CCP3(&duty);
 
 
-
+    LATC5 = 0;
     GIE = 1;
     }
 }

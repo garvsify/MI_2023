@@ -5,6 +5,8 @@
 [d frameptr 6 ]
 "10 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
+"15 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul24.c
+[v ___tmul __tmul `(um  1 e 3 0 ]
 "15 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "4 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul8_16.c
@@ -41,13 +43,19 @@
 [v _GET_CURRENT_POT_VALUES GET_CURRENT_POT_VALUES `(uc  1 e 1 0 ]
 "73
 [v _PROCESS_RAW_SPEED_AND_PRESCALER PROCESS_RAW_SPEED_AND_PRESCALER `(uc  1 e 1 0 ]
-"128
+"96
+[v _CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1 CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1 `(uc  1 e 1 0 ]
+"107
+[v _TURN_PRESCALER_OFF TURN_PRESCALER_OFF `(uc  1 e 1 0 ]
+"113
+[v _TURN_PRESCALER_ON TURN_PRESCALER_ON `(uc  1 e 1 0 ]
+"119
 [v _ADJUST_AND_SET_PRESCALER ADJUST_AND_SET_PRESCALER `(uc  1 e 1 0 ]
-"145
+"152
 [v _SHORTEN_PERIOD SHORTEN_PERIOD `(uc  1 e 1 0 ]
-"156
+"163
 [v _LENGTHEN_PERIOD LENGTHEN_PERIOD `(uc  1 e 1 0 ]
-"173
+"180
 [v _PROCESS_TMR0_AND_PRESCALER_ADJUST PROCESS_TMR0_AND_PRESCALER_ADJUST `(uc  1 e 1 0 ]
 "51 /Users/jamesgarvey/Documents/Git/MI_2023/system.h
 [v _prescaler_bits prescaler_bits `DC[8]uc  1 e 8 0 ]
@@ -103,6 +111,8 @@
 [v _GIE GIE `VEb  1 e 0 @95 ]
 "6945
 [v _GO_nDONE GO_nDONE `VEb  1 e 0 @1257 ]
+"7104
+[v _LATC5 LATC5 `VEb  1 e 0 @2165 ]
 "7446
 [v _SRLEN SRLEN `VEb  1 e 0 @2263 ]
 "7668
@@ -126,7 +136,7 @@
 "6
 [v _current_depth current_depth `VEus  1 e 2 0 ]
 "7
-[v _current_symmetry current_symmetry `VEul  1 e 4 0 ]
+[v _current_symmetry current_symmetry `VEum  1 e 3 0 ]
 "8
 [v _current_one_quadrant_index current_one_quadrant_index `VEuc  1 e 1 0 ]
 "9
@@ -136,11 +146,11 @@
 "11
 [v _how_many_128 how_many_128 `VEuc  1 e 1 0 ]
 "12
-[v _final_TMR0 final_TMR0 `VEul  1 e 4 0 ]
+[v _final_TMR0 final_TMR0 `VEum  1 e 3 0 ]
 "13
 [v _prescaler_adjust prescaler_adjust `VEuc  1 e 1 0 ]
 "14
-[v _raw_TMR0 raw_TMR0 `VEul  1 e 4 0 ]
+[v _raw_TMR0 raw_TMR0 `VEum  1 e 3 0 ]
 "15
 [v _base_prescaler_bits_index base_prescaler_bits_index `VEuc  1 e 1 0 ]
 "16
@@ -165,38 +175,67 @@
 {
 "81
 } 0
-"173 /Users/jamesgarvey/Documents/Git/MI_2023/system.c
+"180 /Users/jamesgarvey/Documents/Git/MI_2023/system.c
 [v _PROCESS_TMR0_AND_PRESCALER_ADJUST PROCESS_TMR0_AND_PRESCALER_ADJUST `(uc  1 e 1 0 ]
 {
-"180
-[v PROCESS_TMR0_AND_PRESCALER_ADJUST@symmetry_status symmetry_status `uc  1 a 1 31 ]
-"208
+"187
+[v PROCESS_TMR0_AND_PRESCALER_ADJUST@symmetry_status symmetry_status `uc  1 a 1 18 ]
+"215
 } 0
-"145
+"152
 [v _SHORTEN_PERIOD SHORTEN_PERIOD `(uc  1 e 1 0 ]
 {
-"147
-[v SHORTEN_PERIOD@twofiftysix_minus_TMR0_final twofiftysix_minus_TMR0_final `um  1 a 3 24 ]
 "154
+[v SHORTEN_PERIOD@twofiftysix_minus_TMR0_final twofiftysix_minus_TMR0_final `um  1 a 3 12 ]
+"161
 } 0
-"156
+"163
 [v _LENGTHEN_PERIOD LENGTHEN_PERIOD `(uc  1 e 1 0 ]
 {
-"157
-[v LENGTHEN_PERIOD@twofiftysix_minus_TMR0_final twofiftysix_minus_TMR0_final `um  1 a 3 24 ]
-"169
+"164
+[v LENGTHEN_PERIOD@twofiftysix_minus_TMR0_final twofiftysix_minus_TMR0_final `um  1 a 3 15 ]
+"176
 } 0
-"128
+"15 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul24.c
+[v ___tmul __tmul `(um  1 e 3 0 ]
+{
+"17
+[v ___tmul@product product `um  1 a 3 6 ]
+"15
+[v ___tmul@multiplier multiplier `um  1 p 3 0 ]
+[v ___tmul@multiplicand multiplicand `um  1 p 3 3 ]
+"99
+} 0
+"119 /Users/jamesgarvey/Documents/Git/MI_2023/system.c
 [v _ADJUST_AND_SET_PRESCALER ADJUST_AND_SET_PRESCALER `(uc  1 e 1 0 ]
 {
-"142
+"132
+[v ADJUST_AND_SET_PRESCALER@prescaler_overflow_flag_189 prescaler_overflow_flag `uc  1 a 1 4 ]
+"121
+[v ADJUST_AND_SET_PRESCALER@prescaler_overflow_flag prescaler_overflow_flag `uc  1 a 1 3 ]
+"149
+} 0
+"113
+[v _TURN_PRESCALER_ON TURN_PRESCALER_ON `(uc  1 e 1 0 ]
+{
+"116
+} 0
+"107
+[v _TURN_PRESCALER_OFF TURN_PRESCALER_OFF `(uc  1 e 1 0 ]
+{
+"110
+} 0
+"96
+[v _CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1 CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1 `(uc  1 e 1 0 ]
+{
+"104
 } 0
 "73
 [v _PROCESS_RAW_SPEED_AND_PRESCALER PROCESS_RAW_SPEED_AND_PRESCALER `(uc  1 e 1 0 ]
 {
 "84
-[v PROCESS_RAW_SPEED_AND_PRESCALER@speed_control_subtracted speed_control_subtracted `us  1 a 2 17 ]
-"102
+[v PROCESS_RAW_SPEED_AND_PRESCALER@speed_control_subtracted speed_control_subtracted `us  1 a 2 16 ]
+"93
 } 0
 "15 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
