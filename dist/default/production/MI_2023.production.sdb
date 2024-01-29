@@ -5,8 +5,6 @@
 [d frameptr 6 ]
 "10 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
-"15 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul24.c
-[v ___tmul __tmul `(um  1 e 3 0 ]
 "15 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "4 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul8_16.c
@@ -53,19 +51,19 @@
 [v _ADJUST_AND_SET_PRESCALER ADJUST_AND_SET_PRESCALER `(uc  1 e 1 0 ]
 "158
 [v _SHORTEN_PERIOD SHORTEN_PERIOD `(uc  1 e 1 0 ]
-"169
+"171
 [v _LENGTHEN_PERIOD LENGTHEN_PERIOD `(uc  1 e 1 0 ]
-"188
+"193
 [v _PROCESS_TMR0_AND_PRESCALER_ADJUST PROCESS_TMR0_AND_PRESCALER_ADJUST `(uc  1 e 1 0 ]
-"51 /Users/jamesgarvey/Documents/Git/MI_2023/system.h
+"55 /Users/jamesgarvey/Documents/Git/MI_2023/system.h
 [v _prescaler_bits prescaler_bits `DC[8]uc  1 e 8 0 ]
-"52
+"56
 [v _waveshape_adc_config_value waveshape_adc_config_value `DCuc  1 e 1 0 ]
-"53
+"57
 [v _speed_adc_config_value speed_adc_config_value `DCuc  1 e 1 0 ]
-"54
+"58
 [v _depth_adc_config_value depth_adc_config_value `DCuc  1 e 1 0 ]
-"55
+"59
 [v _symmetry_adc_config_value symmetry_adc_config_value `DCuc  1 e 1 0 ]
 "5 /Users/jamesgarvey/Documents/Git/MI_2023/wavetables.h
 [v _sine_table_one_quadrant sine_table_one_quadrant `DC[129]us  1 e 258 0 ]
@@ -134,7 +132,7 @@
 "6
 [v _current_depth current_depth `VEus  1 e 2 0 ]
 "7
-[v _current_symmetry current_symmetry `VEum  1 e 3 0 ]
+[v _current_symmetry current_symmetry `VEul  1 e 4 0 ]
 "8
 [v _current_one_quadrant_index current_one_quadrant_index `VEuc  1 e 1 0 ]
 "9
@@ -144,11 +142,11 @@
 "11
 [v _how_many_128 how_many_128 `VEuc  1 e 1 0 ]
 "12
-[v _final_TMR0 final_TMR0 `VEum  1 e 3 0 ]
+[v _final_TMR0 final_TMR0 `VEul  1 e 4 0 ]
 "13
 [v _prescaler_adjust prescaler_adjust `VEuc  1 e 1 0 ]
 "14
-[v _raw_TMR0 raw_TMR0 `VEum  1 e 3 0 ]
+[v _raw_TMR0 raw_TMR0 `VEul  1 e 4 0 ]
 "15
 [v _base_prescaler_bits_index base_prescaler_bits_index `VEuc  1 e 1 0 ]
 "16
@@ -177,38 +175,28 @@
 {
 "81
 } 0
-"188 /Users/jamesgarvey/Documents/Git/MI_2023/system.c
+"193 /Users/jamesgarvey/Documents/Git/MI_2023/system.c
 [v _PROCESS_TMR0_AND_PRESCALER_ADJUST PROCESS_TMR0_AND_PRESCALER_ADJUST `(uc  1 e 1 0 ]
 {
-"195
-[v PROCESS_TMR0_AND_PRESCALER_ADJUST@symmetry_status symmetry_status `uc  1 a 1 18 ]
-"234
+"200
+[v PROCESS_TMR0_AND_PRESCALER_ADJUST@symmetry_status symmetry_status `uc  1 a 1 32 ]
+"242
 } 0
 "158
 [v _SHORTEN_PERIOD SHORTEN_PERIOD `(uc  1 e 1 0 ]
 {
-"160
-[v SHORTEN_PERIOD@twofiftysix_minus_TMR0_final twofiftysix_minus_TMR0_final `um  1 a 3 12 ]
-"167
-} 0
+"163
+[v SHORTEN_PERIOD@twofiftysix_minus_TMR0_final twofiftysix_minus_TMR0_final `ul  1 a 4 20 ]
 "169
+} 0
+"171
 [v _LENGTHEN_PERIOD LENGTHEN_PERIOD `(uc  1 e 1 0 ]
 {
-"171
-[v LENGTHEN_PERIOD@twofiftysix_minus_TMR0_final twofiftysix_minus_TMR0_final `um  1 a 3 15 ]
-"184
+"176
+[v LENGTHEN_PERIOD@twofiftysix_minus_TMR0_final twofiftysix_minus_TMR0_final `ul  1 a 4 24 ]
+"189
 } 0
-"15 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul24.c
-[v ___tmul __tmul `(um  1 e 3 0 ]
-{
-"17
-[v ___tmul@product product `um  1 a 3 6 ]
-"15
-[v ___tmul@multiplier multiplier `um  1 p 3 0 ]
-[v ___tmul@multiplicand multiplicand `um  1 p 3 3 ]
-"99
-} 0
-"121 /Users/jamesgarvey/Documents/Git/MI_2023/system.c
+"121
 [v _ADJUST_AND_SET_PRESCALER ADJUST_AND_SET_PRESCALER `(uc  1 e 1 0 ]
 {
 "155
@@ -232,7 +220,7 @@
 [v _PROCESS_RAW_SPEED_AND_PRESCALER PROCESS_RAW_SPEED_AND_PRESCALER `(uc  1 e 1 0 ]
 {
 "86
-[v PROCESS_RAW_SPEED_AND_PRESCALER@speed_control_subtracted speed_control_subtracted `us  1 a 2 16 ]
+[v PROCESS_RAW_SPEED_AND_PRESCALER@speed_control_subtracted speed_control_subtracted `us  1 a 2 17 ]
 "95
 } 0
 "15 /Applications/microchip/xc8/v2.45/pic/sources/c99/common/Umul32.c

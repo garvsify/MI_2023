@@ -4,41 +4,41 @@ Version 4.0 HI-TECH Software Intermediate Code
 "682 /Applications/microchip/mplabx/v6.15/packs/Microchip/PIC12-16F1xxx_DFP/1.6.241/xc8/pic/include/proc/pic16f1824.h
 [; ;/Applications/microchip/mplabx/v6.15/packs/Microchip/PIC12-16F1xxx_DFP/1.6.241/xc8/pic/include/proc/pic16f1824.h: 682: extern volatile unsigned char TMR0 __attribute__((address(0x015)));
 [v _TMR0 `Vuc ~T0 @X0 0 e@21 ]
-"82 ./system.h
-[; ;./system.h: 82:     volatile extern uint24_t final_TMR0;
-[v _final_TMR0 `Vum ~T0 @X0 0 e ]
+"86 ./system.h
+[; ;./system.h: 86:     volatile extern uint32_t final_TMR0;
+[v _final_TMR0 `Vul ~T0 @X0 0 e ]
 "7671 /Applications/microchip/mplabx/v6.15/packs/Microchip/PIC12-16F1xxx_DFP/1.6.241/xc8/pic/include/proc/pic16f1824.h
 [; ;/Applications/microchip/mplabx/v6.15/packs/Microchip/PIC12-16F1xxx_DFP/1.6.241/xc8/pic/include/proc/pic16f1824.h: 7671: extern volatile __bit TMR0IF __attribute__((address(0x5A)));
 [v _TMR0IF `Vb ~T0 @X0 0 e@90 ]
 "6939
 [; ;/Applications/microchip/mplabx/v6.15/packs/Microchip/PIC12-16F1xxx_DFP/1.6.241/xc8/pic/include/proc/pic16f1824.h: 6939: extern volatile __bit GIE __attribute__((address(0x5F)));
 [v _GIE `Vb ~T0 @X0 0 e@95 ]
-"94 ./system.h
-[; ;./system.h: 94:     volatile extern uint8_t current_waveshape;
+"97 ./system.h
+[; ;./system.h: 97:     volatile extern uint8_t current_waveshape;
 [v _current_waveshape `Vuc ~T0 @X0 0 e ]
-"91
-[; ;./system.h: 91:     volatile extern uint16_t duty;
+"94
+[; ;./system.h: 94:     volatile extern uint16_t duty;
 [v _duty `Vus ~T0 @X0 0 e ]
-"99
-[; ;./system.h: 99:     volatile extern uint8_t current_one_quadrant_index;
+"102
+[; ;./system.h: 102:     volatile extern uint8_t current_one_quadrant_index;
 [v _current_one_quadrant_index `Vuc ~T0 @X0 0 e ]
-"101
-[; ;./system.h: 101:     volatile extern uint8_t current_quadrant;
+"104
+[; ;./system.h: 104:     volatile extern uint8_t current_quadrant;
 [v _current_quadrant `Vuc ~T0 @X0 0 e ]
-"100
-[; ;./system.h: 100:     volatile extern uint8_t current_halfcycle;
+"103
+[; ;./system.h: 103:     volatile extern uint8_t current_halfcycle;
 [v _current_halfcycle `Vuc ~T0 @X0 0 e ]
-"97
-[; ;./system.h: 97:     volatile extern uint16_t current_depth;
+"100
+[; ;./system.h: 100:     volatile extern uint16_t current_depth;
 [v _current_depth `Vus ~T0 @X0 0 e ]
-"92
-[; ;./system.h: 92:     volatile extern uint8_t duty_low_byte;
+"95
+[; ;./system.h: 95:     volatile extern uint8_t duty_low_byte;
 [v _duty_low_byte `Vuc ~T0 @X0 0 e ]
-"93
-[; ;./system.h: 93:     volatile extern uint8_t duty_high_byte;
+"96
+[; ;./system.h: 96:     volatile extern uint8_t duty_high_byte;
 [v _duty_high_byte `Vuc ~T0 @X0 0 e ]
-"68
-[; ;./system.h: 68:     uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr);
+"72
+[; ;./system.h: 72:     uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr);
 [v _SET_DUTY_CCP3 `(uc ~T0 @X0 0 ef1`*Vus ]
 [p mainexit ]
 "38 ./config.h
@@ -47,14 +47,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _TURN_ON_CCP3_PWM `(uc ~T0 @X0 0 ef ]
 "37
 [v _CONFIG_TMR0_INTERRUPT `(uc ~T0 @X0 0 ef ]
-"69 ./system.h
-[; ;./system.h: 69:     uint8_t GET_CURRENT_POT_VALUES(void);
+"73 ./system.h
+[; ;./system.h: 73:     uint8_t GET_CURRENT_POT_VALUES(void);
 [v _GET_CURRENT_POT_VALUES `(uc ~T0 @X0 0 ef ]
-"70
-[; ;./system.h: 70:     uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void);
+"74
+[; ;./system.h: 74:     uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void);
 [v _PROCESS_RAW_SPEED_AND_PRESCALER `(uc ~T0 @X0 0 ef ]
-"78
-[; ;./system.h: 78:     uint8_t PROCESS_TMR0_AND_PRESCALER_ADJUST(void);
+"82
+[; ;./system.h: 82:     uint8_t PROCESS_TMR0_AND_PRESCALER_ADJUST(void);
 [v _PROCESS_TMR0_AND_PRESCALER_ADJUST `(uc ~T0 @X0 0 ef ]
 "54 /Applications/microchip/mplabx/v6.15/packs/Microchip/PIC12-16F1xxx_DFP/1.6.241/xc8/pic/include/proc/pic16f1824.h
 [; ;/Applications/microchip/mplabx/v6.15/packs/Microchip/PIC12-16F1xxx_DFP/1.6.241/xc8/pic/include/proc/pic16f1824.h: 54: __asm("INDF0 equ 00h");
@@ -544,8 +544,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x DEBUG  =  ON        ]
 "26
 [p x LVP  =  OFF          ]
-"51 ./system.h
-[; ;./system.h: 51:     const uint8_t prescaler_bits[8] = {0b111,0b110,0b101,0b100,0b011,0b010,0b001,0b000};
+"55 ./system.h
+[; ;./system.h: 55:     const uint8_t prescaler_bits[8] = {0b111,0b110,0b101,0b100,0b011,0b010,0b001,0b000};
 [v _prescaler_bits `Cuc ~T0 @X0 -> 8 `i e ]
 [i _prescaler_bits
 :U ..
@@ -559,80 +559,80 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"52
-[; ;./system.h: 52:     const uint8_t waveshape_adc_config_value = 0b100;
+"56
+[; ;./system.h: 56:     const uint8_t waveshape_adc_config_value = 0b100;
 [v _waveshape_adc_config_value `Cuc ~T0 @X0 1 e ]
 [i _waveshape_adc_config_value
 -> -> 4 `i `uc
 ]
-"53
-[; ;./system.h: 53:     const uint8_t speed_adc_config_value = 0b101;
+"57
+[; ;./system.h: 57:     const uint8_t speed_adc_config_value = 0b101;
 [v _speed_adc_config_value `Cuc ~T0 @X0 1 e ]
 [i _speed_adc_config_value
 -> -> 5 `i `uc
 ]
-"54
-[; ;./system.h: 54:     const uint8_t depth_adc_config_value = 0b110;
+"58
+[; ;./system.h: 58:     const uint8_t depth_adc_config_value = 0b110;
 [v _depth_adc_config_value `Cuc ~T0 @X0 1 e ]
 [i _depth_adc_config_value
 -> -> 6 `i `uc
 ]
-"55
-[; ;./system.h: 55:     const uint8_t symmetry_adc_config_value = 0b111;
+"59
+[; ;./system.h: 59:     const uint8_t symmetry_adc_config_value = 0b111;
 [v _symmetry_adc_config_value `Cuc ~T0 @X0 1 e ]
 [i _symmetry_adc_config_value
 -> -> 7 `i `uc
 ]
-"56
-[; ;./system.h: 56:     const uint8_t POSITIVE = 1;
+"60
+[; ;./system.h: 60:     const uint8_t POSITIVE = 1;
 [v _POSITIVE `Cuc ~T0 @X0 1 e ]
 [i _POSITIVE
 -> -> 1 `i `uc
 ]
-"57
-[; ;./system.h: 57:     const uint8_t NEGATIVE = 0;
+"61
+[; ;./system.h: 61:     const uint8_t NEGATIVE = 0;
 [v _NEGATIVE `Cuc ~T0 @X0 1 e ]
 [i _NEGATIVE
 -> -> 0 `i `uc
 ]
-"58
-[; ;./system.h: 58:     const uint8_t DO_NOTHING = 0;
+"62
+[; ;./system.h: 62:     const uint8_t DO_NOTHING = 0;
 [v _DO_NOTHING `Cuc ~T0 @X0 1 e ]
 [i _DO_NOTHING
 -> -> 0 `i `uc
 ]
-"59
-[; ;./system.h: 59:     const uint8_t DIVIDE_BY_TWO = 1;
+"63
+[; ;./system.h: 63:     const uint8_t DIVIDE_BY_TWO = 1;
 [v _DIVIDE_BY_TWO `Cuc ~T0 @X0 1 e ]
 [i _DIVIDE_BY_TWO
 -> -> 1 `i `uc
 ]
-"60
-[; ;./system.h: 60:     const uint8_t MULTIPLY_BY_TWO = 2;
+"64
+[; ;./system.h: 64:     const uint8_t MULTIPLY_BY_TWO = 2;
 [v _MULTIPLY_BY_TWO `Cuc ~T0 @X0 1 e ]
 [i _MULTIPLY_BY_TWO
 -> -> 2 `i `uc
 ]
-"61
-[; ;./system.h: 61:     const uint8_t DIVIDE_BY_FOUR = 3;
+"65
+[; ;./system.h: 65:     const uint8_t DIVIDE_BY_FOUR = 3;
 [v _DIVIDE_BY_FOUR `Cuc ~T0 @X0 1 e ]
 [i _DIVIDE_BY_FOUR
 -> -> 3 `i `uc
 ]
-"62
-[; ;./system.h: 62:     const uint8_t DONT_CARE = 4;
+"66
+[; ;./system.h: 66:     const uint8_t DONT_CARE = 4;
 [v _DONT_CARE `Cuc ~T0 @X0 1 e ]
 [i _DONT_CARE
 -> -> 4 `i `uc
 ]
-"63
-[; ;./system.h: 63:     const uint8_t YES = 1;
+"67
+[; ;./system.h: 67:     const uint8_t YES = 1;
 [v _YES `Cuc ~T0 @X0 1 e ]
 [i _YES
 -> -> 1 `i `uc
 ]
-"64
-[; ;./system.h: 64:     const uint8_t NO = 0;
+"68
+[; ;./system.h: 68:     const uint8_t NO = 0;
 [v _NO `Cuc ~T0 @X0 1 e ]
 [i _NO
 -> -> 0 `i `uc

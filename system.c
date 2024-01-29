@@ -4,14 +4,14 @@
     volatile uint16_t current_speed_linear = 0;
     volatile uint32_t current_speed_linear_32 = 0;
     volatile uint16_t current_depth = 0;
-    volatile uint24_t current_symmetry = 0;
+    volatile uint32_t current_symmetry = 0;
     volatile uint8_t current_one_quadrant_index = 0;
     volatile uint8_t current_halfcycle = 0;
     volatile uint8_t current_quadrant = 0;
     volatile uint8_t how_many_128 = 0;
-    volatile uint24_t final_TMR0 = 0;
+    volatile uint32_t final_TMR0 = 0;
     volatile uint8_t prescaler_adjust = 0;
-    volatile uint24_t raw_TMR0 = 0;
+    volatile uint32_t raw_TMR0 = 0;
     volatile uint8_t base_prescaler_bits_index = 0;
     volatile uint8_t symmetry_status = 0;
     volatile uint16_t speed_control = 0;
@@ -157,27 +157,32 @@ uint8_t ADJUST_AND_SET_PRESCALER(void){
 #if SYMMETRY_ON_OR_OFF == 1
     uint8_t SHORTEN_PERIOD(void){
         #if SYMMETRY_ADC_RESOLUTION == 8
-            uint24_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0) * (SHORTEN_POWER_OF_TWO_CONSTANT_8_BIT_SYM+(24*current_symmetry))) >> SHORTEN_POWER_OF_TWO_DIVISOR_8_BIT_SYM);
+            uint32_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0)*(SHORTEN_POWER_OF_TWO_CONSTANT_8_BIT_SYM+(24*current_symmetry)))>>SHORTEN_POWER_OF_TWO_DIVISOR_8_BIT_SYM);
+        #endif
+        #if SYMMETRY_ADC_RESOLUTION == 10
+            uint32_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0)*(SHORTEN_POWER_OF_TWO_CONSTANT_10_BIT_SYM+(24*current_symmetry)))>>SHORTEN_POWER_OF_TWO_DIVISOR_10_BIT_SYM);
         #endif
 
-        final_TMR0 = (256 - twofiftysix_minus_TMR0_final);
+        final_TMR0 = (256-twofiftysix_minus_TMR0_final);
         prescaler_adjust = DO_NOTHING;
         return 1;
-
     }   
 
     uint8_t LENGTHEN_PERIOD(void){
         #if SYMMETRY_ADC_RESOLUTION == 8
-            uint24_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0) * (LENGTHEN_CONSTANT_8_BIT_SYM-(3*current_symmetry))) >> LENGTHEN_POWER_OF_TWO_DIVISOR_8_BIT_SYM);
+            uint32_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0)*(LENGTHEN_CONSTANT_8_BIT_SYM-(3*current_symmetry)))>>LENGTHEN_POWER_OF_TWO_DIVISOR_8_BIT_SYM);
+        #endif
+        #if SYMMETRY_ADC_RESOLUTION == 10
+            uint32_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0)*(LENGTHEN_CONSTANT_10_BIT_SYM-(3*current_symmetry)))>>LENGTHEN_POWER_OF_TWO_DIVISOR_10_BIT_SYM);
         #endif
 
         if(twofiftysix_minus_TMR0_final > 256){
             twofiftysix_minus_TMR0_final = (twofiftysix_minus_TMR0_final >> 1);
-            final_TMR0 = (256 - twofiftysix_minus_TMR0_final);
+            final_TMR0 = (256-twofiftysix_minus_TMR0_final);
             prescaler_adjust = MULTIPLY_BY_TWO;
         }
         else{
-            final_TMR0 = 256 - twofiftysix_minus_TMR0_final;
+            final_TMR0 = 256-twofiftysix_minus_TMR0_final;
             prescaler_adjust = DO_NOTHING;
         }
         return 1;
@@ -192,24 +197,27 @@ uint8_t PROCESS_TMR0_AND_PRESCALER_ADJUST(void){
             prescaler_adjust = DO_NOTHING;
         }
         else{
-        uint8_t symmetry_status = CCW;
-        if(current_symmetry > SYMMETRY_ADC_HALF_SCALE){
-            current_symmetry = SYMMETRY_ADC_FULL_SCALE - current_symmetry; //converts current_symmetry to 128 -> 0 range (same range as CCW regime, more or less)
-            symmetry_status = CW;
-        }
-
-        if((current_halfcycle == FIRST_HALFCYCLE) && (symmetry_status == CCW)){
-            SHORTEN_PERIOD();
-        }
-        else if((current_halfcycle == FIRST_HALFCYCLE) && (symmetry_status == CW)){
-            LENGTHEN_PERIOD();
-        }
-        else if((current_halfcycle == SECOND_HALFCYCLE) && (symmetry_status == CCW)){
-            LENGTHEN_PERIOD();
-        }    
-        else if((current_halfcycle == SECOND_HALFCYCLE) && (symmetry_status == CW)){
-            SHORTEN_PERIOD();
-        }
+            uint8_t symmetry_status = CCW;
+            if(current_symmetry > SYMMETRY_ADC_HALF_SCALE){
+                current_symmetry = SYMMETRY_ADC_FULL_SCALE-current_symmetry; //converts current_symmetry to 128 -> 0 range (same range as CCW regime, more or less)
+                symmetry_status = CW;
+            }
+            if(current_halfcycle == FIRST_HALFCYCLE){
+                if(symmetry_status == CCW){
+                    SHORTEN_PERIOD();
+                }
+                else{
+                    LENGTHEN_PERIOD();
+                }
+            }
+            else if(current_halfcycle == SECOND_HALFCYCLE){
+                if(symmetry_status == CW){
+                    SHORTEN_PERIOD();
+                }
+                else{
+                    LENGTHEN_PERIOD();
+                }
+            }
         }
 
         ADJUST_AND_SET_PRESCALER();

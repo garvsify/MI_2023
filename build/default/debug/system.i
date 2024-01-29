@@ -4821,7 +4821,7 @@ double y0(double);
 double y1(double);
 double yn(int, double);
 # 7 "./system.h" 2
-# 51 "./system.h"
+# 55 "./system.h"
     const uint8_t prescaler_bits[8] = {0b111,0b110,0b101,0b100,0b011,0b010,0b001,0b000};
     const uint8_t waveshape_adc_config_value = 0b100;
     const uint8_t speed_adc_config_value = 0b101;
@@ -4853,12 +4853,11 @@ double yn(int, double);
     uint16_t DO_ADC(const uint8_t *waveshape_adc_config_value);
 
 
-    volatile extern uint24_t final_TMR0;
+    volatile extern uint32_t final_TMR0;
     volatile extern uint8_t prescaler_adjust;
-    volatile extern uint24_t raw_TMR0;
+    volatile extern uint32_t raw_TMR0;
     volatile extern uint8_t base_prescaler_bits_index;
     volatile extern uint8_t symmetry_status;
-    volatile extern uint24_t symmetry_total;
     volatile extern uint16_t speed_control;
     volatile extern uint32_t speed_control_32;
     volatile extern uint8_t how_many_128;
@@ -4869,7 +4868,7 @@ double yn(int, double);
     volatile extern uint16_t current_speed_linear;
     volatile extern uint32_t current_speed_linear_32;
     volatile extern uint16_t current_depth;
-    volatile extern uint24_t current_symmetry;
+    volatile extern uint32_t current_symmetry;
     volatile extern uint8_t current_one_quadrant_index;
     volatile extern uint8_t current_halfcycle;
     volatile extern uint8_t current_quadrant;
@@ -4881,14 +4880,14 @@ double yn(int, double);
     volatile uint16_t current_speed_linear = 0;
     volatile uint32_t current_speed_linear_32 = 0;
     volatile uint16_t current_depth = 0;
-    volatile uint24_t current_symmetry = 0;
+    volatile uint32_t current_symmetry = 0;
     volatile uint8_t current_one_quadrant_index = 0;
     volatile uint8_t current_halfcycle = 0;
     volatile uint8_t current_quadrant = 0;
     volatile uint8_t how_many_128 = 0;
-    volatile uint24_t final_TMR0 = 0;
+    volatile uint32_t final_TMR0 = 0;
     volatile uint8_t prescaler_adjust = 0;
-    volatile uint24_t raw_TMR0 = 0;
+    volatile uint32_t raw_TMR0 = 0;
     volatile uint8_t base_prescaler_bits_index = 0;
     volatile uint8_t symmetry_status = 0;
     volatile uint16_t speed_control = 0;
@@ -4935,7 +4934,16 @@ uint8_t GET_CURRENT_POT_VALUES(void){
 
         current_depth = DO_ADC(&depth_adc_config_value);
         current_depth = current_depth >> 2;
-# 71 "system.c"
+
+
+        current_symmetry = DO_ADC(&symmetry_adc_config_value);
+
+
+
+
+            current_symmetry = current_symmetry;
+
+
     return 1;
 }
 
@@ -5021,12 +5029,82 @@ uint8_t ADJUST_AND_SET_PRESCALER(void){
     }
     return 1;
 }
-# 188 "system.c"
-uint8_t PROCESS_TMR0_AND_PRESCALER_ADJUST(void){
-# 228 "system.c"
-        final_TMR0 = raw_TMR0;
+
+
+    uint8_t SHORTEN_PERIOD(void){
+
+
+
+
+            uint32_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0)*(4096 +(24*current_symmetry)))>>14);
+
+
+        final_TMR0 = (256-twofiftysix_minus_TMR0_final);
         prescaler_adjust = DO_NOTHING;
+        return 1;
+    }
+
+    uint8_t LENGTHEN_PERIOD(void){
 
 
+
+
+            uint32_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0)*(3584 -(3*current_symmetry)))>>11);
+
+
+        if(twofiftysix_minus_TMR0_final > 256){
+            twofiftysix_minus_TMR0_final = (twofiftysix_minus_TMR0_final >> 1);
+            final_TMR0 = (256-twofiftysix_minus_TMR0_final);
+            prescaler_adjust = MULTIPLY_BY_TWO;
+        }
+        else{
+            final_TMR0 = 256-twofiftysix_minus_TMR0_final;
+            prescaler_adjust = DO_NOTHING;
+        }
+        return 1;
+    }
+
+
+
+uint8_t PROCESS_TMR0_AND_PRESCALER_ADJUST(void){
+
+        if(current_symmetry == 512){
+            final_TMR0 = raw_TMR0;
+            prescaler_adjust = DO_NOTHING;
+        }
+        else{
+            uint8_t symmetry_status = 0;
+            if(current_symmetry > 512){
+                current_symmetry = 1023 -current_symmetry;
+                symmetry_status = 1;
+            }
+            if(current_halfcycle == 0){
+                if(symmetry_status == 0){
+                    SHORTEN_PERIOD();
+                }
+                else{
+                    LENGTHEN_PERIOD();
+                }
+            }
+            else if(current_halfcycle == 1){
+                if(symmetry_status == 1){
+                    SHORTEN_PERIOD();
+                }
+                else{
+                    LENGTHEN_PERIOD();
+                }
+            }
+        }
+
+        ADJUST_AND_SET_PRESCALER();
+
+
+        if(prescaler_overflow_flag == 1){
+            final_TMR0 = final_TMR0 + 2;
+        }
+        else if(prescaler_final_index == 7){
+            final_TMR0 = final_TMR0 + 1;
+        }
+# 241 "system.c"
     return 1;
 }

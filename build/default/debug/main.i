@@ -4859,7 +4859,7 @@ char *tempnam(const char *, const char *);
     uint8_t TURN_ON_CCP3_PWM(void);
 # 5 "main.c" 2
 # 1 "./system.h" 1
-# 51 "./system.h"
+# 55 "./system.h"
     const uint8_t prescaler_bits[8] = {0b111,0b110,0b101,0b100,0b011,0b010,0b001,0b000};
     const uint8_t waveshape_adc_config_value = 0b100;
     const uint8_t speed_adc_config_value = 0b101;
@@ -4891,12 +4891,11 @@ char *tempnam(const char *, const char *);
     uint16_t DO_ADC(const uint8_t *waveshape_adc_config_value);
 
 
-    volatile extern uint24_t final_TMR0;
+    volatile extern uint32_t final_TMR0;
     volatile extern uint8_t prescaler_adjust;
-    volatile extern uint24_t raw_TMR0;
+    volatile extern uint32_t raw_TMR0;
     volatile extern uint8_t base_prescaler_bits_index;
     volatile extern uint8_t symmetry_status;
-    volatile extern uint24_t symmetry_total;
     volatile extern uint16_t speed_control;
     volatile extern uint32_t speed_control_32;
     volatile extern uint8_t how_many_128;
@@ -4907,7 +4906,7 @@ char *tempnam(const char *, const char *);
     volatile extern uint16_t current_speed_linear;
     volatile extern uint32_t current_speed_linear_32;
     volatile extern uint16_t current_depth;
-    volatile extern uint24_t current_symmetry;
+    volatile extern uint32_t current_symmetry;
     volatile extern uint8_t current_one_quadrant_index;
     volatile extern uint8_t current_halfcycle;
     volatile extern uint8_t current_quadrant;
