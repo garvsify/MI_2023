@@ -4874,6 +4874,10 @@ double yn(int, double);
     volatile extern uint8_t current_quadrant;
     volatile extern uint8_t prescaler_overflow_flag;
     volatile extern uint8_t prescaler_final_index;
+    volatile extern uint8_t symmetry_count;
+    volatile extern uint32_t symmetry_cum;
+    volatile extern uint8_t not_first_average_flag;
+    volatile extern uint8_t last_current_symmetry_average;
 # 2 "system.c" 2
 
     volatile uint8_t current_waveshape = 0;
@@ -4897,6 +4901,10 @@ double yn(int, double);
     volatile uint16_t duty = 0;
     volatile uint8_t prescaler_overflow_flag = 0;
     volatile uint8_t prescaler_final_index = 0;
+    volatile uint8_t symmetry_count = 0;
+    volatile uint32_t symmetry_cum = 0;
+    volatile uint8_t not_first_average_flag = 0;
+    volatile uint8_t last_current_symmetry_average = 0;
 
 
 uint8_t DETERMINE_WAVESHAPE(void){
@@ -4941,7 +4949,30 @@ uint8_t GET_CURRENT_POT_VALUES(void){
 
 
 
-            current_symmetry = current_symmetry;
+
+            if(symmetry_count < 3){
+                if(not_first_average_flag == 0){
+                    current_symmetry = 512;
+                }
+                else{
+                    current_symmetry = last_current_symmetry_average;
+                    symmetry_cum = symmetry_cum + current_symmetry;
+                }
+            }
+            else{
+                if(not_first_average_flag == 0){
+                    not_first_average_flag = 1;
+                    current_symmetry = symmetry_cum >> 2;
+                    last_current_symmetry_average = current_symmetry;
+                    symmetry_cum = 0;
+
+                }
+                else{
+                    current_symmetry = symmetry_cum >> 2;
+                    last_current_symmetry_average = current_symmetry;
+                    symmetry_cum = 0;
+                }
+            }
 
 
     return 1;
@@ -5105,6 +5136,6 @@ uint8_t PROCESS_TMR0_AND_PRESCALER_ADJUST(void){
         else if(prescaler_final_index == 7){
             final_TMR0 = final_TMR0 + 1;
         }
-# 241 "system.c"
+# 268 "system.c"
     return 1;
 }

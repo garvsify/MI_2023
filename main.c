@@ -136,6 +136,7 @@ void main(void) {
     
     while(1){ //infinite loop
         GET_CURRENT_POT_VALUES();
+        ++symmetry_count;
         PROCESS_RAW_SPEED_AND_PRESCALER();
         PROCESS_TMR0_AND_PRESCALER_ADJUST();
     }

@@ -104,6 +104,10 @@
     volatile extern uint8_t current_quadrant;
     volatile extern uint8_t prescaler_overflow_flag;
     volatile extern uint8_t prescaler_final_index;
+    volatile extern uint8_t symmetry_count;
+    volatile extern uint32_t symmetry_cum;
+    volatile extern uint8_t not_first_average_flag;
+    volatile extern uint32_t last_current_symmetry_average;
 #endif
 
 

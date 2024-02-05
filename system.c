@@ -21,6 +21,10 @@
     volatile uint16_t duty = 0;
     volatile uint8_t prescaler_overflow_flag = 0;
     volatile uint8_t prescaler_final_index = 0;
+    volatile uint8_t symmetry_count = 0;
+    volatile uint32_t symmetry_cum = 0;
+    volatile uint8_t not_first_average_flag = 0;
+    volatile uint32_t last_current_symmetry_average = 0;
 
     
 uint8_t DETERMINE_WAVESHAPE(void){
@@ -64,9 +68,32 @@ uint8_t GET_CURRENT_POT_VALUES(void){
         #if SYMMETRY_ADC_RESOLUTION == 8
             current_symmetry = current_symmetry >> 2; //convert to 8-bit
         #endif
-        #if SYMMETRY_ADC_RESOLUTION == 10
-            current_symmetry = current_symmetry;
-        #endif
+        //#if SYMMETRY_ADC_RESOLUTION == 10
+            //current_symmetry = current_symmetry;
+            if(symmetry_count < 3){
+                if(not_first_average_flag == 0){ //is first
+                    current_symmetry = SYMMETRY_ADC_HALF_SCALE;
+                }
+                else{ //not first time
+                    current_symmetry = last_current_symmetry_average;
+                    symmetry_cum = symmetry_cum + current_symmetry;
+                }
+            }
+            else{ //symmetry_count == 3
+                if(not_first_average_flag == 0){ //is first
+                    not_first_average_flag = 1;
+                    current_symmetry = symmetry_cum >> 2; //divide by 4, as four values make up the average
+                    last_current_symmetry_average = current_symmetry;
+                    symmetry_cum = 0;
+
+                }
+                else{ //not_first_average_flag == 1
+                    current_symmetry = symmetry_cum >> 2; //divide by 4, as four values make up the average
+                    last_current_symmetry_average = current_symmetry;
+                    symmetry_cum = 0;
+                }
+            }
+        //#endif
     #endif
     return 1;
 }

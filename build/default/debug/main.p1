@@ -56,6 +56,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "82
 [; ;./system.h: 82:     uint8_t PROCESS_TMR0_AND_PRESCALER_ADJUST(void);
 [v _PROCESS_TMR0_AND_PRESCALER_ADJUST `(uc ~T0 @X0 0 ef ]
+"107
+[; ;./system.h: 107:     volatile extern uint8_t symmetry_count;
+[v _symmetry_count `Vuc ~T0 @X0 0 e ]
 "54 /Applications/microchip/mplabx/v6.15/packs/Microchip/PIC12-16F1xxx_DFP/1.6.241/xc8/pic/include/proc/pic16f1824.h
 [; ;/Applications/microchip/mplabx/v6.15/packs/Microchip/PIC12-16F1xxx_DFP/1.6.241/xc8/pic/include/proc/pic16f1824.h: 54: __asm("INDF0 equ 00h");
 [; <" INDF0 equ 00h ;# ">
@@ -1244,18 +1247,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 138:         GET_CURRENT_POT_VALUES();
 [e ( _GET_CURRENT_POT_VALUES ..  ]
 "139
-[; ;main.c: 139:         PROCESS_RAW_SPEED_AND_PRESCALER();
-[e ( _PROCESS_RAW_SPEED_AND_PRESCALER ..  ]
+[; ;main.c: 139:         ++symmetry_count;
+[e =+ _symmetry_count -> -> 1 `i `Vuc ]
 "140
-[; ;main.c: 140:         PROCESS_TMR0_AND_PRESCALER_ADJUST();
-[e ( _PROCESS_TMR0_AND_PRESCALER_ADJUST ..  ]
+[; ;main.c: 140:         PROCESS_RAW_SPEED_AND_PRESCALER();
+[e ( _PROCESS_RAW_SPEED_AND_PRESCALER ..  ]
 "141
-[; ;main.c: 141:     }
+[; ;main.c: 141:         PROCESS_TMR0_AND_PRESCALER_ADJUST();
+[e ( _PROCESS_TMR0_AND_PRESCALER_ADJUST ..  ]
+"142
+[; ;main.c: 142:     }
 }
 [e :U 363 ]
 [e $U 364  ]
 [e :U 365 ]
-"142
-[; ;main.c: 142: }
+"143
+[; ;main.c: 143: }
 [e :UE 362 ]
 }
