@@ -1,10 +1,13 @@
 #ifndef SYSTEM_H
+
     #define SYSTEM_H
 
     #include <xc.h>
     #include <stdio.h>
     #include <math.h>
 
+    #define ON 1
+    #define OFF 0
     #define MAX_QUADRANT_INDEX 128
     #define MIN_QUADRANT_INDEX 0
     #define _XTAL_FREQ 32000000
@@ -34,8 +37,8 @@
     #define LENGTHEN_CONSTANT_10_BIT_SYM 3584
     #define LENGTHEN_POWER_OF_TWO_DIVISOR_10_BIT_SYM 11
     #define SYMMETRY_ADC_RESOLUTION 10
-    #define SYMMETRY_ON_OR_OFF 1
-    #define DEPTH_ON_OR_OFF 1
+    #define SYMMETRY_ON_OR_OFF ON
+    #define DEPTH_ON_OR_OFF ON
 
 
     #if SYMMETRY_ADC_RESOLUTION == 10

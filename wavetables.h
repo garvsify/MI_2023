@@ -1,4 +1,5 @@
 #ifndef WAVETABLES_H
+
     #define WAVETABLES_H
     #include <stdio.h>
 
