@@ -4,6 +4,7 @@
 #include "config.h"
 #include "system.h"
 #include "wavetables.h"
+#include "pinouts.h"
 
 #if DEPTH_ON_OR_OFF == 1
         /////Stuff for ASM Code////////////////////////////
