@@ -35,10 +35,12 @@
     #define LENGTHEN_POWER_OF_TWO_DIVISOR_10_BIT_SYM 11
     #define TENBITMINUSONE 1023
     #define EIGHTBITMINUSONE 255
+    #define ON 1
+    #define OFF 0
 
-    #define SYMMETRY_ADC_RESOLUTION 10
-    #define SYMMETRY_ON_OR_OFF 1
-    #define DEPTH_ON_OR_OFF 1
+    #define SYMMETRY_ADC_RESOLUTION 8
+    #define SYMMETRY_ON_OR_OFF ON
+    #define DEPTH_ON_OR_OFF ON
 
 
     #if SYMMETRY_ADC_RESOLUTION == 10
