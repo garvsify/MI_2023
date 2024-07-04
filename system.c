@@ -25,6 +25,7 @@
     
 uint8_t DETERMINE_WAVESHAPE(void){
     uint16_t ADC = DO_ADC(&waveshape_adc_config_value);
+    ADC = TENBITMINUSONE - ADC;
     if(ADC <= TRIANGLE_MODE_ADC_THRESHOLD){
             return TRIANGLE_MODE; //triangle wave
         }
@@ -55,17 +56,21 @@ uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr){
 uint8_t GET_CURRENT_POT_VALUES(void){
     current_waveshape = DETERMINE_WAVESHAPE();
     current_speed_linear = DO_ADC(&speed_adc_config_value); //get speed (10-bit linear)
+    current_speed_linear = TENBITMINUSONE - current_speed_linear;
     #if DEPTH_ON_OR_OFF == 1
         current_depth = DO_ADC(&depth_adc_config_value); //get depth (10-bit linear)
         current_depth = current_depth >> 2; //convert to 8-bit
+        current_depth = EIGHTBITMINUSONE - current_depth;
     #endif
     #if SYMMETRY_ON_OR_OFF == 1
         current_symmetry = DO_ADC(&symmetry_adc_config_value); //get symmetry (10-bit linear)
         #if SYMMETRY_ADC_RESOLUTION == 8
             current_symmetry = current_symmetry >> 2; //convert to 8-bit
+            current_symmetry = SYMMETRY_ADC_FULL_SCALE - current_symmetry;
         #endif
         #if SYMMETRY_ADC_RESOLUTION == 10
             current_symmetry = current_symmetry;
+            current_symmetry = SYMMETRY_ADC_FULL_SCALE - current_symmetry;
         #endif
     #endif
     return 1;
