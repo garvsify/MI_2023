@@ -15,7 +15,12 @@ uint8_t config_PPS(void){
 }
 
 uint8_t turn_off_peripherals_not_required(){
-    
+    PMD0 = 0b00011001; //Disable CRC, NVM Memory Scanner, and Interrupt-on-Change
+    PMD1 = 0b11100000; //Disable Comparator 1, ZCD, and SMT1
+    PMD2 = 0b01111101; //Disable, CWG1MD, DSM, NCO, Active Clock Tuning, DAC, and Comparator 1
+    PMD3 = 0b11111111; //Disable UARTx, SPIx, I2C, PWMx
+    PMD4 = 0b11111111; //Disable DMA, CRC, UARTx
+    PDM5 = 0b00000011; //Disable DAC and DMAx 
     return 1;
 }
 
