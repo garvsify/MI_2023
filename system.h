@@ -109,6 +109,7 @@
     volatile extern uint8_t current_quadrant;
     volatile extern uint8_t prescaler_overflow_flag;
     volatile extern uint8_t prescaler_final_index;
+    
 #endif
 
 

@@ -14,7 +14,7 @@ uint8_t config_PPS(void){
     return 1;
 }
 
-uint8_t turn_of_peripherals_not_required(){
+uint8_t turn_off_peripherals_not_required(){
     
     return 1;
 }

@@ -69,6 +69,7 @@
 
     uint8_t config_int_osc(void);
     uint8_t config_PPS(void);
+    uint8_t turn_off_peripherals_not_required(void);
     uint8_t config_ports(void);
     uint8_t config_ADC_pins(void);
     uint16_t do_adc(const uint8_t *modifier);

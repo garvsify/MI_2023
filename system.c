@@ -69,16 +69,16 @@ uint8_t set_duty_CCP3(volatile uint16_t *duty_ptr){
     
 
 uint8_t get_current_pot_values(void){
-    current_waveshape = DETERMINE_WAVESHAPE();
-    current_speed_linear = DO_ADC(&speed_adc_config_value); //get speed (10-bit linear)
+    current_waveshape = determine_waveshape();
+    current_speed_linear = do_ADC(&speed_adc_config_value); //get speed (10-bit linear)
     current_speed_linear = TENBITMINUSONE - current_speed_linear;
     #if DEPTH_ON_OR_OFF == 1
-        current_depth = DO_ADC(&depth_adc_config_value); //get depth (10-bit linear)
+        current_depth = do_ADC(&depth_adc_config_value); //get depth (10-bit linear)
         current_depth = current_depth >> 2; //convert to 8-bit
         current_depth = EIGHTBITMINUSONE - current_depth;
     #endif
     #if SYMMETRY_ON_OR_OFF == 1
-        current_symmetry = DO_ADC(&symmetry_adc_config_value); //get symmetry (10-bit linear)
+        current_symmetry = do_ADC(&symmetry_adc_config_value); //get symmetry (10-bit linear)
         #if SYMMETRY_ADC_RESOLUTION == 8
             current_symmetry = current_symmetry >> 2; //convert to 8-bit
             current_symmetry = SYMMETRY_ADC_FULL_SCALE - current_symmetry;
