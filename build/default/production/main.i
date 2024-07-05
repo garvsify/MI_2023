@@ -4912,6 +4912,10 @@ char *tempnam(const char *, const char *);
     volatile extern uint8_t current_quadrant;
     volatile extern uint8_t prescaler_overflow_flag;
     volatile extern uint8_t prescaler_final_index;
+    volatile extern uint8_t symmetry_count;
+    volatile extern uint32_t symmetry_cum;
+    volatile extern uint8_t not_first_average_flag;
+    volatile extern uint32_t last_current_symmetry_average;
 # 6 "main.c" 2
 # 1 "./wavetables.h" 1
 
@@ -5053,6 +5057,7 @@ void main(void) {
 
     while(1){
         GET_CURRENT_POT_VALUES();
+        ++symmetry_count;
         PROCESS_RAW_SPEED_AND_PRESCALER();
         PROCESS_TMR0_AND_PRESCALER_ADJUST();
     }
