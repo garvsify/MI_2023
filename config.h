@@ -67,13 +67,14 @@
 
     #define _XTAL_FREQ 32000000
 
-    uint8_t CONFIG_INT_OSC(void);
-    uint8_t CONFIG_PORTS(void);
-    uint8_t CONFIG_ADC_PINS(void);
-    uint16_t DO_ADC(const uint8_t *modifier);
-    uint8_t CONFIG_PWM_CCP3(void);
-    uint8_t CONFIG_TMR0_INTERRUPT(void);
-    uint8_t CONFIG_SYSTEM(void);
-    uint8_t TURN_ON_CCP3_PWM(void);
+    uint8_t config_int_osc(void);
+    uint8_t config_PPS(void);
+    uint8_t config_ports(void);
+    uint8_t config_ADC_pins(void);
+    uint16_t do_adc(const uint8_t *modifier);
+    uint8_t config_PWM_CCP3(void);
+    uint8_t config_TMR0_interrupt(void);
+    uint8_t config_system(void);
+    uint8_t turn_on_ccp3_PWM(void);
 
 #endif

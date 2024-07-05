@@ -73,19 +73,19 @@
     const uint8_t NO = 0;
 
     
-    uint8_t DETERMINE_WAVESHAPE(void);
-    uint8_t SET_DUTY_CCP3(volatile uint16_t *duty_ptr);
-    uint8_t GET_CURRENT_POT_VALUES(void);
-    uint8_t PROCESS_RAW_SPEED_AND_PRESCALER(void);
-    uint8_t CHECK_IF_PRESCALER_NEEDS_TO_BE_1_1(void);
-    uint8_t TURN_PRESCALER_OFF(void);
-    uint8_t TURN_PRESCALER_ON(void);
-    uint8_t ADJUST_TMR0(void);
-    uint8_t ADJUST_AND_SET_PRESCALER(void);
-    uint8_t SHORTEN_PERIOD(void);
-    uint8_t LENGTHEN_PERIOD(void);
-    uint8_t PROCESS_TMR0_AND_PRESCALER_ADJUST(void);
-    uint16_t DO_ADC(const uint8_t *waveshape_adc_config_value);
+    uint8_t determine_waveshape(void);
+    uint8_t set_duty_CCP3(volatile uint16_t *duty_ptr);
+    uint8_t get_current_pot_values(void);
+    uint8_t process_raw_speed_and_prescaler(void);
+    uint8_t check_if_prescaler_needs_to_be_1_1(void);
+    uint8_t turn_prescaler_OFF(void);
+    uint8_t turn_prescaler_ON(void);
+    uint8_t adjust_TMR0(void);
+    uint8_t adjust_and_set_prescaler(void);
+    uint8_t shorten_period(void);
+    uint8_t lengthen_period(void);
+    uint8_t process_TMR0_and_prescaler_adjust(void);
+    uint16_t do_ADC(const uint8_t *waveshape_adc_config_value);
 
     
     volatile extern uint32_t final_TMR0;

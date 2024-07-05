@@ -32,7 +32,7 @@ void __interrupt() INTERRUPT_InterruptManager(void){
     TMR0 = (uint8_t)final_TMR0; //this line must go here, or at least very near the beginning!
     if(TMR0IF == 1){
     GIE = 0; //disable interrupts
-    //LATC5 = 1; //start ISR length measurement
+    LATC5 = 1; //start ISR length measurement
     TMR0IF = 0; //clear TMR0 interrupt flag
     
     if(current_waveshape == TRIANGLE_MODE){
@@ -116,30 +116,29 @@ void __interrupt() INTERRUPT_InterruptManager(void){
     #endif
 
     //Write Duty
-    SET_DUTY_CCP3(&duty);
+    set_duty_CCP3(&duty);
     
     //Finish Up
-    //LATC5 = 0; //finish ISR length measurement
+    LATC5 = 0; //finish ISR length measurement
     GIE = 1;
     }
 }
 
 
 void main(void) {
-    CONFIG_SYSTEM();
-    TURN_ON_CCP3_PWM();
-    CONFIG_TMR0_INTERRUPT();
-    GET_CURRENT_POT_VALUES();
-    PROCESS_RAW_SPEED_AND_PRESCALER();
-    PROCESS_TMR0_AND_PRESCALER_ADJUST();
+    config_system();
+    turn_on_ccp3_PWM();
+    config_TMR0_interrupt();
+    get_current_pot_values();
+    process_raw_speed_and_prescaler();
+    process_TMR0_and_prescaler_adjust();
     TMR0 = (uint8_t)final_TMR0;
     GIE = 1; //enable interrupts
     
     while(1){ //infinite loop
-        GET_CURRENT_POT_VALUES();
-        ++symmetry_count;
-        PROCESS_RAW_SPEED_AND_PRESCALER();
-        PROCESS_TMR0_AND_PRESCALER_ADJUST();
+        get_current_pot_values();
+        process_raw_speed_and_prescaler();
+        process_TMR0_and_prescaler_adjust();
     }
 }
        

@@ -3,7 +3,7 @@
     <type>com.microchip.mplab.nbide.embedded.makeproject</type>
     <configuration>
         <data xmlns="http://www.netbeans.org/ns/make-project/1">
-            <name>Modulation_Index_2023_PIC16F1824</name>
+            <name>MI-2023_2024-PIC18</name>
             <creation-uuid>90d37fe1-e148-471d-b373-3b289fc0050b</creation-uuid>
             <make-project-type>0</make-project-type>
             <sourceEncoding>ISO-8859-1</sourceEncoding>

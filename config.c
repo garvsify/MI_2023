@@ -1,14 +1,26 @@
 #include "config.h"
 
-uint8_t CONFIG_INT_OSC(void){
-    OSCCON = 0b11110000; //defer clock selection to configuration word 1, also select 32MHz as the system clock, and turn on PLL. 
-    OSCTUNE = 0b00011111; //run oscillator as fast as possible
-    //should select 32MHz
+uint8_t config_int_osc(void){
+    ACTCON = 0x00; //HFINTOSC tuned by OSCTUNE and updates by software to OSCTUNE allowed.
+    OSCTUNE = 0b00011111;
+    OSCFRQ = 0b00001000;
+    OSCEN = 0b01010100;
+    //should select 64MHz
+    return 1;
+}
+
+uint8_t config_PPS(void){
+    
+    return 1;
+}
+
+uint8_t turn_of_peripherals_not_required(){
+    
     return 1;
 }
 
 
-uint8_t CONFIG_PORTS(void){
+uint8_t config_ports(void){
     ANSELC = 0b00001111; //set RC0-3 to analog inputs, RC5 as output
     TRISC = 0b00001111; //set RC0-3 to inputs, RC5 as output
     WPUC = 0b00000000; //disable pullups on port C
@@ -16,28 +28,13 @@ uint8_t CONFIG_PORTS(void){
 }
 
 
-uint8_t CONFIG_ADC_PINS(void){
+uint8_t config_ADC_pins(void){
     ADCON1 = 0b10100000; //set ADC references to VDD and VSS, choose ADC clock source to be system_clock/32, and right-justify the ADC result registers.
     return 1;
 }
 
 
-uint16_t DO_ADC(const uint8_t *modifier){
-    ADCON0 = 0x00; //clear ADCON0 first
-    //uint8_t temp = A2D_lookup[*modifier];
-    uint8_t temp = (uint8_t)(*modifier << 2);
-    ADCON0 = ADCON0 | temp; //select appropriate ADC channel
-    ADON = 1; //turn on ADC
-    __delay_ms(0.005); //acquisition time
-    GO_nDONE = 1; //start A2D
-    while(GO_nDONE == 1){} //do nothing while ADC conversion in progress
-    ADON = 0; //turn off ADC
-    uint16_t adc_result = ((uint16_t)(ADRESH << 8) | ADRESL); //concatenate high and low registers to get ADC result
-    return adc_result;
-}
-
-
-uint8_t CONFIG_PWM_CCP3(void){
+uint8_t config_PWM_CCP3(void){
     SRLEN = 0; //disable SR latch from interfering with CCP3 output (on same pin))
     C1ON = 0; //disable comparator from interfering with CCP3 output (on same pin))
     //following steps in datasheet
@@ -55,22 +52,22 @@ uint8_t CONFIG_PWM_CCP3(void){
 }
 
 
-uint8_t CONFIG_TMR0_INTERRUPT(void){
+uint8_t config_TMR0_interrupt(void){
     TMR0IE = 1; //enable TMR0 interrupts
     return 1;
 }
 
 
-uint8_t CONFIG_SYSTEM(void){
-    CONFIG_INT_OSC();
-    CONFIG_PORTS();
-    CONFIG_ADC_PINS();
-    CONFIG_PWM_CCP3();
+uint8_t config_system(void){
+    config_int_osc();
+    config_ports();
+    config_ADC_pins();
+    config_PWM_CCP3();
     return 1;
 }
 
 
-uint8_t TURN_ON_CCP3_PWM(void){
+uint8_t turn_on_CCP3_PWM(void){
     //this procedure ensures near as dammit that a the PWM output will start with a full cycle
     TMR2IF = 0; //make sure TMR2IF is cleared
     TMR2ON = 1; //turn on timer2
