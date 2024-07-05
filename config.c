@@ -11,7 +11,6 @@ uint8_t config_int_osc(void){
 
 uint8_t config_PPS(void){
     RA2PPS = 0x09;
-    @TODO
     return 1;
 }
 

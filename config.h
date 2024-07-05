@@ -79,3 +79,12 @@
     uint8_t turn_on_ccp3_PWM(void);
 
 #endif
+    
+
+    
+    
+// NOTES
+    
+//TMR2 is used by CCP1 for PWM
+//TMR0 is used by program to adjust speed/symmetry
+//THIS IS THE OPPOSITE COMPARED TO THE ORIGINAL PIC16 PROJECT
