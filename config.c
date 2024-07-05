@@ -10,7 +10,8 @@ uint8_t config_int_osc(void){
 }
 
 uint8_t config_PPS(void){
-    
+    RA2PPS = 0x09;
+    @TODO
     return 1;
 }
 
@@ -20,7 +21,7 @@ uint8_t turn_off_peripherals_not_required(){
     PMD2 = 0b01111101; //Disable, CWG1MD, DSM, NCO, Active Clock Tuning, DAC, and Comparator 1
     PMD3 = 0b11111111; //Disable UARTx, SPIx, I2C, PWMx
     PMD4 = 0b11111111; //Disable DMA, CRC, UARTx
-    PDM5 = 0b00000011; //Disable DAC and DMAx 
+    PMD5 = 0b00000011; //Disable DAC and DMAx 
     return 1;
 }
 
