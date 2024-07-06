@@ -71,7 +71,7 @@
     uint8_t config_PPS(void);
     uint8_t turn_off_peripherals_not_required(void);
     uint8_t config_ports(void);
-    uint8_t config_ADC_pins(void);
+    uint8_t config_ADC(void);
     uint16_t do_adc(const uint8_t *modifier);
     uint8_t config_PWM_CCP1(void);
     uint8_t config_TMR0(void);

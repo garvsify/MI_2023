@@ -22800,7 +22800,7 @@ char *tempnam(const char *, const char *);
     uint8_t config_PPS(void);
     uint8_t turn_off_peripherals_not_required(void);
     uint8_t config_ports(void);
-    uint8_t config_ADC_pins(void);
+    uint8_t config_ADC(void);
     uint16_t do_adc(const uint8_t *modifier);
     uint8_t config_PWM_CCP1(void);
     uint8_t config_TMR0(void);
@@ -22811,10 +22811,10 @@ char *tempnam(const char *, const char *);
 # 1 "./system.h" 1
 # 59 "./system.h"
     const uint8_t TMR0_prescaler_bits[9] = {0b00001000,0b00000111,0b00000110,0b00000101,0b00000100,0b00000011,0b00000010,0b00000001,0b00000000};
-    const uint8_t waveshape_adc_config_value = 0b100;
-    const uint8_t speed_adc_config_value = 0b101;
-    const uint8_t depth_adc_config_value = 0b110;
-    const uint8_t symmetry_adc_config_value = 0b111;
+    const uint8_t waveshape_adc_config_value = 0b010000;
+    const uint8_t speed_adc_config_value = 0b010001;
+    const uint8_t depth_adc_config_value = 0b010010;
+    const uint8_t symmetry_adc_config_value = 0b010011;
     const uint8_t POSITIVE = 1;
     const uint8_t NEGATIVE = 0;
     const uint8_t DO_NOTHING = 0;
@@ -22895,44 +22895,50 @@ __asm("ENDM");
 uint16_t *top_two_bytes_ptr = (uint16_t *) 0x21;
 
 
-void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void) {
+void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
     TMR0H = (uint8_t) final_TMR0;
     if (TMR0IF == 1) {
         GIEH = 0;
         LATC5 = 1;
         TMR0IF = 0;
 
-        if (current_waveshape == 0) {
+        if(current_waveshape == 0){
             duty = tri_table_one_quadrant[current_one_quadrant_index];
-        } else if (current_waveshape == 1) {
+        }
+        else if(current_waveshape == 1){
             duty = sine_table_one_quadrant[current_one_quadrant_index];
-        } else if (current_waveshape == 2) {
+        }
+        else if(current_waveshape == 2){
             duty = 1023;
         }
-        if (current_one_quadrant_index == 128) {
+        if(current_one_quadrant_index == 128){
             current_quadrant = 1;
-        } else if (current_one_quadrant_index == 0) {
+        }
+        else if(current_one_quadrant_index == 0){
             current_quadrant = 0;
-            if (current_halfcycle == 0) {
+            if(current_halfcycle == 0){
                 current_halfcycle = 1;
-            } else {
+            }
+            else{
                 current_halfcycle = 0;
             }
         }
-        if (current_quadrant == 0) {
+        if(current_quadrant == 0){
             current_one_quadrant_index++;
-        } else {
+        }
+        else{
             current_one_quadrant_index--;
         }
-        if (current_halfcycle == 1) {
+        if(current_halfcycle == 1){
             duty = 1023 - duty;
         }
 
 
 
-        if (current_depth == 255) {
+        if (current_depth == 255){
             duty = 1023 - duty;
-        } else if (current_depth != 0) {
+        }
+        else if (current_depth != 0){
             duty_low_byte = duty & 0xFF;
             duty_high_byte = duty >> 8;
 
@@ -22970,7 +22976,8 @@ void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void) {
 
 
             duty = 1023 - *top_two_bytes_ptr;
-        } else {
+        }
+        else{
             duty = 1023;
         }
 

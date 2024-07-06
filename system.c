@@ -25,15 +25,12 @@
 
 
 uint16_t do_ADC(const uint8_t *modifier){
-    ADCON0 = 0x00; //clear ADCON0 first
-    //uint8_t temp = A2D_lookup[*modifier];
-    uint8_t temp = (uint8_t)(*modifier << 2);
-    ADCON0 = ADCON0 | temp; //select appropriate ADC channel
-    ADON = 1; //turn on ADC
-    __delay_ms(0.005); //acquisition time
-    GO_nDONE = 1; //start A2D
-    while(GO_nDONE == 1){} //do nothing while ADC conversion in progress
-    ADON = 0; //turn off ADC
+    ADRES = 0x00; //clear first
+    ADPCH = *modifier; //select ADC channel
+    ADCON0 = ADCON0 | (1 << 7); //turn on ADC
+    ADCON0 = ADCON0 | 1; //start A2D
+    while(ADCON0bits.GO == 1){} //do nothing while ADC conversion in progress
+    ADCON0 = ADCON0 | (0 << 7); //turn off ADC
     uint16_t adc_result = ((uint16_t)(ADRESH << 8) | ADRESL); //concatenate high and low registers to get ADC result
     return adc_result;
 }    
@@ -206,7 +203,7 @@ uint8_t process_TMR0_and_prescaler_adjust(void){
         adjust_and_set_TMR0_prescaler();
 
         //Adjust TMR0 for 2 instruction tick delay on update (for low prescaler values)
-        if(TMR0_prescaler_overflow_flag == 1){//prescaler is 1:1
+        if(TMR0_prescaler_final_index == 8){//prescaler is 1:1
             final_TMR0 = final_TMR0 + 2; //(256-TMR0_final) needs to be 2 counts less
         }
         else if(TMR0_prescaler_final_index == 7){//prescaler is 2:1

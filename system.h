@@ -57,10 +57,10 @@
 
 
     const uint8_t TMR0_prescaler_bits[9] = {0b00001000,0b00000111,0b00000110,0b00000101,0b00000100,0b00000011,0b00000010,0b00000001,0b00000000}; //256,128,64,32,16,8,4,2,1 - values do extend beyond 256 but we don't need them
-    const uint8_t waveshape_adc_config_value = 0b100;
-    const uint8_t speed_adc_config_value = 0b101;
-    const uint8_t depth_adc_config_value = 0b110;
-    const uint8_t symmetry_adc_config_value = 0b111;
+    const uint8_t waveshape_adc_config_value = 0b010000;
+    const uint8_t speed_adc_config_value = 0b010001;
+    const uint8_t depth_adc_config_value = 0b010010;
+    const uint8_t symmetry_adc_config_value = 0b010011;
     const uint8_t POSITIVE = 1;
     const uint8_t NEGATIVE = 0;
     const uint8_t DO_NOTHING = 0;

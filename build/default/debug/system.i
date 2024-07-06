@@ -22749,10 +22749,10 @@ double yn(int, double);
 # 7 "./system.h" 2
 # 59 "./system.h"
     const uint8_t TMR0_prescaler_bits[9] = {0b00001000,0b00000111,0b00000110,0b00000101,0b00000100,0b00000011,0b00000010,0b00000001,0b00000000};
-    const uint8_t waveshape_adc_config_value = 0b100;
-    const uint8_t speed_adc_config_value = 0b101;
-    const uint8_t depth_adc_config_value = 0b110;
-    const uint8_t symmetry_adc_config_value = 0b111;
+    const uint8_t waveshape_adc_config_value = 0b010000;
+    const uint8_t speed_adc_config_value = 0b010001;
+    const uint8_t depth_adc_config_value = 0b010010;
+    const uint8_t symmetry_adc_config_value = 0b010011;
     const uint8_t POSITIVE = 1;
     const uint8_t NEGATIVE = 0;
     const uint8_t DO_NOTHING = 0;
@@ -22857,7 +22857,7 @@ double yn(int, double);
     uint8_t config_PPS(void);
     uint8_t turn_off_peripherals_not_required(void);
     uint8_t config_ports(void);
-    uint8_t config_ADC_pins(void);
+    uint8_t config_ADC(void);
     uint16_t do_adc(const uint8_t *modifier);
     uint8_t config_PWM_CCP1(void);
     uint8_t config_TMR0(void);
@@ -22890,15 +22890,12 @@ double yn(int, double);
 
 
 uint16_t do_ADC(const uint8_t *modifier){
-    ADCON0 = 0x00;
-
-    uint8_t temp = (uint8_t)(*modifier << 2);
-    ADCON0 = ADCON0 | temp;
-    ADON = 1;
-    _delay((unsigned long)((0.005)*(64000000/4000.0)));
-    GO_nDONE = 1;
-    while(GO_nDONE == 1){}
-    ADON = 0;
+    ADRES = 0x00;
+    ADPCH = *modifier;
+    ADCON0 = ADCON0 | (1 << 7);
+    ADCON0 = ADCON0 | 1;
+    while(ADCON0bits.GO == 1){}
+    ADCON0 = ADCON0 | (0 << 7);
     uint16_t adc_result = ((uint16_t)(ADRESH << 8) | ADRESL);
     return adc_result;
 }
@@ -23071,12 +23068,12 @@ uint8_t process_TMR0_and_prescaler_adjust(void){
         adjust_and_set_TMR0_prescaler();
 
 
-        if(TMR0_prescaler_overflow_flag == 1){
+        if(TMR0_prescaler_final_index == 8){
             final_TMR0 = final_TMR0 + 2;
         }
         else if(TMR0_prescaler_final_index == 7){
             final_TMR0 = final_TMR0 + 1;
         }
-# 224 "system.c"
+# 221 "system.c"
     return 1;
 }

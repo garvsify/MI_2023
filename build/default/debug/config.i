@@ -22807,7 +22807,7 @@ double yn(int, double);
     uint8_t config_PPS(void);
     uint8_t turn_off_peripherals_not_required(void);
     uint8_t config_ports(void);
-    uint8_t config_ADC_pins(void);
+    uint8_t config_ADC(void);
     uint16_t do_adc(const uint8_t *modifier);
     uint8_t config_PWM_CCP1(void);
     uint8_t config_TMR0(void);
@@ -22859,8 +22859,16 @@ uint8_t config_ports(void){
 }
 
 
-uint8_t config_ADC_pins(void){
-    ADCON1 = 0b10100000;
+uint8_t config_ADC(void){
+    ADCON0 = 0b10011010;
+    ADPRE = 0;
+    ADCON1 = 0x00;
+    ADCON2 = 0x00;
+    ADCON3 = 0x00;
+    ADREF = 0x00;
+    ADACQ = 0b0000000001010;
+    ADCAP = 0;
+    ADCP = 0;
 
     return 1;
 }
@@ -22901,7 +22909,7 @@ uint8_t config_system(void){
     turn_off_peripherals_not_required();
     turn_on_watchdog();
     config_ports();
-    config_ADC_pins();
+    config_ADC();
     config_PWM_CCP1();
     config_TMR0();
     config_global_interrupts();
