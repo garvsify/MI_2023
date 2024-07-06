@@ -13,7 +13,7 @@
     // CONFIG2
     #pragma config CLKOUTEN = OFF   // Clock out Enable bit (CLKOUT function is disabled)
     #pragma config PR1WAY = OFF     // PRLOCKED One-Way Set Enable bit (PRLOCKED bit can be set and cleared repeatedly)
-    #pragma config CSWEN = ON       // Clock Switch Enable bit (Writing to NOSC and NDIV is allowed)
+    #pragma config CSWEN = OFF       // Clock Switch Enable bit (Writing to NOSC and NDIV is not allowed)
     #pragma config FCMEN = OFF      // Fail-Safe Clock Monitor Enable bit (Fail-Safe Clock Monitor disabled)
     #pragma config FCMENP = OFF     // Fail-Safe Clock Monitor - Primary XTAL Enable bit (Fail-Safe Clock Monitor disabled)
     #pragma config FCMENS = OFF     // Fail-Safe Clock Monitor - Secondary XTAL Enable bit (Fail-Safe Clock Monitor Disabled)
@@ -21,7 +21,7 @@
     // CONFIG3
     #pragma config MCLRE = EXTMCLR  // MCLR Enable bit (If LVP = 0, MCLR pin is MCLR; If LVP = 1, RE3 pin function is MCLR )
     #pragma config PWRTS = PWRT_64  // Power-up timer selection bits (PWRT set at 64ms)
-    #pragma config MVECEN = ON      // Multi-vector enable bit (Multi-vector enabled, Vector table used for interrupts)
+    #pragma config MVECEN = OFF      // Multi-vector enable bit (Multi-vector disabled)
     #pragma config IVT1WAY = OFF    // IVTLOCK bit One-way set enable bit (IVTLOCKED bit can be cleared and set repeatedly)
     #pragma config LPBOREN = ON     // Low Power BOR Enable bit (Low-Power BOR enabled)
     #pragma config BOREN = SBORDIS  // Brown-out Reset Enable bits (Brown-out Reset enabled , SBOREN bit is ignored)
@@ -65,7 +65,7 @@
     #include <stdio.h>
     #include <math.h>
 
-    #define _XTAL_FREQ 32000000
+    #define _XTAL_FREQ 64000000
 
     uint8_t config_int_osc(void);
     uint8_t config_PPS(void);
@@ -73,10 +73,11 @@
     uint8_t config_ports(void);
     uint8_t config_ADC_pins(void);
     uint16_t do_adc(const uint8_t *modifier);
-    uint8_t config_PWM_CCP3(void);
-    uint8_t config_TMR0_interrupt(void);
+    uint8_t config_PWM_CCP1(void);
+    uint8_t config_TMR0(void);
     uint8_t config_system(void);
-    uint8_t turn_on_ccp3_PWM(void);
+    uint8_t turn_on_CCP1_PWM(void);
+    uint8_t config_global_interrupts(void);
 
 #endif
     
@@ -87,4 +88,3 @@
     
 //TMR2 is used by CCP1 for PWM
 //TMR0 is used by program to adjust speed/symmetry
-//THIS IS THE OPPOSITE COMPARED TO THE ORIGINAL PIC16 PROJECT

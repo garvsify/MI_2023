@@ -15,7 +15,7 @@
 
 #pragma config CLKOUTEN = OFF
 #pragma config PR1WAY = OFF
-#pragma config CSWEN = ON
+#pragma config CSWEN = OFF
 #pragma config FCMEN = OFF
 #pragma config FCMENP = OFF
 #pragma config FCMENS = OFF
@@ -23,7 +23,7 @@
 
 #pragma config MCLRE = EXTMCLR
 #pragma config PWRTS = PWRT_64
-#pragma config MVECEN = ON
+#pragma config MVECEN = OFF
 #pragma config IVT1WAY = OFF
 #pragma config LPBOREN = ON
 #pragma config BOREN = SBORDIS
@@ -22809,10 +22809,11 @@ double yn(int, double);
     uint8_t config_ports(void);
     uint8_t config_ADC_pins(void);
     uint16_t do_adc(const uint8_t *modifier);
-    uint8_t config_PWM_CCP3(void);
-    uint8_t config_TMR0_interrupt(void);
+    uint8_t config_PWM_CCP1(void);
+    uint8_t config_TMR0(void);
     uint8_t config_system(void);
-    uint8_t turn_on_ccp3_PWM(void);
+    uint8_t turn_on_CCP1_PWM(void);
+    uint8_t config_global_interrupts(void);
 # 2 "config.c" 2
 
 uint8_t config_int_osc(void){
@@ -22821,21 +22822,30 @@ uint8_t config_int_osc(void){
     OSCFRQ = 0b00001000;
     OSCEN = 0b01010100;
 
+
     return 1;
 }
 
 uint8_t config_PPS(void){
     RA2PPS = 0x09;
+
     return 1;
 }
 
-uint8_t turn_off_peripherals_not_required(){
+uint8_t turn_off_peripherals_not_required(void){
     PMD0 = 0b00011001;
     PMD1 = 0b11100000;
     PMD2 = 0b01111101;
     PMD3 = 0b11111111;
     PMD4 = 0b11111111;
     PMD5 = 0b00000011;
+
+    return 1;
+}
+
+uint8_t turn_on_watchdog(void){
+    SWDTEN = 1;
+
     return 1;
 }
 
@@ -22844,55 +22854,75 @@ uint8_t config_ports(void){
     ANSELC = 0b00001111;
     TRISC = 0b00001111;
     WPUC = 0b00000000;
+
     return 1;
 }
 
 
 uint8_t config_ADC_pins(void){
     ADCON1 = 0b10100000;
+
     return 1;
 }
 
 
-uint8_t config_PWM_CCP3(void){
-    SRLEN = 0;
-    C1ON = 0;
+uint8_t config_PWM_CCP1(void){
 
+    CCPTMRS0 = 0x01;
     TRISA2 = 1;
-    PR2 = 0xFF;
-    CCP3CON = CCP3CON | 0b00001111;
-
-    CCPTMRS0 = 0x00;
+    T2PR = 0xFF;
+    CCP1CON = CCP1CON | 0b10011111;
+    CCP1IE = 1;
+    CCPR1H = 0b00;
+    CCPR1L = 0x00;
     TMR2IF = 0;
+    T2HLT = 0b10100000;
+    T2CLKCON = 0b00000001;
     T2CON = T2CON | 0b00000000;
-
-
+    TMR2IE = 1;
 
     return 1;
 }
 
 
-uint8_t config_TMR0_interrupt(void){
+uint8_t config_TMR0(void){
+    T0CON0 = 0b10000000;
+    T0CON1 = 0b01000000;
+    TMR0IF = 0;
     TMR0IE = 1;
+
     return 1;
 }
 
 
 uint8_t config_system(void){
     config_int_osc();
+    config_PPS();
+    turn_off_peripherals_not_required();
+    turn_on_watchdog();
     config_ports();
     config_ADC_pins();
-    config_PWM_CCP3();
+    config_PWM_CCP1();
+    config_TMR0();
+    config_global_interrupts();
+
     return 1;
 }
 
 
-uint8_t turn_on_CCP3_PWM(void){
+uint8_t turn_on_CCP1_PWM(void){
 
     TMR2IF = 0;
-    TMR2ON = 1;
+    T2CON = T2CON | (0b1 << 7);
     while(TMR2IF == 0){}
     TMR2IF = 0;
     TRISA2 = 0;
+
+    return 1;
+}
+
+uint8_t config_global_interrupts(void){
+    INTCON0 = 0;
+
     return 1;
 }

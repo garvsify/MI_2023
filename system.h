@@ -7,7 +7,6 @@
 
     #define MAX_QUADRANT_INDEX 128
     #define MIN_QUADRANT_INDEX 0
-    #define _XTAL_FREQ 32000000
     #define TRIANGLE_MODE 0
     #define SINE_MODE 1
     #define SQUARE_MODE 2
@@ -57,7 +56,7 @@
 #endif
 
 
-    const uint8_t prescaler_bits[8] = {0b111,0b110,0b101,0b100,0b011,0b010,0b001,0b000}; //256,128,64,32,16,8,4,2
+    const uint8_t TMR0_prescaler_bits[9] = {0b00001000,0b00000111,0b00000110,0b00000101,0b00000100,0b00000011,0b00000010,0b00000001,0b00000000}; //256,128,64,32,16,8,4,2,1 - values do extend beyond 256 but we don't need them
     const uint8_t waveshape_adc_config_value = 0b100;
     const uint8_t speed_adc_config_value = 0b101;
     const uint8_t depth_adc_config_value = 0b110;
@@ -74,14 +73,13 @@
 
     
     uint8_t determine_waveshape(void);
-    uint8_t set_duty_CCP3(volatile uint16_t *duty_ptr);
+    uint8_t set_duty_CCP1(volatile uint16_t *duty_ptr);
     uint8_t get_current_pot_values(void);
-    uint8_t process_raw_speed_and_prescaler(void);
-    uint8_t check_if_prescaler_needs_to_be_1_1(void);
-    uint8_t turn_prescaler_OFF(void);
-    uint8_t turn_prescaler_ON(void);
+    uint8_t process_TMR0_raw_speed_and_prescaler(void);
+    uint8_t turn_TMR0_prescaler_OFF(void);
+    uint8_t turn_TMR0_prescaler_ON(void);
     uint8_t adjust_TMR0(void);
-    uint8_t adjust_and_set_prescaler(void);
+    uint8_t adjust_and_set_TMR0_prescaler(void);
     uint8_t shorten_period(void);
     uint8_t lengthen_period(void);
     uint8_t process_TMR0_and_prescaler_adjust(void);

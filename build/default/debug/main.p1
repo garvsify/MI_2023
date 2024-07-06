@@ -1,66 +1,63 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [t ~ __interrupt . k ]
 [t T1 __interrupt ]
-"19209 /Applications/microchip/mplabx/v6.15/packs/Microchip/PIC18F-Q_DFP/1.20.405/xc8/pic/include/proc/pic18f05q40.h
-[; ;/Applications/microchip/mplabx/v6.15/packs/Microchip/PIC18F-Q_DFP/1.20.405/xc8/pic/include/proc/pic18f05q40.h: 19209: extern volatile unsigned char TMR0 __attribute__((address(0x318)));
-[v _TMR0 `Vuc ~T0 @X0 0 e@792 ]
-"91 ./system.h
-[; ;./system.h: 91:     volatile extern uint32_t final_TMR0;
+"19342 /Applications/microchip/mplabx/v6.15/packs/Microchip/PIC18F-Q_DFP/1.20.405/xc8/pic/include/proc/pic18f05q40.h
+[; ;/Applications/microchip/mplabx/v6.15/packs/Microchip/PIC18F-Q_DFP/1.20.405/xc8/pic/include/proc/pic18f05q40.h: 19342: extern volatile unsigned char TMR0H __attribute__((address(0x319)));
+[v _TMR0H `Vuc ~T0 @X0 0 e@793 ]
+"89 ./system.h
+[; ;./system.h: 89:     volatile extern uint32_t final_TMR0;
 [v _final_TMR0 `Vul ~T0 @X0 0 e ]
 "45541 /Applications/microchip/mplabx/v6.15/packs/Microchip/PIC18F-Q_DFP/1.20.405/xc8/pic/include/proc/pic18f05q40.h
 [; ;/Applications/microchip/mplabx/v6.15/packs/Microchip/PIC18F-Q_DFP/1.20.405/xc8/pic/include/proc/pic18f05q40.h: 45541: extern volatile __bit TMR0IF __attribute__((address(0x25B7)));
 [v _TMR0IF `Vb ~T0 @X0 0 e@9655 ]
-"41197
-[; ;/Applications/microchip/mplabx/v6.15/packs/Microchip/PIC18F-Q_DFP/1.20.405/xc8/pic/include/proc/pic18f05q40.h: 41197: extern volatile __bit GIE __attribute__((address(0x26B7)));
-[v _GIE `Vb ~T0 @X0 0 e@9911 ]
+"41200
+[; ;/Applications/microchip/mplabx/v6.15/packs/Microchip/PIC18F-Q_DFP/1.20.405/xc8/pic/include/proc/pic18f05q40.h: 41200: extern volatile __bit GIEH __attribute__((address(0x26B7)));
+[v _GIEH `Vb ~T0 @X0 0 e@9911 ]
 "41863
 [; ;/Applications/microchip/mplabx/v6.15/packs/Microchip/PIC18F-Q_DFP/1.20.405/xc8/pic/include/proc/pic18f05q40.h: 41863: extern volatile __bit LATC5 __attribute__((address(0x2605)));
 [v _LATC5 `Vb ~T0 @X0 0 e@9733 ]
-"102 ./system.h
-[; ;./system.h: 102:     volatile extern uint8_t current_waveshape;
+"100 ./system.h
+[; ;./system.h: 100:     volatile extern uint8_t current_waveshape;
 [v _current_waveshape `Vuc ~T0 @X0 0 e ]
-"99
-[; ;./system.h: 99:     volatile extern uint16_t duty;
+"97
+[; ;./system.h: 97:     volatile extern uint16_t duty;
 [v _duty `Vus ~T0 @X0 0 e ]
-"107
-[; ;./system.h: 107:     volatile extern uint8_t current_one_quadrant_index;
-[v _current_one_quadrant_index `Vuc ~T0 @X0 0 e ]
-"109
-[; ;./system.h: 109:     volatile extern uint8_t current_quadrant;
-[v _current_quadrant `Vuc ~T0 @X0 0 e ]
-"108
-[; ;./system.h: 108:     volatile extern uint8_t current_halfcycle;
-[v _current_halfcycle `Vuc ~T0 @X0 0 e ]
 "105
-[; ;./system.h: 105:     volatile extern uint16_t current_depth;
+[; ;./system.h: 105:     volatile extern uint8_t current_one_quadrant_index;
+[v _current_one_quadrant_index `Vuc ~T0 @X0 0 e ]
+"107
+[; ;./system.h: 107:     volatile extern uint8_t current_quadrant;
+[v _current_quadrant `Vuc ~T0 @X0 0 e ]
+"106
+[; ;./system.h: 106:     volatile extern uint8_t current_halfcycle;
+[v _current_halfcycle `Vuc ~T0 @X0 0 e ]
+"103
+[; ;./system.h: 103:     volatile extern uint16_t current_depth;
 [v _current_depth `Vus ~T0 @X0 0 e ]
-"100
-[; ;./system.h: 100:     volatile extern uint8_t duty_low_byte;
+"98
+[; ;./system.h: 98:     volatile extern uint8_t duty_low_byte;
 [v _duty_low_byte `Vuc ~T0 @X0 0 e ]
-"101
-[; ;./system.h: 101:     volatile extern uint8_t duty_high_byte;
+"99
+[; ;./system.h: 99:     volatile extern uint8_t duty_high_byte;
 [v _duty_high_byte `Vuc ~T0 @X0 0 e ]
-"77
-[; ;./system.h: 77:     uint8_t set_duty_CCP3(volatile uint16_t *duty_ptr);
-[v _set_duty_CCP3 `(uc ~T0 @X0 0 ef1`*Vus ]
+"76
+[; ;./system.h: 76:     uint8_t set_duty_CCP1(volatile uint16_t *duty_ptr);
+[v _set_duty_CCP1 `(uc ~T0 @X0 0 ef1`*Vus ]
 [p mainexit ]
 "78 ./config.h
 [; ;./config.h: 78:     uint8_t config_system(void);
 [v _config_system `(uc ~T0 @X0 0 ef ]
 "79
-[; ;./config.h: 79:     uint8_t turn_on_ccp3_PWM(void);
-[v _turn_on_ccp3_PWM `(uc ~T0 @X0 0 ef ]
-"77
-[; ;./config.h: 77:     uint8_t config_TMR0_interrupt(void);
-[v _config_TMR0_interrupt `(uc ~T0 @X0 0 ef ]
-"78 ./system.h
-[; ;./system.h: 78:     uint8_t get_current_pot_values(void);
+[; ;./config.h: 79:     uint8_t turn_on_CCP1_PWM(void);
+[v _turn_on_CCP1_PWM `(uc ~T0 @X0 0 ef ]
+"77 ./system.h
+[; ;./system.h: 77:     uint8_t get_current_pot_values(void);
 [v _get_current_pot_values `(uc ~T0 @X0 0 ef ]
-"79
-[; ;./system.h: 79:     uint8_t process_raw_speed_and_prescaler(void);
-[v _process_raw_speed_and_prescaler `(uc ~T0 @X0 0 ef ]
-"87
-[; ;./system.h: 87:     uint8_t process_TMR0_and_prescaler_adjust(void);
+"78
+[; ;./system.h: 78:     uint8_t process_TMR0_raw_speed_and_prescaler(void);
+[v _process_TMR0_raw_speed_and_prescaler `(uc ~T0 @X0 0 ef ]
+"85
+[; ;./system.h: 85:     uint8_t process_TMR0_and_prescaler_adjust(void);
 [v _process_TMR0_and_prescaler_adjust `(uc ~T0 @X0 0 ef ]
 "269 /Applications/microchip/mplabx/v6.15/packs/Microchip/PIC18F-Q_DFP/1.20.405/xc8/pic/include/proc/pic18f05q40.h
 [; ;/Applications/microchip/mplabx/v6.15/packs/Microchip/PIC18F-Q_DFP/1.20.405/xc8/pic/include/proc/pic18f05q40.h: 269: __asm("CLKRCON equ 039h");
@@ -2039,7 +2036,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "15
 [p x PR1WAY  =  OFF      ]
 "16
-[p x CSWEN  =  ON        ]
+[p x CSWEN  =  OFF        ]
 "17
 [p x FCMEN  =  OFF       ]
 "18
@@ -2051,7 +2048,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "23
 [p x PWRTS  =  PWRT_64   ]
 "24
-[p x MVECEN  =  ON       ]
+[p x MVECEN  =  OFF       ]
 "25
 [p x IVT1WAY  =  OFF     ]
 "26
@@ -2098,11 +2095,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x WRTAPP  =  OFF      ]
 "59
 [p x CP  =  OFF          ]
-"60 ./system.h
-[; ;./system.h: 60:     const uint8_t prescaler_bits[8] = {0b111,0b110,0b101,0b100,0b011,0b010,0b001,0b000};
-[v _prescaler_bits `Cuc ~T0 @X0 -> 8 `i e ]
-[i _prescaler_bits
+"59 ./system.h
+[; ;./system.h: 59:     const uint8_t TMR0_prescaler_bits[9] = {0b00001000,0b00000111,0b00000110,0b00000101,0b00000100,0b00000011,0b00000010,0b00000001,0b00000000};
+[v _TMR0_prescaler_bits `Cuc ~T0 @X0 -> 9 `i e ]
+[i _TMR0_prescaler_bits
 :U ..
+-> -> 8 `i `uc
 -> -> 7 `i `uc
 -> -> 6 `i `uc
 -> -> 5 `i `uc
@@ -2113,80 +2111,80 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ..
 ]
-"61
-[; ;./system.h: 61:     const uint8_t waveshape_adc_config_value = 0b100;
+"60
+[; ;./system.h: 60:     const uint8_t waveshape_adc_config_value = 0b100;
 [v _waveshape_adc_config_value `Cuc ~T0 @X0 1 e ]
 [i _waveshape_adc_config_value
 -> -> 4 `i `uc
 ]
-"62
-[; ;./system.h: 62:     const uint8_t speed_adc_config_value = 0b101;
+"61
+[; ;./system.h: 61:     const uint8_t speed_adc_config_value = 0b101;
 [v _speed_adc_config_value `Cuc ~T0 @X0 1 e ]
 [i _speed_adc_config_value
 -> -> 5 `i `uc
 ]
-"63
-[; ;./system.h: 63:     const uint8_t depth_adc_config_value = 0b110;
+"62
+[; ;./system.h: 62:     const uint8_t depth_adc_config_value = 0b110;
 [v _depth_adc_config_value `Cuc ~T0 @X0 1 e ]
 [i _depth_adc_config_value
 -> -> 6 `i `uc
 ]
-"64
-[; ;./system.h: 64:     const uint8_t symmetry_adc_config_value = 0b111;
+"63
+[; ;./system.h: 63:     const uint8_t symmetry_adc_config_value = 0b111;
 [v _symmetry_adc_config_value `Cuc ~T0 @X0 1 e ]
 [i _symmetry_adc_config_value
 -> -> 7 `i `uc
 ]
-"65
-[; ;./system.h: 65:     const uint8_t POSITIVE = 1;
+"64
+[; ;./system.h: 64:     const uint8_t POSITIVE = 1;
 [v _POSITIVE `Cuc ~T0 @X0 1 e ]
 [i _POSITIVE
 -> -> 1 `i `uc
 ]
-"66
-[; ;./system.h: 66:     const uint8_t NEGATIVE = 0;
+"65
+[; ;./system.h: 65:     const uint8_t NEGATIVE = 0;
 [v _NEGATIVE `Cuc ~T0 @X0 1 e ]
 [i _NEGATIVE
 -> -> 0 `i `uc
 ]
-"67
-[; ;./system.h: 67:     const uint8_t DO_NOTHING = 0;
+"66
+[; ;./system.h: 66:     const uint8_t DO_NOTHING = 0;
 [v _DO_NOTHING `Cuc ~T0 @X0 1 e ]
 [i _DO_NOTHING
 -> -> 0 `i `uc
 ]
-"68
-[; ;./system.h: 68:     const uint8_t DIVIDE_BY_TWO = 1;
+"67
+[; ;./system.h: 67:     const uint8_t DIVIDE_BY_TWO = 1;
 [v _DIVIDE_BY_TWO `Cuc ~T0 @X0 1 e ]
 [i _DIVIDE_BY_TWO
 -> -> 1 `i `uc
 ]
-"69
-[; ;./system.h: 69:     const uint8_t MULTIPLY_BY_TWO = 2;
+"68
+[; ;./system.h: 68:     const uint8_t MULTIPLY_BY_TWO = 2;
 [v _MULTIPLY_BY_TWO `Cuc ~T0 @X0 1 e ]
 [i _MULTIPLY_BY_TWO
 -> -> 2 `i `uc
 ]
-"70
-[; ;./system.h: 70:     const uint8_t DIVIDE_BY_FOUR = 3;
+"69
+[; ;./system.h: 69:     const uint8_t DIVIDE_BY_FOUR = 3;
 [v _DIVIDE_BY_FOUR `Cuc ~T0 @X0 1 e ]
 [i _DIVIDE_BY_FOUR
 -> -> 3 `i `uc
 ]
-"71
-[; ;./system.h: 71:     const uint8_t DONT_CARE = 4;
+"70
+[; ;./system.h: 70:     const uint8_t DONT_CARE = 4;
 [v _DONT_CARE `Cuc ~T0 @X0 1 e ]
 [i _DONT_CARE
 -> -> 4 `i `uc
 ]
-"72
-[; ;./system.h: 72:     const uint8_t YES = 1;
+"71
+[; ;./system.h: 71:     const uint8_t YES = 1;
 [v _YES `Cuc ~T0 @X0 1 e ]
 [i _YES
 -> -> 1 `i `uc
 ]
-"73
-[; ;./system.h: 73:     const uint8_t NO = 0;
+"72
+[; ;./system.h: 72:     const uint8_t NO = 0;
 [v _NO `Cuc ~T0 @X0 1 e ]
 [i _NO
 -> -> 0 `i `uc
@@ -2464,358 +2462,341 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "13 main.c
-[; ;main.c: 13:                 __asm("r1 EQU 20h");
+[; ;main.c: 13: __asm("r1 EQU 20h");
 [; <" r1 EQU 20h ;# ">
 "14
-[; ;main.c: 14:                 __asm("r2 EQU 21h");
+[; ;main.c: 14: __asm("r2 EQU 21h");
 [; <" r2 EQU 21h ;# ">
 "15
-[; ;main.c: 15:                 __asm("r3 EQU 22h");
+[; ;main.c: 15: __asm("r3 EQU 22h");
 [; <" r3 EQU 22h ;# ">
 "16
-[; ;main.c: 16:                 __asm("aL EQU 23h");
+[; ;main.c: 16: __asm("aL EQU 23h");
 [; <" aL EQU 23h ;# ">
 "17
-[; ;main.c: 17:                 __asm("aH EQU 24h");
+[; ;main.c: 17: __asm("aH EQU 24h");
 [; <" aH EQU 24h ;# ">
 "18
-[; ;main.c: 18:                 __asm("B EQU 25h");
+[; ;main.c: 18: __asm("B EQU 25h");
 [; <" B EQU 25h ;# ">
 "21
-[; ;main.c: 21:                 __asm("mmac MACRO A,bit,u2,u1");
+[; ;main.c: 21: __asm("mmac MACRO A,bit,u2,u1");
 [; <" mmac MACRO A,bit,u2,u1 ;# ">
 "22
-[; ;main.c: 22:                 __asm("BTFSC A,bit");
+[; ;main.c: 22: __asm("BTFSC A,bit");
 [; <" BTFSC A,bit ;# ">
 "23
-[; ;main.c: 23:                 __asm("ADDWF u2,F");
+[; ;main.c: 23: __asm("ADDWF u2,F");
 [; <" ADDWF u2,F ;# ">
 "24
-[; ;main.c: 24:                 __asm("RRF u2,F");
+[; ;main.c: 24: __asm("RRF u2,F");
 [; <" RRF u2,F ;# ">
 "25
-[; ;main.c: 25:                 __asm("RRF u1,F");
+[; ;main.c: 25: __asm("RRF u1,F");
 [; <" RRF u1,F ;# ">
 "26
-[; ;main.c: 26:                 __asm("ENDM");
+[; ;main.c: 26: __asm("ENDM");
 [; <" ENDM ;# ">
 "27
-[; ;main.c: 27:         uint16_t *top_two_bytes_ptr = (uint16_t *)0x21;
+[; ;main.c: 27: uint16_t *top_two_bytes_ptr = (uint16_t *) 0x21;
 [v _top_two_bytes_ptr `*us ~T0 @X0 1 e ]
 [i _top_two_bytes_ptr
 -> -> 33 `i `*us
 ]
 [v $root$_INTERRUPT_InterruptManager `(v ~T0 @X0 0 e ]
-"31
-[; ;main.c: 31: void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
+"30
+[; ;main.c: 30: void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void) {
 [v _INTERRUPT_InterruptManager `(v ~T1 @X0 1 ef ]
 {
 [e :U _INTERRUPT_InterruptManager ]
 [f ]
+"31
+[; ;main.c: 31:     TMR0H = (uint8_t) final_TMR0;
+[e = _TMR0H -> _final_TMR0 `uc ]
 "32
-[; ;main.c: 32:     TMR0 = (uint8_t)final_TMR0;
-[e = _TMR0 -> _final_TMR0 `uc ]
-"33
-[; ;main.c: 33:     if(TMR0IF == 1){
+[; ;main.c: 32:     if (TMR0IF == 1) {
 [e $ ! == -> _TMR0IF `i -> 1 `i 1846  ]
 {
+"33
+[; ;main.c: 33:         GIEH = 0;
+[e = _GIEH -> -> 0 `i `b ]
 "34
-[; ;main.c: 34:     GIE = 0;
-[e = _GIE -> -> 0 `i `b ]
-"35
-[; ;main.c: 35:     LATC5 = 1;
+[; ;main.c: 34:         LATC5 = 1;
 [e = _LATC5 -> -> 1 `i `b ]
-"36
-[; ;main.c: 36:     TMR0IF = 0;
+"35
+[; ;main.c: 35:         TMR0IF = 0;
 [e = _TMR0IF -> -> 0 `i `b ]
-"38
-[; ;main.c: 38:     if(current_waveshape == 0){
+"37
+[; ;main.c: 37:         if (current_waveshape == 0) {
 [e $ ! == -> _current_waveshape `i -> 0 `i 1847  ]
 {
-"39
-[; ;main.c: 39:         duty = tri_table_one_quadrant[current_one_quadrant_index];
+"38
+[; ;main.c: 38:             duty = tri_table_one_quadrant[current_one_quadrant_index];
 [e = _duty *U + &U _tri_table_one_quadrant * -> _current_one_quadrant_index `ux -> -> # *U &U _tri_table_one_quadrant `ui `ux ]
-"40
-[; ;main.c: 40:     }
+"39
+[; ;main.c: 39:         } else if (current_waveshape == 1) {
 }
 [e $U 1848  ]
-"41
-[; ;main.c: 41:     else if(current_waveshape == 1){
 [e :U 1847 ]
 [e $ ! == -> _current_waveshape `i -> 1 `i 1849  ]
 {
-"42
-[; ;main.c: 42:         duty = sine_table_one_quadrant[current_one_quadrant_index];
+"40
+[; ;main.c: 40:             duty = sine_table_one_quadrant[current_one_quadrant_index];
 [e = _duty *U + &U _sine_table_one_quadrant * -> _current_one_quadrant_index `ux -> -> # *U &U _sine_table_one_quadrant `ui `ux ]
-"43
-[; ;main.c: 43:     }
+"41
+[; ;main.c: 41:         } else if (current_waveshape == 2) {
 }
 [e $U 1850  ]
-"44
-[; ;main.c: 44:     else if(current_waveshape == 2){
 [e :U 1849 ]
 [e $ ! == -> _current_waveshape `i -> 2 `i 1851  ]
 {
-"45
-[; ;main.c: 45:         duty = 1023;
+"42
+[; ;main.c: 42:             duty = 1023;
 [e = _duty -> -> 1023 `i `us ]
-"46
-[; ;main.c: 46:     }
+"43
+[; ;main.c: 43:         }
 }
 [e :U 1851 ]
 [e :U 1850 ]
 [e :U 1848 ]
-"47
-[; ;main.c: 47:     if(current_one_quadrant_index == 128){
+"44
+[; ;main.c: 44:         if (current_one_quadrant_index == 128) {
 [e $ ! == -> _current_one_quadrant_index `i -> 128 `i 1852  ]
 {
-"48
-[; ;main.c: 48:         current_quadrant = 1;
+"45
+[; ;main.c: 45:             current_quadrant = 1;
 [e = _current_quadrant -> -> 1 `i `uc ]
-"49
-[; ;main.c: 49:     }
+"46
+[; ;main.c: 46:         } else if (current_one_quadrant_index == 0) {
 }
 [e $U 1853  ]
-"50
-[; ;main.c: 50:     else if(current_one_quadrant_index == 0){
 [e :U 1852 ]
 [e $ ! == -> _current_one_quadrant_index `i -> 0 `i 1854  ]
 {
-"51
-[; ;main.c: 51:         current_quadrant = 0;
+"47
+[; ;main.c: 47:             current_quadrant = 0;
 [e = _current_quadrant -> -> 0 `i `uc ]
-"52
-[; ;main.c: 52:         if(current_halfcycle == 0){
+"48
+[; ;main.c: 48:             if (current_halfcycle == 0) {
 [e $ ! == -> _current_halfcycle `i -> 0 `i 1855  ]
 {
-"53
-[; ;main.c: 53:             current_halfcycle = 1;
+"49
+[; ;main.c: 49:                 current_halfcycle = 1;
 [e = _current_halfcycle -> -> 1 `i `uc ]
-"54
-[; ;main.c: 54:         }
+"50
+[; ;main.c: 50:             } else {
 }
 [e $U 1856  ]
-"55
-[; ;main.c: 55:         else{
 [e :U 1855 ]
 {
-"56
-[; ;main.c: 56:             current_halfcycle = 0;
+"51
+[; ;main.c: 51:                 current_halfcycle = 0;
 [e = _current_halfcycle -> -> 0 `i `uc ]
-"57
-[; ;main.c: 57:         }
+"52
+[; ;main.c: 52:             }
 }
 [e :U 1856 ]
-"58
-[; ;main.c: 58:     }
+"53
+[; ;main.c: 53:         }
 }
 [e :U 1854 ]
 [e :U 1853 ]
-"59
-[; ;main.c: 59:     if(current_quadrant == 0){
+"54
+[; ;main.c: 54:         if (current_quadrant == 0) {
 [e $ ! == -> _current_quadrant `i -> 0 `i 1857  ]
 {
-"60
-[; ;main.c: 60:         current_one_quadrant_index++;
+"55
+[; ;main.c: 55:             current_one_quadrant_index++;
 [e ++ _current_one_quadrant_index -> -> 1 `i `Vuc ]
-"61
-[; ;main.c: 61:     }
+"56
+[; ;main.c: 56:         } else {
 }
 [e $U 1858  ]
-"62
-[; ;main.c: 62:     else{
 [e :U 1857 ]
 {
-"63
-[; ;main.c: 63:         current_one_quadrant_index--;
+"57
+[; ;main.c: 57:             current_one_quadrant_index--;
 [e -- _current_one_quadrant_index -> -> 1 `i `Vuc ]
-"64
-[; ;main.c: 64:     }
+"58
+[; ;main.c: 58:         }
 }
 [e :U 1858 ]
-"65
-[; ;main.c: 65:     if(current_halfcycle == 1){
+"59
+[; ;main.c: 59:         if (current_halfcycle == 1) {
 [e $ ! == -> _current_halfcycle `i -> 1 `i 1859  ]
 {
-"66
-[; ;main.c: 66:     duty = 1023 - duty;
+"60
+[; ;main.c: 60:             duty = 1023 - duty;
 [e = _duty -> - -> -> 1023 `i `ui -> _duty `ui `us ]
-"67
-[; ;main.c: 67:     }
+"61
+[; ;main.c: 61:         }
 }
 [e :U 1859 ]
-"71
-[; ;main.c: 71:         if(current_depth == 255){
+"65
+[; ;main.c: 65:         if (current_depth == 255) {
 [e $ ! == -> _current_depth `ui -> -> 255 `i `ui 1860  ]
 {
-"72
-[; ;main.c: 72:             duty = 1023 - duty;
+"66
+[; ;main.c: 66:             duty = 1023 - duty;
 [e = _duty -> - -> -> 1023 `i `ui -> _duty `ui `us ]
-"73
-[; ;main.c: 73:         }
+"67
+[; ;main.c: 67:         } else if (current_depth != 0) {
 }
 [e $U 1861  ]
-"74
-[; ;main.c: 74:         else if(current_depth != 0){
 [e :U 1860 ]
 [e $ ! != -> _current_depth `ui -> -> 0 `i `ui 1862  ]
 {
-"75
-[; ;main.c: 75:             duty_low_byte = duty & 0xFF;
+"68
+[; ;main.c: 68:             duty_low_byte = duty & 0xFF;
 [e = _duty_low_byte -> & -> _duty `ui -> -> 255 `i `ui `uc ]
-"76
-[; ;main.c: 76:             duty_high_byte = duty >> 8;
+"69
+[; ;main.c: 69:             duty_high_byte = duty >> 8;
 [e = _duty_high_byte -> >> -> _duty `ui -> 8 `i `uc ]
-"84
-[; ;main.c: 84:             __asm("CLRF r3");
+"77
+[; ;main.c: 77:             __asm("CLRF r3");
 [; <" CLRF r3 ;# ">
-"85
-[; ;main.c: 85:             __asm("CLRF r1");
+"78
+[; ;main.c: 78:             __asm("CLRF r1");
 [; <" CLRF r1 ;# ">
-"86
-[; ;main.c: 86:             __asm("BCF STATUS,0");
+"79
+[; ;main.c: 79:             __asm("BCF STATUS,0");
 [; <" BCF STATUS,0 ;# ">
-"87
-[; ;main.c: 87:             __asm("MOVF _current_depth,0");
+"80
+[; ;main.c: 80:             __asm("MOVF _current_depth,0");
 [; <" MOVF _current_depth,0 ;# ">
-"89
-[; ;main.c: 89:             __asm("mmac _duty_low_byte,0,r3,r1");
+"82
+[; ;main.c: 82:             __asm("mmac _duty_low_byte,0,r3,r1");
 [; <" mmac _duty_low_byte,0,r3,r1 ;# ">
-"90
-[; ;main.c: 90:             __asm("mmac _duty_low_byte,1,r3,r1");
+"83
+[; ;main.c: 83:             __asm("mmac _duty_low_byte,1,r3,r1");
 [; <" mmac _duty_low_byte,1,r3,r1 ;# ">
-"91
-[; ;main.c: 91:             __asm("mmac _duty_low_byte,2,r3,r1");
+"84
+[; ;main.c: 84:             __asm("mmac _duty_low_byte,2,r3,r1");
 [; <" mmac _duty_low_byte,2,r3,r1 ;# ">
-"92
-[; ;main.c: 92:             __asm("mmac _duty_low_byte,3,r3,r1");
+"85
+[; ;main.c: 85:             __asm("mmac _duty_low_byte,3,r3,r1");
 [; <" mmac _duty_low_byte,3,r3,r1 ;# ">
-"93
-[; ;main.c: 93:             __asm("mmac _duty_low_byte,4,r3,r1");
+"86
+[; ;main.c: 86:             __asm("mmac _duty_low_byte,4,r3,r1");
 [; <" mmac _duty_low_byte,4,r3,r1 ;# ">
-"94
-[; ;main.c: 94:             __asm("mmac _duty_low_byte,5,r3,r1");
+"87
+[; ;main.c: 87:             __asm("mmac _duty_low_byte,5,r3,r1");
 [; <" mmac _duty_low_byte,5,r3,r1 ;# ">
-"95
-[; ;main.c: 95:             __asm("mmac _duty_low_byte,6,r3,r1");
+"88
+[; ;main.c: 88:             __asm("mmac _duty_low_byte,6,r3,r1");
 [; <" mmac _duty_low_byte,6,r3,r1 ;# ">
-"96
-[; ;main.c: 96:             __asm("mmac _duty_low_byte,7,r3,r1");
+"89
+[; ;main.c: 89:             __asm("mmac _duty_low_byte,7,r3,r1");
 [; <" mmac _duty_low_byte,7,r3,r1 ;# ">
-"98
-[; ;main.c: 98:             __asm("CLRF r2");
+"91
+[; ;main.c: 91:             __asm("CLRF r2");
 [; <" CLRF r2 ;# ">
-"101
-[; ;main.c: 101:             __asm("mmac _duty_high_byte,0,r3,r2");
+"94
+[; ;main.c: 94:             __asm("mmac _duty_high_byte,0,r3,r2");
 [; <" mmac _duty_high_byte,0,r3,r2 ;# ">
-"102
-[; ;main.c: 102:             __asm("mmac _duty_high_byte,1,r3,r2");
+"95
+[; ;main.c: 95:             __asm("mmac _duty_high_byte,1,r3,r2");
 [; <" mmac _duty_high_byte,1,r3,r2 ;# ">
-"103
-[; ;main.c: 103:             __asm("mmac _duty_high_byte,2,r3,r2");
+"96
+[; ;main.c: 96:             __asm("mmac _duty_high_byte,2,r3,r2");
 [; <" mmac _duty_high_byte,2,r3,r2 ;# ">
-"104
-[; ;main.c: 104:             __asm("mmac _duty_high_byte,3,r3,r2");
+"97
+[; ;main.c: 97:             __asm("mmac _duty_high_byte,3,r3,r2");
 [; <" mmac _duty_high_byte,3,r3,r2 ;# ">
-"105
-[; ;main.c: 105:             __asm("mmac _duty_high_byte,4,r3,r2");
+"98
+[; ;main.c: 98:             __asm("mmac _duty_high_byte,4,r3,r2");
 [; <" mmac _duty_high_byte,4,r3,r2 ;# ">
-"106
-[; ;main.c: 106:             __asm("mmac _duty_high_byte,5,r3,r2");
+"99
+[; ;main.c: 99:             __asm("mmac _duty_high_byte,5,r3,r2");
 [; <" mmac _duty_high_byte,5,r3,r2 ;# ">
-"107
-[; ;main.c: 107:             __asm("mmac _duty_high_byte,6,r3,r2");
+"100
+[; ;main.c: 100:             __asm("mmac _duty_high_byte,6,r3,r2");
 [; <" mmac _duty_high_byte,6,r3,r2 ;# ">
-"108
-[; ;main.c: 108:             __asm("mmac _duty_high_byte,7,r3,r2");
+"101
+[; ;main.c: 101:             __asm("mmac _duty_high_byte,7,r3,r2");
 [; <" mmac _duty_high_byte,7,r3,r2 ;# ">
-"111
-[; ;main.c: 111:             duty = 1023 - *top_two_bytes_ptr;
+"104
+[; ;main.c: 104:             duty = 1023 - *top_two_bytes_ptr;
 [e = _duty -> - -> -> 1023 `i `ui -> *U _top_two_bytes_ptr `ui `us ]
-"112
-[; ;main.c: 112:         }
+"105
+[; ;main.c: 105:         } else {
 }
 [e $U 1863  ]
-"113
-[; ;main.c: 113:         else{
 [e :U 1862 ]
 {
-"114
-[; ;main.c: 114:             duty = 1023;
+"106
+[; ;main.c: 106:             duty = 1023;
 [e = _duty -> -> 1023 `i `us ]
-"115
-[; ;main.c: 115:         }
+"107
+[; ;main.c: 107:         }
 }
 [e :U 1863 ]
 [e :U 1861 ]
-"119
-[; ;main.c: 119:     set_duty_CCP3(&duty);
-[e ( _set_duty_CCP3 (1 &U _duty ]
-"122
-[; ;main.c: 122:     LATC5 = 0;
+"111
+[; ;main.c: 111:         set_duty_CCP1(&duty);
+[e ( _set_duty_CCP1 (1 &U _duty ]
+"114
+[; ;main.c: 114:         LATC5 = 0;
 [e = _LATC5 -> -> 0 `i `b ]
-"123
-[; ;main.c: 123:     GIE = 1;
-[e = _GIE -> -> 1 `i `b ]
-"124
-[; ;main.c: 124:     }
+"115
+[; ;main.c: 115:         GIEH = 1;
+[e = _GIEH -> -> 1 `i `b ]
+"116
+[; ;main.c: 116:     }
 }
 [e :U 1846 ]
-"125
-[; ;main.c: 125: }
+"117
+[; ;main.c: 117: }
 [e :UE 1845 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"128
-[; ;main.c: 128: void main(void) {
+"119
+[; ;main.c: 119: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"129
-[; ;main.c: 129:     config_system();
+"120
+[; ;main.c: 120:     config_system();
 [e ( _config_system ..  ]
-"130
-[; ;main.c: 130:     turn_on_ccp3_PWM();
-[e ( _turn_on_ccp3_PWM ..  ]
-"131
-[; ;main.c: 131:     config_TMR0_interrupt();
-[e ( _config_TMR0_interrupt ..  ]
-"132
-[; ;main.c: 132:     get_current_pot_values();
+"121
+[; ;main.c: 121:     turn_on_CCP1_PWM();
+[e ( _turn_on_CCP1_PWM ..  ]
+"122
+[; ;main.c: 122:     get_current_pot_values();
 [e ( _get_current_pot_values ..  ]
-"133
-[; ;main.c: 133:     process_raw_speed_and_prescaler();
-[e ( _process_raw_speed_and_prescaler ..  ]
-"134
-[; ;main.c: 134:     process_TMR0_and_prescaler_adjust();
+"123
+[; ;main.c: 123:     process_TMR0_raw_speed_and_prescaler();
+[e ( _process_TMR0_raw_speed_and_prescaler ..  ]
+"124
+[; ;main.c: 124:     process_TMR0_and_prescaler_adjust();
 [e ( _process_TMR0_and_prescaler_adjust ..  ]
-"135
-[; ;main.c: 135:     TMR0 = (uint8_t)final_TMR0;
-[e = _TMR0 -> _final_TMR0 `uc ]
-"136
-[; ;main.c: 136:     GIE = 1;
-[e = _GIE -> -> 1 `i `b ]
-"138
-[; ;main.c: 138:     while(1){
+"125
+[; ;main.c: 125:     TMR0H = (uint8_t) final_TMR0;
+[e = _TMR0H -> _final_TMR0 `uc ]
+"126
+[; ;main.c: 126:     GIEH = 1;
+[e = _GIEH -> -> 1 `i `b ]
+"128
+[; ;main.c: 128:     while (1) {
 [e :U 1866 ]
 {
-"139
-[; ;main.c: 139:         get_current_pot_values();
+"129
+[; ;main.c: 129:         get_current_pot_values();
 [e ( _get_current_pot_values ..  ]
-"140
-[; ;main.c: 140:         process_raw_speed_and_prescaler();
-[e ( _process_raw_speed_and_prescaler ..  ]
-"141
-[; ;main.c: 141:         process_TMR0_and_prescaler_adjust();
+"130
+[; ;main.c: 130:         process_TMR0_raw_speed_and_prescaler();
+[e ( _process_TMR0_raw_speed_and_prescaler ..  ]
+"131
+[; ;main.c: 131:         process_TMR0_and_prescaler_adjust();
 [e ( _process_TMR0_and_prescaler_adjust ..  ]
-"142
-[; ;main.c: 142:     }
+"132
+[; ;main.c: 132:     }
 }
 [e :U 1865 ]
 [e $U 1866  ]
 [e :U 1867 ]
-"143
-[; ;main.c: 143: }
+"133
+[; ;main.c: 133: }
 [e :UE 1864 ]
 }

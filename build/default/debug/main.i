@@ -22751,7 +22751,7 @@ char *tempnam(const char *, const char *);
 
 #pragma config CLKOUTEN = OFF
 #pragma config PR1WAY = OFF
-#pragma config CSWEN = ON
+#pragma config CSWEN = OFF
 #pragma config FCMEN = OFF
 #pragma config FCMENP = OFF
 #pragma config FCMENS = OFF
@@ -22759,7 +22759,7 @@ char *tempnam(const char *, const char *);
 
 #pragma config MCLRE = EXTMCLR
 #pragma config PWRTS = PWRT_64
-#pragma config MVECEN = ON
+#pragma config MVECEN = OFF
 #pragma config IVT1WAY = OFF
 #pragma config LPBOREN = ON
 #pragma config BOREN = SBORDIS
@@ -22802,14 +22802,15 @@ char *tempnam(const char *, const char *);
     uint8_t config_ports(void);
     uint8_t config_ADC_pins(void);
     uint16_t do_adc(const uint8_t *modifier);
-    uint8_t config_PWM_CCP3(void);
-    uint8_t config_TMR0_interrupt(void);
+    uint8_t config_PWM_CCP1(void);
+    uint8_t config_TMR0(void);
     uint8_t config_system(void);
-    uint8_t turn_on_ccp3_PWM(void);
+    uint8_t turn_on_CCP1_PWM(void);
+    uint8_t config_global_interrupts(void);
 # 5 "main.c" 2
 # 1 "./system.h" 1
-# 60 "./system.h"
-    const uint8_t prescaler_bits[8] = {0b111,0b110,0b101,0b100,0b011,0b010,0b001,0b000};
+# 59 "./system.h"
+    const uint8_t TMR0_prescaler_bits[9] = {0b00001000,0b00000111,0b00000110,0b00000101,0b00000100,0b00000011,0b00000010,0b00000001,0b00000000};
     const uint8_t waveshape_adc_config_value = 0b100;
     const uint8_t speed_adc_config_value = 0b101;
     const uint8_t depth_adc_config_value = 0b110;
@@ -22826,14 +22827,13 @@ char *tempnam(const char *, const char *);
 
 
     uint8_t determine_waveshape(void);
-    uint8_t set_duty_CCP3(volatile uint16_t *duty_ptr);
+    uint8_t set_duty_CCP1(volatile uint16_t *duty_ptr);
     uint8_t get_current_pot_values(void);
-    uint8_t process_raw_speed_and_prescaler(void);
-    uint8_t check_if_prescaler_needs_to_be_1_1(void);
-    uint8_t turn_prescaler_OFF(void);
-    uint8_t turn_prescaler_ON(void);
+    uint8_t process_TMR0_raw_speed_and_prescaler(void);
+    uint8_t turn_TMR0_prescaler_OFF(void);
+    uint8_t turn_TMR0_prescaler_ON(void);
     uint8_t adjust_TMR0(void);
-    uint8_t adjust_and_set_prescaler(void);
+    uint8_t adjust_and_set_TMR0_prescaler(void);
     uint8_t shorten_period(void);
     uint8_t lengthen_period(void);
     uint8_t process_TMR0_and_prescaler_adjust(void);
@@ -22878,68 +22878,61 @@ char *tempnam(const char *, const char *);
 
 
 
-                __asm("r1 EQU 20h");
-                __asm("r2 EQU 21h");
-                __asm("r3 EQU 22h");
-                __asm("aL EQU 23h");
-                __asm("aH EQU 24h");
-                __asm("B EQU 25h");
+__asm("r1 EQU 20h");
+__asm("r2 EQU 21h");
+__asm("r3 EQU 22h");
+__asm("aL EQU 23h");
+__asm("aH EQU 24h");
+__asm("B EQU 25h");
 
 
-                __asm("mmac MACRO A,bit,u2,u1");
-                __asm("BTFSC A,bit");
-                __asm("ADDWF u2,F");
-                __asm("RRF u2,F");
-                __asm("RRF u1,F");
-                __asm("ENDM");
-        uint16_t *top_two_bytes_ptr = (uint16_t *)0x21;
+__asm("mmac MACRO A,bit,u2,u1");
+__asm("BTFSC A,bit");
+__asm("ADDWF u2,F");
+__asm("RRF u2,F");
+__asm("RRF u1,F");
+__asm("ENDM");
+uint16_t *top_two_bytes_ptr = (uint16_t *) 0x21;
 
 
+void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void) {
+    TMR0H = (uint8_t) final_TMR0;
+    if (TMR0IF == 1) {
+        GIEH = 0;
+        LATC5 = 1;
+        TMR0IF = 0;
 
-void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
-    TMR0 = (uint8_t)final_TMR0;
-    if(TMR0IF == 1){
-    GIE = 0;
-    LATC5 = 1;
-    TMR0IF = 0;
-
-    if(current_waveshape == 0){
-        duty = tri_table_one_quadrant[current_one_quadrant_index];
-    }
-    else if(current_waveshape == 1){
-        duty = sine_table_one_quadrant[current_one_quadrant_index];
-    }
-    else if(current_waveshape == 2){
-        duty = 1023;
-    }
-    if(current_one_quadrant_index == 128){
-        current_quadrant = 1;
-    }
-    else if(current_one_quadrant_index == 0){
-        current_quadrant = 0;
-        if(current_halfcycle == 0){
-            current_halfcycle = 1;
+        if (current_waveshape == 0) {
+            duty = tri_table_one_quadrant[current_one_quadrant_index];
+        } else if (current_waveshape == 1) {
+            duty = sine_table_one_quadrant[current_one_quadrant_index];
+        } else if (current_waveshape == 2) {
+            duty = 1023;
         }
-        else{
-            current_halfcycle = 0;
+        if (current_one_quadrant_index == 128) {
+            current_quadrant = 1;
+        } else if (current_one_quadrant_index == 0) {
+            current_quadrant = 0;
+            if (current_halfcycle == 0) {
+                current_halfcycle = 1;
+            } else {
+                current_halfcycle = 0;
+            }
         }
-    }
-    if(current_quadrant == 0){
-        current_one_quadrant_index++;
-    }
-    else{
-        current_one_quadrant_index--;
-    }
-    if(current_halfcycle == 1){
-    duty = 1023 - duty;
-    }
-
-
-
-        if(current_depth == 255){
+        if (current_quadrant == 0) {
+            current_one_quadrant_index++;
+        } else {
+            current_one_quadrant_index--;
+        }
+        if (current_halfcycle == 1) {
             duty = 1023 - duty;
         }
-        else if(current_depth != 0){
+
+
+
+        if (current_depth == 255) {
+            duty = 1023 - duty;
+        } else if (current_depth != 0) {
             duty_low_byte = duty & 0xFF;
             duty_high_byte = duty >> 8;
 
@@ -22977,35 +22970,32 @@ void __attribute__((picinterrupt(("")))) INTERRUPT_InterruptManager(void){
 
 
             duty = 1023 - *top_two_bytes_ptr;
-        }
-        else{
+        } else {
             duty = 1023;
         }
 
 
 
-    set_duty_CCP3(&duty);
+        set_duty_CCP1(&duty);
 
 
-    LATC5 = 0;
-    GIE = 1;
+        LATC5 = 0;
+        GIEH = 1;
     }
 }
 
-
 void main(void) {
     config_system();
-    turn_on_ccp3_PWM();
-    config_TMR0_interrupt();
+    turn_on_CCP1_PWM();
     get_current_pot_values();
-    process_raw_speed_and_prescaler();
+    process_TMR0_raw_speed_and_prescaler();
     process_TMR0_and_prescaler_adjust();
-    TMR0 = (uint8_t)final_TMR0;
-    GIE = 1;
+    TMR0H = (uint8_t) final_TMR0;
+    GIEH = 1;
 
-    while(1){
+    while (1) {
         get_current_pot_values();
-        process_raw_speed_and_prescaler();
+        process_TMR0_raw_speed_and_prescaler();
         process_TMR0_and_prescaler_adjust();
     }
 }
