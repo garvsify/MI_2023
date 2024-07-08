@@ -6,27 +6,6 @@
 #include "wavetables.h"
 #include "pinouts.h"
 
-#if DEPTH_ON_OR_OFF == 1
-/////Stuff for ASM Code////////////////////////////
-
-//equate names for registers with the register addresses
-asm("r1 EQU 20h");
-asm("r2 EQU 21h");
-asm("r3 EQU 22h");
-asm("aL EQU 23h");
-asm("aH EQU 24h");
-//asm("B EQU 25h");
-//asm("STATUS EQU 03h"); //don't think I need to do this as maybe STATUS is already equ in xc.h
-//define macro mmac, you then can 'call' the macro, and the arguments in sequence get replaced with the parameters you specify
-asm("mmac MACRO ARGz,bitz,u2,u1");
-asm("BTFSC ARGz,bitz");
-asm("ADDWF u2,F"); //don't know what the Fs mean tbh, but they appear in the electric druid code so...?
-asm("RRCF u2,F");
-asm("RRCF u1,F");
-asm("ENDM");
-uint16_t *top_two_bytes_ptr = (uint16_t *) 0x21; //point to specific memory address
-#endif
-
 void __interrupt() INTERRUPT_InterruptManager(void){
     TMR0H = (uint8_t) final_TMR0; //this line must go here, or at least very near the beginning!
     if (TMR0IF == 1) {
@@ -67,48 +46,11 @@ void __interrupt() INTERRUPT_InterruptManager(void){
 
         #if DEPTH_ON_OR_OFF == 1
         //Apply Depth
-        if (current_depth == 255){
+        if(current_depth == 255){
             duty = 1023 - duty;
         } 
-        else if (current_depth != 0){
-            duty_low_byte = duty & 0xFF;
-            duty_high_byte = duty >> 8;
-
-            //////////////////////////////////////////////////////////////////////////////////
-            //multiply 16x8 in assembly. Copied from 16x8 multiply algorithm by Martin Sturm//
-            //////////////////////////////////////////////////////////////////////////////////
-
-            ///See equates outside of ISR/////////////////////////////////////////////////////
-
-            asm("CLRF r3");
-            asm("CLRF r1");
-            asm("BCF STATUS,0"); //a.k.a CLRC - clear carry bit
-            //asm("MOVF _current_depth,0"); //move B to W //comment out if 8bit multiplicand already in W
-            asm("MOVF _current_depth,w"); //move B to W //comment out if 8bit multiplicand already in W
-            //also, b can be removed from macro arguments
-            asm("mmac _duty_low_byte,0,r3,r1");
-            asm("mmac _duty_low_byte,1,r3,r1");
-            asm("mmac _duty_low_byte,2,r3,r1");
-            asm("mmac _duty_low_byte,3,r3,r1");
-            asm("mmac _duty_low_byte,4,r3,r1");
-            asm("mmac _duty_low_byte,5,r3,r1");
-            asm("mmac _duty_low_byte,6,r3,r1");
-            asm("mmac _duty_low_byte,7,r3,r1");
-
-            asm("CLRF r2");
-            //carry already cleared from last RRF of mmac above
-            //8bit multiplicand still in W
-            asm("mmac _duty_high_byte,0,r3,r2");
-            asm("mmac _duty_high_byte,1,r3,r2");
-            asm("mmac _duty_high_byte,2,r3,r2");
-            asm("mmac _duty_high_byte,3,r3,r2");
-            asm("mmac _duty_high_byte,4,r3,r2");
-            asm("mmac _duty_high_byte,5,r3,r2");
-            asm("mmac _duty_high_byte,6,r3,r2");
-            asm("mmac _duty_high_byte,7,r3,r2");
-
-            //by accessing only the top and middle bytes of the 24-bit result, we also divide by 256. So end result is duty = 1023 - duty*(current_depth/256)
-            duty = 1023 - *top_two_bytes_ptr;
+        else if(current_depth != 0){
+            duty = 1023 - ((duty*current_depth) >> 8);
         } 
         else{
             duty = 1023; //if depth is 0, just output 1023

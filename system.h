@@ -53,7 +53,7 @@
         #define SYMMETRY_ADC_HALF_SCALE_NO_BITS 7
         #define SYMMETRY_ADC_FULL_SCALE 255
         #define SYMMETRY_ADC_HALF_SCALE 128
-#endif
+    #endif
 
 
     const uint8_t TMR0_prescaler_bits[9] = {0b00001000,0b00000111,0b00000110,0b00000101,0b00000100,0b00000011,0b00000010,0b00000001,0b00000000}; //256,128,64,32,16,8,4,2,1 - values do extend beyond 256 but we don't need them
