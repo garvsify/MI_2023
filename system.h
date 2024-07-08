@@ -87,7 +87,7 @@
 
     
     volatile extern uint32_t final_TMR0;
-    volatile extern uint8_t prescaler_adjust;
+    volatile extern uint8_t TMR0_prescaler_adjust;
     volatile extern uint32_t raw_TMR0;
     volatile extern uint8_t base_prescaler_bits_index;
     volatile extern uint8_t symmetry_status;

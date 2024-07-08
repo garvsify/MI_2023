@@ -15,14 +15,14 @@ asm("r2 EQU 21h");
 asm("r3 EQU 22h");
 asm("aL EQU 23h");
 asm("aH EQU 24h");
-asm("B EQU 25h");
+//asm("B EQU 25h");
 //asm("STATUS EQU 03h"); //don't think I need to do this as maybe STATUS is already equ in xc.h
 //define macro mmac, you then can 'call' the macro, and the arguments in sequence get replaced with the parameters you specify
-asm("mmac MACRO A,bit,u2,u1");
-asm("BTFSC A,bit");
+asm("mmac MACRO ARGz,bitz,u2,u1");
+asm("BTFSC ARGz,bitz");
 asm("ADDWF u2,F"); //don't know what the Fs mean tbh, but they appear in the electric druid code so...?
-asm("RRF u2,F");
-asm("RRF u1,F");
+asm("RRCF u2,F");
+asm("RRCF u1,F");
 asm("ENDM");
 uint16_t *top_two_bytes_ptr = (uint16_t *) 0x21; //point to specific memory address
 #endif
@@ -83,7 +83,8 @@ void __interrupt() INTERRUPT_InterruptManager(void){
             asm("CLRF r3");
             asm("CLRF r1");
             asm("BCF STATUS,0"); //a.k.a CLRC - clear carry bit
-            asm("MOVF _current_depth,0"); //move B to W //comment out if 8bit multiplicand already in W
+            //asm("MOVF _current_depth,0"); //move B to W //comment out if 8bit multiplicand already in W
+            asm("MOVF _current_depth,w"); //move B to W //comment out if 8bit multiplicand already in W
             //also, b can be removed from macro arguments
             asm("mmac _duty_low_byte,0,r3,r1");
             asm("mmac _duty_low_byte,1,r3,r1");

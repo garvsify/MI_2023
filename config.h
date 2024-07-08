@@ -32,7 +32,7 @@
     #pragma config PPS1WAY = OFF    // PPSLOCK bit One-Way Set Enable bit (PPSLOCKED bit can be set and cleared repeatedly (subject to the unlock sequence))
     #pragma config STVREN = ON      // Stack Full/Underflow Reset Enable bit (Stack full/underflow will cause Reset)
     #pragma config LVP = ON         // Low Voltage Programming Enable bit (Low voltage programming enabled. MCLR/VPP pin function is MCLR. MCLRE configuration bit is ignored)
-    #pragma config XINST = ON       // Extended Instruction Set Enable bit (Extended Instruction Set and Indexed Addressing Mode enabled)
+    #pragma config XINST = OFF       // Extended Instruction Set Enable bit (Extended Instruction Set and Indexed Addressing Mode disabled)
 
     // CONFIG5
     #pragma config WDTCPS = WDTCPS_14// WDT Period selection bits (Divider ratio 1:524299)

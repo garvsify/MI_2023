@@ -122,7 +122,7 @@ uint8_t adjust_and_set_TMR0_prescaler(void){
         TMR0_prescaler_final_index = TMR0_base_prescaler_bits_index + 2;
         T0CON0 = T0CON0 | TMR0_prescaler_bits[TMR0_prescaler_final_index];
     }
-    else if(prescaler_adjust == MULTIPLY_BY_TWO){
+    else if(TMR0_prescaler_adjust == MULTIPLY_BY_TWO){
         TMR0_prescaler_final_index = TMR0_base_prescaler_bits_index - 1;
         T0CON0 = T0CON0 | TMR0_prescaler_bits[TMR0_prescaler_final_index];
     }
@@ -174,7 +174,7 @@ uint8_t process_TMR0_and_prescaler_adjust(void){
     #if SYMMETRY_ON_OR_OFF == 1
         if(current_symmetry == SYMMETRY_ADC_HALF_SCALE){
             final_TMR0 = raw_TMR0;
-            prescaler_adjust = DO_NOTHING;
+            TMR0_prescaler_adjust = DO_NOTHING;
         }
         else{
             uint8_t symmetry_status = CCW;
@@ -214,7 +214,7 @@ uint8_t process_TMR0_and_prescaler_adjust(void){
 
     #if SYMMETRY_ON_OR_OFF == 0
         final_TMR0 = raw_TMR0;
-        prescaler_adjust = DO_NOTHING;
+        TMR0_prescaler_adjust = DO_NOTHING;
         adjust_and_set_prescaler();
     #endif
 
