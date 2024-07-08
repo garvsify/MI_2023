@@ -7,6 +7,7 @@
       <itemPath>config.h</itemPath>
       <itemPath>system.h</itemPath>
       <itemPath>wavetables.h</itemPath>
+      <itemPath>pinouts.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -24,7 +25,6 @@
       <itemPath>config.c</itemPath>
       <itemPath>system.c</itemPath>
     </logicalFolder>
-    <itemPath>pinouts.h</itemPath>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
@@ -71,7 +71,7 @@
       </makeCustomizationType>
       <HI-TECH-COMP>
         <property key="additional-warnings" value="true"/>
-        <property key="asmlist" value="true"/>
+        <property key="asmlist" value="false"/>
         <property key="call-prologues" value="false"/>
         <property key="default-bitfield-type" value="true"/>
         <property key="default-char-type" value="true"/>

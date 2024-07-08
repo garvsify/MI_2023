@@ -2,8 +2,6 @@
     #define SYSTEM_H
 
     #include <xc.h>
-    #include <stdio.h>
-    #include <math.h>
 
     #define MAX_QUADRANT_INDEX 128
     #define MIN_QUADRANT_INDEX 0

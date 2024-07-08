@@ -1,5 +1,6 @@
 #include "system.h"
 #include "config.h"
+#include <xc.h>
 
     volatile uint8_t current_waveshape = 0;
     volatile uint16_t current_speed_linear = 0;

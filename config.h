@@ -62,8 +62,6 @@
     // Use project enums instead of #define for ON and OFF.
 
     #include <xc.h>
-    #include <stdio.h>
-    #include <math.h>
 
     #define _XTAL_FREQ 64000000
 

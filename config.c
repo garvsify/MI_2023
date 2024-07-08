@@ -1,4 +1,5 @@
 #include "config.h"
+#include <xc.h>
 
 uint8_t config_int_osc(void){
     ACTCON = 0x00; //HFINTOSC tuned by OSCTUNE and updates by software to OSCTUNE allowed.
