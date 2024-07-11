@@ -66,7 +66,7 @@ void __interrupt() INTERRUPT_InterruptManager(void){
     }
 }
 
-void main(void) {
+void main(void){
     config_system();
     turn_on_CCP1_PWM();
     get_current_pot_values();
@@ -75,11 +75,9 @@ void main(void) {
     TMR0H = (uint8_t) final_TMR0;
     GIEH = 1; //enable interrupts
 
-    while (1) { //infinite loop
+    while(1){ //infinite loop
         get_current_pot_values();
         process_TMR0_raw_speed_and_prescaler();
         process_TMR0_and_prescaler_adjust();
     }
 }
-
-

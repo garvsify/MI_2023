@@ -107,5 +107,3 @@
     volatile extern uint8_t prescaler_final_index;
     
 #endif
-
-
