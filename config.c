@@ -3,6 +3,7 @@
 
 uint8_t config_int_osc(void){
     ACTCON = 0x00; //HFINTOSC tuned by OSCTUNE and updates by software to OSCTUNE allowed.
+    OSCCON1 = 0b01100000; 
     OSCTUNE = 0b00011111;
     OSCFRQ = 0b00001000;
     OSCEN = 0b01010100;

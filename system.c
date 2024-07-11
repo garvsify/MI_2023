@@ -216,7 +216,7 @@ uint8_t process_TMR0_and_prescaler_adjust(void){
     #if SYMMETRY_ON_OR_OFF == 0
         final_TMR0 = raw_TMR0;
         TMR0_prescaler_adjust = DO_NOTHING;
-        adjust_and_set_prescaler();
+        adjust_and_set_TMR0_prescaler();
     #endif
 
     return 1;

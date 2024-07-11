@@ -36,9 +36,8 @@
     #define OFF 0
 
     #define SYMMETRY_ADC_RESOLUTION 8
-    #define SYMMETRY_ON_OR_OFF ON
-    #define DEPTH_ON_OR_OFF ON
-
+    #define SYMMETRY_ON_OR_OFF OFF
+    #define DEPTH_ON_OR_OFF OFF
 
     #if SYMMETRY_ADC_RESOLUTION == 10
         #define SYMMETRY_ADC_HALF_SCALE_NO_BITS 9
