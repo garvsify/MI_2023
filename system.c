@@ -26,20 +26,24 @@
 
 
 uint16_t do_ADC(const uint8_t *modifier){
-    ADRES = 0x00; //clear first
+    ADRESL = 0x00; //clear first
+    ADRESH = 0x00; //clear first
     ADPCH = *modifier; //select ADC channel
-    ADCON0 = ADCON0 | (1 << 7); //turn on ADC
-    ADCON0 = ADCON0 | 1; //start A2D
-    while(ADCON0bits.GO == 1){} //do nothing while ADC conversion in progress
-    ADCON0 = ADCON0 | (0 << 7); //turn off ADC
+    ADCON0bits.GO = 1;
+    
+    while(ADCON0bits.GO == 1){ //do nothing while ADC conversion in progress
+    }
+    
     uint16_t adc_result = ((uint16_t)(ADRESH << 8) | ADRESL); //concatenate high and low registers to get ADC result
+    
+    adc_result = TWELVEBITMINUSONE - adc_result;
+    
     return adc_result;
 }    
     
 
 uint8_t determine_waveshape(void){
     uint16_t ADC = do_ADC(&waveshape_adc_config_value);
-    ADC = TENBITMINUSONE - ADC;
     if(ADC <= TRIANGLE_MODE_ADC_THRESHOLD){
             return TRIANGLE_MODE; //triangle wave
         }

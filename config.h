@@ -75,7 +75,7 @@
     uint8_t config_TMR0(void);
     uint8_t config_system(void);
     uint8_t turn_on_CCP1_PWM(void);
-    uint8_t config_global_interrupts(void);
+    uint8_t config_interrupts(void);
 
 #endif
     

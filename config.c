@@ -13,7 +13,21 @@ uint8_t config_int_osc(void){
 }
 
 uint8_t config_PPS(void){
+    //unlock PPS
+    INTCON0bits.GIE = 0;
+    PPSLOCK = 0x55;
+    PPSLOCK = 0xAA;
+    PPSLOCKbits.PPSLOCKED = 0b0;
+    INTCON0bits.GIE = 1;
+    
+    //reassign peripherals
     RA2PPS = 0x09;
+    
+    INTCON0bits.GIE = 0;
+    PPSLOCK = 0x55;
+    PPSLOCK = 0xAA;
+    PPSLOCKbits.PPSLOCKED = 0b1;
+    INTCON0bits.GIE = 1;
     
     return 1;
 }
@@ -46,43 +60,62 @@ uint8_t config_ports(void){
 
 
 uint8_t config_ADC(void){
-    ADCON0 = 0b10011010;
-    ADPRE = 0;
-    ADCON1 = 0x00;
-    ADCON2 = 0x00;
-    ADCON3 = 0x00;
-    ADREF = 0x00;
-    ADACQ = 0b0000000001010;
-    ADCAP = 0;
-    ADCP = 0;
+    
+    ADCON0bits.ADON = 1; //ADC enabled
+    ADCON0bits.CONT = 0; //turn off continuous operation
+    ADCON0bits.CS = 0; //clock derived from Fosc
+    ADCON0bits.FM = 1; //ADRES right-justified
+    ADCON0bits.GO = 0; //don't do an ADC
+    ADCON2bits.MD = 0b000; //put ADC into legacy mode
+    ADCON3bits.TMD = 0b111; //not using interrupts for ADC, but setting this anyway - will generate ADC interrupt regardless of thresholds.
+    ADCLKbits.CS = 15; //ADC clk is Fosc/32 - required for Tad
+    ADREFbits.NREF = 0b0; //NRef is Vss
+    ADREFbits.PREF = 0b000; //Pref is Vdd
+    ADPRE = 0x00; //Precharge time is 0.
+    ADACQ = 0; //acquisition time = 0
+    ADCAP = 0x00; //no additiional capacitance
+    ADCPbits.CPON = 0; //charge pump OFF
     
     return 1;
 }
 
-
 uint8_t config_PWM_CCP1(void){
-    //following steps in datasheet
-    CCPTMRS0 = 0x01; //choose TMR2 to be the timer for CCP1 to do PWM
+    
+    T2CONbits.ON = 1; //turn TMR2 ON
+    T2CONbits.CKPS = 0b000; //1:1 prescaler
+    T2CONbits.OUTPS = 0b0000; // 1:1 postscaler
+    T2HLTbits.PSYNC = 1; //TMR2 prescaler synchronised to Fosc/4
+    T2HLTbits.CKPOL = 0; //TMR2 increments on rising edge
+    T2HLTbits.CKSYNC = 1; //ON bit is synchronised to TMR2 clk input
+    T2HLTbits.MODE = 0b00000; //normal timer mode
+    T2CLKCONbits.CS = 0b0001; //Fosc/4 input clock source for TMR2
+    CCP1CONbits.CCP1EN = 0b1; //enable CCP1
+    CCP1CONbits.FMT = 0b1; //left-align
+    CCP1CONbits.MODE = 0b1111; //put into PWM mode
+    CCPTMRS0bits.C1TSEL = 0b01; //choose TMR2 to be the timer for CCP1 to do PWM
     TRISA2 = 1; //Port RA2 (pin that CCP3 outputs from) is disabled (set as input)
-    T2PR = 0xFF; //set PR2 value to 255 (set the PWM frequency to 31.25kHz)
-    CCP1CON = CCP1CON | 0b10011111; //put CCP1 into PWM mode, and left-align 10-bit TMR2 register H and L, and enable the peripheral.
-    CCP1IE = 1; //enable interrupt for CCP1
+    T2PR = 0xFF;
     CCPR1H = 0b00;
     CCPR1L = 0x00; //these two lines set PWM to 0V.
+    CCP1IP = 1; //high priority interrupt
+    CCP1IF = 0; //clear CCP1 interrupt flag
     TMR2IF = 0; //clear timer2 interrupt flag
-    T2HLT = 0b10100000;
-    T2CLKCON = 0b00000001;
-    T2CON = T2CON | 0b00000000; //Change Prescaler to 1:1, Postscaler to 1:1, and turn TMR2 OFF.
-    TMR2IE = 1;
+    TMR2IE = 1; //enable interrupt TMR2
+    CCP1IE = 1; //enable interrupt for CCP1
     
     return 1;
 }
 
 
 uint8_t config_TMR0(void){
-    T0CON0 = 0b10000000;
-    T0CON1 = 0b01000000; //set clock source of TMR0 to Fosc/4 and sync to Fosc
-    TMR0IF = 0;
+    T0CON0bits.EN = 1; //enable TMR0
+    T0CON0bits.MD16 = 0; //TMR0 in 8-bit mode
+    T0CON0bits.OUTPS = 0b000; //postscaler = 1:1
+    T0CON1bits.CS = 0b010; //Fosc/4 clock
+    T0CON1bits.ASYNC = 0b0; //sync'd to Fosc/4
+    T0CON1bits.CKPS = 0b0000; //prescaler is 1:1
+    TMR0IP = 1; //high priority interrupt
+    TMR0IF = 0; //clear interrupt flag
     TMR0IE = 1; //enable TMR0 interrupts
     
     return 1;
@@ -98,7 +131,7 @@ uint8_t config_system(void){
     config_ADC();
     config_PWM_CCP1();
     config_TMR0();
-    config_global_interrupts();
+    config_interrupts();
     
     return 1;
 }
@@ -115,8 +148,8 @@ uint8_t turn_on_CCP1_PWM(void){
     return 1;
 }
 
-uint8_t config_global_interrupts(void){
-    INTCON0 = 0; //disable interrupt priority
- 
+uint8_t config_interrupts(void){
+    INTCON0bits.IPEN = 0; //disable interrupt priority
+    
     return 1;
 }

@@ -6,9 +6,9 @@
 #include "wavetables.h"
 #include "pinouts.h"
 
-void __interrupt() INTERRUPT_InterruptManager(void){
+void __interrupt(__high_priority) INTERRUPT_InterruptManager(void){
     TMR0H = (uint8_t) final_TMR0; //this line must go here, or at least very near the beginning!
-    if (TMR0IF == 1) {
+    if(TMR0IF == 1){
         GIEH = 0; //disable interrupts
         LATC5 = 1; //start ISR length measurement
         TMR0IF = 0; //clear TMR0 interrupt flag
@@ -79,5 +79,6 @@ void main(void){
         get_current_pot_values();
         process_TMR0_raw_speed_and_prescaler();
         process_TMR0_and_prescaler_adjust();
+        ClrWdt();
     }
 }
