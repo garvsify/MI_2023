@@ -1,15 +1,14 @@
- /*
- * MAIN Generated Driver File
+/**
+ * PWM1 Generated Driver API Header File.
  * 
- * @file main.c
+ * @file ccp1.h
  * 
- * @defgroup main MAIN
+ * @defgroup pwm1 PWM1
  * 
- * @brief This is the generated driver implementation file for the MAIN driver.
+ * @brief This file contains the API prototypes for the PWM1 module.
  *
- * @version MAIN Driver Version 1.0.0
+ * @version PWM1 Driver Version 2.0.2
 */
-
 /*
 © [2024] Microchip Technology Inc. and its subsidiaries.
 
@@ -30,28 +29,47 @@
     EXCEED AMOUNT OF FEES, IF ANY, YOU PAID DIRECTLY TO MICROCHIP FOR 
     THIS SOFTWARE.
 */
-#include "mcc_generated_files/system/system.h"
 
-/*
-    Main application
+#ifndef PWM1_H
+#define PWM1_H
+
+ /**
+   Section: Included Files
+ */
+
+#include <xc.h>
+#include <stdint.h>
+#include <stdbool.h>
+
+#define PWM1_Initialize CCP1_Initialize
+#define PWM1_LoadDutyValue CCP1_LoadDutyValue
+#define PWM1_OutputStatusGet  CCP1_OutputStatusGet
+
+ /**
+ * @ingroup pwm1
+ * @brief Initializes the CCP1 module. This is called only once before calling other CCP1 APIs.
+ * @param None.
+ * @return None.
+ */
+void CCP1_Initialize(void);
+/**
+ * @ingroup pwm1
+ * @brief Loads the 16-bit duty cycle value.
+ * @pre CCP1_Initialize() is already called.
+ * @param dutyValue - 16-bit duty cycle value.
+ * @return None.
+ */
+void CCP1_LoadDutyValue(uint16_t dutyValue);
+/**
+ * @ingroup pwm1
+ * @brief Returns the PWM output status.
+ * @pre CCP1_Initialize() is already called.
+ * @param None.
+ * @retval True - CCP1 PWM output is high
+ * @retval False - CCP1 PWM output is low
+ */
+bool CCP1_OutputStatusGet(void);
+#endif //PWM1_H
+/**
+ End of File
 */
-
-int main(void)
-{
-    SYSTEM_Initialize();
-
-    // If using interrupts in PIC18 High/Low Priority Mode you need to enable the Global High and Low Interrupts 
-    // If using interrupts in PIC Mid-Range Compatibility Mode you need to enable the Global Interrupts 
-    // Use the following macros to: 
-
-    // Enable the Global Interrupts 
-    //INTERRUPT_GlobalInterruptEnable(); 
-
-    // Disable the Global Interrupts 
-    //INTERRUPT_GlobalInterruptDisable(); 
-
-
-    while(1)
-    {
-    }    
-}

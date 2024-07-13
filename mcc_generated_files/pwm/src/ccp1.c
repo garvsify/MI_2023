@@ -1,15 +1,14 @@
- /*
- * MAIN Generated Driver File
+/**
+ * PWM1 Generated Driver File.
  * 
- * @file main.c
+ * @file ccp1.c
  * 
- * @defgroup main MAIN
+ * @ingroup pwm1
  * 
- * @brief This is the generated driver implementation file for the MAIN driver.
+ * @brief This file contains the API implementations for the PWM1 driver.
  *
- * @version MAIN Driver Version 1.0.0
+ * @version PWM1 Driver Version 2.0.2
 */
-
 /*
 © [2024] Microchip Technology Inc. and its subsidiaries.
 
@@ -30,28 +29,63 @@
     EXCEED AMOUNT OF FEES, IF ANY, YOU PAID DIRECTLY TO MICROCHIP FOR 
     THIS SOFTWARE.
 */
-#include "mcc_generated_files/system/system.h"
 
-/*
-    Main application
+ /**
+   Section: Included Files
+ */
+
+#include <xc.h>
+#include "../ccp1.h"
+
+/**
+  Section: Macro Declarations
 */
 
-int main(void)
+#define PWM1_INITIALIZE_DUTY_VALUE    0
+
+/**
+  Section: PWM1 Module APIs
+*/
+
+void CCP1_Initialize(void)
 {
-    SYSTEM_Initialize();
-
-    // If using interrupts in PIC18 High/Low Priority Mode you need to enable the Global High and Low Interrupts 
-    // If using interrupts in PIC Mid-Range Compatibility Mode you need to enable the Global Interrupts 
-    // Use the following macros to: 
-
-    // Enable the Global Interrupts 
-    //INTERRUPT_GlobalInterruptEnable(); 
-
-    // Disable the Global Interrupts 
-    //INTERRUPT_GlobalInterruptDisable(); 
-
-
-    while(1)
-    {
-    }    
+    // Set the PWM1 to the options selected in the User Interface
+    
+    // CCPM PWM; EN enabled; FMT left_aligned; 
+    CCP1CON = 0x9C;
+    
+    // CCPRH 0; 
+    CCPR1H = 0x0;
+    
+    // CCPRL 0; 
+    CCPR1L = 0x0;
+    
+    // Selecting Timer 2
+    CCPTMRS0bits.C1TSEL = 0x1;
 }
+
+void CCP1_LoadDutyValue(uint16_t dutyValue)
+{
+	  dutyValue &= 0x03FF;
+    
+    // Load duty cycle value
+    if(CCP1CONbits.FMT)
+    {
+        dutyValue <<= 6;
+        CCPR1H = (uint8_t)(dutyValue >> 8);
+        CCPR1L = (uint8_t)dutyValue;
+    }
+    else
+    {
+        CCPR1H = (uint8_t)(dutyValue >> 8);
+        CCPR1L = (uint8_t)dutyValue;
+    }
+}
+bool CCP1_OutputStatusGet(void)
+{
+    // Returns the output status
+    return(CCP1CONbits.OUT);
+}
+/**
+ End of File
+*/
