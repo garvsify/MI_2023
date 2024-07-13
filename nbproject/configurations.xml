@@ -26,9 +26,9 @@
           <itemPath>mcc_generated_files/timer/timer_interface.h</itemPath>
         </logicalFolder>
       </logicalFolder>
-      <itemPath>system.h</itemPath>
       <itemPath>wavetables.h</itemPath>
       <itemPath>pinouts.h</itemPath>
+      <itemPath>system_uC.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -73,7 +73,7 @@
         </logicalFolder>
       </logicalFolder>
       <itemPath>main.c</itemPath>
-      <itemPath>system.c</itemPath>
+      <itemPath>system_uC.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>

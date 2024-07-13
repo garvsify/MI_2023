@@ -1,5 +1,4 @@
-#include "system.h"
-#include "config.h"
+#include "system_uC.h"
 #include <xc.h>
 
     volatile uint8_t current_waveshape = 0;
