@@ -1,7 +1,5 @@
-#include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/system_uC.h"
-#include "../../system/interrupt.h"
 #include <xc.h>
-#include "../tmr0.h"
+#include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/system_uC.h"
 
 
 const struct TMR_INTERFACE Timer0 = {

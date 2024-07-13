@@ -1,42 +1,8 @@
-/**
- * TMR0 Generated Driver API Header File
- * 
- * @file tmr0.h
- * 
- * @defgroup tmr0 TMR0
- * 
- * @brief This file contains the API prototypes and other data types for the TMR0 driver.
- *
- * @version TMR0 Driver Version 2.1.1
-*/
-/*
-© [2024] Microchip Technology Inc. and its subsidiaries.
-
-    Subject to your compliance with these terms, you may use Microchip 
-    software and any derivatives exclusively with Microchip products. 
-    You are responsible for complying with 3rd party license terms  
-    applicable to your use of 3rd party software (including open source  
-    software) that may accompany Microchip software. SOFTWARE IS ?AS IS.? 
-    NO WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS 
-    SOFTWARE, INCLUDING ANY IMPLIED WARRANTIES OF NON-INFRINGEMENT,  
-    MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT 
-    WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
-    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY 
-    KIND WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF 
-    MICROCHIP HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE 
-    FORESEEABLE. TO THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP?S 
-    TOTAL LIABILITY ON ALL CLAIMS RELATED TO THE SOFTWARE WILL NOT 
-    EXCEED AMOUNT OF FEES, IF ANY, YOU PAID DIRECTLY TO MICROCHIP FOR 
-    THIS SOFTWARE.
-*/
-
 #ifndef TMR0_H
 #define TMR0_H
 
-#include <stdint.h>
-#include <stdbool.h>
-#include "timer_interface.h"
-
+#include <xc.h>
+#include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/system_uC.h"
 
 /**
  * @ingroup tmr0
@@ -174,4 +140,4 @@ void TMR0_OverflowISR(void);
 /**
  * @}
  */
-#endif //TMR0_H
+#endif
