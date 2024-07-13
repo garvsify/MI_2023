@@ -2,6 +2,7 @@
 #include <xc.h>
 
 uint8_t config_int_osc(void){
+    
     ACTCON = 0x00; //HFINTOSC tuned by OSCTUNE and updates by software to OSCTUNE allowed.
     OSCCON1 = 0b01100000; 
     OSCTUNE = 0b00011111;
@@ -13,6 +14,7 @@ uint8_t config_int_osc(void){
 }
 
 uint8_t config_PPS(void){
+    
     //unlock PPS
     INTCON0bits.GIE = 0;
     PPSLOCK = 0x55;
@@ -23,6 +25,7 @@ uint8_t config_PPS(void){
     //reassign peripherals
     RA2PPS = 0x09;
     
+    //lock PPS
     INTCON0bits.GIE = 0;
     PPSLOCK = 0x55;
     PPSLOCK = 0xAA;
@@ -33,6 +36,7 @@ uint8_t config_PPS(void){
 }
 
 uint8_t turn_off_peripherals_not_required(void){
+    
     PMD0 = 0b00011001; //Disable CRC, NVM Memory Scanner, and Interrupt-on-Change
     PMD1 = 0b11100000; //Disable Comparator 1, ZCD, and SMT1
     PMD2 = 0b01111101; //Disable, CWG1MD, DSM, NCO, Active Clock Tuning, DAC, and Comparator 1
@@ -44,6 +48,7 @@ uint8_t turn_off_peripherals_not_required(void){
 }
 
 uint8_t turn_on_watchdog(void){
+    
     SWDTEN = 1;
     
     return 1;
@@ -51,6 +56,7 @@ uint8_t turn_on_watchdog(void){
 
 
 uint8_t config_ports(void){
+    
     ANSELC = 0b00001111; //set RC0-3 to analog inputs, RC5 as output
     TRISC = 0b00001111; //set RC0-3 to inputs, RC5 as output
     WPUC = 0b00000000; //disable pullups on port C
@@ -108,6 +114,7 @@ uint8_t config_PWM_CCP1(void){
 
 
 uint8_t config_TMR0(void){
+    
     T0CON0bits.EN = 1; //enable TMR0
     T0CON0bits.MD16 = 0; //TMR0 in 8-bit mode
     T0CON0bits.OUTPS = 0b000; //postscaler = 1:1
@@ -123,6 +130,7 @@ uint8_t config_TMR0(void){
 
 
 uint8_t config_system(void){
+    
     config_int_osc();
     config_PPS();
     turn_off_peripherals_not_required();
@@ -138,6 +146,7 @@ uint8_t config_system(void){
 
 
 uint8_t turn_on_CCP1_PWM(void){
+    
     //this procedure ensures near as dammit that a the PWM output will start with a full cycle
     TMR2IF = 0; //make sure TMR2IF is cleared
     T2CON = T2CON | (0b1 << 7); //turn on timer2
@@ -149,6 +158,7 @@ uint8_t turn_on_CCP1_PWM(void){
 }
 
 uint8_t config_interrupts(void){
+    
     INTCON0bits.IPEN = 0; //disable interrupt priority
     
     return 1;

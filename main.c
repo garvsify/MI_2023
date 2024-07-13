@@ -7,6 +7,7 @@
 #include "pinouts.h"
 
 void __interrupt(__high_priority) INTERRUPT_InterruptManager(void){
+    
     TMR0H = (uint8_t) final_TMR0; //this line must go here, or at least very near the beginning!
     if(TMR0IF == 1){
         GIEH = 0; //disable interrupts
@@ -45,16 +46,16 @@ void __interrupt(__high_priority) INTERRUPT_InterruptManager(void){
         }
 
         #if DEPTH_ON_OR_OFF == 1
-        //Apply Depth
-        if(current_depth == 255){
-            duty = 1023 - duty;
-        } 
-        else if(current_depth != 0){
-            duty = 1023 - ((duty*current_depth) >> 8);
-        } 
-        else{
-            duty = 1023; //if depth is 0, just output 1023
-        }
+            //Apply Depth
+            if(current_depth == 255){
+                duty = 1023 - duty;
+            } 
+            else if(current_depth != 0){
+                duty = 1023 - ((duty*current_depth) >> 8);
+            } 
+            else{
+                duty = 1023; //if depth is 0, just output 1023
+            }
         #endif
 
         //Write Duty
@@ -67,6 +68,7 @@ void __interrupt(__high_priority) INTERRUPT_InterruptManager(void){
 }
 
 void main(void){
+    
     config_system();
     turn_on_CCP1_PWM();
     get_current_pot_values();
@@ -76,6 +78,7 @@ void main(void){
     GIEH = 1; //enable interrupts
 
     while(1){ //infinite loop
+        
         get_current_pot_values();
         process_TMR0_raw_speed_and_prescaler();
         process_TMR0_and_prescaler_adjust();

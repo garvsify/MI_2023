@@ -26,6 +26,7 @@
 
 
 uint16_t do_ADC(const uint8_t *modifier){
+    
     ADRESL = 0x00; //clear first
     ADRESH = 0x00; //clear first
     ADPCH = *modifier; //select ADC channel
@@ -43,6 +44,7 @@ uint16_t do_ADC(const uint8_t *modifier){
     
 
 uint8_t determine_waveshape(void){
+    
     uint16_t ADC = do_ADC(&waveshape_adc_config_value);
     if(ADC <= TRIANGLE_MODE_ADC_THRESHOLD){
             return TRIANGLE_MODE; //triangle wave
@@ -61,6 +63,7 @@ uint8_t determine_waveshape(void){
 
 
 uint8_t set_duty_CCP1(volatile uint16_t *duty_ptr){
+    
     //we need to split up the duty cycle value (0-1023) into two parts, the 8 MSBs (CCPR3L register) and the 2 LSBs (DC3B bits within the CCP3CON register) and write the separate bit portions to those registers
     CCPR1H = (uint8_t)(*duty_ptr >> 2); //extract 8 MSBs from duty value (dereference the ptr first)
     uint8_t temp = *duty_ptr % 0b100;
@@ -72,6 +75,7 @@ uint8_t set_duty_CCP1(volatile uint16_t *duty_ptr){
     
 
 uint8_t get_current_pot_values(void){
+    
     current_waveshape = determine_waveshape();
     current_speed_linear = do_ADC(&speed_adc_config_value); //get speed (10-bit linear)
     current_speed_linear = TENBITMINUSONE - current_speed_linear;
@@ -96,6 +100,7 @@ uint8_t get_current_pot_values(void){
 
 
 uint8_t process_TMR0_raw_speed_and_prescaler(void){
+    
     current_speed_linear_32 = current_speed_linear;
     speed_control_32 = current_speed_linear_32 * NUMBER_OF_FREQUENCY_STEPS;
     speed_control_32 = speed_control_32 >> 10;
@@ -119,6 +124,7 @@ uint8_t process_TMR0_raw_speed_and_prescaler(void){
 
 
 uint8_t adjust_and_set_TMR0_prescaler(void){
+    
     if(TMR0_prescaler_adjust == DIVIDE_BY_TWO){
         TMR0_prescaler_final_index = TMR0_base_prescaler_bits_index + 1;
         T0CON0 = T0CON0 | TMR0_prescaler_bits[TMR0_prescaler_final_index];
@@ -140,6 +146,7 @@ uint8_t adjust_and_set_TMR0_prescaler(void){
 
 
 #if SYMMETRY_ON_OR_OFF == 1
+
     uint8_t shorten_period(void){
         #if SYMMETRY_ADC_RESOLUTION == 8
             uint32_t twofiftysix_minus_TMR0_final = (((256-raw_TMR0)*(SHORTEN_POWER_OF_TWO_CONSTANT_8_BIT_SYM+(24*current_symmetry)))>>SHORTEN_POWER_OF_TWO_DIVISOR_8_BIT_SYM);
@@ -176,6 +183,7 @@ uint8_t adjust_and_set_TMR0_prescaler(void){
 
 
 uint8_t process_TMR0_and_prescaler_adjust(void){
+    
     #if SYMMETRY_ON_OR_OFF == 1
         if(current_symmetry == SYMMETRY_ADC_HALF_SCALE){
             final_TMR0 = raw_TMR0;
