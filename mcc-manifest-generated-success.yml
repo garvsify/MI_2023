@@ -2,7 +2,7 @@
 
 manifest_file_version: 1.0.0
 project: MI-2023_2024-PIC18
-creation_date: 2024-07-13T09:47:21.695+01:00[Europe/London]
+creation_date: 2024-07-13T15:35:54.289+01:00[Europe/London]
 operating_system: Mac OS X
 mcc_mode: IDE
 mcc_mode_version: v6.20
@@ -26,5 +26,4 @@ modules:
 - {name: '@mchp-mcc/scf-pic8-ccp-v1', type: MELODY, version: 4.0.16}
 - {name: '@mchp-mcc/scf-pic8-interrupt-v1', type: MELODY, version: 5.2.10}
 - {name: '@mchp-mcc/scf-pic8-osc-v1', type: MELODY, version: 4.3.6}
-- {name: '@mchp-mcc/scf-pic8-tmr0-v1', type: MELODY, version: 4.0.13}
 - {name: '@mchp-mcc/scf-pic8-tmr2-v1', type: MELODY, version: 4.0.18}

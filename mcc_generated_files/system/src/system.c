@@ -7,8 +7,8 @@ uint8_t SYSTEM_Initialize(void){
     PIN_MANAGER_Initialize();
     ADCC_Initialize();
     PWM1_Initialize();
-    Timer0_Initialize();
     TMR2_Initialize();
+    TMR4_Initialize();
     INTERRUPT_Initialize();
     
     return 1;

@@ -46,13 +46,13 @@ void  INTERRUPT_Initialize (void)
 void __interrupt() INTERRUPT_InterruptManager (void)
 {
     // interrupt handler
-    if(PIE3bits.TMR0IE == 1 && PIR3bits.TMR0IF == 1)
-    {
-        Timer0_OverflowISR();
-    }
-    else if(PIE3bits.TMR2IE == 1 && PIR3bits.TMR2IF == 1)
+    if(PIE3bits.TMR2IE == 1 && PIR3bits.TMR2IF == 1)
     {
         TMR2_ISR();
+    }
+    else if(PIE10bits.TMR4IE == 1 && PIR10bits.TMR4IF == 1)
+    {
+        TMR4_ISR();
     }
     else
     {
