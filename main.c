@@ -3,7 +3,7 @@
 #include "pinouts.h"
 #include "system_uC.h"
 #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/system/system.h"
-
+/*
 void __interrupt(__high_priority) INTERRUPT_InterruptManager(void){
     
     TMR0H = (uint8_t) final_TMR0; //this line must go here, or at least very near the beginning!
@@ -64,17 +64,18 @@ void __interrupt(__high_priority) INTERRUPT_InterruptManager(void){
         INTERRUPT_GlobalInterruptEnable();
     }
 }
+*/
 
 int main(void)
 {
-    SYSTEM_Initialize();
+    //SYSTEM_Initialize();
     
     get_current_pot_values();
     process_TMR0_raw_speed_and_prescaler();
     process_TMR0_and_prescaler_adjust();
     TMR0H = (uint8_t) final_TMR0;
 
-    INTERRUPT_GlobalInterruptEnable();
+    //INTERRUPT_GlobalInterruptEnable();
     
     while(1){
         
