@@ -2,6 +2,7 @@
     #define SYSTEM_H
 
     #include <xc.h>
+    #include "wavetables.h"
 
     #define MAX_QUADRANT_INDEX 128
     #define MIN_QUADRANT_INDEX 0

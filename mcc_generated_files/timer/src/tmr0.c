@@ -1,35 +1,5 @@
-/**
- * TMR0 Generated Driver File
- * 
- * @file tmr0.c
- * 
- * @ingroup tmr0
- * 
- * @brief  Driver implementation for the TMR0 driver
- *
- * @version TMR0 Driver Version 2.1.1
-*/
-/*
-© [2024] Microchip Technology Inc. and its subsidiaries.
-
-    Subject to your compliance with these terms, you may use Microchip 
-    software and any derivatives exclusively with Microchip products. 
-    You are responsible for complying with 3rd party license terms  
-    applicable to your use of 3rd party software (including open source  
-    software) that may accompany Microchip software. SOFTWARE IS ?AS IS.? 
-    NO WARRANTIES, WHETHER EXPRESS, IMPLIED OR STATUTORY, APPLY TO THIS 
-    SOFTWARE, INCLUDING ANY IMPLIED WARRANTIES OF NON-INFRINGEMENT,  
-    MERCHANTABILITY, OR FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT 
-    WILL MICROCHIP BE LIABLE FOR ANY INDIRECT, SPECIAL, PUNITIVE, 
-    INCIDENTAL OR CONSEQUENTIAL LOSS, DAMAGE, COST OR EXPENSE OF ANY 
-    KIND WHATSOEVER RELATED TO THE SOFTWARE, HOWEVER CAUSED, EVEN IF 
-    MICROCHIP HAS BEEN ADVISED OF THE POSSIBILITY OR THE DAMAGES ARE 
-    FORESEEABLE. TO THE FULLEST EXTENT ALLOWED BY LAW, MICROCHIP?S 
-    TOTAL LIABILITY ON ALL CLAIMS RELATED TO THE SOFTWARE WILL NOT 
-    EXCEED AMOUNT OF FEES, IF ANY, YOU PAID DIRECTLY TO MICROCHIP FOR 
-    THIS SOFTWARE.
-*/
-
+#include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/system_uC.h"
+#include "../../system/interrupt.h"
 #include <xc.h>
 #include "../tmr0.h"
 
@@ -124,7 +94,63 @@ void TMR0_OverflowCallbackRegister(void (* CallbackHandler)(void))
 
 static void TMR0_DefaultOverflowCallback(void)
 {
-    //Add your interrupt code here or
-    //Use TMR0_OverflowCallbackRegister function to use Custom ISR
+    TMR0H = (uint8_t) final_TMR0; //this line must go here, or at least very near the beginning!
+    if(TMR0IF == 1){
+        INTERRUPT_GlobalInterruptDisable();
+        LATC5 = 1; //start ISR length measurement
+        TMR0IF = 0; //clear TMR0 interrupt flag
+
+        if(current_waveshape == TRIANGLE_MODE){
+            duty = tri_table_one_quadrant[current_one_quadrant_index];
+        } 
+        else if(current_waveshape == SINE_MODE){
+            duty = sine_table_one_quadrant[current_one_quadrant_index];
+        } 
+        else if(current_waveshape == SQUARE_MODE){
+            duty = 1023;
+        }
+        if(current_one_quadrant_index == MAX_QUADRANT_INDEX){
+            current_quadrant = SECOND_QUADRANT;
+        } 
+        else if(current_one_quadrant_index == MIN_QUADRANT_INDEX){
+            current_quadrant = FIRST_QUADRANT;
+            if(current_halfcycle == FIRST_HALFCYCLE){
+                current_halfcycle = SECOND_HALFCYCLE;
+            } 
+            else{
+                current_halfcycle = FIRST_HALFCYCLE;
+            }
+        }
+        if(current_quadrant == FIRST_QUADRANT){
+            current_one_quadrant_index++;
+        } 
+        else{
+            current_one_quadrant_index--;
+        }
+        if(current_halfcycle == SECOND_HALFCYCLE){
+            duty = 1023 - duty;
+        }
+
+        #if DEPTH_ON_OR_OFF == 1
+
+            //Apply Depth
+            if(current_depth == 255){
+                duty = 1023 - duty;
+            } 
+            else if(current_depth != 0){
+                duty = 1023 - ((duty*current_depth) >> 8);
+            } 
+            else{
+                duty = 1023; //if depth is 0, just output 1023
+            }
+        #endif
+
+        //Write Duty
+        set_duty_CCP1(&duty);
+
+        //Finish Up
+        LATC5 = 0; //finish ISR length measurement
+        INTERRUPT_GlobalInterruptEnable();
+    }
 }
 
