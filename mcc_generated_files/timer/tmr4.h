@@ -300,6 +300,12 @@ typedef enum
   Section: TMR4 APIs
 */
 
+uint8_t TMR4_ChangePrescaler(const uint8_t prescaler);
+
+
+
+
+
 /**
  * @ingroup tmr4
  * @brief Initializes the TMR4 module. This routine must be called before any other timer routines.

@@ -13,7 +13,8 @@ int main(void)
     
     INTERRUPT_GlobalInterruptEnable();
     current_waveshape = SINE_MODE;
-    TMR4_PeriodCountSet(60);
+    TMR4_PeriodCountSet(200);
+    TMR4_ChangePrescaler(0b00000111);
     TMR4_Start();
     
     while(1){
