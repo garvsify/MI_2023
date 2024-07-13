@@ -94,7 +94,6 @@ adc_result_t ADCC_GetSingleConversion(adcc_channel_t channel)
     {
     }
     
-    
     //Conversion finished, returns the result
     return ((adc_result_t)((ADRESH << 8) + ADRESL));
 }

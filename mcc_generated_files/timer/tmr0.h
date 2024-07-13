@@ -136,7 +136,11 @@ void TMR0_OverflowISR(void);
  */
  void TMR0_OverflowCallbackRegister(void (* CallbackHandler)(void));
 
-
+ 
+ 
+ 
+ 
+ void TMR0_Update_Prescaler(const uint8_t prescaler);
 /**
  * @}
  */

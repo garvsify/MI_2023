@@ -18,6 +18,8 @@
     #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/pwm/ccp1.h"
     #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/adc/adcc.h"
 
+
+
     #define MAX_QUADRANT_INDEX 128
     #define MIN_QUADRANT_INDEX 0
     #define TRIANGLE_MODE 0
@@ -55,10 +57,10 @@
     #define SYMMETRY_ON_OR_OFF OFF
     #define DEPTH_ON_OR_OFF OFF
 
-    #if SYMMETRY_ADC_RESOLUTION == 10
-        #define SYMMETRY_ADC_HALF_SCALE_NO_BITS 9
-        #define SYMMETRY_ADC_FULL_SCALE 1023
-        #define SYMMETRY_ADC_HALF_SCALE 512
+    #if SYMMETRY_ADC_RESOLUTION == 12
+        #define SYMMETRY_ADC_HALF_SCALE_NO_BITS 11
+        #define SYMMETRY_ADC_FULL_SCALE 4095
+        #define SYMMETRY_ADC_HALF_SCALE 2047
     #endif
 
 
@@ -70,10 +72,10 @@
 
 
     const uint8_t TMR0_prescaler_bits[9] = {0b00001000,0b00000111,0b00000110,0b00000101,0b00000100,0b00000011,0b00000010,0b00000001,0b00000000}; //256,128,64,32,16,8,4,2,1 - values do extend beyond 256 but we don't need them
-    const uint8_t waveshape_adc_config_value = 0b010000;
-    const uint8_t speed_adc_config_value = 0b010001;
-    const uint8_t depth_adc_config_value = 0b010010;
-    const uint8_t symmetry_adc_config_value = 0b010011;
+    adcc_channel_t waveshape_adc_config_value = channel_ANC0;
+    adcc_channel_t speed_adc_config_value = channel_ANC1;
+    adcc_channel_t depth_adc_config_value = channel_ANC2;
+    adcc_channel_t symmetry_adc_config_value = channel_ANC3;
     const uint8_t POSITIVE = 1;
     const uint8_t NEGATIVE = 0;
     const uint8_t DO_NOTHING = 0;
@@ -86,7 +88,6 @@
 
     
     uint8_t determine_waveshape(void);
-    uint8_t set_duty_CCP1(volatile uint16_t *duty_ptr);
     uint8_t get_current_pot_values(void);
     uint8_t process_TMR0_raw_speed_and_prescaler(void);
     uint8_t turn_TMR0_prescaler_OFF(void);
@@ -96,7 +97,6 @@
     uint8_t shorten_period(void);
     uint8_t lengthen_period(void);
     uint8_t process_TMR0_and_prescaler_adjust(void);
-    uint16_t do_ADC(const uint8_t *waveshape_adc_config_value);
 
     
     volatile extern uint32_t final_TMR0;

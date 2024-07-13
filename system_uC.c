@@ -21,30 +21,12 @@
     volatile uint8_t duty_high_byte;
     volatile uint16_t duty = 0;
     volatile uint8_t TMR0_prescaler_overflow_flag = 0;
-    volatile uint8_t TMR0_prescaler_final_index = 0;
-
-
-uint16_t do_ADC(const uint8_t *modifier){
-    
-    ADRESL = 0x00; //clear first
-    ADRESH = 0x00; //clear first
-    ADPCH = *modifier; //select ADC channel
-    ADCON0bits.GO = 1;
-    
-    while(ADCON0bits.GO == 1){ //do nothing while ADC conversion in progress
-    }
-    
-    uint16_t adc_result = ((uint16_t)(ADRESH << 8) | ADRESL); //concatenate high and low registers to get ADC result
-    
-    adc_result = TWELVEBITMINUSONE - adc_result;
-    
-    return adc_result;
-}    
+    volatile uint8_t TMR0_prescaler_final_index = 0;   
     
 
 uint8_t determine_waveshape(void){
     
-    uint16_t ADC = do_ADC(&waveshape_adc_config_value);
+    adc_result_t ADC = ADCC_GetSingleConversion(waveshape_adc_config_value);
     if(ADC <= TRIANGLE_MODE_ADC_THRESHOLD){
             return TRIANGLE_MODE; //triangle wave
         }
@@ -59,41 +41,30 @@ uint8_t determine_waveshape(void){
         }
     return 1;
 }
-
-
-uint8_t set_duty_CCP1(volatile uint16_t *duty_ptr){
-    
-    //we need to split up the duty cycle value (0-1023) into two parts, the 8 MSBs (CCPR3L register) and the 2 LSBs (DC3B bits within the CCP3CON register) and write the separate bit portions to those registers
-    CCPR1H = (uint8_t)(*duty_ptr >> 2); //extract 8 MSBs from duty value (dereference the ptr first)
-    uint8_t temp = *duty_ptr % 0b100;
-    CCPR1L = (uint8_t)(*duty_ptr << 7);
-    //although we can write to the above registers at any time to specify the duty cycle, the duty cycle will not update until the
-    //timer overflow
-    return 1;
-}
     
 
 uint8_t get_current_pot_values(void){
     
     current_waveshape = determine_waveshape();
-    current_speed_linear = do_ADC(&speed_adc_config_value); //get speed (10-bit linear)
-    current_speed_linear = TENBITMINUSONE - current_speed_linear;
+    current_speed_linear = ADCC_GetSingleConversion(speed_adc_config_value); //get speed (12-bit linear)
+    current_speed_linear = TWELVEBITMINUSONE - current_speed_linear;
+    
     #if DEPTH_ON_OR_OFF == 1
-        current_depth = do_ADC(&depth_adc_config_value); //get depth (10-bit linear)
+        current_depth = ADCC_GetSingleConversion(&depth_adc_config_value); //get depth (12-bit linear)
         current_depth = current_depth >> 2; //convert to 8-bit
         current_depth = EIGHTBITMINUSONE - current_depth;
     #endif
     #if SYMMETRY_ON_OR_OFF == 1
-        current_symmetry = do_ADC(&symmetry_adc_config_value); //get symmetry (10-bit linear)
+        current_symmetry = ADCC_GetSingleConversion(&symmetry_adc_config_value); //get symmetry (12-bit linear)
         #if SYMMETRY_ADC_RESOLUTION == 8
             current_symmetry = current_symmetry >> 2; //convert to 8-bit
-            current_symmetry = SYMMETRY_ADC_FULL_SCALE - current_symmetry;
         #endif
-        #if SYMMETRY_ADC_RESOLUTION == 10
+        #if SYMMETRY_ADC_RESOLUTION == 12
             current_symmetry = current_symmetry;
-            current_symmetry = SYMMETRY_ADC_FULL_SCALE - current_symmetry;
         #endif
+    current_symmetry = SYMMETRY_ADC_FULL_SCALE - current_symmetry;
     #endif
+
     return 1;
 }
 

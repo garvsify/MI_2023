@@ -92,9 +92,12 @@ void TMR0_OverflowCallbackRegister(void (* CallbackHandler)(void))
 
 static void TMR0_DefaultOverflowCallback(void)
 {
-    TMR0H = (uint8_t) final_TMR0; //this line must go here, or at least very near the beginning!
+    //TMR0H = (uint8_t) final_TMR0; //this line must go here, or at least very near the beginning!
+    TMR0H = 255;
     if(TMR0IF == 1){
+        
         INTERRUPT_GlobalInterruptDisable();
+        
         LATC5 = 1; //start ISR length measurement
         TMR0IF = 0; //clear TMR0 interrupt flag
 
@@ -141,10 +144,11 @@ static void TMR0_DefaultOverflowCallback(void)
             else{
                 duty = 1023; //if depth is 0, just output 1023
             }
+        
         #endif
 
         //Write Duty
-        set_duty_CCP1(&duty);
+        CCP1_LoadDutyValue(duty);
 
         //Finish Up
         LATC5 = 0; //finish ISR length measurement
@@ -152,3 +156,7 @@ static void TMR0_DefaultOverflowCallback(void)
     }
 }
 
+void TMR0_Update_Prescaler(const uint8_t prescaler){
+    
+    T0CON1bits.CKPS = prescaler;
+ }
