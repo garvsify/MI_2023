@@ -1,25 +1,27 @@
 #include <xc.h>
 #include "system_uC.h"
 
-int main(void)
-{
+int main(void){
+    
     SYSTEM_Initialize();
     
-    /*get_current_pot_values();
-    process_TMR0_raw_speed_and_prescaler();
+    get_current_pot_values();
+    /*process_TMR0_raw_speed_and_prescaler();
     process_TMR0_and_prescaler_adjust();
     TMR0H = (uint8_t) final_TMR0;
     */
     
+    current_waveshape = TRIANGLE_MODE;
+    
+    T0CON1bits.CKPS = 0b0110; //512:1
+    TMR0H = 200;
+    TMR0_Start();
+    
     INTERRUPT_GlobalInterruptEnable();
-    current_waveshape = SINE_MODE;
-    TMR4_PeriodCountSet(200);
-    TMR4_ChangePrescaler(0b00000111);
-    TMR4_Start();
     
     while(1){
         
-        //get_current_pot_values();
+        get_current_pot_values();
         //process_TMR0_raw_speed_and_prescaler();
         //process_TMR0_and_prescaler_adjust();
         

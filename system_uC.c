@@ -21,7 +21,7 @@
     volatile uint8_t duty_high_byte;
     volatile uint16_t duty = 0;
     volatile uint8_t TMR0_prescaler_overflow_flag = 0;
-    volatile uint8_t TMR0_prescaler_final_index = 0;   
+    volatile uint8_t TMR0_prescaler_final_index = 0;  
     
 
 uint8_t determine_waveshape(void){
