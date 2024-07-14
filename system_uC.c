@@ -26,20 +26,11 @@
     volatile uint16_t ADC_result = 0;
     
 
-uint8_t determine_waveshape(void){
-    
-    ADC_type_flag = WAVESHAPE_FLAG;
-    
-    ADCC_StartConversion(waveshape_adc_config_value);
-    
-    return 1;
-}
-    
-
 uint8_t get_current_pot_values(void){
     
     //WAVESHAPE
-    determine_waveshape();
+    ADC_type_flag = WAVESHAPE_FLAG;
+    ADCC_StartConversion(waveshape_adc_config_value);
     
     /*//SPEED
     ADC_type_flag = SPEED_FLAG;

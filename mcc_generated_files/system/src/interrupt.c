@@ -46,11 +46,11 @@ void  INTERRUPT_Initialize (void)
 void __interrupt() INTERRUPT_InterruptManager (void)
 {
     // interrupt handler
-    if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
+    if(PIR1bits.ADIF == 1)
     {
         ADCC_ISR();
     }
-    else if(PIE3bits.TMR0IE == 1 && PIR3bits.TMR0IF == 1)
+    else if(PIR3bits.TMR0IF == 1)
     {
         Timer0_OverflowISR();
     }

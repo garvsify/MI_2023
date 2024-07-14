@@ -95,7 +95,6 @@
     const uint8_t NO = 0;
 
     
-    uint8_t determine_waveshape(void);
     uint8_t get_current_pot_values(void);
     uint8_t process_TMR0_raw_speed_and_prescaler(void);
     uint8_t turn_TMR0_prescaler_OFF(void);

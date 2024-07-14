@@ -70,6 +70,10 @@ void ADCC_Initialize(void)
 
 void ADCC_StartConversion(adcc_channel_t channel)
 {
+    //trying something? halp
+    PIR1bits.ADIF = 0;
+    PIE1bits.ADIE = 1;
+    
     //Selects the A/D channel
     ADPCH = channel;
 
@@ -264,8 +268,10 @@ void ADCC_SetADIInterruptHandler(void (* InterruptHandler)(void))
     ADCC_ADI_InterruptHandler = InterruptHandler;
 }
 
-static void ADCC_DefaultADI_ISR(void)
-{
+static void ADCC_DefaultADI_ISR(void){
+    
+    LATC5 = 1;
+    
     ADC_result = ADCC_GetConversionResult();
         
     if(ADC_type_flag == WAVESHAPE_FLAG){
@@ -307,5 +313,7 @@ static void ADCC_DefaultADI_ISR(void)
 
         current_symmetry = SYMMETRY_ADC_FULL_SCALE - current_symmetry;
     }
+    
+    LATC5 = 0;
 }
 

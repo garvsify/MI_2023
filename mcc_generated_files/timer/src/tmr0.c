@@ -94,7 +94,7 @@ static void TMR0_DefaultOverflowCallback(void)
 {
     //TMR0H = (uint8_t)final_TMR0; //this line must go here, or at least very near the beginning!
         INTERRUPT_GlobalInterruptDisable();
-        LATC5 = 1; //start ISR length measurement
+        //LATC5 = 1; //start ISR length measurement
         TMR0IF = 0; //clear TMR0 interrupt flag
 
         if(current_waveshape == TRIANGLE_MODE){
@@ -145,7 +145,7 @@ static void TMR0_DefaultOverflowCallback(void)
         CCP1_LoadDutyValue(duty);
 
         //Finish Up
-        LATC5 = 0; //finish ISR length measurement
+        //LATC5 = 0; //finish ISR length measurement
         INTERRUPT_GlobalInterruptEnable();
 }
 
