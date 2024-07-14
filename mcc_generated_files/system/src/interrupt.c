@@ -45,13 +45,8 @@ void  INTERRUPT_Initialize (void)
  */
 void __interrupt() INTERRUPT_InterruptManager (void)
 {
-    uint8_t ADIF = PIR1;
-    ADIF = ADIF >> 2;
-    ADIF = ADIF & 0b1;
-    
     // interrupt handler
-    //if(PIR1bits.ADIF == 1)
-    if(ADIF == 0b1)
+    if(PIR1bits.ADIF == 1)
     {
         LATC5 = 1;
         ADCC_ISR();
