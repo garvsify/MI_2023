@@ -270,8 +270,6 @@ void ADCC_SetADIInterruptHandler(void (* InterruptHandler)(void))
 
 static void ADCC_DefaultADI_ISR(void){
     
-    LATC5 = 1;
-    
     ADC_result = ADCC_GetConversionResult();
         
     if(ADC_type_flag == WAVESHAPE_FLAG){
@@ -313,7 +311,5 @@ static void ADCC_DefaultADI_ISR(void){
 
         current_symmetry = SYMMETRY_ADC_FULL_SCALE - current_symmetry;
     }
-    
-    LATC5 = 0;
 }
 
