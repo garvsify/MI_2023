@@ -22,47 +22,40 @@
     volatile uint16_t duty = 0;
     volatile uint8_t TMR0_prescaler_overflow_flag = 0;
     volatile uint8_t TMR0_prescaler_final_index = 0;  
+    volatile uint8_t ADC_type_flag = 0;
+    volatile uint16_t ADC_result = 0;
     
 
 uint8_t determine_waveshape(void){
     
-    uint16_t ADC = ADCC_GetSingleConversion(waveshape_adc_config_value);
+    ADC_type_flag = WAVESHAPE_FLAG;
     
-    if(ADC <= TRIANGLE_MODE_ADC_THRESHOLD){
-        return TRIANGLE_MODE; //triangle wave
-    }
-    if (ADC <= SINE_MODE_ADC_THRESHOLD){
-        return SINE_MODE; //sine wave
-    }
-    if (ADC <= SQUARE_MODE_ADC_THRESHOLD){
-        return SQUARE_MODE; //square wave
-    }
-    else{
-        return SINE_MODE; //if error, return sine
-    }
+    ADCC_StartConversion(waveshape_adc_config_value);
+    
+    return 1;
 }
     
 
 uint8_t get_current_pot_values(void){
     
-    current_waveshape = determine_waveshape();
-    //current_speed_linear = ADCC_GetSingleConversion(speed_adc_config_value); //get speed (12-bit linear)
-    //current_speed_linear = TWELVEBITMINUSONE - current_speed_linear;
+    //WAVESHAPE
+    determine_waveshape();
     
+    /*//SPEED
+    ADC_type_flag = SPEED_FLAG;
+    ADCC_StartConversion(speed_adc_config_value); //get speed (12-bit linear)
+    */
+    
+    //DEPTH
     #if DEPTH_ON_OR_OFF == 1
-        current_depth = ADCC_GetSingleConversion(&depth_adc_config_value); //get depth (12-bit linear)
-        current_depth = current_depth >> 2; //convert to 8-bit
-        current_depth = EIGHTBITMINUSONE - current_depth;
+        ADC_type_flag = DEPTH_FLAG;
+        ADCC_StartConversion(depth_adc_config_value); //get depth (12-bit linear)
     #endif
+
+    //SYMMETRY
     #if SYMMETRY_ON_OR_OFF == 1
-        current_symmetry = ADCC_GetSingleConversion(&symmetry_adc_config_value); //get symmetry (12-bit linear)
-        #if SYMMETRY_ADC_RESOLUTION == 8
-            current_symmetry = current_symmetry >> 2; //convert to 8-bit
-        #endif
-        #if SYMMETRY_ADC_RESOLUTION == 12
-            current_symmetry = current_symmetry;
-        #endif
-    current_symmetry = SYMMETRY_ADC_FULL_SCALE - current_symmetry;
+        ADC_type_flag = SYMMETRY_FLAG;
+        ADCC_GetSingleConversion(symmetry_adc_config_value); //get symmetry (12-bit linear)
     #endif
 
     return 1;

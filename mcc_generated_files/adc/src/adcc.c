@@ -1,6 +1,13 @@
 #include <xc.h>
 #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/system_uC.h"
 
+static void (*ADCC_ADI_InterruptHandler)(void);
+static void ADCC_DefaultADI_ISR(void);
+
+/**
+  Section: ADCC Module APIs
+*/
+
 void ADCC_Initialize(void)
 {
     // set the ADCC to the options selected in the User Interface
@@ -20,20 +27,20 @@ void ADCC_Initialize(void)
     ADACCU = 0x0;
     //ADRPT 0; 
     ADRPT = 0x0;
-    //ADCHS ANA0; 
-    ADPCH = 0x0;
-    //ADACQL 1; 
-    ADACQL = 0x1;
+    //ADCHS ANC0; 
+    ADPCH = 0x10;
+    //ADACQL 15; 
+    ADACQL = 0xF;
     //ADACQH 0; 
     ADACQH = 0x0;
     //ADCAP Additional uC disabled; 
     ADCAP = 0x0;
-    //ADPREL 0; 
-    ADPREL = 0x0;
+    //ADPREL 15; 
+    ADPREL = 0xF;
     //ADPREH 0; 
     ADPREH = 0x0;
-    //ADDSEN disabled; ADGPOL digital_low; ADIPEN disabled; ADPPOL Vss; 
-    ADCON1 = 0x0;
+    //ADDSEN disabled; ADGPOL digital_low; ADIPEN disabled; ADPPOL Vdd; 
+    ADCON1 = 0x80;
     //ADCRS 1; ADMD Basic_mode; ADACLR disabled; ADPSIS RES; 
     ADCON2 = 0x10;
     //ADCALC First derivative of Single measurement; ADTMD disabled; ADSOI ADGO not cleared; 
@@ -51,9 +58,14 @@ void ADCC_Initialize(void)
     
     //Clear the ADC interrupt flag
     PIR1bits.ADIF = 0;
-
+    //Configure interrupt handlers
+    ADCC_SetADIInterruptHandler(ADCC_DefaultADI_ISR);
+    
     //Clear the ADC Threshold interrupt flag
     PIR2bits.ADTIF = 0;
+    
+    // Enabling ADCC interrupt.
+    PIE1bits.ADIE = 1;
 }
 
 void ADCC_StartConversion(adcc_channel_t channel)
@@ -93,6 +105,7 @@ adc_result_t ADCC_GetSingleConversion(adcc_channel_t channel)
     while (ADCON0bits.ADGO)
     {
     }
+    
     
     //Conversion finished, returns the result
     return ((adc_result_t)((ADRESH << 8) | ADRESL));
@@ -235,4 +248,64 @@ uint8_t ADCC_GetConversionStageStatus(void)
     return ADSTATbits.ADSTAT;
 }
 
+void ADCC_ISR(void)
+{
+    //Clears the ADCC interrupt flag
+    PIR1bits.ADIF = 0;
+
+    if (ADCC_ADI_InterruptHandler != NULL)
+    {
+        ADCC_ADI_InterruptHandler();
+    }
+}
+
+void ADCC_SetADIInterruptHandler(void (* InterruptHandler)(void))
+{
+    ADCC_ADI_InterruptHandler = InterruptHandler;
+}
+
+static void ADCC_DefaultADI_ISR(void)
+{
+    ADC_result = ADCC_GetConversionResult();
+        
+    if(ADC_type_flag == WAVESHAPE_FLAG){
+        
+        if(ADC_result <= TRIANGLE_MODE_ADC_THRESHOLD){
+            current_waveshape = TRIANGLE_MODE; //triangle wave
+        }
+        if (ADC_result <= SINE_MODE_ADC_THRESHOLD){
+            current_waveshape = SINE_MODE; //sine wave
+        }
+        if (ADC_result <= SQUARE_MODE_ADC_THRESHOLD){
+            current_waveshape = SQUARE_MODE; //square wave
+        }
+        else{
+            current_waveshape = SINE_MODE; //if error, return sine
+        }
+    }
+    
+    else if(ADC_type_flag == SPEED_FLAG){
+        
+        current_speed_linear = ADC_result;
+        current_speed_linear = TWELVEBITMINUSONE - current_speed_linear;
+    }
+    
+    else if(ADC_type_flag == DEPTH_FLAG){
+        
+        current_depth = ADC_result;
+        current_depth = current_depth >> 2; //convert to 8-bit
+        current_depth = EIGHTBITMINUSONE - current_depth;
+    }
+    
+    else if(ADC_type_flag == SYMMETRY_FLAG){
+        
+        current_symmetry = ADC_result;
+        
+        #if SYMMETRY_ADC_RESOLUTION == 8
+            current_symmetry = current_symmetry >> 2; //convert to 8-bit
+        #endif
+
+        current_symmetry = SYMMETRY_ADC_FULL_SCALE - current_symmetry;
+    }
+}
 

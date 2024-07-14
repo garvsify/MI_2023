@@ -30,8 +30,7 @@ typedef enum
     channel_ANC0 =  0x10,
     channel_ANC1 =  0x11,
     channel_ANC2 =  0x12,
-    channel_ANC3 =  0x13,
-    channel_ANA0 =  0x0
+    channel_ANC3 =  0x13
 } adcc_channel_t;
 
 /**
@@ -274,6 +273,21 @@ bool ADCC_HasErrorCrossedLowerThreshold(void);
 */
 uint8_t ADCC_GetConversionStageStatus(void);
 
+/**
+ * @ingroup adcc
+ * @brief Sets the callback for the ADC Interrupt(ADI).
+ * @param InterruptHandler - Callback function to be called on the interrupt event
+ * @return None.
+*/
+void ADCC_SetADIInterruptHandler(void (* InterruptHandler)(void));
+
+/**
+ * @ingroup adcc
+ * @brief Implements the ADC Interrupt(ADI) service routine for the interrupt-driven implementations.
+ * @param None.
+ * @return None.
+*/
+void ADCC_ISR(void);
 
 
 #endif//ADCC_H

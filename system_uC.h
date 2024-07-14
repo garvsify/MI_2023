@@ -52,10 +52,18 @@
     #define EIGHTBITMINUSONE 255
     #define ON 1
     #define OFF 0
+    #define WAVESHAPE_FLAG 0
+    #define SPEED_FLAG 1
+    #define DEPTH_FLAG 2
+    #define SYMMETRY_FLAG 3
 
     #define SYMMETRY_ADC_RESOLUTION 8
+
+
     #define SYMMETRY_ON_OR_OFF OFF
     #define DEPTH_ON_OR_OFF OFF
+
+
 
     #if SYMMETRY_ADC_RESOLUTION == 12
         #define SYMMETRY_ADC_HALF_SCALE_NO_BITS 11
@@ -120,5 +128,7 @@
     volatile extern uint8_t current_quadrant;
     volatile extern uint8_t prescaler_overflow_flag;
     volatile extern uint8_t prescaler_final_index;
+    volatile extern uint8_t ADC_type_flag;
+    volatile uint16_t ADC_result;
     
 #endif

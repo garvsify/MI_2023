@@ -5,14 +5,12 @@ int main(void){
     
     SYSTEM_Initialize();
     
-    determine_waveshape();
-    
     /*process_TMR0_raw_speed_and_prescaler();
     process_TMR0_and_prescaler_adjust();
     TMR0H = (uint8_t) final_TMR0;
     */
     
-    current_waveshape = TRIANGLE_MODE;
+    current_waveshape = SQUARE_MODE;
     
     T0CON1bits.CKPS = 0b0100;
     TMR0H = 200;
@@ -22,7 +20,7 @@ int main(void){
     
     while(1){
         
-        determine_waveshape();
+        get_current_pot_values();
         //process_TMR0_raw_speed_and_prescaler();
         //process_TMR0_and_prescaler_adjust();
         
