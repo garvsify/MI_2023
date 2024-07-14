@@ -26,28 +26,28 @@
 
 uint8_t determine_waveshape(void){
     
-    adc_result_t ADC = ADCC_GetSingleConversion(waveshape_adc_config_value);
+    uint16_t ADC = ADCC_GetSingleConversion(waveshape_adc_config_value);
+    
     if(ADC <= TRIANGLE_MODE_ADC_THRESHOLD){
-            return TRIANGLE_MODE; //triangle wave
-        }
-        if (ADC <= SINE_MODE_ADC_THRESHOLD){
-            return SINE_MODE; //sine wave
-        }
-        if (ADC <= SQUARE_MODE_ADC_THRESHOLD){
-            return SQUARE_MODE; //square wave
-        }
-        else{
-            return SINE_MODE; //if error, return sine
-        }
-    return 1;
+        return TRIANGLE_MODE; //triangle wave
+    }
+    if (ADC <= SINE_MODE_ADC_THRESHOLD){
+        return SINE_MODE; //sine wave
+    }
+    if (ADC <= SQUARE_MODE_ADC_THRESHOLD){
+        return SQUARE_MODE; //square wave
+    }
+    else{
+        return SINE_MODE; //if error, return sine
+    }
 }
     
 
 uint8_t get_current_pot_values(void){
     
     current_waveshape = determine_waveshape();
-    current_speed_linear = ADCC_GetSingleConversion(speed_adc_config_value); //get speed (12-bit linear)
-    current_speed_linear = TWELVEBITMINUSONE - current_speed_linear;
+    //current_speed_linear = ADCC_GetSingleConversion(speed_adc_config_value); //get speed (12-bit linear)
+    //current_speed_linear = TWELVEBITMINUSONE - current_speed_linear;
     
     #if DEPTH_ON_OR_OFF == 1
         current_depth = ADCC_GetSingleConversion(&depth_adc_config_value); //get depth (12-bit linear)
