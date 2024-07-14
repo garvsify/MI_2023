@@ -50,7 +50,7 @@ void __interrupt() INTERRUPT_InterruptManager (void)
         
         Timer0_OverflowISR();
     }
-    else if(PIR1bits.ADIF == 1){
+    if(PIR1bits.ADIF == 1){
         
         LATC5 = 1;
         ADCC_ISR();

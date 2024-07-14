@@ -29,8 +29,8 @@ void ADCC_Initialize(void)
     ADRPT = 0x0;
     //ADCHS ANC0; 
     ADPCH = 0x10;
-    //ADACQL 15; 
-    ADACQL = 0xF;
+    //ADACQL 82; //increasing aquisition time to ~2us
+    ADACQL = 0x82;
     //ADACQH 0; 
     ADACQH = 0x0;
     //ADCAP Additional uC disabled; 
@@ -56,10 +56,14 @@ void ADCC_Initialize(void)
     //GO_nDONE undefined; ADFM right; ADON enabled; ADCS FOSC; ADCONT disabled; 
     ADCON0 = 0x84;
     
+    ADCPbits.CPON = 1; //turn on charge pump, will this fix things?
+    ADCON0bits.ADCONT = 0; //fix things plz?
+    
     //Clear the ADC interrupt flag
     PIR1bits.ADIF = 0;
+    
     //Configure interrupt handlers
-    ADCC_SetADIInterruptHandler(ADCC_DefaultADI_ISR);
+    ADCC_SetADIInterruptHandler(&ADCC_DefaultADI_ISR);
     
     //Clear the ADC Threshold interrupt flag
     PIR2bits.ADTIF = 0;
