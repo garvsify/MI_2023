@@ -46,18 +46,18 @@ void  INTERRUPT_Initialize (void)
 void __interrupt() INTERRUPT_InterruptManager (void)
 {
     // interrupt handler
-    if(PIR1bits.ADIF == 1)
-    {
+    if(PIR3bits.TMR0IF == 1){
+        
+        Timer0_OverflowISR();
+    }
+    else if(PIR1bits.ADIF == 1){
+        
         LATC5 = 1;
         ADCC_ISR();
         LATC5 = 0;
     }
-    else if(PIR3bits.TMR0IF == 1)
-    {
-        Timer0_OverflowISR();
-    }
-    else
-    {
+    else{
+        
         //Unhandled Interrupt
     }
 }

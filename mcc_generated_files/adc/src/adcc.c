@@ -70,10 +70,6 @@ void ADCC_Initialize(void)
 
 void ADCC_StartConversion(adcc_channel_t channel)
 {
-    //trying something? halp
-    PIR1bits.ADIF = 0;
-    PIE1bits.ADIE = 1;
-    
     //Selects the A/D channel
     ADPCH = channel;
 
