@@ -137,6 +137,8 @@ void TMR0_OverflowISR(void);
  */
  void TMR0_OverflowCallbackRegister(void (* CallbackHandler)(void));
 
+ 
+ uint8_t multiply_duty_by_current_depth_and_divide_by_256(void);
 
 /**
  * @}

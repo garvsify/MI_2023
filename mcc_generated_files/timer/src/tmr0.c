@@ -18,6 +18,18 @@ static void TMR0_DefaultOverflowCallback(void);
   Section: TMR0 APIs
 */ 
 
+volatile uint8_t res0 = 0;
+volatile uint8_t res1 = 0;
+volatile uint8_t res2 = 0;
+volatile uint8_t res3 = 0;
+volatile uint8_t dutyL = 0;
+volatile uint8_t dutyH = 0;
+volatile uint8_t current_depthL = 0;
+volatile uint16_t result_of_low_by_low = 0;
+volatile uint32_t result_of_low_by_high = 0;
+volatile uint32_t multiply_product = 0;
+    
+
 void TMR0_Initialize(void){
 
     //TMR0H 255; 
@@ -90,6 +102,30 @@ void TMR0_OverflowCallbackRegister(void (* CallbackHandler)(void))
     TMR0_OverflowCallback = CallbackHandler;
 }
 
+uint8_t multiply_duty_by_current_depth_and_divide_by_256(void){
+    
+    dutyL = (uint8_t)duty;
+    dutyH = duty >> 8;
+    current_depthL = (uint8_t)current_depth;
+    
+    asm("MOVF _current_depthL, W");
+    asm("MULWF _dutyL");
+    asm("MOVFF PRODH, _res1");
+    asm("MOVFF PRODL, _res0");
+    result_of_low_by_low = (uint16_t)((uint16_t)(res1 << 8) | res0);
+    
+    asm("MOVF _current_depthL, W");
+    asm("MULWF _dutyH");
+    asm("MOVFF PRODH, _res3");
+    asm("MOVFF PRODL, _res2");
+    result_of_low_by_high = (uint32_t)(((uint32_t)(res3 << 8) | (uint32_t)res2) << 8);
+    
+    multiply_product = result_of_low_by_high + result_of_low_by_low;
+    duty = 1023 - (uint16_t)(multiply_product >> 8);
+    
+    return 1;
+}
+
 static void TMR0_DefaultOverflowCallback(void)
 {
     //TMR0H = (uint8_t)final_TMR0; //this line must go here, or at least very near the beginning!
@@ -134,7 +170,8 @@ static void TMR0_DefaultOverflowCallback(void)
                 duty = 1023 - duty;
             }
             else if(current_depth != 0){
-                duty = 1023 - duty*(current_depth >> 8);
+                //duty = 1023 - duty*(current_depth >> 8);
+                multiply_duty_by_current_depth_and_divide_by_256();
             }
             else{
                 duty = 1023; //if depth is 0, just output 1023

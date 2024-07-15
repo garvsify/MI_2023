@@ -129,5 +129,15 @@
     volatile extern uint8_t prescaler_final_index;
     volatile extern uint8_t ADC_type_flag;
     adc_result_t ADC_result;
+    volatile extern uint8_t dutyL;
+    volatile extern uint8_t dutyH;
+    volatile extern uint8_t current_depthL;
+    volatile extern uint16_t result_of_low_by_low;
+    volatile extern uint32_t result_of_low_by_high;
+    volatile extern uint32_t multiply_product;
+    volatile extern uint8_t res0;
+    volatile extern uint8_t res1;
+    volatile extern uint8_t res2;
+    volatile extern uint8_t res3;
     
 #endif
