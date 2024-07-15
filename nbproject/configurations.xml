@@ -86,11 +86,11 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PK5Tool</platformTool>
         <languageToolchain>XC8</languageToolchain>
-        <languageToolchainVersion>2.46</languageToolchainVersion>
+        <languageToolchainVersion>2.40</languageToolchainVersion>
         <platform>4</platform>
       </toolsSet>
       <packs>
-        <pack name="PIC18F-Q_DFP" vendor="Microchip" version="1.25.433"/>
+        <pack name="PIC18F-Q_DFP" vendor="Microchip" version="1.24.430"/>
       </packs>
       <ScriptingSettings>
       </ScriptingSettings>

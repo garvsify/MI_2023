@@ -23,7 +23,7 @@
     volatile uint8_t TMR0_prescaler_overflow_flag = 0;
     volatile uint8_t TMR0_prescaler_final_index = 0;  
     volatile uint8_t ADC_type_flag = 0;
-    volatile uint16_t ADC_result = 0;
+    adc_result_t ADC_result = 0;
     
 
 uint8_t get_current_pot_values(void){

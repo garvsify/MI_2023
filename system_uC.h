@@ -128,6 +128,6 @@
     volatile extern uint8_t prescaler_overflow_flag;
     volatile extern uint8_t prescaler_final_index;
     volatile extern uint8_t ADC_type_flag;
-    volatile uint16_t ADC_result;
+    adc_result_t ADC_result;
     
 #endif
