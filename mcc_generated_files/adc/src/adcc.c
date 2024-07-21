@@ -110,7 +110,6 @@ adc_result_t ADCC_GetSingleConversion(adcc_channel_t channel)
     {
     }
     
-    
     //Conversion finished, returns the result
     return ((adc_result_t)((ADRESH << 8) | ADRESL));
 }
@@ -274,13 +273,15 @@ static void ADCC_DefaultADI_ISR(void){
         
     if(ADC_type_flag == WAVESHAPE_FLAG){
         
+        ADC_result = TWELVEBITMINUSONE - ADC_result;
+        
         if(ADC_result <= TRIANGLE_MODE_ADC_THRESHOLD){
             current_waveshape = TRIANGLE_MODE; //triangle wave
         }
-        if (ADC_result <= SINE_MODE_ADC_THRESHOLD){
+        else if (ADC_result <= SINE_MODE_ADC_THRESHOLD){
             current_waveshape = SINE_MODE; //sine wave
         }
-        if (ADC_result <= SQUARE_MODE_ADC_THRESHOLD){
+        else if (ADC_result <= SQUARE_MODE_ADC_THRESHOLD){
             current_waveshape = SQUARE_MODE; //square wave
         }
         else{

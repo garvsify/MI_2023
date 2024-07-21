@@ -45,6 +45,9 @@ void  INTERRUPT_Initialize (void)
  */
 void __interrupt() INTERRUPT_InterruptManager (void)
 {
+    
+    INTERRUPT_GlobalInterruptDisable();
+    
     // interrupt handler
     if(PIR3bits.TMR0IF == 1){
         
@@ -52,14 +55,14 @@ void __interrupt() INTERRUPT_InterruptManager (void)
     }
     if(PIR1bits.ADIF == 1){
         
-        LATC5 = 1;
         ADCC_ISR();
-        LATC5 = 0;
     }
     else{
         
         //Unhandled Interrupt
     }
+    
+    INTERRUPT_GlobalInterruptEnable();
 }
 
 void INT0_ISR(void)

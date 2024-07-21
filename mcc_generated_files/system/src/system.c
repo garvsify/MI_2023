@@ -8,7 +8,7 @@ uint8_t SYSTEM_Initialize(void){
     ADCC_Initialize();
     CCP1_Initialize();
     TMR0_Initialize();
-    TMR2_Initialize();
+    TMR2_Initialize(); //SOMETHING IN TMR2 CAUSING ADCC INTERRUPTS TO STOP AFTER ONE INTERRUP!!!!!!! PROVEN IT!!!!
     INTERRUPT_Initialize();
     
     return 1;
