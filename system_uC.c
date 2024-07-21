@@ -32,10 +32,9 @@ uint8_t get_current_pot_values(void){
     ADC_type_flag = WAVESHAPE_FLAG;
     ADCC_StartConversion(waveshape_adc_config_value);
     
-    /*//SPEED
-    ADC_type_flag = SPEED_FLAG;
-    ADCC_StartConversion(speed_adc_config_value); //get speed (12-bit linear)
-    */
+    //SPEED
+    /*ADC_type_flag = SPEED_FLAG;
+    ADCC_StartConversion(speed_adc_config_value); //get speed (12-bit linear)*/
     
     //DEPTH
     #if DEPTH_ON_OR_OFF == 1
@@ -81,20 +80,17 @@ uint8_t adjust_and_set_TMR0_prescaler(void){
     
     if(TMR0_prescaler_adjust == DIVIDE_BY_TWO){
         TMR0_prescaler_final_index = TMR0_base_prescaler_bits_index + 1;
-        T0CON0 = T0CON0 | TMR0_prescaler_bits[TMR0_prescaler_final_index];
     }
     else if(TMR0_prescaler_adjust == DIVIDE_BY_FOUR){
         TMR0_prescaler_final_index = TMR0_base_prescaler_bits_index + 2;
-        T0CON0 = T0CON0 | TMR0_prescaler_bits[TMR0_prescaler_final_index];
     }
     else if(TMR0_prescaler_adjust == MULTIPLY_BY_TWO){
         TMR0_prescaler_final_index = TMR0_base_prescaler_bits_index - 1;
-        T0CON0 = T0CON0 | TMR0_prescaler_bits[TMR0_prescaler_final_index];
     }
     else if(TMR0_prescaler_adjust == DO_NOTHING){
         TMR0_prescaler_final_index = TMR0_base_prescaler_bits_index;
-        T0CON0 = T0CON0 | TMR0_prescaler_bits[TMR0_prescaler_final_index];
     }
+    T0CON1bits.CKPS = TMR0_prescaler_bits[TMR0_prescaler_final_index];
     return 1;
 }
 
