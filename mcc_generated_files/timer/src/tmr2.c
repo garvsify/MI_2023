@@ -33,12 +33,15 @@ void TMR2_Initialize(void){
 
     // Set default overflow callback
     TMR2_OverflowCallbackRegister(TMR2_DefaultOverflowCallback);
-
+    
+    //DO NOT TURN ON TMR2 INTERRUPTS!!!!
     // Clearing IF flag before enabling the interrupt.
-    PIR3bits.TMR2IF = 0;
+    //PIR3bits.TMR2IF = 0;
     // Enabling TMR2 interrupt.
-    PIE3bits.TMR2IE = 1;
-    // TCKPS 1:1; TMRON on; TOUTPS 1:1; 
+    //PIE3bits.TMR2IE = 1;
+    //DO NOT TURN ON TMR2 INTERRUPTS!!!!
+    
+    //TCKPS 1:1; TMRON on; TOUTPS 1:1; 
     T2CON = 0x80;
 }
 

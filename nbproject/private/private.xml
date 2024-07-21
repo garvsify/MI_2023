@@ -8,13 +8,18 @@
             <file>file:/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/main.c</file>
             <file>file:/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/system_uC.h</file>
             <file>file:/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/system/clock.h</file>
+            <file>file:/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/system/src/config_bits.c</file>
             <file>file:/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/timer/tmr0.h</file>
             <file>file:/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/pwm/ccp1.h</file>
+            <file>file:/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/adc/adcc.h</file>
+            <file>file:/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/pinouts.h</file>
             <file>file:/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/timer/src/tmr0.c</file>
             <file>file:/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/timer/src/tmr2.c</file>
             <file>file:/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/system/src/system.c</file>
             <file>file:/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/adc/src/adcc.c</file>
             <file>file:/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/system_uC.c</file>
+            <file>file:/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/system/config_bits.h</file>
+            <file>file:/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/system/src/pins.c</file>
             <file>file:/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/pwm/src/ccp1.c</file>
         </group>
     </open-files>
