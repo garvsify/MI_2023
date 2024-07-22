@@ -74,6 +74,9 @@ void ADCC_Initialize(void)
 
 void ADCC_StartConversion(adcc_channel_t channel)
 {
+    
+    while(!ADCC_IsConversionDone()); // make sure no other conversion occurring.
+    
     //Selects the A/D channel
     ADPCH = channel;
 
@@ -89,6 +92,7 @@ bool ADCC_IsConversionDone(void)
 
 adc_result_t ADCC_GetConversionResult(void)
 {
+    
     //Returns the result
     return ((adc_result_t)((ADRESH << 8) | ADRESL));
 }
