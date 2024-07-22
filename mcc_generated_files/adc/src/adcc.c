@@ -8,8 +8,8 @@ static void ADCC_DefaultADI_ISR(void);
   Section: ADCC Module APIs
 */
 
-void ADCC_Initialize(void)
-{
+void ADCC_Initialize(void){
+    
     // set the ADCC to the options selected in the User Interface
     //ADLTHL 0; 
     ADLTHL = 0x0;

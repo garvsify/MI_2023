@@ -10,6 +10,10 @@
         <logicalFolder name="adc" displayName="adc" projectFiles="true">
           <itemPath>mcc_generated_files/adc/adcc.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="dma" displayName="dma" projectFiles="true">
+          <itemPath>mcc_generated_files/dma/dma1.h</itemPath>
+          <itemPath>mcc_generated_files/dma/dma2.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="pwm" displayName="pwm" projectFiles="true">
           <itemPath>mcc_generated_files/pwm/ccp1.h</itemPath>
         </logicalFolder>
@@ -24,6 +28,7 @@
           <itemPath>mcc_generated_files/timer/tmr2.h</itemPath>
           <itemPath>mcc_generated_files/timer/timer_interface.h</itemPath>
           <itemPath>mcc_generated_files/timer/tmr0.h</itemPath>
+          <itemPath>mcc_generated_files/timer/tmr1.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>wavetables.h</itemPath>
@@ -51,6 +56,12 @@
             <itemPath>mcc_generated_files/adc/src/adcc.c</itemPath>
           </logicalFolder>
         </logicalFolder>
+        <logicalFolder name="dma" displayName="dma" projectFiles="true">
+          <logicalFolder name="src" displayName="src" projectFiles="true">
+            <itemPath>mcc_generated_files/dma/src/dma1.c</itemPath>
+            <itemPath>mcc_generated_files/dma/src/dma2.c</itemPath>
+          </logicalFolder>
+        </logicalFolder>
         <logicalFolder name="pwm" displayName="pwm" projectFiles="true">
           <logicalFolder name="src" displayName="src" projectFiles="true">
             <itemPath>mcc_generated_files/pwm/src/ccp1.c</itemPath>
@@ -69,6 +80,7 @@
           <logicalFolder name="src" displayName="src" projectFiles="true">
             <itemPath>mcc_generated_files/timer/src/tmr2.c</itemPath>
             <itemPath>mcc_generated_files/timer/src/tmr0.c</itemPath>
+            <itemPath>mcc_generated_files/timer/src/tmr1.c</itemPath>
           </logicalFolder>
         </logicalFolder>
       </logicalFolder>
