@@ -13,9 +13,10 @@ void SYSTEM_Initialize(void)
     CPU_Initialize();
     DMA1_Initialize();
     DMA2_Initialize();
-    CCP1_Initialize();
-    TMR0_Initialize();
-    TMR1_Initialize();
+    PWM1_Initialize();
+    Timer0_Initialize();
+    Timer1_Initialize();
+    Timer3_Initialize();
     TMR2_Initialize();
     INTERRUPT_Initialize();
     SystemArbiter_Initialize();

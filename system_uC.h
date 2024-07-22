@@ -12,6 +12,7 @@
     #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/system/interrupt.h"
     #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/system/config_bits.h"
     #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/system/clock.h"
+    #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/timer/tmr3.h"
     #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/timer/tmr2.h"
     #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/timer/tmr1.h"
     #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/timer/tmr0.h"
@@ -97,6 +98,7 @@
     const uint8_t YES = 1;
     const uint8_t NO = 0;
 
+    adcc_channel_t *current_adc_type[4] = {&waveshape_adc_config_value, &speed_adc_config_value, &depth_adc_config_value, &symmetry_adc_config_value};
     
     uint8_t get_current_pot_values(void);
     uint8_t process_TMR0_raw_speed_and_prescaler(void);

@@ -57,6 +57,10 @@ void __interrupt() INTERRUPT_InterruptManager (void)
     {
         Timer0_OverflowISR();
     }
+    else if(PIE4bits.TMR3IE == 1 && PIR4bits.TMR3IF == 1)
+    {
+        Timer3_OverflowISR();
+    }
     else if(PIE2bits.DMA1AIE == 1 && PIR2bits.DMA1AIF == 1)
     {
         DMA1_DMAAI_ISR();
