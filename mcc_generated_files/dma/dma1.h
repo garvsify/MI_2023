@@ -60,16 +60,14 @@
 #define DMA1_SetDMAPriority                DMA1_DMAPrioritySet
 #define DMA1_SetSCNTIInterruptHandler      DMA1_SCNTIInterruptHandlerSet 
 #define DMA1_SetDCNTIInterruptHandler      DMA1_DCNTIInterruptHandlerSet 
-#define DMA1_SetAIInterruptHandler         DMA1_AIInterruptHandlerSet 
-#define DMA1_SetORIInterruptHandler        DMA1_ORIInterruptHandlerSet 
 ///@}
 
 /**
  * @ingroup dma1
- * @var uint8_t adresldma
+ * @var uint8_t adres
  * @brief Destination address.
  */
-extern uint8_t adresldma[8];
+extern uint8_t adres[16];
 
 /**
  * @ingroup dma1
@@ -279,37 +277,5 @@ void DMA1_DCNTIInterruptHandlerSet(void (* InterruptHandler)(void));
  * @return None.
  */
 void DMA1_DMADCNTI_ISR(void);
-
-/**
- * @ingroup dma1
- * @brief Sets the Callback function for the abort interrupt request event.
- * @param *InterruptHandler - Callback function for the abort interrupt event.
- * @return None.
- */
-void DMA1_AIInterruptHandlerSet(void (* InterruptHandler)(void));
-
-/**
- * @ingroup dma1
- * @brief Implements the ISR for the DMA1 Abort Trigger interrupt events.
- * @param None.
- * @return None.
- */
-void DMA1_DMAAI_ISR(void);
-
-/**
- * @ingroup dma1
- * @brief Sets the callback function for the overrun interrupt event. 
- * @param *InterruptHandler - Callback function for the overrun interrupt event.
- * @return None.
- */
-void DMA1_ORIInterruptHandlerSet(void (* InterruptHandler)(void));
-
-/**
- * @ingroup dma1
- * @brief Implements the ISR for the DMA1 overrun interrupt events.
- * @param None.
- * @return None.
- */
-void DMA1_DMAORI_ISR(void);
 
 #endif //DMA1_H

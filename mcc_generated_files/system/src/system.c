@@ -12,7 +12,6 @@ void SYSTEM_Initialize(void)
     ADCC_Initialize();
     CPU_Initialize();
     DMA1_Initialize();
-    DMA2_Initialize();
     PWM1_Initialize();
     Timer0_Initialize();
     Timer1_Initialize();

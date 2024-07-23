@@ -5,10 +5,6 @@ void (*DMA1_SCNTI_InterruptHandler)(void);
 
 void (*DMA1_DCNTI_InterruptHandler)(void);
 
-void (*DMA1_AI_InterruptHandler)(void);
-
-void (*DMA1_ORI_InterruptHandler)(void);
-
 /**
  * @ingroup dma1
  * @brief Default interrupt handler for all interrupt events.
@@ -17,7 +13,7 @@ void (*DMA1_ORI_InterruptHandler)(void);
  */
 void DMA1_DefaultInterruptHandler(void);
 
-uint8_t adresldma[8];
+uint8_t adres[16];
 
 /**
   Section: DMA1 APIs
@@ -30,12 +26,12 @@ void DMA1_Initialize(void)
     DMASELECT = 0x0;
     //Source Address : (uint24_t) &ADRESL
     DMAnSSA = (uint24_t) &ADRESL;
-    //Destination Address : (uint16_t) &adresldma
-    DMAnDSA = (uint16_t) &adresldma;
-    //SSTP not cleared; SMODE unchanged; SMR SFR; DSTP not cleared; DMODE unchanged; 
-    DMAnCON1 = 0x0;
-    //Source Message Size : 1
-    DMAnSSZ = 1;
+    //Destination Address : (uint16_t) &adres
+    DMAnDSA = (uint16_t) &adres;
+    //SSTP not cleared; SMODE incremented; SMR SFR; DSTP not cleared; DMODE unchanged; 
+    DMAnCON1 = 0x2;
+    //Source Message Size : 2
+    DMAnSSZ = 2;
     //Destination Message Size : 1
     DMAnDSZ = 1;
     //Start Trigger : SIRQ TMR1; 
@@ -56,10 +52,8 @@ void DMA1_Initialize(void)
 	DMA1_DCNTIInterruptHandlerSet(DMA1_DefaultInterruptHandler);
     PIE2bits.DMA1SCNTIE = 1; 
 	DMA1_SCNTIInterruptHandlerSet(DMA1_DefaultInterruptHandler);
-    PIE2bits.DMA1AIE = 1; 
-	DMA1_AIInterruptHandlerSet(DMA1_DefaultInterruptHandler);
-    PIE2bits.DMA1ORIE =1; 
-	DMA1_ORIInterruptHandlerSet(DMA1_DefaultInterruptHandler);
+    PIE2bits.DMA1AIE = 0;
+    PIE2bits.DMA1ORIE = 0;
 	
     //AIRQEN disabled; DGO not in progress; SIRQEN enabled; EN enabled; 
     DMAnCON0 = 0xC0;
@@ -227,34 +221,6 @@ void DMA1_DMADCNTI_ISR(void)
 void DMA1_SetDCNTIInterruptHandler(void (* InterruptHandler)(void))
 {
 	 DMA1_DCNTI_InterruptHandler = InterruptHandler;
-}
-
-void DMA1_DMAAI_ISR(void)
-{
-    // Clear the source count interrupt flag
-    PIR2bits.DMA1AIF = 0;
-
-    if (DMA1_AI_InterruptHandler)
-            DMA1_AI_InterruptHandler();
-}
-
-void DMA1_AIInterruptHandlerSet(void (* InterruptHandler)(void))
-{
-	 DMA1_AI_InterruptHandler = InterruptHandler;
-}
-
-void DMA1_DMAORI_ISR(void)
-{
-    // Clear the source count interrupt flag
-    PIR2bits.DMA1ORIF = 0;
-
-    if (DMA1_ORI_InterruptHandler)
-            DMA1_ORI_InterruptHandler();
-}
-
-void DMA1_ORIInterruptHandlerSet(void (* InterruptHandler)(void))
-{
-	 DMA1_ORI_InterruptHandler = InterruptHandler;
 }
 
 void DMA1_DefaultInterruptHandler(void){

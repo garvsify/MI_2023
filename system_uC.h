@@ -20,7 +20,6 @@
     #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/pwm/ccp1.h"
     #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/adc/adcc.h"
     #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/dma/dma1.h"
-    #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/dma/dma2.h"
 
 
 

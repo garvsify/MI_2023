@@ -61,10 +61,6 @@ void __interrupt() INTERRUPT_InterruptManager (void)
     {
         Timer3_OverflowISR();
     }
-    else if(PIE2bits.DMA1AIE == 1 && PIR2bits.DMA1AIF == 1)
-    {
-        DMA1_DMAAI_ISR();
-    }
     else if(PIE2bits.DMA1DCNTIE == 1 && PIR2bits.DMA1DCNTIF == 1)
     {
         DMA1_DMADCNTI_ISR();
@@ -72,26 +68,6 @@ void __interrupt() INTERRUPT_InterruptManager (void)
     else if(PIE2bits.DMA1SCNTIE == 1 && PIR2bits.DMA1SCNTIF == 1)
     {
         DMA1_DMASCNTI_ISR();
-    }
-    else if(PIE2bits.DMA1ORIE == 1 && PIR2bits.DMA1ORIF == 1)
-    {
-        DMA1_DMAORI_ISR();
-    }
-    else if(PIE6bits.DMA2AIE == 1 && PIR6bits.DMA2AIF == 1)
-    {
-        DMA2_DMAAI_ISR();
-    }
-    else if(PIE6bits.DMA2DCNTIE == 1 && PIR6bits.DMA2DCNTIF == 1)
-    {
-        DMA2_DMADCNTI_ISR();
-    }
-    else if(PIE6bits.DMA2SCNTIE == 1 && PIR6bits.DMA2SCNTIF == 1)
-    {
-        DMA2_DMASCNTI_ISR();
-    }
-    else if(PIE6bits.DMA2ORIE == 1 && PIR6bits.DMA2ORIF == 1)
-    {
-        DMA2_DMAORI_ISR();
     }
     else if(PIE3bits.TMR2IE == 1 && PIR3bits.TMR2IF == 1)
     {
