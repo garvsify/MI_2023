@@ -28,7 +28,6 @@
           <itemPath>mcc_generated_files/timer/timer_interface.h</itemPath>
           <itemPath>mcc_generated_files/timer/tmr0.h</itemPath>
           <itemPath>mcc_generated_files/timer/tmr1.h</itemPath>
-          <itemPath>mcc_generated_files/timer/tmr3.h</itemPath>
         </logicalFolder>
       </logicalFolder>
       <itemPath>wavetables.h</itemPath>
@@ -80,7 +79,6 @@
             <itemPath>mcc_generated_files/timer/src/tmr2.c</itemPath>
             <itemPath>mcc_generated_files/timer/src/tmr0.c</itemPath>
             <itemPath>mcc_generated_files/timer/src/tmr1.c</itemPath>
-            <itemPath>mcc_generated_files/timer/src/tmr3.c</itemPath>
           </logicalFolder>
         </logicalFolder>
       </logicalFolder>

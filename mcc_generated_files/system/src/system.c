@@ -15,7 +15,6 @@ void SYSTEM_Initialize(void)
     PWM1_Initialize();
     Timer0_Initialize();
     Timer1_Initialize();
-    Timer3_Initialize();
     TMR2_Initialize();
     INTERRUPT_Initialize();
     SystemArbiter_Initialize();
