@@ -2,15 +2,15 @@
 
 manifest_file_version: 1.0.0
 project: MI-2023_2024-PIC18
-creation_date: 2024-07-24T08:44:09.343+01:00[Europe/London]
-operating_system: Mac OS X
+creation_date: 2024-10-12T22:35:27.243+01:00[Europe/London]
+operating_system: Windows 10
 mcc_mode: IDE
 mcc_mode_version: v6.20
 device_name: PIC18F05Q40
-compiler: XC8 2.40
+compiler: XC8 2.46
 mcc_version: 5.5.1
 mcc_core_version: 5.7.1
-content_manager_version: 5.0.0
+content_manager_version: 5.0.1
 is_mcc_offline: false
 is_using_prerelease_versions: false
 mcc_content_registries: https://registry.npmjs.org/
