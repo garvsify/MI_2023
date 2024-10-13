@@ -1,5 +1,5 @@
 #include <xc.h>
-#include "system_uC.h"
+#include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/system_uC.h"
 
 
 /*IMPORTANT INFO ABOUT BUILDING:
@@ -12,7 +12,8 @@ Use XC8 v2.50 and Pack v1.25.433
 
 MPLAB:
 
- - Use Windows MPLAB v6.20 as macOS Sequoia causes MPLAB v6.15/v6.20 to shit itself
+ - Use Windows MPLAB v6.20 ONLY for MCC as macOS Sequoia causes MPLAB v6.15/v6.20 to shit itself when trying to use MCC
+ - Use macOS to actually build and run the program!
  
 Usage of each peripheral:
 
