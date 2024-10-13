@@ -52,9 +52,9 @@ int main(void){
     TMR1_Write(tmr1_value);
     TMR1_Start(); //ADCC is triggered on overflow
     
-    /*T0CON1bits.CKPS = 0b0100;
+    T0CON1bits.CKPS = 0b0100;
     final_TMR0 = 100;
-    TMR0_Start();*/
+    TMR0_Start();
     
     INTERRUPT_GlobalInterruptEnable();
     
