@@ -9,6 +9,10 @@ Use XC8 v2.50 and Pack v1.25.433
 */
 
 /*IMPORTANT INFO ABOUT USAGE:
+
+MPLAB:
+
+ - Use Windows MPLAB v6.20 as macOS Sequoia causes MPLAB v6.15/v6.20 to shit itself
  
 Usage of each peripheral:
 
