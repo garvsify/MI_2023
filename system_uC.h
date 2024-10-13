@@ -12,6 +12,7 @@
     #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/system/interrupt.h"
     #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/system/config_bits.h"
     #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/system/clock.h"
+    #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/timer/tmr3.h"
     #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/timer/tmr2.h"
     #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/timer/tmr1.h"
     #include "/Users/jamesgarvey/Documents/Git/MI-2023_2024-PIC18/mcc_generated_files/timer/tmr0.h"
@@ -58,6 +59,8 @@
     #define SPEED_FLAG 1
     #define DEPTH_FLAG 2
     #define SYMMETRY_FLAG 3
+    #define TMR1_OVERFLOW_COUNT 65450 
+    #define TMR3_OVERFLOW_COUNT 65450
 
     #define SYMMETRY_ADC_RESOLUTION 8
 
@@ -96,7 +99,11 @@
     const uint8_t YES = 1;
     const uint8_t NO = 0;
 
-    adcc_channel_t *current_adc_type[4] = {&waveshape_adc_config_value, &speed_adc_config_value, &depth_adc_config_value, &symmetry_adc_config_value};
+    adcc_channel_t *adcc_type_array[4] = {&waveshape_adc_config_value, &speed_adc_config_value, &depth_adc_config_value, &symmetry_adc_config_value};
+    adcc_channel_t *dma_type_array[4] = {&waveshape_adc_config_value, &speed_adc_config_value, &depth_adc_config_value, &symmetry_adc_config_value}; //DMA type obviously need not be of adcc_channel_t type but just using for sameness
+    adcc_channel_t *current_adcc_type_ptr;
+    adcc_channel_t *current_dma_type_ptr; //DMA type obviously need not be of adcc_channel_t type but just using for sameness
+    
     
     uint8_t get_current_pot_values(void);
     uint8_t process_TMR0_raw_speed_and_prescaler(void);

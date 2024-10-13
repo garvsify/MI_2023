@@ -32,8 +32,8 @@ void TMR1_Initialize(void)
     T1CLK = 0x4;
     //TMRH 255; 
     TMR1H = 0xFF;
-    //TMRL 158; 
-    TMR1L = 0x9E;
+    //TMRL 170; 
+    TMR1L = 0xAA;
 
     // Load the TMR1 value to reload variable
     timer1ReloadVal=((uint16_t)TMR1H << 8) | TMR1L;
@@ -145,6 +145,54 @@ static void TMR1_DefaultOverflowCallback(void)
 {
     //Add your interrupt code here or
     //Use TMR1_OverflowCallbackRegister function to use Custom ISR
+    
+    if(*current_adcc_type_ptr == waveshape_adc_config_value){
+        
+        ADCC_StartConversion(waveshape_adc_config_value); //get depth (12-bit linear)
+        
+        current_adcc_type_ptr++;
+        
+    }
+    
+    else if(*current_adcc_type_ptr == speed_adc_config_value){
+        
+        ADCC_StartConversion(speed_adc_config_value); //get speed (12-bit linear)
+        
+        current_adcc_type_ptr++;
+        
+    }
+    
+    #if DEPTH_ON_OR_OFF == ON
+    
+        else if(*current_adcc_type_ptr == depth_adc_config_value){
+            
+            ADCC_StartConversion(depth_adc_config_value); //get depth (12-bit linear)
+            
+            current_adcc_type_ptr++;
+            
+        }
+    
+    #endif
+        
+    #if SYMMETRY_ON_OR_OFF == ON
+
+        else if(*current_adcc_type_ptr == symmetry_adc_config_value){
+            
+            ADCC_StartConversion(symmetry_adc_config_value); //get symmetry (12-bit linear)
+            
+            current_adcc_type_ptr = adcc_type_array[0];
+            
+        }
+    
+    #endif
+
+    TMR1_Stop();
+    
+    size_t tmr3_value = TMR3_OVERFLOW_COUNT;
+    
+    TMR3_Write(tmr3_value);
+    TMR3_Start(); //time delay to allow ADCC conversion to complete, DMA is triggered on overflow.
+    
 }
 
 bool TMR1_HasOverflowOccured(void)

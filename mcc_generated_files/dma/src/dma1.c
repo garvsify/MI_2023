@@ -13,7 +13,7 @@ void (*DMA1_DCNTI_InterruptHandler)(void);
  */
 void DMA1_DefaultInterruptHandler(void);
 
-uint8_t adres[16];
+uint8_t adres[2];
 
 /**
   Section: DMA1 APIs
@@ -28,16 +28,16 @@ void DMA1_Initialize(void)
     DMAnSSA = (uint24_t) &ADRESL;
     //Destination Address : (uint16_t) &adres
     DMAnDSA = (uint16_t) &adres;
-    //SSTP not cleared; SMODE incremented; SMR SFR; DSTP not cleared; DMODE unchanged; 
-    DMAnCON1 = 0x2;
+    //SSTP not cleared; SMODE incremented; SMR SFR; DSTP not cleared; DMODE incremented; 
+    DMAnCON1 = 0x42;
     //Source Message Size : 2
     DMAnSSZ = 2;
     //Destination Message Size : 2
     DMAnDSZ = 2;
-    //Start Trigger : SIRQ TMR1; 
-    DMAnSIRQ = 0x1C;
-    //Abort Trigger : AIRQ None; 
-    DMAnAIRQ = 0x0;
+    //Start Trigger : SIRQ TMR3; 
+    DMAnSIRQ = 0x24;
+    //Abort Trigger : AIRQ HLVD; 
+    DMAnAIRQ = 0x1;
 	
     // Clear Destination Count Interrupt Flag bit
     PIR2bits.DMA1DCNTIF = 0; 
@@ -51,7 +51,7 @@ void DMA1_Initialize(void)
     PIE2bits.DMA1DCNTIE = 1;
 	DMA1_DCNTIInterruptHandlerSet(DMA1_DefaultInterruptHandler);
     PIE2bits.DMA1SCNTIE = 1; 
-	DMA1_SCNTIInterruptHandlerSet(DMA1_DefaultInterruptHandler);
+	//DMA1_SCNTIInterruptHandlerSet(DMA1_DefaultInterruptHandler);
     PIE2bits.DMA1AIE = 0;
     PIE2bits.DMA1ORIE = 0;
 	
@@ -226,6 +226,75 @@ void DMA1_SetDCNTIInterruptHandler(void (* InterruptHandler)(void))
 void DMA1_DefaultInterruptHandler(void){
     // add your DMA1 interrupt custom code
     // or set custom function using DMA1_SCNTIInterruptHandlerSet() /DMA1_DCNTIInterruptHandlerSet() /DMA1_AIInterruptHandlerSet() /DMA1_ORIInterruptHandlerSet()
+    
+    uint16_t ADC_result; //concatenated ADC result
+    ADC_result = (uint16_t)adres[0] + ((uint16_t)adres[1] << 8);
+    
+    if(*current_dma_type_ptr == waveshape_adc_config_value){
+        
+        ADC_result = TWELVEBITMINUSONE - ADC_result;
+        
+        if(ADC_result <= TRIANGLE_MODE_ADC_THRESHOLD){
+            current_waveshape = TRIANGLE_MODE; //triangle wave
+        }
+        else if (ADC_result <= SINE_MODE_ADC_THRESHOLD){
+            current_waveshape = SINE_MODE; //sine wave
+        }
+        else if (ADC_result <= SQUARE_MODE_ADC_THRESHOLD){
+            current_waveshape = SQUARE_MODE; //square wave
+        }
+        else{
+            current_waveshape = SINE_MODE; //if error, return sine
+        }
+        
+        current_dma_type_ptr++;
+        
+    }
+    
+    else if(*current_dma_type_ptr == speed_adc_config_value){
+        
+        current_speed_linear = ADC_result;
+        current_speed_linear = TWELVEBITMINUSONE - current_speed_linear;
+        
+        current_dma_type_ptr++;
+        
+    }
+    
+    #if DEPTH_ON_OR_OFF == ON
+    
+        else if(*current_dma_type_ptr == depth_adc_config_value){
+            
+            current_depth = ADC_result;
+            current_depth = current_depth >> 2; //convert to 8-bit
+            current_depth = EIGHTBITMINUSONE - current_depth;
+            
+            current_dma_type_ptr++;
+            
+        }
+    
+    #endif
+        
+    #if SYMMETRY_ON_OR_OFF == ON
+
+        else if(*current_dma_type_ptr == symmetry_adc_config_value){
+            
+            #if SYMMETRY_ADC_RESOLUTION == 8
+            current_symmetry = current_symmetry >> 2; //convert to 8-bit
+            #endif
+
+            current_symmetry = SYMMETRY_ADC_FULL_SCALE - current_symmetry;
+            
+            current_dma_type_ptr = dma_type_array[0];
+            
+        }
+    
+    #endif
+    
+    size_t tmr1_value = TMR1_OVERFLOW_COUNT;
+    
+    TMR1_Write(tmr1_value);
+    TMR1_Start(); //ADCC is triggered on overflow
+    
 }
 /**
  End of File

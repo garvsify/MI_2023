@@ -68,7 +68,7 @@
  * @var uint8_t adres
  * @brief Destination address.
  */
-extern uint8_t adres[16];
+extern uint8_t adres[2];
 
 /**
  * @ingroup dma1
